@@ -1,22 +1,70 @@
----
-layout: null
----
-
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
-		<title>{{ site.name }}</title>
-		<description>{{ site.description }}</description>
-		<link>{{site.baseurl | prepend:site.url}}</link>
-		<atom:link href="{{site.baseurl | prepend:site.url}}/feed.xml" rel="self" type="application/rss+xml" />
-		{% for post in site.posts limit:10 %}
+		<title>TwoFactor Assimilation</title>
+		<description>Tech Enthusiast</description>
+		<link>http://t04glovern.github.io</link>
+		<atom:link href="http://t04glovern.github.io/feed.xml" rel="self" type="application/rss+xml" />
+		
 			<item>
-				<title>{{ post.title }}</title>
-				<description>{{ post.content | xml_escape }}</description>
-				<pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
-				<link>{{post.url | prepend:site.baseurl | prepend:site.url}}</link>
-				<guid isPermaLink="true">{{post.url | prepend:site.baseurl | prepend:site.url}}</guid>
+				<title>Installing Node.js the easy way</title>
+				<description>&lt;h2 id=&quot;problem&quot;&gt;Problem&lt;/h2&gt;
+
+&lt;p&gt;It’s not uncommon to see &lt;code&gt;Node.js&lt;/code&gt; listed as a requirement for packages; In the past I would simply attempt an install with a package manager and cross my fingers that the build given to be was correct, while also worrying about the location and environment variables not being setup correctly.&lt;/p&gt;
+
+&lt;p&gt;Recently I got fed up while trying to build a particular package I was interested in and decided to track down a more permanent solution to this reoccurring problem.&lt;/p&gt;
+
+&lt;h2 id=&quot;solution&quot;&gt;Solution&lt;/h2&gt;
+
+&lt;p&gt;After some google-fu (or more specifically, DuckDuck-fu?) I came across the following script.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;#! /bin/bash&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# run it by: bash install-node.sh&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;read&lt;/span&gt; -p &lt;span class=&quot;s2&quot;&gt;&amp;quot; which version of Node do you need to install: enter 0.10.24, 0.10.28, or 4.2.2 (or any other valid version): &amp;quot;&lt;/span&gt; VERSIONNAME
+&lt;span class=&quot;nb&quot;&gt;read&lt;/span&gt; -p &lt;span class=&quot;s2&quot;&gt;&amp;quot; Are you using a 32-bit or 64-bit operating system ? Enter 64 or 32: &amp;quot;&lt;/span&gt; ARCHVALUE
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[[&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ARCHVALUE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;32&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;printf&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;user put in 32 \n&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;ARCHVALUE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;86
+    &lt;span class=&quot;nv&quot;&gt;URL&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;http://nodejs.org/dist/v&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;VERSIONNAME&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;/node-v&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;VERSIONNAME&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;-linux-x&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ARCHVALUE&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;.tar.gz
+
+&lt;span class=&quot;k&quot;&gt;elif&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[[&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ARCHVALUE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;64&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;printf&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;user put in 64 \n&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;ARCHVALUE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;64
+    &lt;span class=&quot;nv&quot;&gt;URL&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;http://nodejs.org/dist/v&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;VERSIONNAME&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;/node-v&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;VERSIONNAME&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;-linux-x&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ARCHVALUE&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;.tar.gz
+
+&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;printf&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;invalid input expted either 32 or 64 as input, quitting ... \n&amp;quot;&lt;/span&gt;
+
+    &lt;span class=&quot;nb&quot;&gt;exit&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# setting up the folders and the the symbolic links&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;printf&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$URL&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;\n&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;ME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;whoami&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; sudo chown -R &lt;span class=&quot;nv&quot;&gt;$ME&lt;/span&gt; /usr/local &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /usr/local/bin &lt;span class=&quot;c&quot;&gt;#adding yourself to the group to access /usr/local/bin&lt;/span&gt;
+mkdir _node &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$_&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; wget &lt;span class=&quot;nv&quot;&gt;$URL&lt;/span&gt; -O - &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; tar zxf - --strip-components&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# downloads and unzips the content to _node&lt;/span&gt;
+cp -r ./lib/node_modules/ /usr/local/lib/ &lt;span class=&quot;c&quot;&gt;# copy the node modules folder to the /lib/ folder&lt;/span&gt;
+cp -r ./include/node /usr/local/include/ &lt;span class=&quot;c&quot;&gt;# copy the /include/node folder to /usr/local/include folder&lt;/span&gt;
+mkdir /usr/local/man/man1 &lt;span class=&quot;c&quot;&gt;# create the man folder&lt;/span&gt;
+cp ./share/man/man1/node.1 /usr/local/man/man1/ &lt;span class=&quot;c&quot;&gt;# copy the man file&lt;/span&gt;
+cp bin/node /usr/local/bin/ &lt;span class=&quot;c&quot;&gt;# copy node to the bin folder&lt;/span&gt;
+ln -s &lt;span class=&quot;s2&quot;&gt;&amp;quot;/usr/local/lib/node_modules/npm/bin/npm-cli.js&amp;quot;&lt;/span&gt; ../npm &lt;span class=&quot;c&quot;&gt;## making the symbolic link to npm&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# print the version of node and npm&lt;/span&gt;
+node -v
+npm -v&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;When you run the script you’ll be prompted asking for the version (numbers can be found here: https://nodejs.org/en/download/) and the architecture you’re working on. Simply put in your desired values and presto! you’ll have the correct version installed and ready to go.&lt;/p&gt;
+
+&lt;p&gt;You can check the version your running using the following command:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;node --version&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+</description>
+				<pubDate>Wed, 09 Dec 2015 00:00:00 +0800</pubDate>
+				<link>http://t04glovern.github.io/2015/12/install-nodejs-ubuntu</link>
+				<guid isPermaLink="true">http://t04glovern.github.io/2015/12/install-nodejs-ubuntu</guid>
 			</item>
-		{% endfor %}
+		
 	</channel>
 </rss>
