@@ -7,7 +7,407 @@
 		<atom:link href="http://t04glovern.github.io/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
-				<title>Learning ASP.NET (Part 1)</title>
+				<title>Learning ASP.NET - Using VScode and Yeoman (Part 2)</title>
+				<description>&lt;h2 id=&quot;installing-and-using-yeoman&quot;&gt;Installing and Using Yeoman&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;ASP.NET&lt;/code&gt; uses a tool called yeoman to assist in the development of applications for the web by generating the base project file structure and configurations so you can get to work quickly; rather than fiddling around with the same stuff every time you create a new project.&lt;/p&gt;
+
+&lt;p&gt;You can install &lt;code&gt;Yeoman&lt;/code&gt; using the following command:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bat&quot; data-lang=&quot;bat&quot;&gt;C:\Users\Nathan\OneDrive\&lt;span class=&quot;m&quot;&gt;02&lt;/span&gt; - Code\&lt;span class=&quot;m&quot;&gt;15&lt;/span&gt; - ASP.NET\vscode&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;npm&lt;/span&gt; install yo -g
+C:\Users\Nathan\AppData\Roaming\npm\yo -&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;:\Users\Nathan\AppData\Roaming\npm\node_modules\yo\lib\cli.js
+
+&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;yo&lt;/span&gt;@&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;.&lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;.&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; postinstall C:\Users\Nathan\AppData\Roaming\npm\node_modules\yo
+&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;yodoctor&lt;/span&gt;
+
+
+Yeoman Doctor
+Running sanity checks &lt;span class=&quot;k&quot;&gt;on&lt;/span&gt; your system
+
+√ Global configuration file is valid
+√ NODE_PATH matches the npm root
+× Node.js version
+
+Your Node.js version is outdated.
+Upgrade to the latest version: https:&lt;span class=&quot;n&quot;&gt;//nodejs.org&lt;/span&gt;
+
+√ No .bowerrc file in home directory
+√ No .yo-rc.json file in home directory
+× npm version
+
+Your npm version is outdated.
+
+Upgrade to the latest version by running:
+npm install -g npm&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Ensure that you used the &lt;code&gt;-g&lt;/code&gt; flag to tell the system you want Yeoman available globally.&lt;/p&gt;
+
+&lt;p&gt;Next we can install the ASP.NET templates using the following command: (include the -g again for global)&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bat&quot; data-lang=&quot;bat&quot;&gt;C:\Users\Nathan\OneDrive\&lt;span class=&quot;m&quot;&gt;02&lt;/span&gt; - Code\&lt;span class=&quot;m&quot;&gt;15&lt;/span&gt; - ASP.NET\vscode&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;npm&lt;/span&gt; install generator-aspnet -g&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;You can now run the ‘yo’ cmdlet to view the current installed generators on your system:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bat&quot; data-lang=&quot;bat&quot;&gt;C:\Users\Nathan\OneDrive\&lt;span class=&quot;m&quot;&gt;02&lt;/span&gt; - Code\&lt;span class=&quot;m&quot;&gt;15&lt;/span&gt; - ASP.NET\vscode&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;yo&lt;/span&gt;
+? &amp;#39;Allo Nathan! What would you like to &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;? (Use arrow keys)
+  Run a generator
+&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Aspnet&lt;/span&gt;
+  ──────────────
+  Update your generators
+  Install a generator
+  Find some help
+  Get me out of here!
+  ──────────────&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;You can see we have Aspnet installed and listed. Run this generator by using the following cmdlet:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bat&quot; data-lang=&quot;bat&quot;&gt;C:\Users\Nathan\OneDrive\&lt;span class=&quot;m&quot;&gt;02&lt;/span&gt; - Code\&lt;span class=&quot;m&quot;&gt;15&lt;/span&gt; - ASP.NET\vscode&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;yo&lt;/span&gt; aspnet
+
+     _-----_
+    |       |    .--------------------------.
+    |--(o)--|    &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;      &lt;span class=&quot;n&quot;&gt;Welcome&lt;/span&gt; to the      |
+   `---------´   &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;marvellous&lt;/span&gt; ASP.NET &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;   |
+    ( _´U`_ )    &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;        &lt;span class=&quot;n&quot;&gt;generator&lt;/span&gt;!        |
+    &lt;span class=&quot;n&quot;&gt;/___A___\&lt;/span&gt;    &lt;span class=&quot;s1&quot;&gt;&amp;#39;--------------------------&amp;#39;&lt;/span&gt;
+     |  ~  &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;__&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;.___.&amp;#39;&lt;/span&gt;__
+ ´   &lt;span class=&quot;sb&quot;&gt;`  |° ´ Y `&lt;/span&gt;
+
+? What type of application &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; you want to create? (Use arrow keys)
+&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Empty&lt;/span&gt; Application
+  Console Application
+  Web Application
+  Web Application Basic [without Membership and Authorization]
+  Web API Application
+  Nancy ASP.NET Application
+  Class Library
+  Unit test project&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;At this point we want to generate a Web Application, so you can either use the arrow keys, or simply type 3 which corresponds to the third entry; then hit Enter&lt;/p&gt;
+
+&lt;p&gt;You will be asked to specify a name for the project, I’ve just chosen to call it TheWorld&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bat&quot; data-lang=&quot;bat&quot;&gt;? What&amp;#39;s the name of your ASP.NET application? TheWorld&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Have a look into the directory you generated the files into and you’ll notice all the standard project files are generated for you.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bat&quot; data-lang=&quot;bat&quot;&gt;C:\Users\Nathan\OneDrive\&lt;span class=&quot;m&quot;&gt;02&lt;/span&gt; - Code\&lt;span class=&quot;m&quot;&gt;15&lt;/span&gt; - ASP.NET\vscode\TheWorld&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dir&lt;/span&gt;
+ Volume in drive C has no label.
+ Volume Serial Number is &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;A&lt;span class=&quot;m&quot;&gt;20&lt;/span&gt;-B&lt;span class=&quot;m&quot;&gt;603&lt;/span&gt;
+
+ Directory of C:\Users\Nathan\OneDrive\&lt;span class=&quot;m&quot;&gt;02&lt;/span&gt; - Code\&lt;span class=&quot;m&quot;&gt;15&lt;/span&gt; - ASP.NET\vscode\TheWorld
+
+&lt;span class=&quot;m&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;/12/2015&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;04&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;:17&lt;/span&gt; PM    &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DIR&lt;/span&gt;&amp;gt;          .
+&lt;span class=&quot;m&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;/12/2015&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;04&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;:17&lt;/span&gt; PM    &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DIR&lt;/span&gt;&amp;gt;          ..
+&lt;span class=&quot;m&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;/12/2015&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;04&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;:17&lt;/span&gt; PM                &lt;span class=&quot;m&quot;&gt;33&lt;/span&gt; .bowerrc
+&lt;span class=&quot;m&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;/12/2015&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;04&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;:17&lt;/span&gt; PM             &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;090&lt;/span&gt; .gitignore
+&lt;span class=&quot;m&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;/12/2015&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;04&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;:17&lt;/span&gt; PM               &lt;span class=&quot;m&quot;&gt;167&lt;/span&gt; appsettings.json
+&lt;span class=&quot;m&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;/12/2015&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;04&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;:17&lt;/span&gt; PM               &lt;span class=&quot;m&quot;&gt;198&lt;/span&gt; bower.json
+&lt;span class=&quot;m&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;/12/2015&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;04&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;:17&lt;/span&gt; PM    &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DIR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;          &lt;span class=&quot;n&quot;&gt;Controllers&lt;/span&gt;
+&lt;span class=&quot;m&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;/12/2015&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;04&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;:17&lt;/span&gt; PM               &lt;span class=&quot;m&quot;&gt;146&lt;/span&gt; Dockerfile
+&lt;span class=&quot;m&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;/12/2015&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;04&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;:17&lt;/span&gt; PM             &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;189&lt;/span&gt; gulpfile.js
+&lt;span class=&quot;m&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;/12/2015&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;04&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;:17&lt;/span&gt; PM    &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DIR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;          &lt;span class=&quot;n&quot;&gt;Migrations&lt;/span&gt;
+&lt;span class=&quot;m&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;/12/2015&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;04&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;:17&lt;/span&gt; PM    &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DIR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;          &lt;span class=&quot;n&quot;&gt;Models&lt;/span&gt;
+&lt;span class=&quot;m&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;/12/2015&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;04&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;:17&lt;/span&gt; PM               &lt;span class=&quot;m&quot;&gt;203&lt;/span&gt; package.json
+&lt;span class=&quot;m&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;/12/2015&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;04&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;:17&lt;/span&gt; PM             &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;884&lt;/span&gt; project.json
+&lt;span class=&quot;m&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;/12/2015&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;04&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;:17&lt;/span&gt; PM             &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;722&lt;/span&gt; README.&lt;span class=&quot;k&quot;&gt;md&lt;/span&gt;
+&lt;span class=&quot;m&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;/12/2015&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;04&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;:17&lt;/span&gt; PM    &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DIR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;          &lt;span class=&quot;n&quot;&gt;Services&lt;/span&gt;
+&lt;span class=&quot;m&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;/12/2015&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;04&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;:17&lt;/span&gt; PM             &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;116&lt;/span&gt; Startup.cs
+&lt;span class=&quot;m&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;/12/2015&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;04&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;:17&lt;/span&gt; PM    &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DIR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;          &lt;span class=&quot;n&quot;&gt;ViewModels&lt;/span&gt;
+&lt;span class=&quot;m&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;/12/2015&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;04&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;:17&lt;/span&gt; PM    &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DIR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;          &lt;span class=&quot;n&quot;&gt;Views&lt;/span&gt;
+&lt;span class=&quot;m&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;/12/2015&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;04&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;:17&lt;/span&gt; PM    &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DIR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;          &lt;span class=&quot;n&quot;&gt;wwwroot&lt;/span&gt;
+              &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt; File(s)         &lt;span class=&quot;m&quot;&gt;13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;748&lt;/span&gt; bytes
+               &lt;span class=&quot;m&quot;&gt;9&lt;/span&gt; Dir(s)  &lt;span class=&quot;m&quot;&gt;43&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;917&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;889&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;536&lt;/span&gt; bytes free&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;using-visual-studio-code-vs-code&quot;&gt;Using Visual Studio Code (VS Code)&lt;/h2&gt;
+
+&lt;p&gt;Next we want to open this project in VSCode. This can easily be done by simply typing:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bat&quot; data-lang=&quot;bat&quot;&gt;C:\Users\Nathan\OneDrive\&lt;span class=&quot;m&quot;&gt;02&lt;/span&gt; - Code\&lt;span class=&quot;m&quot;&gt;15&lt;/span&gt; - ASP.NET\vscode\TheWorld&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;code&lt;/span&gt; .&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;You will be greeted with the lightweight visual studio code suite with the files we just generated loaded into the &lt;code&gt;Working File&lt;/code&gt; menu.&lt;/p&gt;
+
+&lt;p&gt;Go ahead and open the project.json file (you’ll recognize this file from the previous tutorial) and have a look at its contents.&lt;/p&gt;
+
+&lt;p&gt;The first block is some of the simple project specifications relating to version and namespace.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;version&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;1.0.0-*&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;userSecretsId&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;aspnet5-TheWorld-8d40ceab-225c-43dd-b17b-c58e50e50d29&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;compilationOptions&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;emitEntryPoint&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;tooling&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;defaultNamespace&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;TheWorld&amp;quot;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The next block is one we’ll be using quite regularly, the dependencies for the project listing the &lt;code&gt;NuGets&lt;/code&gt; we’re going to use when building our application.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;dependencies&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;EntityFramework.Commands&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;7.0.0-rc1-final&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;EntityFramework.SQLite&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;7.0.0-rc1-final&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;EntityFramework.MicrosoftSqlServer&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;7.0.0-rc1-final&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;Microsoft.AspNet.Authentication.Cookies&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;1.0.0-rc1-final&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;Microsoft.AspNet.Diagnostics.Entity&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;7.0.0-rc1-final&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;Microsoft.AspNet.Identity.EntityFramework&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;3.0.0-rc1-final&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;Microsoft.AspNet.IISPlatformHandler&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;1.0.0-rc1-final&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;Microsoft.AspNet.Mvc&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;6.0.0-rc1-final&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;Microsoft.AspNet.Mvc.TagHelpers&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;6.0.0-rc1-final&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;Microsoft.AspNet.Server.Kestrel&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;1.0.0-rc1-final&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;Microsoft.AspNet.StaticFiles&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;1.0.0-rc1-final&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;Microsoft.AspNet.Tooling.Razor&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;1.0.0-rc1-final&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;Microsoft.Dnx.Runtime&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;1.0.0-rc1-final&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;Microsoft.Extensions.CodeGenerators.Mvc&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;1.0.0-rc1-final&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;Microsoft.Extensions.Configuration.FileProviderExtensions&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;1.0.0-rc1-final&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;Microsoft.Extensions.Configuration.Json&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;1.0.0-rc1-final&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;Microsoft.Extensions.Configuration.UserSecrets&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;1.0.0-rc1-final&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;Microsoft.Extensions.Logging&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;1.0.0-rc1-final&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;Microsoft.Extensions.Logging.Console&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;1.0.0-rc1-final&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;Microsoft.Extensions.Logging.Debug&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;1.0.0-rc1-final&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Finally we’ve got some specified commands and housekeeping code.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;commands&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;web&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Microsoft.AspNet.Server.Kestrel&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;ef&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;EntityFramework.Commands&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+
+&lt;span class=&quot;s2&quot;&gt;&amp;quot;frameworks&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;dnx451&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;dnxcore50&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+
+&lt;span class=&quot;s2&quot;&gt;&amp;quot;exclude&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;wwwroot&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;node_modules&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;bower_components&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&amp;quot;publishExclude&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;**.user&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;**.vspscc&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&amp;quot;scripts&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;prepublish&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;npm install&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;bower install&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;gulp clean&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;gulp min&amp;quot;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Next open up the &lt;code&gt;Startup.cs&lt;/code&gt; file. You’ll notice along the top bar that there will be unresolved dependencies which you’ll be asked to resolve by clicking Restore.&lt;/p&gt;
+
+&lt;p&gt;A terminal windows will spring open and begin downloading and installing all the required &lt;code&gt;NuGet&lt;/code&gt; packages. If this is your first time using these &lt;code&gt;NuGet&lt;/code&gt; packages, there’s a good chance it’ll take some time to install.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bat&quot; data-lang=&quot;bat&quot;&gt;Restore complete&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;167284&lt;/span&gt;ms elapsed
+
+NuGet Config files used:
+    C:\Users\Nathan\AppData\Roaming\NuGet\nuget.config
+
+Feeds used:
+    https:&lt;span class=&quot;n&quot;&gt;//api.nuget.org/v3-flatcontainer/&lt;/span&gt;
+
+Installed:
+    &lt;span class=&quot;m&quot;&gt;265&lt;/span&gt; package(s) to C:\Users\Nathan\.dnx\packages&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;You will now get intellisense on most of your project! Yay!.&lt;/p&gt;
+
+&lt;p&gt;Just back into the project.json file and have a look at the code between the ‘commands’ braces. You should see two:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;web&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Microsoft.AspNet.Server.Kestrel&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&amp;quot;ef&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;EntityFramework.Commands&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;So let’s give one of them a go. Open your terminal windows again and run the following:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bat&quot; data-lang=&quot;bat&quot;&gt;C:\Users\Nathan\OneDrive\&lt;span class=&quot;m&quot;&gt;02&lt;/span&gt; - Code\&lt;span class=&quot;m&quot;&gt;15&lt;/span&gt; - ASP.NET\vscode\TheWorld&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dnx&lt;/span&gt; web&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Near the end of the output you’ll see the following lines that indicate that you have a webserver running on port 5000 hosted on the local machine.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bat&quot; data-lang=&quot;bat&quot;&gt;Hosting environment: Production
+Now listening &lt;span class=&quot;k&quot;&gt;on&lt;/span&gt;: http:&lt;span class=&quot;n&quot;&gt;//localhost:5000&lt;/span&gt;
+Application started. Press Ctrl+C to shut down.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Go ahead and open your web browser to the specified location and you’ll be greeted with a wonderful splash screen that is actually your ASP.NET instance running from the command line. You can view live requests chains in the terminal windows as you navigate around the splash screen.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bat&quot; data-lang=&quot;bat&quot;&gt;info: Microsoft.AspNet.StaticFiles.StaticFileMiddleware[&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;]
+      Sending file. Request path: &lt;span class=&quot;s1&quot;&gt;&amp;#39;/js/site.min.js&amp;#39;&lt;/span&gt;. Physical path: &lt;span class=&quot;s1&quot;&gt;&amp;#39;C:\Users\Nathan\OneDrive\02 - Code\15 - ASP.NET\vscode\TheWorld\wwwroot\js\site.min.js&amp;#39;&lt;/span&gt;
+info: Microsoft.AspNet.Hosting.Internal.HostingEngine[&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;]
+      Request finished in &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;.&lt;span class=&quot;m&quot;&gt;3562&lt;/span&gt;ms &lt;span class=&quot;m&quot;&gt;200&lt;/span&gt; image&lt;span class=&quot;n&quot;&gt;/png&lt;/span&gt;
+info: Microsoft.AspNet.Hosting.Internal.HostingEngine[&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;]
+      Request finished in &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;.&lt;span class=&quot;m&quot;&gt;375&lt;/span&gt;ms &lt;span class=&quot;m&quot;&gt;200&lt;/span&gt; image&lt;span class=&quot;n&quot;&gt;/png&lt;/span&gt;
+info: Microsoft.AspNet.Hosting.Internal.HostingEngine[&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;]
+      Request finished in &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;.&lt;span class=&quot;m&quot;&gt;1687&lt;/span&gt;ms &lt;span class=&quot;m&quot;&gt;200&lt;/span&gt; image&lt;span class=&quot;n&quot;&gt;/png&lt;/span&gt;
+info: Microsoft.AspNet.Hosting.Internal.HostingEngine[&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;]
+      Request finished in &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;.&lt;span class=&quot;m&quot;&gt;1484&lt;/span&gt;ms &lt;span class=&quot;m&quot;&gt;200&lt;/span&gt; application&lt;span class=&quot;n&quot;&gt;/javascript&lt;/span&gt;
+info: Microsoft.AspNet.Hosting.Internal.HostingEngine[&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;]
+      Request finished in &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;.&lt;span class=&quot;m&quot;&gt;2016&lt;/span&gt;ms &lt;span class=&quot;m&quot;&gt;200&lt;/span&gt; image&lt;span class=&quot;n&quot;&gt;/png&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
+
+&lt;p&gt;We’ve learnt how to generate code using Yeoman and edit/view it in &lt;code&gt;Visual Studio Code&lt;/code&gt;. In the next lesson we’ll be learning how to do the same thing, from scratch in &lt;code&gt;Visual Studio 2015&lt;/code&gt;. Hopefully I’m not going into too much detail, but I think it’s beneficial to have the whole process documented instead of assuming everything will understand exactly what’s going on.&lt;/p&gt;
+</description>
+				<pubDate>Sat, 12 Dec 2015 00:00:00 +0800</pubDate>
+				<link>http://t04glovern.github.io/2015/12/learning-aspnet--using-vscode-and-yeoman-part-2</link>
+				<guid isPermaLink="true">http://t04glovern.github.io/2015/12/learning-aspnet--using-vscode-and-yeoman-part-2</guid>
+			</item>
+		
+			<item>
+				<title>Learning ASP.NET - Building in Visual Studio 2015 (Part 3)</title>
+				<description>&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;Now that we’ve learnt how to generate a project using &lt;code&gt;Yeoman&lt;/code&gt;, we’ll do the same thing using &lt;code&gt;Visual Studio 2015&lt;/code&gt;. While &lt;code&gt;VSCode&lt;/code&gt; and &lt;code&gt;Yeoman&lt;/code&gt; are great ways to create projects, they can be limited with it comes to development.&lt;/p&gt;
+
+&lt;h2 id=&quot;setting-up-your-project&quot;&gt;Setting up your project&lt;/h2&gt;
+
+&lt;p&gt;Open &lt;code&gt;Visual Studio 2015&lt;/code&gt; and navigate to the Extension and Updates list. We’ll be using a number of extensions to help make life easier; I would recommend installing them:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Add New File&lt;/code&gt; - Allows you to create a blank file very quickly&lt;br /&gt;
+&lt;code&gt;Web Essentials 2015.1&lt;/code&gt; - Used quite about for the web application development. Just install the latest version available&lt;br /&gt;
+&lt;code&gt;Open Command Line&lt;/code&gt; - Opens a command line quickly in your project&lt;/p&gt;
+
+&lt;p&gt;Proceed to create a new &lt;code&gt;C#&lt;/code&gt; Project and select the &lt;code&gt;ASP-NET Web Application&lt;/code&gt; template under the &lt;code&gt;Web&lt;/code&gt; sub heading. Name your project TheWorld again and save it to your working directory (Don’t try to install it in the same directory as your Yeoman one).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://t04glovern.github.io/images/posts/asp.net-create-app-vs.png&quot; alt=&quot;ASP.NET Create app&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You will now be asked to select a template. Normally we would select the &lt;code&gt;Web Application&lt;/code&gt; under &lt;code&gt;ASP.NET 5 Templates&lt;/code&gt;, however we want to learn how this all comes together; so we’re going to select the &lt;code&gt;Empty&lt;/code&gt; template.&lt;/p&gt;
+
+&lt;p&gt;You might also want to uncheck &lt;code&gt;Host in the cloud&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://t04glovern.github.io/images/posts/asp.net-create-template.png&quot; alt=&quot;ASP.NET Create template&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;OK&lt;/code&gt; the build of the project and once it has been generated, open up the &lt;code&gt;project.json&lt;/code&gt; file again. You will immediately see that it’s much more trimmed down then the one created with Yeoman in the previous tutorial because we used the &lt;code&gt;Empty project&lt;/code&gt; template.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;version&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;1.0.0-*&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;compilationOptions&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;emitEntryPoint&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;dependencies&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;Microsoft.AspNet.IISPlatformHandler&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;1.0.0-rc1-final&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;Microsoft.AspNet.Server.Kestrel&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;1.0.0-rc1-final&amp;quot;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;commands&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;web&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Microsoft.AspNet.Server.Kestrel&amp;quot;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;frameworks&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;dnx451&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;dnxcore50&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;exclude&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;wwwroot&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;node_modules&amp;quot;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;publishExclude&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;**.user&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;**.vspscc&amp;quot;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;A big thing to look out for is to make sure that you’ve got the correct &lt;code&gt;ASP.NET&lt;/code&gt; runtimes installed. If you have a look at the entries under &lt;code&gt;dependencies&lt;/code&gt;; just make sure that they end in &lt;code&gt;1.0.0-rc1-final&lt;/code&gt;. If they don’t, or have a previous version; check back at my previous guide and follow the instructions to install the latest runtime.&lt;/p&gt;
+
+&lt;h2 id=&quot;startupcs&quot;&gt;Startup.cs&lt;/h2&gt;
+
+&lt;p&gt;Have a look at the &lt;code&gt;Startup.cs&lt;/code&gt; file below.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System.Collections.Generic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System.Linq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System.Threading.Tasks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Microsoft.AspNet.Builder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Microsoft.AspNet.Hosting&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Microsoft.AspNet.Http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Microsoft.Extensions.DependencyInjection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;TheWorld&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Startup&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// This method gets called by the runtime. Use this method to add services to the container.&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;ConfigureServices&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IServiceCollection&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;services&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Configure&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IApplicationBuilder&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UseIISPlatformHandler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+            &lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WriteAsync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;// Entry point for the application.&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;WebApplication&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Startup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The final line is the Entry point for the application (hence the definition &lt;code&gt;Main&lt;/code&gt;). This will run a &lt;code&gt;WebApplication&lt;/code&gt; using an instance of the &lt;code&gt;Startup class&lt;/code&gt;. This start up class is created once and only once when the web application is started.&lt;/p&gt;
+
+&lt;p&gt;It does two things:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Calls &lt;code&gt;ConfigureServices&lt;/code&gt; - which is a way to setup dependency injection containers&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Calls &lt;code&gt;Configure&lt;/code&gt; - contains a list of things that are going to run as a request comes in and as a response goes back out.&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Within configure we call &lt;code&gt;app.UseIISPlatformHandler();&lt;/code&gt; which is middleware that integrates with IIS. We’re going to go ahead and get rid of that though. Also delete &lt;code&gt;&quot;Microsoft.AspNet.IISPlatformHandler&quot;: &quot;1.0.0-rc1-final&quot;&lt;/code&gt; from the &lt;code&gt;project.json&lt;/code&gt; file&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;app.Run&lt;/code&gt; contains a little piece of code that runs each time a new request comes in.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;running-our-app&quot;&gt;Running our App&lt;/h2&gt;
+
+&lt;p&gt;If you have a look in the menu above our project you’ll see a green arrow with &lt;code&gt;IIS Express&lt;/code&gt; next to it. This is how we will be running/debugging our web app. If you click the small black arrow pointing down you’ll be greeting with a couple options asking how we want to run our code.&lt;/p&gt;
+
+&lt;p&gt;You’ll recognize the &lt;code&gt;web&lt;/code&gt; option from my previous tutorial. From this point onwards however we will be using &lt;code&gt;IIS Express&lt;/code&gt; instead.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://t04glovern.github.io/images/posts/asp.net-run-debug.png&quot; alt=&quot;ASP.NET Debug&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You can also specify what web browser you want to use. In my examples I’ll be using &lt;code&gt;Microsoft Edge&lt;/code&gt; as it doesn’t have any plugins that might interfere with our application.&lt;/p&gt;
+
+&lt;p&gt;Also open the properties menu for the project by right clicking and selecting &lt;code&gt;Properties&lt;/code&gt; on TheWorld in the project browser and then click the &lt;code&gt;Debug&lt;/code&gt; menu. Here we can be more specific how we want to run our App. I’ve changed the App URL to the following to make it easier to remember the port:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bat&quot; data-lang=&quot;bat&quot;&gt;http:&lt;span class=&quot;n&quot;&gt;//localhost:8000/&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://t04glovern.github.io/images/posts/asp.net-project-settings.png&quot; alt=&quot;ASP.NET Project Settings&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now simply save all the working files and click the green arrow in the menu to launch our App. BAM! A browser should spring open and greet you with &lt;code&gt;Hello World!&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;You can now navigate to any sub path of localhost:8000 and you’ll always be greeted with &lt;code&gt;Hello World!&lt;/code&gt; as we’ve specified that any request to our web server responds only with Hello World!.&lt;/p&gt;
+
+&lt;p&gt;You can test this theory by changing the &lt;code&gt;await context.Response.WriteAsync(&quot;Hello World!&quot;);&lt;/code&gt; line of code to the following:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WriteAsync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Hello World: {context.Request.Path}&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Build and run your app again and try to navigate to various subpages on your site. For example &lt;code&gt;http://localhost:8000&lt;/code&gt; will return &lt;code&gt;Hello World: /&lt;/code&gt; while &lt;code&gt;http://localhost:8000/foo/bar&lt;/code&gt; returns &lt;code&gt;Hello World: /foo/bar&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;This is called middleware! We’ll be working with a lot of things like this in the following tutorials.&lt;/p&gt;
+
+&lt;h2 id=&quot;summary---what-have-we-learnt&quot;&gt;Summary - What have we learnt?&lt;/h2&gt;
+
+&lt;p&gt;So far we’ve covered the installation and basic use of &lt;code&gt;ASP.NET&lt;/code&gt; and familiarized ourselves with different ways of generating and creating .NET projects. All the code we have used and are going to use is completely open source so we can dig around and understand exactly what’s going on. You can actually check out the entire &lt;a href=&quot;https://github.com/dotnet/core&quot;&gt;.NET Core framework on github&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;If you’ve enjoyed this so far be sure to let me know, I would love some feedback. I would like to mention that this entire course is based off a &lt;a href=&quot;https://app.pluralsight.com&quot;&gt;Pluralsight&lt;/a&gt; training video series by &lt;a href=&quot;https://app.pluralsight.com/library/courses/aspdotnet-5-ef7-bootstrap-angular-web-app&quot;&gt;Shawn Wildermuth&lt;/a&gt; and I would highly recommend checking it out.&lt;/p&gt;
+</description>
+				<pubDate>Sat, 12 Dec 2015 00:00:00 +0800</pubDate>
+				<link>http://t04glovern.github.io/2015/12/learning-aspnet--building-in-visual-studio-2015-part-3</link>
+				<guid isPermaLink="true">http://t04glovern.github.io/2015/12/learning-aspnet--building-in-visual-studio-2015-part-3</guid>
+			</item>
+		
+			<item>
+				<title>Learning ASP.NET - Installing ASP.NET Runtime (Part 1)</title>
 				<description>&lt;h2 id=&quot;introduction-to-the-aspnet-runtime&quot;&gt;Introduction to the ASP.NET Runtime&lt;/h2&gt;
 
 &lt;p&gt;&lt;code&gt;ASP.NET&lt;/code&gt; is an open-source server-side web application framework designed for web development to produce dynamic webpages. That’s what &lt;a href=&quot;https://en.wikipedia.org/wiki/ASP.NET&quot;&gt;Wikipedia&lt;/a&gt; says about it anyway… I personally had no clue what it was until I recently began &lt;a href=&quot;https://app.pluralsight.com/library/courses/aspdotnet-5-ef7-bootstrap-angular-web-app&quot;&gt;taking a course&lt;/a&gt; that was available as part of the free 6 months worth of &lt;a href=&quot;https://app.pluralsight.com&quot;&gt;Pluralsight&lt;/a&gt; I picked up from the &lt;a href=&quot;https://myprodscussu1.app.vssubscriptions.visualstudio.com/Dashboard&quot;&gt;Visual Studio Dev Essentials pack&lt;/a&gt;.&lt;/p&gt;
