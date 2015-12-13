@@ -1,0 +1,342 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>TwoFactor Assimilation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="http://t04glovern.github.io/js/jquery.min.js"></script>
+  <script src="http://t04glovern.github.io/js/bootstrap.min.js"></script>
+  <script src="http://t04glovern.github.io/js/header.js"></script>
+  <script src="http://t04glovern.github.io/js/toc.js"></script>
+  <link href="http://t04glovern.github.io/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://t04glovern.github.io/css/theme.css" rel="stylesheet">
+  <link href="http://t04glovern.github.io/css/syntax.css" rel="stylesheet">
+  <link href="http://t04glovern.github.io/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-71336829-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+  
+
+
+ <script type="text/javascript">
+  WebFontConfig = {
+    google: {
+      families: ['Ubuntu::latin']
+    }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+</script>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://t04glovern.github.io/">TwoFactor Assimilation</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="http://t04glovern.github.io/">/home</a></li>
+          <li><a href="http://t04glovern.github.io/archive.html">/archive</a></li>
+          <li><a href="http://t04glovern.github.io/tags.html">/tags</a></li>
+          <li><a href="http://t04glovern.github.io/about.html">/about</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+<div class="wrapper">
+  <div class="content">
+    <div class="container container-center">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="article">
+            <div class="well">
+              <h1><a href="http://t04glovern.github.io/2015/12/learning-aspnet-building-in-visual-studio-2015-part-3">Learning ASP.NET - Building in Visual Studio 2015 (Part 3)</a></h1>
+              <div class="post-meta">
+                <div class="post-time">
+                  <i class="fa fa-calendar"></i>
+                  <time>12 Dec 2015</time>
+                </div>
+                <ul>
+                  
+                    <li><a href="http://t04glovern.github.io/tag/asp.net">asp.net</a></li>
+                  
+                    <li><a href="http://t04glovern.github.io/tag/windows">windows</a></li>
+                  
+                    <li><a href="http://t04glovern.github.io/tag/visualstudio">visualstudio</a></li>
+                  
+                </ul>
+              </div>
+              <div class="post-content">
+                <div id="toc" class="toc"></div>
+                <h2 id="introduction">Introduction</h2>
+
+<p>Now that we’ve learnt how to generate a project using <code>Yeoman</code>, we’ll do the same thing using <code>Visual Studio 2015</code>. While <code>VSCode</code> and <code>Yeoman</code> are great ways to create projects, they can be limited with it comes to development.</p>
+
+<h2 id="setting-up-your-project">Setting up your project</h2>
+
+<p>Open <code>Visual Studio 2015</code> and navigate to the Extension and Updates list. We’ll be using a number of extensions to help make life easier; I would recommend installing them:</p>
+
+<p><code>Add New File</code> - Allows you to create a blank file very quickly<br />
+<code>Web Essentials 2015.1</code> - Used quite about for the web application development. Just install the latest version available<br />
+<code>Open Command Line</code> - Opens a command line quickly in your project</p>
+
+<p>Proceed to create a new <code>C#</code> Project and select the <code>ASP-NET Web Application</code> template under the <code>Web</code> sub heading. Name your project TheWorld again and save it to your working directory (Don’t try to install it in the same directory as your Yeoman one).</p>
+
+<p><img src="http://t04glovern.github.io/images/posts/asp.net-create-app-vs.png" alt="ASP.NET Create app" /></p>
+
+<p>You will now be asked to select a template. Normally we would select the <code>Web Application</code> under <code>ASP.NET 5 Templates</code>, however we want to learn how this all comes together; so we’re going to select the <code>Empty</code> template.</p>
+
+<p>You might also want to uncheck <code>Host in the cloud</code>.</p>
+
+<p><img src="http://t04glovern.github.io/images/posts/asp.net-create-template.png" alt="ASP.NET Create template" /></p>
+
+<p><code>OK</code> the build of the project and once it has been generated, open up the <code>project.json</code> file again. You will immediately see that it’s much more trimmed down then the one created with Yeoman in the previous tutorial because we used the <code>Empty project</code> template.</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="p">{</span>
+  <span class="s2">&quot;version&quot;</span><span class="o">:</span> <span class="s2">&quot;1.0.0-*&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;compilationOptions&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;emitEntryPoint&quot;</span><span class="o">:</span> <span class="kc">true</span>
+  <span class="p">},</span>
+
+  <span class="s2">&quot;dependencies&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;Microsoft.AspNet.IISPlatformHandler&quot;</span><span class="o">:</span> <span class="s2">&quot;1.0.0-rc1-final&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Microsoft.AspNet.Server.Kestrel&quot;</span><span class="o">:</span> <span class="s2">&quot;1.0.0-rc1-final&quot;</span>
+  <span class="p">},</span>
+
+  <span class="s2">&quot;commands&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;web&quot;</span><span class="o">:</span> <span class="s2">&quot;Microsoft.AspNet.Server.Kestrel&quot;</span>
+  <span class="p">},</span>
+
+  <span class="s2">&quot;frameworks&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;dnx451&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="p">},</span>
+    <span class="s2">&quot;dnxcore50&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="p">}</span>
+  <span class="p">},</span>
+
+  <span class="s2">&quot;exclude&quot;</span><span class="o">:</span> <span class="p">[</span>
+    <span class="s2">&quot;wwwroot&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;node_modules&quot;</span>
+  <span class="p">],</span>
+  <span class="s2">&quot;publishExclude&quot;</span><span class="o">:</span> <span class="p">[</span>
+    <span class="s2">&quot;**.user&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;**.vspscc&quot;</span>
+  <span class="p">]</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>A big thing to look out for is to make sure that you’ve got the correct <code>ASP.NET</code> runtimes installed. If you have a look at the entries under <code>dependencies</code>; just make sure that they end in <code>1.0.0-rc1-final</code>. If they don’t, or have a previous version; check back at my previous guide and follow the instructions to install the latest runtime.</p>
+
+<h2 id="startupcs">Startup.cs</h2>
+
+<p>Have a look at the <code>Startup.cs</code> file below.</p>
+
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Linq</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Threading.Tasks</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Microsoft.AspNet.Builder</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Microsoft.AspNet.Hosting</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Microsoft.AspNet.Http</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Microsoft.Extensions.DependencyInjection</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">TheWorld</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">class</span> <span class="nc">Startup</span>
+    <span class="p">{</span>
+        <span class="c1">// This method gets called by the runtime. Use this method to add services to the container.</span>
+        <span class="c1">// For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940</span>
+        <span class="k">public</span> <span class="k">void</span> <span class="nf">ConfigureServices</span><span class="p">(</span><span class="n">IServiceCollection</span> <span class="n">services</span><span class="p">)</span>
+        <span class="p">{</span>
+        <span class="p">}</span>
+
+        <span class="c1">// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.</span>
+        <span class="k">public</span> <span class="k">void</span> <span class="nf">Configure</span><span class="p">(</span><span class="n">IApplicationBuilder</span> <span class="n">app</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">app</span><span class="p">.</span><span class="n">UseIISPlatformHandler</span><span class="p">();</span>
+
+            <span class="n">app</span><span class="p">.</span><span class="n">Run</span><span class="p">(</span><span class="k">async</span> <span class="p">(</span><span class="n">context</span><span class="p">)</span> <span class="p">=&gt;</span>
+            <span class="p">{</span>
+                <span class="k">await</span> <span class="n">context</span><span class="p">.</span><span class="n">Response</span><span class="p">.</span><span class="n">WriteAsync</span><span class="p">(</span><span class="s">&quot;Hello World!&quot;</span><span class="p">);</span>
+            <span class="p">});</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Entry point for the application.</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="n">WebApplication</span><span class="p">.</span><span class="n">Run</span><span class="p">&lt;</span><span class="n">Startup</span><span class="p">&gt;(</span><span class="n">args</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>The final line is the Entry point for the application (hence the definition <code>Main</code>). This will run a <code>WebApplication</code> using an instance of the <code>Startup class</code>. This start up class is created once and only once when the web application is started.</p>
+
+<p>It does two things:</p>
+
+<ol>
+  <li>
+    <p>Calls <code>ConfigureServices</code> - which is a way to setup dependency injection containers</p>
+  </li>
+  <li>
+    <p>Calls <code>Configure</code> - contains a list of things that are going to run as a request comes in and as a response goes back out.</p>
+    <ul>
+      <li>Within configure we call <code>app.UseIISPlatformHandler();</code> which is middleware that integrates with IIS. We’re going to go ahead and get rid of that though. Also delete <code>"Microsoft.AspNet.IISPlatformHandler": "1.0.0-rc1-final"</code> from the <code>project.json</code> file</li>
+      <li><code>app.Run</code> contains a little piece of code that runs each time a new request comes in.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="running-our-app">Running our App</h2>
+
+<p>If you have a look in the menu above our project you’ll see a green arrow with <code>IIS Express</code> next to it. This is how we will be running/debugging our web app. If you click the small black arrow pointing down you’ll be greeting with a couple options asking how we want to run our code.</p>
+
+<p>You’ll recognize the <code>web</code> option from my previous tutorial. From this point onwards however we will be using <code>IIS Express</code> instead.</p>
+
+<p><img src="http://t04glovern.github.io/images/posts/asp.net-run-debug.png" alt="ASP.NET Debug" /></p>
+
+<p>You can also specify what web browser you want to use. In my examples I’ll be using <code>Microsoft Edge</code> as it doesn’t have any plugins that might interfere with our application.</p>
+
+<p>Also open the properties menu for the project by right clicking and selecting <code>Properties</code> on TheWorld in the project browser and then click the <code>Debug</code> menu. Here we can be more specific how we want to run our App. I’ve changed the App URL to the following to make it easier to remember the port:</p>
+
+<figure class="highlight"><pre><code class="language-bat" data-lang="bat">http:<span class="n">//localhost:8000/</span></code></pre></figure>
+
+<p><img src="http://t04glovern.github.io/images/posts/asp.net-project-settings.png" alt="ASP.NET Project Settings" /></p>
+
+<p>Now simply save all the working files and click the green arrow in the menu to launch our App. BAM! A browser should spring open and greet you with <code>Hello World!</code></p>
+
+<p>You can now navigate to any sub path of localhost:8000 and you’ll always be greeted with <code>Hello World!</code> as we’ve specified that any request to our web server responds only with Hello World!.</p>
+
+<p>You can test this theory by changing the <code>await context.Response.WriteAsync("Hello World!");</code> line of code to the following:</p>
+
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">await</span> <span class="n">context</span><span class="p">.</span><span class="n">Response</span><span class="p">.</span><span class="n">WriteAsync</span><span class="p">(</span><span class="err">$</span><span class="s">&quot;Hello World: {context.Request.Path}&quot;</span><span class="p">);</span></code></pre></figure>
+
+<p>Build and run your app again and try to navigate to various subpages on your site. For example <code>http://localhost:8000</code> will return <code>Hello World: /</code> while <code>http://localhost:8000/foo/bar</code> returns <code>Hello World: /foo/bar</code></p>
+
+<p>This is called middleware! We’ll be working with a lot of things like this in the following tutorials.</p>
+
+<h2 id="summary---what-have-we-learnt">Summary - What have we learnt?</h2>
+
+<p>So far we’ve covered the installation and basic use of <code>ASP.NET</code> and familiarized ourselves with different ways of generating and creating .NET projects. All the code we have used and are going to use is completely open source so we can dig around and understand exactly what’s going on. You can actually check out the entire <a href="https://github.com/dotnet/core">.NET Core framework on github</a>.</p>
+
+<p>If you’ve enjoyed this so far be sure to let me know, I would love some feedback. I would like to mention that this entire course is based off a <a href="https://app.pluralsight.com">Pluralsight</a> training video series by <a href="https://app.pluralsight.com/library/courses/aspdotnet-5-ef7-bootstrap-angular-web-app">Shawn Wildermuth</a> and I would highly recommend checking it out.</p>
+
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 hidden-xs">
+          <div class="sidebar ">
+  <h1>Recent Posts</h1>
+  <ul>
+    
+    <li><a href="/2015/12/learning-aspnet-using-vscode-and-yeoman-part-2">Learning ASP.NET - Using VScode and Yeoman (Part 2)</a></li>
+    
+    <li><a href="/2015/12/learning-aspnet-building-in-visual-studio-2015-part-3">Learning ASP.NET - Building in Visual Studio 2015 (Part 3)</a></li>
+    
+    <li><a href="/2015/12/learning-aspnet-part-1">Learning ASP.NET - Installing ASP.NET Runtime (Part 1)</a></li>
+    
+    <li><a href="/2015/12/install-nodejs-ubuntu">Installing Node.js the easy way</a></li>
+    
+  </ul>
+</div>
+
+<div class="sidebar">
+  <h1>Tags</h1>
+  <ul>
+    
+      <li><a href="/tag/node.js">node.js</a></li>
+    
+      <li><a href="/tag/bash">bash</a></li>
+    
+      <li><a href="/tag/script">script</a></li>
+    
+      <li><a href="/tag/asp.net">asp.net</a></li>
+    
+      <li><a href="/tag/windows">windows</a></li>
+    
+      <li><a href="/tag/visualstudio">visualstudio</a></li>
+    
+      <li><a href="/tag/yeoman">yeoman</a></li>
+    
+      <li><a href="/tag/vscode">vscode</a></li>
+    
+  </ul>
+</div>
+
+        </div>
+      </div>
+    </div>
+    
+
+  </div>
+      <footer class="footer-distributed">
+      <div class="container">
+        <div class="footer">
+          <p>Nathan Glover &copy; 2015</p>
+          <h6>Follow me</h6>
+
+<ul class="social-media">
+
+  
+    <li>
+      <a title="t04glovern on Github" href="https://github.com/t04glovern" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    </li>
+  
+
+  
+    <li>
+      <a title="5443325 on StackOverflow" href="http://stackoverflow.com/users/5443325" target="_blank"><i class="fa fa-stack-overflow fa-2x"></i></a>
+    </li>
+  
+
+  
+    <li>
+      <a title="t04glovern on LinkedIn" href="https://www.linkedin.com/in/glovernathan" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+
+  
+    <li>
+      <a title="feed.xml RSS" href="http://t04glovern.github.io/feed.xml" target="_blank"><i class="fa fa-rss fa-2x"></i></a>
+    </li>
+  
+
+</ul>
+
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+</div>

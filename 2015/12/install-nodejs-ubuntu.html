@@ -1,0 +1,249 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>TwoFactor Assimilation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="http://t04glovern.github.io/js/jquery.min.js"></script>
+  <script src="http://t04glovern.github.io/js/bootstrap.min.js"></script>
+  <script src="http://t04glovern.github.io/js/header.js"></script>
+  <script src="http://t04glovern.github.io/js/toc.js"></script>
+  <link href="http://t04glovern.github.io/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://t04glovern.github.io/css/theme.css" rel="stylesheet">
+  <link href="http://t04glovern.github.io/css/syntax.css" rel="stylesheet">
+  <link href="http://t04glovern.github.io/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-71336829-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+  
+
+
+ <script type="text/javascript">
+  WebFontConfig = {
+    google: {
+      families: ['Ubuntu::latin']
+    }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+</script>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://t04glovern.github.io/">TwoFactor Assimilation</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="http://t04glovern.github.io/">/home</a></li>
+          <li><a href="http://t04glovern.github.io/archive.html">/archive</a></li>
+          <li><a href="http://t04glovern.github.io/tags.html">/tags</a></li>
+          <li><a href="http://t04glovern.github.io/about.html">/about</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+<div class="wrapper">
+  <div class="content">
+    <div class="container container-center">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="article">
+            <div class="well">
+              <h1><a href="http://t04glovern.github.io/2015/12/install-nodejs-ubuntu">Installing Node.js the easy way</a></h1>
+              <div class="post-meta">
+                <div class="post-time">
+                  <i class="fa fa-calendar"></i>
+                  <time>09 Dec 2015</time>
+                </div>
+                <ul>
+                  
+                    <li><a href="http://t04glovern.github.io/tag/node.js">node.js</a></li>
+                  
+                    <li><a href="http://t04glovern.github.io/tag/bash">bash</a></li>
+                  
+                    <li><a href="http://t04glovern.github.io/tag/script">script</a></li>
+                  
+                </ul>
+              </div>
+              <div class="post-content">
+                <div id="toc" class="toc"></div>
+                <h2 id="problem">Problem</h2>
+
+<p>It’s not uncommon to see <code>Node.js</code> listed as a requirement for packages; In the past I would simply attempt an install with a package manager and cross my fingers that the build given to be was correct, while also worrying about the location and environment variables not being setup correctly.</p>
+
+<p>Recently I got fed up while trying to build a particular package I was interested in and decided to track down a more permanent solution to this reoccurring problem.</p>
+
+<h2 id="solution">Solution</h2>
+
+<p>After some google-fu (or more specifically, DuckDuck-fu?) I came across the following script.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#! /bin/bash</span>
+<span class="c"># run it by: bash install-node.sh</span>
+<span class="nb">read</span> -p <span class="s2">&quot; which version of Node do you need to install: enter 0.10.24, 0.10.28, or 4.2.2 (or any other valid version): &quot;</span> VERSIONNAME
+<span class="nb">read</span> -p <span class="s2">&quot; Are you using a 32-bit or 64-bit operating system ? Enter 64 or 32: &quot;</span> ARCHVALUE
+<span class="k">if</span> <span class="o">[[</span> <span class="nv">$ARCHVALUE</span> <span class="o">=</span> <span class="m">32</span> <span class="o">]]</span>
+    <span class="k">then</span>
+    <span class="nb">printf</span> <span class="s2">&quot;user put in 32 \n&quot;</span>
+    <span class="nv">ARCHVALUE</span><span class="o">=</span>86
+    <span class="nv">URL</span><span class="o">=</span>http://nodejs.org/dist/v<span class="k">${</span><span class="nv">VERSIONNAME</span><span class="k">}</span>/node-v<span class="k">${</span><span class="nv">VERSIONNAME</span><span class="k">}</span>-linux-x<span class="k">${</span><span class="nv">ARCHVALUE</span><span class="k">}</span>.tar.gz
+
+<span class="k">elif</span> <span class="o">[[</span> <span class="nv">$ARCHVALUE</span> <span class="o">=</span> <span class="m">64</span> <span class="o">]]</span>
+    <span class="k">then</span>
+    <span class="nb">printf</span> <span class="s2">&quot;user put in 64 \n&quot;</span>
+    <span class="nv">ARCHVALUE</span><span class="o">=</span>64
+    <span class="nv">URL</span><span class="o">=</span>http://nodejs.org/dist/v<span class="k">${</span><span class="nv">VERSIONNAME</span><span class="k">}</span>/node-v<span class="k">${</span><span class="nv">VERSIONNAME</span><span class="k">}</span>-linux-x<span class="k">${</span><span class="nv">ARCHVALUE</span><span class="k">}</span>.tar.gz
+
+<span class="k">else</span>
+    <span class="nb">printf</span> <span class="s2">&quot;invalid input expted either 32 or 64 as input, quitting ... \n&quot;</span>
+
+    <span class="nb">exit</span>
+<span class="k">fi</span>
+
+<span class="c"># setting up the folders and the the symbolic links</span>
+<span class="nb">printf</span> <span class="nv">$URL</span><span class="s2">&quot;\n&quot;</span>
+<span class="nv">ME</span><span class="o">=</span><span class="k">$(</span>whoami<span class="k">)</span> <span class="p">;</span> sudo chown -R <span class="nv">$ME</span> /usr/local <span class="o">&amp;&amp;</span> <span class="nb">cd</span> /usr/local/bin <span class="c">#adding yourself to the group to access /usr/local/bin</span>
+mkdir _node <span class="o">&amp;&amp;</span> <span class="nb">cd</span> <span class="nv">$_</span> <span class="o">&amp;&amp;</span> wget <span class="nv">$URL</span> -O - <span class="p">|</span> tar zxf - --strip-components<span class="o">=</span><span class="m">1</span> <span class="c"># downloads and unzips the content to _node</span>
+cp -r ./lib/node_modules/ /usr/local/lib/ <span class="c"># copy the node modules folder to the /lib/ folder</span>
+cp -r ./include/node /usr/local/include/ <span class="c"># copy the /include/node folder to /usr/local/include folder</span>
+mkdir /usr/local/man/man1 <span class="c"># create the man folder</span>
+cp ./share/man/man1/node.1 /usr/local/man/man1/ <span class="c"># copy the man file</span>
+cp bin/node /usr/local/bin/ <span class="c"># copy node to the bin folder</span>
+ln -s <span class="s2">&quot;/usr/local/lib/node_modules/npm/bin/npm-cli.js&quot;</span> ../npm <span class="c">## making the symbolic link to npm</span>
+<span class="c"># print the version of node and npm</span>
+node -v
+npm -v</code></pre></figure>
+
+<p>When you run the script you’ll be prompted asking for the version (numbers can be found here: https://nodejs.org/en/download/) and the architecture you’re working on. Simply put in your desired values and presto! you’ll have the correct version installed and ready to go.</p>
+
+<p>You can check the version your running using the following command:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">node --version</code></pre></figure>
+
+
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 hidden-xs">
+          <div class="sidebar ">
+  <h1>Recent Posts</h1>
+  <ul>
+    
+    <li><a href="/2015/12/learning-aspnet-using-vscode-and-yeoman-part-2">Learning ASP.NET - Using VScode and Yeoman (Part 2)</a></li>
+    
+    <li><a href="/2015/12/learning-aspnet-building-in-visual-studio-2015-part-3">Learning ASP.NET - Building in Visual Studio 2015 (Part 3)</a></li>
+    
+    <li><a href="/2015/12/learning-aspnet-part-1">Learning ASP.NET - Installing ASP.NET Runtime (Part 1)</a></li>
+    
+    <li><a href="/2015/12/install-nodejs-ubuntu">Installing Node.js the easy way</a></li>
+    
+  </ul>
+</div>
+
+<div class="sidebar">
+  <h1>Tags</h1>
+  <ul>
+    
+      <li><a href="/tag/node.js">node.js</a></li>
+    
+      <li><a href="/tag/bash">bash</a></li>
+    
+      <li><a href="/tag/script">script</a></li>
+    
+      <li><a href="/tag/asp.net">asp.net</a></li>
+    
+      <li><a href="/tag/windows">windows</a></li>
+    
+      <li><a href="/tag/visualstudio">visualstudio</a></li>
+    
+      <li><a href="/tag/yeoman">yeoman</a></li>
+    
+      <li><a href="/tag/vscode">vscode</a></li>
+    
+  </ul>
+</div>
+
+        </div>
+      </div>
+    </div>
+    
+
+  </div>
+      <footer class="footer-distributed">
+      <div class="container">
+        <div class="footer">
+          <p>Nathan Glover &copy; 2015</p>
+          <h6>Follow me</h6>
+
+<ul class="social-media">
+
+  
+    <li>
+      <a title="t04glovern on Github" href="https://github.com/t04glovern" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    </li>
+  
+
+  
+    <li>
+      <a title="5443325 on StackOverflow" href="http://stackoverflow.com/users/5443325" target="_blank"><i class="fa fa-stack-overflow fa-2x"></i></a>
+    </li>
+  
+
+  
+    <li>
+      <a title="t04glovern on LinkedIn" href="https://www.linkedin.com/in/glovernathan" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+
+  
+    <li>
+      <a title="feed.xml RSS" href="http://t04glovern.github.io/feed.xml" target="_blank"><i class="fa fa-rss fa-2x"></i></a>
+    </li>
+  
+
+</ul>
+
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+</div>
