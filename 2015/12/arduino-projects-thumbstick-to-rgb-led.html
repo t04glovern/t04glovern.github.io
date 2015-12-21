@@ -200,11 +200,11 @@ Y Axis Value: <span class="m">0</span></code></pre></figure>
   <span class="n">sensorYLow</span> <span class="o">=</span> <span class="n">sensorYValue</span><span class="o">;</span>
 <span class="o">}</span></code></pre></figure>
 
-<p>Using this setup means that I also deal with expected values and even if I do get a curve-ball input, my system will know how to deal with it.</p>
+<p>Using this setup means that I always deal with expected values and even if I do get a curve-ball input, my system will know how to deal with it.</p>
 
 <h1 id="interface-rgb-unit-with-pwm-pins">Interface RGB Unit with PWM Pins</h1>
 
-<p>Now that we are importing logical data we’re safe to move forward and interface the RGB unit. First I connected the <code>Digital PWM pins</code> in series with the RGB legs on my LED. Following that I added code to map the digital ports to meaningful names</p>
+<p>Now that we are importing logical data, we’re safe to move forward and interface the RGB unit. First I connected the <code>Digital PWM pins</code> in series with the RGB legs and a single 220Ω Resistor on  each leg of my LED. Following that I added code to map the digital ports to meaningful names</p>
 
 <figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// Digital/PMW PIN Declarations</span>
 <span class="kd">const</span> <span class="kt">int</span> <span class="n">redLEDPin</span> <span class="o">=</span> <span class="mi">11</span><span class="o">;</span>
@@ -218,14 +218,14 @@ Y Axis Value: <span class="m">0</span></code></pre></figure>
 <span class="kt">int</span> <span class="n">greenValue</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
 <span class="kt">int</span> <span class="n">blueValue</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span></code></pre></figure>
 
-<p>Within <code>setup()</code> I added code to initialize the three pins are <code>OUTPUT</code></p>
+<p>Within <code>setup()</code> I added code to initialize the three pinModes to <code>OUTPUT</code></p>
 
 <figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// set LED pins to output</span>
 <span class="n">pinMode</span><span class="o">(</span><span class="n">redLEDPin</span><span class="o">,</span><span class="n">OUTPUT</span><span class="o">);</span>
 <span class="n">pinMode</span><span class="o">(</span><span class="n">greenLEDPin</span><span class="o">,</span><span class="n">OUTPUT</span><span class="o">);</span>
 <span class="n">pinMode</span><span class="o">(</span><span class="n">blueLEDPin</span><span class="o">,</span><span class="n">OUTPUT</span><span class="o">);</span></code></pre></figure>
 
-<p>Using the <code>map()</code> function in conjunction with the high and low <code>X/Y</code> sensor values I scaled my raw inputs to values between 0-255. Because I didn’t have any good way of generating a value for the Blue pin input, I used a mix of the X and Y sensor values to generate a reasonable value for Blue.</p>
+<p>Using the <code>map()</code> function in conjunction with the high and low <code>X/Y</code> sensor values; I scaled my raw inputs to values between 0-255. Because I didn’t have any good way of generating a value for the Blue pin input, I used a mix of the X and Y sensor values to generate a reasonable value for Blue.</p>
 
 <figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// Calculate and map new values</span>
 <span class="kt">int</span> <span class="n">valueX</span> <span class="o">=</span> <span class="n">map</span><span class="o">(</span><span class="n">sensorXValue</span><span class="o">,</span><span class="n">sensorXLow</span><span class="o">,</span><span class="n">sensorXHigh</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">255</span><span class="o">);</span>
