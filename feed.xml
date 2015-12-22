@@ -7,6 +7,231 @@
 		<atom:link href="http://t04glovern.github.io/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Arduino Project - LCD Displays</title>
+				<description>&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
+
+&lt;p&gt;I’ve had to use an &lt;code&gt;LCD display&lt;/code&gt; a couple times with some projects in the past, but never really understood what I was doing as I followed tutorials telling me what to plug where. Today I decided I would go through and document what each pin does on a standard &lt;code&gt;16x2 LCD display&lt;/code&gt; does and try to get it printing my Blogs title.&lt;/p&gt;
+
+&lt;h1 id=&quot;the-pins&quot;&gt;The Pins&lt;/h1&gt;
+
+&lt;p&gt;There are &lt;code&gt;16 pins&lt;/code&gt; on a standard &lt;code&gt;2x16 LCD Display&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://t04glovern.github.io/images/posts/arduino-lcd-pins.jpg&quot; alt=&quot;LCD Display Pins&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Vss&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;This is the &lt;code&gt;Negative supply&lt;/code&gt;; or the &lt;code&gt;ground pin&lt;/code&gt;. It is excepted to be at 0V, so in almost every case you will just link this pin straight to your circuits &lt;code&gt;GND pin&lt;/code&gt;.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Vcc&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code&gt;Positive supply voltage&lt;/code&gt;. This is the pin we use to power the main LCD module. There is a separate pin for the actual backlight (see pin 15-16).&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Vø&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;This is how we adjust the contrast of our display. Generally a &lt;code&gt;potentiometer&lt;/code&gt; or any other device that will allow for variable settings&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;RS&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code&gt;Register selector&lt;/code&gt; allows us to toggle between the command and data registers&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;Command Register&lt;/code&gt; is selected with the RS Pin is Low. It tells the LCD that a command is being send to the display. Examples of commands could be Clear Display, Home Cursor, Entry Mode Set etc…&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;Data Register&lt;/code&gt; is the opposite and is selected with the RS Pin is High. It tells the LCD that the incoming stream is data that needs to be displayed.&lt;/li&gt;
+      &lt;li&gt;You will find that there is already a library that will do all the RS pin toggling for you, but it’s still good to understand the difference between the two. If you’d like to know more about some of the commands, there is a great tutorial on LCDs &lt;a href=&quot;http://microcontrollerboard.com/lcd.html&quot;&gt;Here&lt;/a&gt;.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;R/W&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code&gt;Low to write&lt;/code&gt; to the register; &lt;code&gt;High to read&lt;/code&gt; from the register. There are some situations where you might want to read from the LCD display back into the program. It isn’t something that you will need to deal with often, but it’s another interesting thing to understand.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;E&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code&gt;Enabling pin&lt;/code&gt;; when this pin is set to &lt;code&gt;logical low&lt;/code&gt;, the LCD does not care what is happening with &lt;code&gt;R/W&lt;/code&gt;, &lt;code&gt;RS&lt;/code&gt;, and the &lt;code&gt;data bus lines&lt;/code&gt;; when this pin is set to &lt;code&gt;logical high&lt;/code&gt;, the LCD is processing the incoming data. It allows us to check if the LCD is still processing data that it has been given, so that we don’t write onto lines and corrupt our output.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;D0&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;8-bit data pin 0&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;D1&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;8-bit data pin 1&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;D2&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;8-bit data pin 2&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;D3&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;8-bit data pin 3&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;D4&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;8-bit data pin 4&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;D5&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;8-bit data pin 5&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;D6&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;8-bit data pin 6&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;D7&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;8-bit data pin 7&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;LED+&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code&gt;Backlight Vcc positive supply&lt;/code&gt;. This pin powers the LCD backlight and normally runs at &lt;code&gt;5V&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;LED-&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code&gt;Backlight GND negative supply&lt;/code&gt;. This pin is the &lt;code&gt;GND&lt;/code&gt; pin for the backlight. Expected to be &lt;code&gt;0V&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;wire-up-the-lcd&quot;&gt;Wire up the LCD&lt;/h1&gt;
+
+&lt;p&gt;Next I wired up the LCD using the following configurations.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bat&quot; data-lang=&quot;bat&quot;&gt;LCD Pin &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; -&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;GND&lt;/span&gt;
+LCD Pin &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; -&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;5V&lt;/span&gt;
+LCD Pin &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt; -&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Input&lt;/span&gt; from potentiometer
+LCD Pin &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt; -&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Digital&lt;/span&gt; Pin &lt;span class=&quot;m&quot;&gt;12&lt;/span&gt;
+LCD Pin &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt; -&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Digital&lt;/span&gt; Pin &lt;span class=&quot;m&quot;&gt;13&lt;/span&gt;
+LCD Pin &lt;span class=&quot;m&quot;&gt;6&lt;/span&gt; -&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Digital&lt;/span&gt; Pin &lt;span class=&quot;m&quot;&gt;11&lt;/span&gt;
+LCD Pin &lt;span class=&quot;m&quot;&gt;7&lt;/span&gt; -&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Digital&lt;/span&gt; Pin &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;
+LCD Pin &lt;span class=&quot;m&quot;&gt;8&lt;/span&gt; -&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Digital&lt;/span&gt; Pin &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;
+LCD Pin &lt;span class=&quot;m&quot;&gt;9&lt;/span&gt; -&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Digital&lt;/span&gt; Pin &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;
+LCD Pin &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt; -&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Digital&lt;/span&gt; Pin &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;
+LCD Pin &lt;span class=&quot;m&quot;&gt;11&lt;/span&gt; -&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Digital&lt;/span&gt; Pin &lt;span class=&quot;m&quot;&gt;6&lt;/span&gt;
+LCD Pin &lt;span class=&quot;m&quot;&gt;12&lt;/span&gt; -&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Digital&lt;/span&gt; Pin &lt;span class=&quot;m&quot;&gt;7&lt;/span&gt;
+LCD Pin &lt;span class=&quot;m&quot;&gt;13&lt;/span&gt; -&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Digital&lt;/span&gt; Pin &lt;span class=&quot;m&quot;&gt;8&lt;/span&gt;
+LCD Pin &lt;span class=&quot;m&quot;&gt;14&lt;/span&gt; -&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Digital&lt;/span&gt; Pin &lt;span class=&quot;m&quot;&gt;9&lt;/span&gt;
+LCD Pin &lt;span class=&quot;m&quot;&gt;15&lt;/span&gt; -&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;220&lt;/span&gt;Ω Resistor in series with &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;V input
+LCD Pin &lt;span class=&quot;m&quot;&gt;16&lt;/span&gt; -&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;GND&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Below is an example of how I wired it up. Yours might look completely different; especially with this many wires, it isn’t easy to keep things neat.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://t04glovern.github.io/images/posts/arduino-lcd-wired.jpg&quot; alt=&quot;LCD Display Wired&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;writing-the-code&quot;&gt;Writing the Code&lt;/h1&gt;
+
+&lt;p&gt;To start with we’re going to want to define our &lt;code&gt;pin constants&lt;/code&gt; as we’ll be referencing them a lot. Make sure you use logical naming conventions.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// Map Register selector&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lcd_RS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Map Read/Write register&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lcd_RW&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;13&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Map Enabling pin&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lcd_E&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;11&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Map LCD Data Pins&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lcd_D0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Data 0&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lcd_D1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Data 1&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lcd_D2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Data 2&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lcd_D3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Data 3&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lcd_D4&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Data 4&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lcd_D5&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Data 5&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lcd_D6&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Data 6&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lcd_D7&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Data 7&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The next bit is tricky, we need to find a way to take all the various mapped pins and write out to them. Luckily there’s already libraries in place that we can use. For this example we’re just using the standard &lt;code&gt;LiquidCrystal&lt;/code&gt; library; which can be imported into our project by adding the following to the top of the file.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;LiquidCrystal.h&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;In order to access the functions within the &lt;code&gt;LiquidCrystal&lt;/code&gt; library we just imported, we first need to create an &lt;code&gt;LCD object&lt;/code&gt; that we can use to interact with various functions. I referred to the &lt;a href=&quot;https://www.arduino.cc/en/Reference/LiquidCrystalConstructor&quot;&gt;following&lt;/a&gt; while trying to track down what the &lt;code&gt;default constructors&lt;/code&gt; for the &lt;code&gt;LiquidCrystal object&lt;/code&gt; were and found that I had four options.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;n&quot;&gt;LiquidCrystal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;enable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d6&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d7&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;LiquidCrystal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rw&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;enable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d6&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d7&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;LiquidCrystal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;enable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d6&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d7&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;LiquidCrystal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rw&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;enable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d6&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d7&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;What it meant was that I’d done more work then I needed to, as the LCD display can function with just four data pins, the select pin and enable. All those wires for nothing!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://t04glovern.github.io/images/posts/arduino-lcd-wires.jpg&quot; alt=&quot;Futurama Wires&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Since there’s no harm including all the inputs, I went ahead and used the &lt;code&gt;constructor&lt;/code&gt; that required all inputs to be defined. The following code was added, ensuring I was referencing the constants I defined earlier on.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;n&quot;&gt;LiquidCrystal&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;lcd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lcd_RS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lcd_RW&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lcd_E&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;lcd_D0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lcd_D1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lcd_D2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lcd_D3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lcd_D4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lcd_D5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lcd_D6&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lcd_D7&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Now that I had an &lt;code&gt;LCD object&lt;/code&gt; created, I could start accessing the &lt;code&gt;Functions&lt;/code&gt; that are available as part of the &lt;code&gt;LiquidCrystal class&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Documentation on the various Functions can be found &lt;a href=&quot;https://www.arduino.cc/en/Reference/LiquidCrystal&quot;&gt;here&lt;/a&gt;, but the important ones I needed to start with were:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.arduino.cc/en/Reference/LiquidCrystalBegin&quot;&gt;begin()&lt;/a&gt; - Initializes the interface to the LCD screen, and specifies the dimensions (width and height) of the display. begin() needs to be called before any other LCD library commands.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.arduino.cc/en/Reference/LiquidCrystalPrint&quot;&gt;print()&lt;/a&gt; - Prints text to the LCD.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;I added the following lines of code in order to Initialize the LCD and write out Hello, World to the screen. The parameters &lt;code&gt;lcd.begin()&lt;/code&gt; takes are &lt;code&gt;lcd.begin(cols, rows)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;n&quot;&gt;lcd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;begin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;lcd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Hello, World!&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Compiled the code and loaded it onto the board….&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://t04glovern.github.io/images/posts/arduino-lcd-helloworld.jpg&quot; alt=&quot;Hello world&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Sweet, that worked great! Lets try getting it to print out my blogs title&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;n&quot;&gt;lcd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;begin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;lcd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;TwoFactor Assimilation&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://t04glovern.github.io/images/posts/arduino-lcd-twofactor-wrong.jpg&quot; alt=&quot;Print blog title&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Oh dear… That didn’t work how I’d hoped. The issue occurs because the LCD only has a particular number of slots it can write into per row. Because my blog title is longer than 16 characters we lose the portion of text that overflows.&lt;/p&gt;
+
+&lt;p&gt;This is where another function will come in handy&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.arduino.cc/en/Reference/LiquidCrystalSetCursor&quot;&gt;setCursor()&lt;/a&gt; - Position the LCD cursor; that is, set the location at which subsequent text written to the LCD will be displayed.&lt;/p&gt;
+
+&lt;p&gt;This means that using the parameters &lt;code&gt;lcd.setCursor(col, row)&lt;/code&gt; I can tell the board to move the position I’m writing in from down to the second row before printing &lt;em&gt;Assimilation&lt;/em&gt;.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;n&quot;&gt;lcd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;begin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;lcd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;TwoFactor&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;lcd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setCursor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;lcd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Assimilation&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://t04glovern.github.io/images/posts/arduino-lcd-twofactor-fixed.jpg&quot; alt=&quot;Print blog title Fixed&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;And look at that, I can now read the entire name with no issues!&lt;/p&gt;
+
+&lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
+
+&lt;p&gt;There’s a tonne of things you can do with the &lt;code&gt;LiquidCrystal libraries&lt;/code&gt;, so don’t yet this be all you do. Something interesting you could look into is having text centered (by moving the cursor around), or even having &lt;a href=&quot;https://www.arduino.cc/en/Reference/LiquidCrystalAutoscroll&quot;&gt;scrolling text&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;In the future I would like to use &lt;code&gt;LCDs&lt;/code&gt; a lot more and spent a fair amount of time tonight reading up on the functions behind the pretty libraries.&lt;/p&gt;
+
+&lt;p&gt;If you’d like to learn more, check out &lt;a href=&quot;http://microcontrollerboard.com/lcd.html&quot;&gt;This&lt;/a&gt; page I mentioned before. Either that or even &lt;a href=&quot;http://matidavid.com/pic/LCD%20interfacing/lcd-programming.htm&quot;&gt;this page&lt;/a&gt; which goes into more depth of how the LCD works on an &lt;code&gt;assembler&lt;/code&gt; level.&lt;/p&gt;
+</description>
+				<pubDate>Tue, 22 Dec 2015 00:00:00 +0800</pubDate>
+				<link>http://t04glovern.github.io/2015/12/arduino-project-lcd-displays</link>
+				<guid isPermaLink="true">http://t04glovern.github.io/2015/12/arduino-project-lcd-displays</guid>
+			</item>
+		
+			<item>
 				<title>Arduino Projects - Thumbstick to RGB LED</title>
 				<description>&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
