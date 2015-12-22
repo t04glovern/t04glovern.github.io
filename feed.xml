@@ -7,7 +7,7 @@
 		<atom:link href="http://t04glovern.github.io/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
-				<title>Arduino Project - LCD Displays</title>
+				<title>Arduino Projects - LCD Displays</title>
 				<description>&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
 
 &lt;p&gt;I’ve had to use an &lt;code&gt;LCD display&lt;/code&gt; a couple times with some projects in the past, but never really understood what I was doing as I followed tutorials telling me what to plug where. Today I decided I would go through and document what each pin does on a standard &lt;code&gt;16x2 LCD display&lt;/code&gt; does and try to get it printing my Blogs title.&lt;/p&gt;
