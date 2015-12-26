@@ -7,6 +7,227 @@
 		<atom:link href="http://t04glovern.github.io/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Arduino Projects - Working with Sound</title>
+				<description>&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
+
+&lt;p&gt;Tonight we’re going to be looking into how sound is produced and also run through the steps required to get our &lt;code&gt;Arduino&lt;/code&gt; to produce sound. The &lt;code&gt;Arduino&lt;/code&gt;can produce sounds a number of ways; The simplest method, and the one we’re going to look into is the &lt;a href=&quot;https://www.arduino.cc/en/Reference/Tone&quot;&gt;&lt;code&gt;tone()&lt;/code&gt;&lt;/a&gt; function.&lt;/p&gt;
+
+&lt;h1 id=&quot;understanding-how-a-speaker-works&quot;&gt;Understanding how a speaker works&lt;/h1&gt;
+
+&lt;p&gt;Sound is transmitted through the air as a pressure wave. As an object such as a speaker, drum, or a bell vibrates, that object also vibrates the air around it. As the air particles vibrate, they transfer energy to the particles around them, vibrating these particles as well. This chain reaction creates a pressure wave that is transferred from the sound source to your eardrum.&lt;/p&gt;
+
+&lt;p&gt;When we create a sound with our Arduino we can control two properties of these vibrating particles; Frequency and Amplitude.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;code&gt;Frequency&lt;/code&gt; - represents how quickly the air particles vibrate back and forth.
+    &lt;ul&gt;
+      &lt;li&gt;High Frequency = sounds are a higher pitch (soprano)&lt;/li&gt;
+      &lt;li&gt;Low Frequency = sounds are a lower pitch (bass)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;Amplitude&lt;/code&gt; - represents the magnitude of their vibrations.
+    &lt;ul&gt;
+      &lt;li&gt;High Amplitude = sounds are louder&lt;/li&gt;
+      &lt;li&gt;Low Amplitude = sounds are quieter&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Example the waveforms below, specifically lets take a look at &lt;code&gt;Middle C&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://t04glovern.github.io/images/posts/arduino-speaker-waves.jpg&quot; alt=&quot;Speaker Waveform&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Middle C&lt;/code&gt; has a &lt;code&gt;frequency of 261.63 Hertz (Hz)&lt;/code&gt;. In other words, a speaker, a guitar string, or a piano string would complete &lt;code&gt;261.63 oscillations per second&lt;/code&gt;. We find the period of that by taking &lt;code&gt;1 / 261.62&lt;/code&gt; which equals &lt;code&gt;3.822 milliseconds&lt;/code&gt;, which is the width of one complete oscillation in the graph. We can use that value and set it as the period for a square wave and thus adjust the tone of a note.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;NOTE:&lt;/code&gt; Since the Arduino cannot create a true sinusoidal wave that you’d normally hear in the real world, we have to work with a plain square wave. The square wave oscillates between &lt;code&gt;HIGH&lt;/code&gt; and &lt;code&gt;LOW&lt;/code&gt; while switching instantly, instead of slowly like a sine wave. This results in a pressure wave that doesn’t fade off over time, leaving you with just a solid tone.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://t04glovern.github.io/images/posts/arduino-speaker-parts.png&quot; alt=&quot;Speaker Parts&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Looking at the speaker above, we can step through the process used to make a tone through a speaker.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;There’s a permanent magnet mounted behind the voice coil and pole piece&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;We send a sinusoidal voltage signal (or a square wave in the case of the Arduino) into the leads of the coil&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The changing current induces a magnetic field that causes the voice coil and diaphragm to vibrate up and down as the permanent magnet is attracted to and then repulsed by the magnetic field that was generated.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;This back-and-forth vibration, in turn, vibrates the air in front of the speaker, effectively creating a sound wave that can travel to your eardrum.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;using-the-tone-function&quot;&gt;Using the tone() function&lt;/h1&gt;
+
+&lt;p&gt;&lt;code&gt;Arduino IDE&lt;/code&gt; includes a built-in function for easily making sounds with arbitrary frequencies. The &lt;a href=&quot;https://www.arduino.cc/en/Reference/Tone&quot;&gt;&lt;code&gt;tone()&lt;/code&gt;&lt;/a&gt; function generates a square wave of the selected frequency on the output pin of your choice. The tone() function accepts three arguments:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code&gt;pin&lt;/code&gt; - the pin on which to generate the tone&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code&gt;frequency&lt;/code&gt; - the frequency of the tone in hertz (unsigned int)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code&gt;duration&lt;/code&gt; - the duration of the tone in milliseconds (optional); If this argument is not set, the tone continues playing until you call &lt;a href=&quot;https://www.arduino.cc/en/Reference/NoTone&quot;&gt;&lt;code&gt;noTone()&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Lets have a look at some code from the &lt;a href=&quot;https://www.arduino.cc/en/Tutorial/ToneMelody?from=Tutorial.Tone&quot;&gt;Arduino community reference page&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;To start with we hook up &lt;code&gt;positive&lt;/code&gt; line from our &lt;code&gt;speaker&lt;/code&gt; to &lt;code&gt;Digital Pin 8&lt;/code&gt; on the &lt;code&gt;Arduino&lt;/code&gt;. Lets add this line to our code defining the pin 8 constant:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// Pin for tone output&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tonePin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Next we’ll create a little melody for our Arduino to play. We can do this using an &lt;code&gt;array&lt;/code&gt; called &lt;code&gt;melody&lt;/code&gt; with our notes listed in each subsequent slot.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// Melody of notes&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;melody&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NOTE_C4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;NOTE_G3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;NOTE_G3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;NOTE_A3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;NOTE_G3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;NOTE_B3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;NOTE_C4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;You’ll now notice that the notes we’ve referenced in the array don’t exist anywhere. Each of those note variables need to reference an &lt;code&gt;integer&lt;/code&gt; value defining their &lt;code&gt;pitch&lt;/code&gt;. You could go through and work these out yourself, but that would be silly; especially because there’s already a great list provided on the &lt;a href=&quot;https://www.arduino.cc/en/Tutorial/ToneMelody?from=Tutorial.Tone&quot;&gt;Tone Tutorial&lt;/a&gt; page.&lt;/p&gt;
+
+&lt;p&gt;Go ahead and press &lt;code&gt;Ctrl+Shift+N&lt;/code&gt; or select the &lt;code&gt;arrow&lt;/code&gt; in the &lt;code&gt;right hand corner&lt;/code&gt; of the Arduino IDE and click &lt;code&gt;New Tab&lt;/code&gt;. Name the new file &lt;code&gt;pitches.h&lt;/code&gt; and paste the following code into the IDE:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#define NOTE_B0  31&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_C1  33&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_CS1 35&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_D1  37&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_DS1 39&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_E1  41&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_F1  44&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_FS1 46&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_G1  49&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_GS1 52&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_A1  55&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_AS1 58&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_B1  62&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_C2  65&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_CS2 69&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_D2  73&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_DS2 78&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_E2  82&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_F2  87&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_FS2 93&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_G2  98&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_GS2 104&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_A2  110&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_AS2 117&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_B2  123&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_C3  131&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_CS3 139&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_D3  147&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_DS3 156&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_E3  165&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_F3  175&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_FS3 185&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_G3  196&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_GS3 208&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_A3  220&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_AS3 233&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_B3  247&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_C4  262&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_CS4 277&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_D4  294&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_DS4 311&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_E4  330&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_F4  349&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_FS4 370&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_G4  392&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_GS4 415&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_A4  440&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_AS4 466&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_B4  494&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_C5  523&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_CS5 554&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_D5  587&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_DS5 622&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_E5  659&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_F5  698&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_FS5 740&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_G5  784&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_GS5 831&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_A5  880&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_AS5 932&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_B5  988&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_C6  1047&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_CS6 1109&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_D6  1175&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_DS6 1245&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_E6  1319&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_F6  1397&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_FS6 1480&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_G6  1568&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_GS6 1661&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_A6  1760&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_AS6 1865&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_B6  1976&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_C7  2093&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_CS7 2217&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_D7  2349&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_DS7 2489&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_E7  2637&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_F7  2794&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_FS7 2960&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_G7  3136&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_GS7 3322&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_A7  3520&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_AS7 3729&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_B7  3951&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_C8  4186&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_CS8 4435&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_D8  4699&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define NOTE_DS8 4978&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Save that file and navigate back to your tone project we were working on before.&lt;/p&gt;
+
+&lt;p&gt;Next we’ll define the tones duration, and again we’ll use a matching &lt;code&gt;array of integers&lt;/code&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// note durations: 4 = quarter note, 8 = eighth note, etc.:&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;noteDurations&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Now that we have a tune setup and defined we can move into the &lt;code&gt;setup()&lt;/code&gt; block and begin writing the code that will play our tones.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// iterate over the notes of the melody:&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;thisNote&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;thisNote&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;thisNote&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// to calculate the note duration, take one second&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// divided by the note type.&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//e.g. quarter note = 1000 / 4, eighth note = 1000/8, etc.&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;noteDuration&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;noteDurations&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;thisNote&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;];&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;tone&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tonePin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;melody&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;thisNote&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;noteDuration&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// to distinguish the notes, set a minimum time between them.&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// the note&amp;#39;s duration + 30% seems to work well:&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pauseBetweenNotes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;noteDuration&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1.30&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;delay&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pauseBetweenNotes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// stop the tone playing:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;noTone&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tonePin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;loop&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// no need to repeat the melody.&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Run your code and enjoy the jams! Note that since we haven’t setup this code to &lt;code&gt;loop&lt;/code&gt;; you’ll need to either reboot your &lt;code&gt;Arduino&lt;/code&gt; or press the &lt;code&gt;reset button&lt;/code&gt; on the board to get the tone to replay. You could even move the code block in &lt;code&gt;setup()&lt;/code&gt; down into &lt;code&gt;loop()&lt;/code&gt; to get it to continuously play the tones.&lt;/p&gt;
+
+&lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
+
+&lt;p&gt;I wish I had more to say on this topic, It turned out to be a lot easier than I expected. I hope to expand on some ideas with the speaker in some later projects; but for now it was great to just learn the fundamental details about how a speaker actually works. I hope it was helpful for you as well :)&lt;/p&gt;
+
+&lt;p&gt;Thanks to resources taken from &lt;a href=&quot;http://exploringarduino.com/&quot;&gt;Jeremy Blum’s - Exploring Arduino&lt;/a&gt; and may great tutorials on the &lt;a href=&quot;https://www.arduino.cc&quot;&gt;arduino.cc&lt;/a&gt; webpage.&lt;/p&gt;
+</description>
+				<pubDate>Sat, 26 Dec 2015 00:00:00 +0800</pubDate>
+				<link>http://t04glovern.github.io/2015/12/arduino-projects-working-with-sound</link>
+				<guid isPermaLink="true">http://t04glovern.github.io/2015/12/arduino-projects-working-with-sound</guid>
+			</item>
+		
+			<item>
 				<title>Arduino Projects - LCD Displays</title>
 				<description>&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
 
