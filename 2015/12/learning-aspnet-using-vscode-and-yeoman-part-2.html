@@ -7,11 +7,12 @@
   <script src="http://t04glovern.github.io/js/jquery.min.js"></script>
   <script src="http://t04glovern.github.io/js/bootstrap.min.js"></script>
   <script src="http://t04glovern.github.io/js/header.js"></script>
-  <script src="http://t04glovern.github.io/js/toc.js"></script>
   <link href="http://t04glovern.github.io/css/bootstrap.min.css" rel="stylesheet">
   <link href="http://t04glovern.github.io/css/theme.css" rel="stylesheet">
   <link href="http://t04glovern.github.io/css/syntax.css" rel="stylesheet">
   <link href="http://t04glovern.github.io/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu+Mono&subset=latin">
+
 </head>
 
 <body>
@@ -35,7 +36,7 @@
   
 
 
- <script type="text/javascript">
+  <script type="text/javascript">
   WebFontConfig = {
     google: {
       families: ['Ubuntu::latin']
@@ -100,29 +101,28 @@
                 </ul>
               </div>
               <div class="post-content">
-                <div id="toc" class="toc"></div>
                 <h2 id="installing-and-using-yeoman">Installing and Using Yeoman</h2>
 
-<p><code>ASP.NET</code> uses a tool called yeoman to assist in the development of applications for the web by generating the base project file structure and configurations so you can get to work quickly; rather than fiddling around with the same things every time you need to create a new project.</p>
+<p><code class="highlighter-rouge">ASP.NET</code> uses a tool called yeoman to assist in the development of applications for the web by generating the base project file structure and configurations so you can get to work quickly; rather than fiddling around with the same things every time you need to create a new project.</p>
 
-<p>You can install <code>Yeoman</code> using the following command:</p>
+<p>You can install <code class="highlighter-rouge">Yeoman</code> using the following command:</p>
 
-<figure class="highlight"><pre><code class="language-bat" data-lang="bat">C:\Users\Nathan\OneDrive\<span class="m">02</span> - Code\<span class="m">15</span> - ASP.NET\vscode<span class="p">&gt;</span><span class="n">npm</span> install yo -g
-C:\Users\Nathan\AppData\Roaming\npm\yo -<span class="p">&gt;</span> <span class="n">C</span>:\Users\Nathan\AppData\Roaming\npm\node_modules\yo\lib\cli.js
+<figure class="highlight"><pre><code class="language-bat" data-lang="bat">C:\Users\Nathan\OneDrive\02 - Code\15 - ASP.NET\vscode&gt;npm install yo -g
+C:\Users\Nathan\AppData\Roaming\npm\yo -&gt; C:\Users\Nathan\AppData\Roaming\npm\node_modules\yo\lib\cli.js
 
-<span class="p">&gt;</span> <span class="n">yo</span>@<span class="m">1</span>.<span class="m">5</span>.<span class="m">0</span> postinstall C:\Users\Nathan\AppData\Roaming\npm\node_modules\yo
-<span class="p">&gt;</span> <span class="n">yodoctor</span>
+&gt; yo@1.5.0 postinstall C:\Users\Nathan\AppData\Roaming\npm\node_modules\yo
+&gt; yodoctor
 
 
 Yeoman Doctor
-Running sanity checks <span class="k">on</span> your system
+Running sanity checks on your system
 
 √ Global configuration file is valid
 √ NODE_PATH matches the npm root
 × Node.js version
 
 Your Node.js version is outdated.
-Upgrade to the latest version: https:<span class="n">//nodejs.org</span>
+Upgrade to the latest version: https://nodejs.org
 
 √ No .bowerrc file in home directory
 √ No .yo-rc.json file in home directory
@@ -133,18 +133,18 @@ Your npm version is outdated.
 Upgrade to the latest version by running:
 npm install -g npm</code></pre></figure>
 
-<p>Ensure that you used the <code>-g</code> flag to tell the system you want Yeoman available globally.</p>
+<p>Ensure that you used the <code class="highlighter-rouge">-g</code> flag to tell the system you want Yeoman available globally.</p>
 
 <p>Next we can install the ASP.NET templates using the following command: (include the -g again for global)</p>
 
-<figure class="highlight"><pre><code class="language-bat" data-lang="bat">C:\Users\Nathan\OneDrive\<span class="m">02</span> - Code\<span class="m">15</span> - ASP.NET\vscode<span class="p">&gt;</span><span class="n">npm</span> install generator-aspnet -g</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bat" data-lang="bat">C:\Users\Nathan\OneDrive\02 - Code\15 - ASP.NET\vscode&gt;npm install generator-aspnet -g</code></pre></figure>
 
 <p>You can now run the ‘yo’ cmdlet to view the current installed generators on your system:</p>
 
-<figure class="highlight"><pre><code class="language-bat" data-lang="bat">C:\Users\Nathan\OneDrive\<span class="m">02</span> - Code\<span class="m">15</span> - ASP.NET\vscode<span class="p">&gt;</span><span class="n">yo</span>
-? &#39;Allo Nathan! What would you like to <span class="k">do</span>? (Use arrow keys)
+<figure class="highlight"><pre><code class="language-bat" data-lang="bat">C:\Users\Nathan\OneDrive\02 - Code\15 - ASP.NET\vscode&gt;yo
+? 'Allo Nathan! What would you like to do? (Use arrow keys)
   Run a generator
-<span class="p">&gt;</span> <span class="n">Aspnet</span>
+&gt; Aspnet
   ──────────────
   Update your generators
   Install a generator
@@ -154,20 +154,20 @@ npm install -g npm</code></pre></figure>
 
 <p>You can see we have Aspnet installed and listed. Run this generator by using the following cmdlet:</p>
 
-<figure class="highlight"><pre><code class="language-bat" data-lang="bat">C:\Users\Nathan\OneDrive\<span class="m">02</span> - Code\<span class="m">15</span> - ASP.NET\vscode<span class="p">&gt;</span><span class="n">yo</span> aspnet
+<figure class="highlight"><pre><code class="language-bat" data-lang="bat">C:\Users\Nathan\OneDrive\02 - Code\15 - ASP.NET\vscode&gt;yo aspnet
 
      _-----_
     |       |    .--------------------------.
-    |--(o)--|    <span class="p">|</span>      <span class="n">Welcome</span> to the      |
-   `---------´   <span class="p">|</span>   <span class="n">marvellous</span> ASP.NET <span class="m">5</span>   |
-    ( _´U`_ )    <span class="p">|</span>        <span class="n">generator</span>!        |
-    <span class="n">/___A___\</span>    <span class="s1">&#39;--------------------------&#39;</span>
-     |  ~  <span class="p">|</span>
-   <span class="n">__</span><span class="s1">&#39;.___.&#39;</span>__
- ´   <span class="sb">`  |° ´ Y `</span>
+    |--(o)--|    |      Welcome to the      |
+   `---------´   |   marvellous ASP.NET 5   |
+    ( _´U`_ )    |        generator!        |
+    /___A___\    '--------------------------'
+     |  ~  |
+   __'.___.'__
+ ´   `  |° ´ Y `
 
-? What type of application <span class="k">do</span> you want to create? (Use arrow keys)
-<span class="p">&gt;</span> <span class="n">Empty</span> Application
+? What type of application do you want to create? (Use arrow keys)
+&gt; Empty Application
   Console Application
   Web Application
   Web Application Basic [without Membership and Authorization]
@@ -180,167 +180,174 @@ npm install -g npm</code></pre></figure>
 
 <p>You will be asked to specify a name for the project, I’ve just chosen to call it TheWorld</p>
 
-<figure class="highlight"><pre><code class="language-bat" data-lang="bat">? What&#39;s the name of your ASP.NET application? TheWorld</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bat" data-lang="bat">? What's the name of your ASP.NET application? TheWorld</code></pre></figure>
 
 <p>Have a look into the directory you generated the files into and you’ll notice all the standard project files are generated for you.</p>
 
-<figure class="highlight"><pre><code class="language-bat" data-lang="bat">C:\Users\Nathan\OneDrive\<span class="m">02</span> - Code\<span class="m">15</span> - ASP.NET\vscode\TheWorld<span class="p">&gt;</span><span class="n">dir</span>
+<figure class="highlight"><pre><code class="language-bat" data-lang="bat">C:\Users\Nathan\OneDrive\02 - Code\15 - ASP.NET\vscode\TheWorld&gt;dir
  Volume in drive C has no label.
- Volume Serial Number is <span class="m">2</span>A<span class="m">20</span>-B<span class="m">603</span>
+ Volume Serial Number is 2A20-B603
 
- Directory of C:\Users\Nathan\OneDrive\<span class="m">02</span> - Code\<span class="m">15</span> - ASP.NET\vscode\TheWorld
+ Directory of C:\Users\Nathan\OneDrive\02 - Code\15 - ASP.NET\vscode\TheWorld
 
-<span class="m">12</span><span class="n">/12/2015</span>  <span class="m">04</span><span class="nl">:17</span> PM    <span class="p">&lt;</span><span class="n">DIR</span>&gt;          .
-<span class="m">12</span><span class="n">/12/2015</span>  <span class="m">04</span><span class="nl">:17</span> PM    <span class="p">&lt;</span><span class="n">DIR</span>&gt;          ..
-<span class="m">12</span><span class="n">/12/2015</span>  <span class="m">04</span><span class="nl">:17</span> PM                <span class="m">33</span> .bowerrc
-<span class="m">12</span><span class="n">/12/2015</span>  <span class="m">04</span><span class="nl">:17</span> PM             <span class="m">3</span><span class="p">,</span><span class="m">090</span> .gitignore
-<span class="m">12</span><span class="n">/12/2015</span>  <span class="m">04</span><span class="nl">:17</span> PM               <span class="m">167</span> appsettings.json
-<span class="m">12</span><span class="n">/12/2015</span>  <span class="m">04</span><span class="nl">:17</span> PM               <span class="m">198</span> bower.json
-<span class="m">12</span><span class="n">/12/2015</span>  <span class="m">04</span><span class="nl">:17</span> PM    <span class="p">&lt;</span><span class="n">DIR</span><span class="p">&gt;</span>          <span class="n">Controllers</span>
-<span class="m">12</span><span class="n">/12/2015</span>  <span class="m">04</span><span class="nl">:17</span> PM               <span class="m">146</span> Dockerfile
-<span class="m">12</span><span class="n">/12/2015</span>  <span class="m">04</span><span class="nl">:17</span> PM             <span class="m">1</span><span class="p">,</span><span class="m">189</span> gulpfile.js
-<span class="m">12</span><span class="n">/12/2015</span>  <span class="m">04</span><span class="nl">:17</span> PM    <span class="p">&lt;</span><span class="n">DIR</span><span class="p">&gt;</span>          <span class="n">Migrations</span>
-<span class="m">12</span><span class="n">/12/2015</span>  <span class="m">04</span><span class="nl">:17</span> PM    <span class="p">&lt;</span><span class="n">DIR</span><span class="p">&gt;</span>          <span class="n">Models</span>
-<span class="m">12</span><span class="n">/12/2015</span>  <span class="m">04</span><span class="nl">:17</span> PM               <span class="m">203</span> package.json
-<span class="m">12</span><span class="n">/12/2015</span>  <span class="m">04</span><span class="nl">:17</span> PM             <span class="m">1</span><span class="p">,</span><span class="m">884</span> project.json
-<span class="m">12</span><span class="n">/12/2015</span>  <span class="m">04</span><span class="nl">:17</span> PM             <span class="m">2</span><span class="p">,</span><span class="m">722</span> README.<span class="k">md</span>
-<span class="m">12</span><span class="n">/12/2015</span>  <span class="m">04</span><span class="nl">:17</span> PM    <span class="p">&lt;</span><span class="n">DIR</span><span class="p">&gt;</span>          <span class="n">Services</span>
-<span class="m">12</span><span class="n">/12/2015</span>  <span class="m">04</span><span class="nl">:17</span> PM             <span class="m">4</span><span class="p">,</span><span class="m">116</span> Startup.cs
-<span class="m">12</span><span class="n">/12/2015</span>  <span class="m">04</span><span class="nl">:17</span> PM    <span class="p">&lt;</span><span class="n">DIR</span><span class="p">&gt;</span>          <span class="n">ViewModels</span>
-<span class="m">12</span><span class="n">/12/2015</span>  <span class="m">04</span><span class="nl">:17</span> PM    <span class="p">&lt;</span><span class="n">DIR</span><span class="p">&gt;</span>          <span class="n">Views</span>
-<span class="m">12</span><span class="n">/12/2015</span>  <span class="m">04</span><span class="nl">:17</span> PM    <span class="p">&lt;</span><span class="n">DIR</span><span class="p">&gt;</span>          <span class="n">wwwroot</span>
-              <span class="m">10</span> File(s)         <span class="m">13</span><span class="p">,</span><span class="m">748</span> bytes
-               <span class="m">9</span> Dir(s)  <span class="m">43</span><span class="p">,</span><span class="m">917</span><span class="p">,</span><span class="m">889</span><span class="p">,</span><span class="m">536</span> bytes free</code></pre></figure>
+12/12/2015  04:17 PM    &lt;DIR&gt;          .
+12/12/2015  04:17 PM    &lt;DIR&gt;          ..
+12/12/2015  04:17 PM                33 .bowerrc
+12/12/2015  04:17 PM             3,090 .gitignore
+12/12/2015  04:17 PM               167 appsettings.json
+12/12/2015  04:17 PM               198 bower.json
+12/12/2015  04:17 PM    &lt;DIR&gt;          Controllers
+12/12/2015  04:17 PM               146 Dockerfile
+12/12/2015  04:17 PM             1,189 gulpfile.js
+12/12/2015  04:17 PM    &lt;DIR&gt;          Migrations
+12/12/2015  04:17 PM    &lt;DIR&gt;          Models
+12/12/2015  04:17 PM               203 package.json
+12/12/2015  04:17 PM             1,884 project.json
+12/12/2015  04:17 PM             2,722 README.md
+12/12/2015  04:17 PM    &lt;DIR&gt;          Services
+12/12/2015  04:17 PM             4,116 Startup.cs
+12/12/2015  04:17 PM    &lt;DIR&gt;          ViewModels
+12/12/2015  04:17 PM    &lt;DIR&gt;          Views
+12/12/2015  04:17 PM    &lt;DIR&gt;          wwwroot
+              10 File(s)         13,748 bytes
+               9 Dir(s)  43,917,889,536 bytes free</code></pre></figure>
 
 <h2 id="using-visual-studio-code-vs-code">Using Visual Studio Code (VS Code)</h2>
 
 <p>Next we want to open this project in VSCode. This can easily be done by simply typing:</p>
 
-<figure class="highlight"><pre><code class="language-bat" data-lang="bat">C:\Users\Nathan\OneDrive\<span class="m">02</span> - Code\<span class="m">15</span> - ASP.NET\vscode\TheWorld<span class="p">&gt;</span><span class="n">code</span> .</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bat" data-lang="bat">C:\Users\Nathan\OneDrive\02 - Code\15 - ASP.NET\vscode\TheWorld&gt;code .</code></pre></figure>
 
-<p>You will be greeted with the lightweight visual studio code suite with the files we just generated loaded into the <code>Working File</code> menu.</p>
+<p>You will be greeted with the lightweight visual studio code suite with the files we just generated loaded into the <code class="highlighter-rouge">Working File</code> menu.</p>
 
 <p>Go ahead and open the project.json file (you’ll recognize this file from the previous tutorial) and have a look at its contents.</p>
 
 <p>The first block is some of the simple project specifications relating to version and namespace.</p>
 
 <figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="p">{</span>
-  <span class="s2">&quot;version&quot;</span><span class="o">:</span> <span class="s2">&quot;1.0.0-*&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;userSecretsId&quot;</span><span class="o">:</span> <span class="s2">&quot;aspnet5-TheWorld-8d40ceab-225c-43dd-b17b-c58e50e50d29&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;compilationOptions&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;emitEntryPoint&quot;</span><span class="o">:</span> <span class="kc">true</span>
+  <span class="s2">"version"</span><span class="err">:</span> <span class="s2">"1.0.0-*"</span><span class="p">,</span>
+  <span class="s2">"userSecretsId"</span><span class="err">:</span> <span class="s2">"aspnet5-TheWorld-8d40ceab-225c-43dd-b17b-c58e50e50d29"</span><span class="p">,</span>
+  <span class="s2">"compilationOptions"</span><span class="err">:</span> <span class="p">{</span>
+    <span class="s2">"emitEntryPoint"</span><span class="err">:</span> <span class="kc">true</span>
   <span class="p">},</span>
-  <span class="s2">&quot;tooling&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;defaultNamespace&quot;</span><span class="o">:</span> <span class="s2">&quot;TheWorld&quot;</span>
+  <span class="s2">"tooling"</span><span class="err">:</span> <span class="p">{</span>
+    <span class="s2">"defaultNamespace"</span><span class="err">:</span> <span class="s2">"TheWorld"</span>
   <span class="p">},</span></code></pre></figure>
 
-<p>The next block is one we’ll be using quite regularly, the dependencies for the project listing the <code>NuGets</code> we’re going to use when building our application.</p>
+<p>The next block is one we’ll be using quite regularly, the dependencies for the project listing the <code class="highlighter-rouge">NuGets</code> we’re going to use when building our application.</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="s2">&quot;dependencies&quot;</span><span class="o">:</span> <span class="p">{</span>
-  <span class="s2">&quot;EntityFramework.Commands&quot;</span><span class="o">:</span> <span class="s2">&quot;7.0.0-rc1-final&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;EntityFramework.SQLite&quot;</span><span class="o">:</span> <span class="s2">&quot;7.0.0-rc1-final&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;EntityFramework.MicrosoftSqlServer&quot;</span><span class="o">:</span> <span class="s2">&quot;7.0.0-rc1-final&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;Microsoft.AspNet.Authentication.Cookies&quot;</span><span class="o">:</span> <span class="s2">&quot;1.0.0-rc1-final&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;Microsoft.AspNet.Diagnostics.Entity&quot;</span><span class="o">:</span> <span class="s2">&quot;7.0.0-rc1-final&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;Microsoft.AspNet.Identity.EntityFramework&quot;</span><span class="o">:</span> <span class="s2">&quot;3.0.0-rc1-final&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;Microsoft.AspNet.IISPlatformHandler&quot;</span><span class="o">:</span> <span class="s2">&quot;1.0.0-rc1-final&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;Microsoft.AspNet.Mvc&quot;</span><span class="o">:</span> <span class="s2">&quot;6.0.0-rc1-final&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;Microsoft.AspNet.Mvc.TagHelpers&quot;</span><span class="o">:</span> <span class="s2">&quot;6.0.0-rc1-final&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;Microsoft.AspNet.Server.Kestrel&quot;</span><span class="o">:</span> <span class="s2">&quot;1.0.0-rc1-final&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;Microsoft.AspNet.StaticFiles&quot;</span><span class="o">:</span> <span class="s2">&quot;1.0.0-rc1-final&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;Microsoft.AspNet.Tooling.Razor&quot;</span><span class="o">:</span> <span class="s2">&quot;1.0.0-rc1-final&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;Microsoft.Dnx.Runtime&quot;</span><span class="o">:</span><span class="s2">&quot;1.0.0-rc1-final&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;Microsoft.Extensions.CodeGenerators.Mvc&quot;</span><span class="o">:</span> <span class="s2">&quot;1.0.0-rc1-final&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;Microsoft.Extensions.Configuration.FileProviderExtensions&quot;</span> <span class="o">:</span> <span class="s2">&quot;1.0.0-rc1-final&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;Microsoft.Extensions.Configuration.Json&quot;</span><span class="o">:</span> <span class="s2">&quot;1.0.0-rc1-final&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;Microsoft.Extensions.Configuration.UserSecrets&quot;</span><span class="o">:</span> <span class="s2">&quot;1.0.0-rc1-final&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;Microsoft.Extensions.Logging&quot;</span><span class="o">:</span> <span class="s2">&quot;1.0.0-rc1-final&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;Microsoft.Extensions.Logging.Console&quot;</span><span class="o">:</span> <span class="s2">&quot;1.0.0-rc1-final&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;Microsoft.Extensions.Logging.Debug&quot;</span><span class="o">:</span> <span class="s2">&quot;1.0.0-rc1-final&quot;</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="s2">"dependencies"</span><span class="err">:</span> <span class="p">{</span>
+  <span class="s2">"EntityFramework.Commands"</span><span class="err">:</span> <span class="s2">"7.0.0-rc1-final"</span><span class="p">,</span>
+  <span class="s2">"EntityFramework.SQLite"</span><span class="err">:</span> <span class="s2">"7.0.0-rc1-final"</span><span class="p">,</span>
+  <span class="s2">"EntityFramework.MicrosoftSqlServer"</span><span class="err">:</span> <span class="s2">"7.0.0-rc1-final"</span><span class="p">,</span>
+  <span class="s2">"Microsoft.AspNet.Authentication.Cookies"</span><span class="err">:</span> <span class="s2">"1.0.0-rc1-final"</span><span class="p">,</span>
+  <span class="s2">"Microsoft.AspNet.Diagnostics.Entity"</span><span class="err">:</span> <span class="s2">"7.0.0-rc1-final"</span><span class="p">,</span>
+  <span class="s2">"Microsoft.AspNet.Identity.EntityFramework"</span><span class="err">:</span> <span class="s2">"3.0.0-rc1-final"</span><span class="p">,</span>
+  <span class="s2">"Microsoft.AspNet.IISPlatformHandler"</span><span class="err">:</span> <span class="s2">"1.0.0-rc1-final"</span><span class="p">,</span>
+  <span class="s2">"Microsoft.AspNet.Mvc"</span><span class="err">:</span> <span class="s2">"6.0.0-rc1-final"</span><span class="p">,</span>
+  <span class="s2">"Microsoft.AspNet.Mvc.TagHelpers"</span><span class="err">:</span> <span class="s2">"6.0.0-rc1-final"</span><span class="p">,</span>
+  <span class="s2">"Microsoft.AspNet.Server.Kestrel"</span><span class="err">:</span> <span class="s2">"1.0.0-rc1-final"</span><span class="p">,</span>
+  <span class="s2">"Microsoft.AspNet.StaticFiles"</span><span class="err">:</span> <span class="s2">"1.0.0-rc1-final"</span><span class="p">,</span>
+  <span class="s2">"Microsoft.AspNet.Tooling.Razor"</span><span class="err">:</span> <span class="s2">"1.0.0-rc1-final"</span><span class="p">,</span>
+  <span class="s2">"Microsoft.Dnx.Runtime"</span><span class="err">:</span><span class="s2">"1.0.0-rc1-final"</span><span class="p">,</span>
+  <span class="s2">"Microsoft.Extensions.CodeGenerators.Mvc"</span><span class="err">:</span> <span class="s2">"1.0.0-rc1-final"</span><span class="p">,</span>
+  <span class="s2">"Microsoft.Extensions.Configuration.FileProviderExtensions"</span> <span class="err">:</span> <span class="s2">"1.0.0-rc1-final"</span><span class="p">,</span>
+  <span class="s2">"Microsoft.Extensions.Configuration.Json"</span><span class="err">:</span> <span class="s2">"1.0.0-rc1-final"</span><span class="p">,</span>
+  <span class="s2">"Microsoft.Extensions.Configuration.UserSecrets"</span><span class="err">:</span> <span class="s2">"1.0.0-rc1-final"</span><span class="p">,</span>
+  <span class="s2">"Microsoft.Extensions.Logging"</span><span class="err">:</span> <span class="s2">"1.0.0-rc1-final"</span><span class="p">,</span>
+  <span class="s2">"Microsoft.Extensions.Logging.Console"</span><span class="err">:</span> <span class="s2">"1.0.0-rc1-final"</span><span class="p">,</span>
+  <span class="s2">"Microsoft.Extensions.Logging.Debug"</span><span class="err">:</span> <span class="s2">"1.0.0-rc1-final"</span>
 <span class="p">},</span></code></pre></figure>
 
 <p>Finally we’ve got some specified commands and housekeeping code.</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="s2">&quot;commands&quot;</span><span class="o">:</span> <span class="p">{</span>
-  <span class="s2">&quot;web&quot;</span><span class="o">:</span> <span class="s2">&quot;Microsoft.AspNet.Server.Kestrel&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;ef&quot;</span><span class="o">:</span> <span class="s2">&quot;EntityFramework.Commands&quot;</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="s2">"commands"</span><span class="err">:</span> <span class="p">{</span>
+  <span class="s2">"web"</span><span class="err">:</span> <span class="s2">"Microsoft.AspNet.Server.Kestrel"</span><span class="p">,</span>
+  <span class="s2">"ef"</span><span class="err">:</span> <span class="s2">"EntityFramework.Commands"</span>
 <span class="p">},</span>
 
-<span class="s2">&quot;frameworks&quot;</span><span class="o">:</span> <span class="p">{</span>
-  <span class="s2">&quot;dnx451&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="p">},</span>
-  <span class="s2">&quot;dnxcore50&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="p">}</span>
+<span class="s2">"frameworks"</span><span class="err">:</span> <span class="p">{</span>
+  <span class="s2">"dnx451"</span><span class="err">:</span> <span class="p">{</span> <span class="p">},</span>
+  <span class="s2">"dnxcore50"</span><span class="err">:</span> <span class="p">{</span> <span class="p">}</span>
 <span class="p">},</span>
 
-<span class="s2">&quot;exclude&quot;</span><span class="o">:</span> <span class="p">[</span>
-  <span class="s2">&quot;wwwroot&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;node_modules&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;bower_components&quot;</span>
+<span class="s2">"exclude"</span><span class="err">:</span> <span class="p">[</span>
+  <span class="s2">"wwwroot"</span><span class="p">,</span>
+  <span class="s2">"node_modules"</span><span class="p">,</span>
+  <span class="s2">"bower_components"</span>
 <span class="p">],</span>
-<span class="s2">&quot;publishExclude&quot;</span><span class="o">:</span> <span class="p">[</span>
-  <span class="s2">&quot;**.user&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;**.vspscc&quot;</span>
+<span class="s2">"publishExclude"</span><span class="err">:</span> <span class="p">[</span>
+  <span class="s2">"**.user"</span><span class="p">,</span>
+  <span class="s2">"**.vspscc"</span>
 <span class="p">],</span>
-<span class="s2">&quot;scripts&quot;</span><span class="o">:</span> <span class="p">{</span>
-  <span class="s2">&quot;prepublish&quot;</span><span class="o">:</span> <span class="p">[</span>
-    <span class="s2">&quot;npm install&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;bower install&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;gulp clean&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;gulp min&quot;</span>
+<span class="s2">"scripts"</span><span class="err">:</span> <span class="p">{</span>
+  <span class="s2">"prepublish"</span><span class="err">:</span> <span class="p">[</span>
+    <span class="s2">"npm install"</span><span class="p">,</span>
+    <span class="s2">"bower install"</span><span class="p">,</span>
+    <span class="s2">"gulp clean"</span><span class="p">,</span>
+    <span class="s2">"gulp min"</span>
   <span class="p">]</span>
 <span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
 
-<p>Next open up the <code>Startup.cs</code> file. You’ll notice along the top bar that there will be unresolved dependencies which you’ll be asked to resolve by clicking Restore.</p>
+<p>Next open up the <code class="highlighter-rouge">Startup.cs</code> file. You’ll notice along the top bar that there will be unresolved dependencies which you’ll be asked to resolve by clicking Restore.</p>
 
-<p>A terminal windows will spring open and begin downloading and installing all the required <code>NuGet</code> packages. If this is your first time using these <code>NuGet</code> packages, there’s a good chance it’ll take some time to install.</p>
+<p>A terminal windows will spring open and begin downloading and installing all the required <code class="highlighter-rouge">NuGet</code> packages. If this is your first time using these <code class="highlighter-rouge">NuGet</code> packages, there’s a good chance it’ll take some time to install.</p>
 
-<figure class="highlight"><pre><code class="language-bat" data-lang="bat">Restore complete<span class="p">,</span> <span class="m">167284</span>ms elapsed
+<figure class="highlight"><pre><code class="language-bat" data-lang="bat">Restore complete, 167284ms elapsed
 
 NuGet Config files used:
     C:\Users\Nathan\AppData\Roaming\NuGet\nuget.config
 
 Feeds used:
-    https:<span class="n">//api.nuget.org/v3-flatcontainer/</span>
+    https://api.nuget.org/v3-flatcontainer/
 
 Installed:
-    <span class="m">265</span> package(s) to C:\Users\Nathan\.dnx\packages</code></pre></figure>
+    265 package(s) to C:\Users\Nathan\.dnx\packages</code></pre></figure>
 
 <p>You will now get intellisense on most of your project! Yay!.</p>
 
 <p>Just back into the project.json file and have a look at the code between the ‘commands’ braces. You should see two:</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="s2">&quot;web&quot;</span><span class="o">:</span> <span class="s2">&quot;Microsoft.AspNet.Server.Kestrel&quot;</span><span class="p">,</span>
-<span class="s2">&quot;ef&quot;</span><span class="o">:</span> <span class="s2">&quot;EntityFramework.Commands&quot;</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="s2">"web"</span><span class="err">:</span> <span class="s2">"Microsoft.AspNet.Server.Kestrel"</span><span class="p">,</span>
+<span class="s2">"ef"</span><span class="err">:</span> <span class="s2">"EntityFramework.Commands"</span></code></pre></figure>
 
 <p>So let’s give one of them a go. Open your terminal windows again and run the following:</p>
 
-<figure class="highlight"><pre><code class="language-bat" data-lang="bat">C:\Users\Nathan\OneDrive\<span class="m">02</span> - Code\<span class="m">15</span> - ASP.NET\vscode\TheWorld<span class="p">&gt;</span><span class="n">dnx</span> web</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bat" data-lang="bat">C:\Users\Nathan\OneDrive\02 - Code\15 - ASP.NET\vscode\TheWorld&gt;dnx web</code></pre></figure>
 
 <p>Near the end of the output you’ll see the following lines that indicate that you have a webserver running on port 5000 hosted on the local machine.</p>
 
 <figure class="highlight"><pre><code class="language-bat" data-lang="bat">Hosting environment: Production
-Now listening <span class="k">on</span>: http:<span class="n">//localhost:5000</span>
+Now listening on: http://localhost:5000
 Application started. Press Ctrl+C to shut down.</code></pre></figure>
 
 <p>Go ahead and open your web browser to the specified location and you’ll be greeted with a wonderful splash screen that is actually your ASP.NET instance running from the command line. You can view live requests chains in the terminal windows as you navigate around the splash screen.</p>
 
-<figure class="highlight"><pre><code class="language-bat" data-lang="bat">info: Microsoft.AspNet.StaticFiles.StaticFileMiddleware[<span class="m">2</span>]
-      Sending file. Request path: <span class="s1">&#39;/js/site.min.js&#39;</span>. Physical path: <span class="s1">&#39;C:\Users\Nathan\OneDrive\02 - Code\15 - ASP.NET\vscode\TheWorld\wwwroot\js\site.min.js&#39;</span>
-info: Microsoft.AspNet.Hosting.Internal.HostingEngine[<span class="m">2</span>]
-      Request finished in <span class="m">0</span>.<span class="m">3562</span>ms <span class="m">200</span> image<span class="n">/png</span>
-info: Microsoft.AspNet.Hosting.Internal.HostingEngine[<span class="m">2</span>]
-      Request finished in <span class="m">0</span>.<span class="m">375</span>ms <span class="m">200</span> image<span class="n">/png</span>
-info: Microsoft.AspNet.Hosting.Internal.HostingEngine[<span class="m">2</span>]
-      Request finished in <span class="m">0</span>.<span class="m">1687</span>ms <span class="m">200</span> image<span class="n">/png</span>
-info: Microsoft.AspNet.Hosting.Internal.HostingEngine[<span class="m">2</span>]
-      Request finished in <span class="m">0</span>.<span class="m">1484</span>ms <span class="m">200</span> application<span class="n">/javascript</span>
-info: Microsoft.AspNet.Hosting.Internal.HostingEngine[<span class="m">2</span>]
-      Request finished in <span class="m">0</span>.<span class="m">2016</span>ms <span class="m">200</span> image<span class="n">/png</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-bat" data-lang="bat">info: Microsoft.AspNet.StaticFiles.StaticFileMiddleware[2]
+      Sending file. Request path: '/js/site.min.js'. Physical path: 'C:\Users\Nathan\OneDrive\02 - Code\15 - ASP.NET\vscode\TheWorld\wwwroot\js\site.min.js'
+info: Microsoft.AspNet.Hosting.Internal.HostingEngine[2]
+      Request finished in 0.3562ms 200 image/png
+info: Microsoft.AspNet.Hosting.Internal.HostingEngine[2]
+      Request finished in 0.375ms 200 image/png
+info: Microsoft.AspNet.Hosting.Internal.HostingEngine[2]
+      Request finished in 0.1687ms 200 image/png
+info: Microsoft.AspNet.Hosting.Internal.HostingEngine[2]
+      Request finished in 0.1484ms 200 application/javascript
+info: Microsoft.AspNet.Hosting.Internal.HostingEngine[2]
+      Request finished in 0.2016ms 200 image/png</code></pre></figure>
 
 <h2 id="summary">Summary</h2>
 
-<p>We’ve learnt how to generate code using Yeoman and edit/view it in <code>Visual Studio Code</code>. In the next lesson we’ll be learning how to do the same thing, from scratch in <code>Visual Studio 2015</code>. Hopefully I’m not going into too much detail, but I think it’s beneficial to have the whole process documented instead of assuming everything will understand exactly what’s going on.</p>
+<p>We’ve learnt how to generate code using Yeoman and edit/view it in <code class="highlighter-rouge">Visual Studio Code</code>. In the next lesson we’ll be learning how to do the same thing, from scratch in <code class="highlighter-rouge">Visual Studio 2015</code>. Hopefully I’m not going into too much detail, but I think it’s beneficial to have the whole process documented instead of assuming everything will understand exactly what’s going on.</p>
 
+              </div>
+              
+
+              
+              <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
               </div>
               
             </div>
@@ -348,18 +355,238 @@ info: Microsoft.AspNet.Hosting.Internal.HostingEngine[<span class="m">2</span>]
         </div>
         <div class="col-md-4 hidden-xs">
           <div class="sidebar ">
-  <h1>Recent Posts</h1>
+  
+    <h1>Related By Tags</h1>
+  
   <ul>
     
-    <li><a href="/2015/12/arduino-projects-working-with-sound">Arduino Projects - Working with Sound</a></li>
     
-    <li><a href="/2015/12/arduino-project-lcd-displays">Arduino Projects - LCD Displays</a></li>
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
     
-    <li><a href="/2015/12/arduino-projects-thumbstick-to-rgb-led">Arduino Projects - Thumbstick to RGB LED</a></li>
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
     
-    <li><a href="/2015/12/learning-aspnet-building-in-visual-studio-2015-part-3">Learning ASP.NET - Building in Visual Studio 2015 (Part 3)</a></li>
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
     
-    <li><a href="/2015/12/learning-aspnet-using-vscode-and-yeoman-part-2">Learning ASP.NET - Using VScode and Yeoman (Part 2)</a></li>
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+            <li><a href="http://t04glovern.github.io/2015/12/learning-aspnet-building-in-visual-studio-2015-part-3">Learning ASP.NET - Building in Visual Studio 2015 (Part 3)</a></li>
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+            <li><a href="http://t04glovern.github.io/2015/12/learning-aspnet-part-1">Learning ASP.NET - Installing ASP.NET Runtime (Part 1)</a></li>
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
     
   </ul>
 </div>
@@ -367,30 +594,30 @@ info: Microsoft.AspNet.Hosting.Internal.HostingEngine[<span class="m">2</span>]
 <div class="sidebar">
   <h1>Tags</h1>
   <ul>
-    
-      <li><a href="/tag/node.js">node.js</a></li>
-    
-      <li><a href="/tag/bash">bash</a></li>
-    
-      <li><a href="/tag/script">script</a></li>
+     
+      <li><a href="/tag/arduino">arduino</a></li>
     
       <li><a href="/tag/asp.net">asp.net</a></li>
     
-      <li><a href="/tag/windows">windows</a></li>
-    
-      <li><a href="/tag/yeoman">yeoman</a></li>
-    
-      <li><a href="/tag/vscode">vscode</a></li>
-    
-      <li><a href="/tag/visualstudio">visualstudio</a></li>
-    
-      <li><a href="/tag/arduino">arduino</a></li>
+      <li><a href="/tag/bash">bash</a></li>
     
       <li><a href="/tag/electronics">electronics</a></li>
     
       <li><a href="/tag/lcd">lcd</a></li>
     
+      <li><a href="/tag/node.js">node.js</a></li>
+    
+      <li><a href="/tag/script">script</a></li>
+    
       <li><a href="/tag/sound">sound</a></li>
+    
+      <li><a href="/tag/visualstudio">visualstudio</a></li>
+    
+      <li><a href="/tag/vscode">vscode</a></li>
+    
+      <li><a href="/tag/windows">windows</a></li>
+    
+      <li><a href="/tag/yeoman">yeoman</a></li>
     
   </ul>
 </div>
@@ -399,6 +626,22 @@ info: Microsoft.AspNet.Hosting.Internal.HostingEngine[<span class="m">2</span>]
       </div>
     </div>
     
+<!-- Add Disqus comments. -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = "t04glovern"; // required: replace example with your forum shortname
+  var disqus_identifier = "/2015/12/learning-aspnet-using-vscode-and-yeoman-part-2";
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
 
   </div>
       <footer class="footer-distributed">
@@ -409,33 +652,55 @@ info: Microsoft.AspNet.Hosting.Internal.HostingEngine[<span class="m">2</span>]
 
 <ul class="social-media">
 
-  
+    
     <li>
-      <a title="t04glovern on Github" href="https://github.com/t04glovern" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+        <a title="t04glovern on Github"
+            href="https://github.com/t04glovern"
+            target="_blank"><i class="fa fa-github fa-2x"></i></a>
     </li>
-  
+    
 
-  
+    
     <li>
-      <a title="5443325 on StackOverflow" href="http://stackoverflow.com/users/5443325" target="_blank"><i class="fa fa-stack-overflow fa-2x"></i></a>
+        <a title="5443325 on StackOverflow"
+            href="http://stackoverflow.com/users/5443325"
+            target="_blank"><i class="fa fa-stack-overflow fa-2x"></i></a>
     </li>
-  
+    
 
-  
+    
     <li>
-      <a title="t04glovern on LinkedIn" href="https://www.linkedin.com/in/glovernathan" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
+        <a title="t04glovern on LinkedIn"
+            href="https://www.linkedin.com/in/glovernathan"
+            target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
     </li>
-  
+    
 
-  
 
-  
-
-  
+    
     <li>
-      <a title="feed.xml RSS" href="http://t04glovern.github.io/feed.xml" target="_blank"><i class="fa fa-rss fa-2x"></i></a>
+        <a title="nathanglove on Instagram"
+            href="https://instagram.com/nathanglove"
+            target="_blank"><i class="fa fa-instagram fa-2x"></i></a>
     </li>
-  
+    
+
+
+    
+    <li>
+        <a title="t04glovern on LastFm"
+            href="http://lastfm.com/user/t04glovern"
+            target="_blank"><i class="fa fa-lastfm fa-2x"></i></a>
+    </li>
+    
+
+    
+    <li>
+        <a title="feed.xml RSS"
+            href="http://t04glovern.github.io/feed.xml"
+            target="_blank"><i class="fa fa-rss fa-2x"></i></a>
+    </li>
+    
 
 </ul>
 

@@ -7,11 +7,12 @@
   <script src="http://t04glovern.github.io/js/jquery.min.js"></script>
   <script src="http://t04glovern.github.io/js/bootstrap.min.js"></script>
   <script src="http://t04glovern.github.io/js/header.js"></script>
-  <script src="http://t04glovern.github.io/js/toc.js"></script>
   <link href="http://t04glovern.github.io/css/bootstrap.min.css" rel="stylesheet">
   <link href="http://t04glovern.github.io/css/theme.css" rel="stylesheet">
   <link href="http://t04glovern.github.io/css/syntax.css" rel="stylesheet">
   <link href="http://t04glovern.github.io/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu+Mono&subset=latin">
+
 </head>
 
 <body>
@@ -35,7 +36,7 @@
   
 
 
- <script type="text/javascript">
+  <script type="text/javascript">
   WebFontConfig = {
     google: {
       families: ['Ubuntu::latin']
@@ -98,10 +99,9 @@
                 </ul>
               </div>
               <div class="post-content">
-                <div id="toc" class="toc"></div>
                 <h1 id="introduction">Introduction</h1>
 
-<p>Tonight we’re going to be looking into how sound is produced and also run through the steps required to get our <code>Arduino</code> to produce sound. The <code>Arduino</code>can produce sounds a number of ways; The simplest method, and the one we’re going to look into is the <a href="https://www.arduino.cc/en/Reference/Tone"><code>tone()</code></a> function.</p>
+<p>Tonight we’re going to be looking into how sound is produced and also run through the steps required to get our <code class="highlighter-rouge">Arduino</code> to produce sound. The <code class="highlighter-rouge">Arduino</code>can produce sounds a number of ways; The simplest method, and the one we’re going to look into is the <a href="https://www.arduino.cc/en/Reference/Tone"><code class="highlighter-rouge">tone()</code></a> function.</p>
 
 <h1 id="understanding-how-a-speaker-works">Understanding how a speaker works</h1>
 
@@ -110,13 +110,13 @@
 <p>When we create a sound with our Arduino we can control two properties of these vibrating particles; Frequency and Amplitude.</p>
 
 <ol>
-  <li><code>Frequency</code> - represents how quickly the air particles vibrate back and forth.
+  <li><code class="highlighter-rouge">Frequency</code> - represents how quickly the air particles vibrate back and forth.
     <ul>
       <li>High Frequency = sounds are a higher pitch (soprano)</li>
       <li>Low Frequency = sounds are a lower pitch (bass)</li>
     </ul>
   </li>
-  <li><code>Amplitude</code> - represents the magnitude of their vibrations.
+  <li><code class="highlighter-rouge">Amplitude</code> - represents the magnitude of their vibrations.
     <ul>
       <li>High Amplitude = sounds are louder</li>
       <li>Low Amplitude = sounds are quieter</li>
@@ -124,13 +124,13 @@
   </li>
 </ol>
 
-<p>Example the waveforms below, specifically lets take a look at <code>Middle C</code></p>
+<p>Example the waveforms below, specifically lets take a look at <code class="highlighter-rouge">Middle C</code></p>
 
 <p><img src="http://t04glovern.github.io/images/posts/arduino-speaker-waves.jpg" alt="Speaker Waveform" /></p>
 
-<p><code>Middle C</code> has a <code>frequency of 261.63 Hertz (Hz)</code>. In other words, a speaker, a guitar string, or a piano string would complete <code>261.63 oscillations per second</code>. We find the period of that by taking <code>1 / 261.62</code> which equals <code>3.822 milliseconds</code>, which is the width of one complete oscillation in the graph. We can use that value and set it as the period for a square wave and thus adjust the tone of a note.</p>
+<p><code class="highlighter-rouge">Middle C</code> has a <code class="highlighter-rouge">frequency of 261.63 Hertz (Hz)</code>. In other words, a speaker, a guitar string, or a piano string would complete <code class="highlighter-rouge">261.63 oscillations per second</code>. We find the period of that by taking <code class="highlighter-rouge">1 / 261.62</code> which equals <code class="highlighter-rouge">3.822 milliseconds</code>, which is the width of one complete oscillation in the graph. We can use that value and set it as the period for a square wave and thus adjust the tone of a note.</p>
 
-<p><code>NOTE:</code> Since the Arduino cannot create a true sinusoidal wave that you’d normally hear in the real world, we have to work with a plain square wave. The square wave oscillates between <code>HIGH</code> and <code>LOW</code> while switching instantly, instead of slowly like a sine wave. This results in a pressure wave that doesn’t fade off over time, leaving you with just a solid tone.</p>
+<p><code class="highlighter-rouge">NOTE:</code> Since the Arduino cannot create a true sinusoidal wave that you’d normally hear in the real world, we have to work with a plain square wave. The square wave oscillates between <code class="highlighter-rouge">HIGH</code> and <code class="highlighter-rouge">LOW</code> while switching instantly, instead of slowly like a sine wave. This results in a pressure wave that doesn’t fade off over time, leaving you with just a solid tone.</p>
 
 <p><img src="http://t04glovern.github.io/images/posts/arduino-speaker-parts.png" alt="Speaker Parts" /></p>
 
@@ -153,136 +153,136 @@
 
 <h1 id="using-the-tone-function">Using the tone() function</h1>
 
-<p><code>Arduino IDE</code> includes a built-in function for easily making sounds with arbitrary frequencies. The <a href="https://www.arduino.cc/en/Reference/Tone"><code>tone()</code></a> function generates a square wave of the selected frequency on the output pin of your choice. The tone() function accepts three arguments:</p>
+<p><code class="highlighter-rouge">Arduino IDE</code> includes a built-in function for easily making sounds with arbitrary frequencies. The <a href="https://www.arduino.cc/en/Reference/Tone"><code class="highlighter-rouge">tone()</code></a> function generates a square wave of the selected frequency on the output pin of your choice. The tone() function accepts three arguments:</p>
 
 <ol>
   <li>
-    <p><code>pin</code> - the pin on which to generate the tone</p>
+    <p><code class="highlighter-rouge">pin</code> - the pin on which to generate the tone</p>
   </li>
   <li>
-    <p><code>frequency</code> - the frequency of the tone in hertz (unsigned int)</p>
+    <p><code class="highlighter-rouge">frequency</code> - the frequency of the tone in hertz (unsigned int)</p>
   </li>
   <li>
-    <p><code>duration</code> - the duration of the tone in milliseconds (optional); If this argument is not set, the tone continues playing until you call <a href="https://www.arduino.cc/en/Reference/NoTone"><code>noTone()</code></a>.</p>
+    <p><code class="highlighter-rouge">duration</code> - the duration of the tone in milliseconds (optional); If this argument is not set, the tone continues playing until you call <a href="https://www.arduino.cc/en/Reference/NoTone"><code class="highlighter-rouge">noTone()</code></a>.</p>
   </li>
 </ol>
 
 <p>Lets have a look at some code from the <a href="https://www.arduino.cc/en/Tutorial/ToneMelody?from=Tutorial.Tone">Arduino community reference page</a>.</p>
 
-<p>To start with we hook up <code>positive</code> line from our <code>speaker</code> to <code>Digital Pin 8</code> on the <code>Arduino</code>. Lets add this line to our code defining the pin 8 constant:</p>
+<p>To start with we hook up <code class="highlighter-rouge">positive</code> line from our <code class="highlighter-rouge">speaker</code> to <code class="highlighter-rouge">Digital Pin 8</code> on the <code class="highlighter-rouge">Arduino</code>. Lets add this line to our code defining the pin 8 constant:</p>
 
 <figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// Pin for tone output</span>
 <span class="kd">const</span> <span class="kt">int</span> <span class="n">tonePin</span> <span class="o">=</span> <span class="mi">8</span><span class="o">;</span></code></pre></figure>
 
-<p>Next we’ll create a little melody for our Arduino to play. We can do this using an <code>array</code> called <code>melody</code> with our notes listed in each subsequent slot.</p>
+<p>Next we’ll create a little melody for our Arduino to play. We can do this using an <code class="highlighter-rouge">array</code> called <code class="highlighter-rouge">melody</code> with our notes listed in each subsequent slot.</p>
 
 <figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// Melody of notes</span>
 <span class="kt">int</span> <span class="n">melody</span><span class="o">[]</span> <span class="o">=</span> <span class="o">{</span><span class="n">NOTE_C4</span><span class="o">,</span> <span class="n">NOTE_G3</span><span class="o">,</span> <span class="n">NOTE_G3</span><span class="o">,</span> <span class="n">NOTE_A3</span><span class="o">,</span> <span class="n">NOTE_G3</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">NOTE_B3</span><span class="o">,</span> <span class="n">NOTE_C4</span><span class="o">};</span></code></pre></figure>
 
-<p>You’ll now notice that the notes we’ve referenced in the array don’t exist anywhere. Each of those note variables need to reference an <code>integer</code> value defining their <code>pitch</code>. You could go through and work these out yourself, but that would be silly; especially because there’s already a great list provided on the <a href="https://www.arduino.cc/en/Tutorial/ToneMelody?from=Tutorial.Tone">Tone Tutorial</a> page.</p>
+<p>You’ll now notice that the notes we’ve referenced in the array don’t exist anywhere. Each of those note variables need to reference an <code class="highlighter-rouge">integer</code> value defining their <code class="highlighter-rouge">pitch</code>. You could go through and work these out yourself, but that would be silly; especially because there’s already a great list provided on the <a href="https://www.arduino.cc/en/Tutorial/ToneMelody?from=Tutorial.Tone">Tone Tutorial</a> page.</p>
 
-<p>Go ahead and press <code>Ctrl+Shift+N</code> or select the <code>arrow</code> in the <code>right hand corner</code> of the Arduino IDE and click <code>New Tab</code>. Name the new file <code>pitches.h</code> and paste the following code into the IDE:</p>
+<p>Go ahead and press <code class="highlighter-rouge">Ctrl+Shift+N</code> or select the <code class="highlighter-rouge">arrow</code> in the <code class="highlighter-rouge">right hand corner</code> of the Arduino IDE and click <code class="highlighter-rouge">New Tab</code>. Name the new file <code class="highlighter-rouge">pitches.h</code> and paste the following code into the IDE:</p>
 
-<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#define NOTE_B0  31</span>
-<span class="cp">#define NOTE_C1  33</span>
-<span class="cp">#define NOTE_CS1 35</span>
-<span class="cp">#define NOTE_D1  37</span>
-<span class="cp">#define NOTE_DS1 39</span>
-<span class="cp">#define NOTE_E1  41</span>
-<span class="cp">#define NOTE_F1  44</span>
-<span class="cp">#define NOTE_FS1 46</span>
-<span class="cp">#define NOTE_G1  49</span>
-<span class="cp">#define NOTE_GS1 52</span>
-<span class="cp">#define NOTE_A1  55</span>
-<span class="cp">#define NOTE_AS1 58</span>
-<span class="cp">#define NOTE_B1  62</span>
-<span class="cp">#define NOTE_C2  65</span>
-<span class="cp">#define NOTE_CS2 69</span>
-<span class="cp">#define NOTE_D2  73</span>
-<span class="cp">#define NOTE_DS2 78</span>
-<span class="cp">#define NOTE_E2  82</span>
-<span class="cp">#define NOTE_F2  87</span>
-<span class="cp">#define NOTE_FS2 93</span>
-<span class="cp">#define NOTE_G2  98</span>
-<span class="cp">#define NOTE_GS2 104</span>
-<span class="cp">#define NOTE_A2  110</span>
-<span class="cp">#define NOTE_AS2 117</span>
-<span class="cp">#define NOTE_B2  123</span>
-<span class="cp">#define NOTE_C3  131</span>
-<span class="cp">#define NOTE_CS3 139</span>
-<span class="cp">#define NOTE_D3  147</span>
-<span class="cp">#define NOTE_DS3 156</span>
-<span class="cp">#define NOTE_E3  165</span>
-<span class="cp">#define NOTE_F3  175</span>
-<span class="cp">#define NOTE_FS3 185</span>
-<span class="cp">#define NOTE_G3  196</span>
-<span class="cp">#define NOTE_GS3 208</span>
-<span class="cp">#define NOTE_A3  220</span>
-<span class="cp">#define NOTE_AS3 233</span>
-<span class="cp">#define NOTE_B3  247</span>
-<span class="cp">#define NOTE_C4  262</span>
-<span class="cp">#define NOTE_CS4 277</span>
-<span class="cp">#define NOTE_D4  294</span>
-<span class="cp">#define NOTE_DS4 311</span>
-<span class="cp">#define NOTE_E4  330</span>
-<span class="cp">#define NOTE_F4  349</span>
-<span class="cp">#define NOTE_FS4 370</span>
-<span class="cp">#define NOTE_G4  392</span>
-<span class="cp">#define NOTE_GS4 415</span>
-<span class="cp">#define NOTE_A4  440</span>
-<span class="cp">#define NOTE_AS4 466</span>
-<span class="cp">#define NOTE_B4  494</span>
-<span class="cp">#define NOTE_C5  523</span>
-<span class="cp">#define NOTE_CS5 554</span>
-<span class="cp">#define NOTE_D5  587</span>
-<span class="cp">#define NOTE_DS5 622</span>
-<span class="cp">#define NOTE_E5  659</span>
-<span class="cp">#define NOTE_F5  698</span>
-<span class="cp">#define NOTE_FS5 740</span>
-<span class="cp">#define NOTE_G5  784</span>
-<span class="cp">#define NOTE_GS5 831</span>
-<span class="cp">#define NOTE_A5  880</span>
-<span class="cp">#define NOTE_AS5 932</span>
-<span class="cp">#define NOTE_B5  988</span>
-<span class="cp">#define NOTE_C6  1047</span>
-<span class="cp">#define NOTE_CS6 1109</span>
-<span class="cp">#define NOTE_D6  1175</span>
-<span class="cp">#define NOTE_DS6 1245</span>
-<span class="cp">#define NOTE_E6  1319</span>
-<span class="cp">#define NOTE_F6  1397</span>
-<span class="cp">#define NOTE_FS6 1480</span>
-<span class="cp">#define NOTE_G6  1568</span>
-<span class="cp">#define NOTE_GS6 1661</span>
-<span class="cp">#define NOTE_A6  1760</span>
-<span class="cp">#define NOTE_AS6 1865</span>
-<span class="cp">#define NOTE_B6  1976</span>
-<span class="cp">#define NOTE_C7  2093</span>
-<span class="cp">#define NOTE_CS7 2217</span>
-<span class="cp">#define NOTE_D7  2349</span>
-<span class="cp">#define NOTE_DS7 2489</span>
-<span class="cp">#define NOTE_E7  2637</span>
-<span class="cp">#define NOTE_F7  2794</span>
-<span class="cp">#define NOTE_FS7 2960</span>
-<span class="cp">#define NOTE_G7  3136</span>
-<span class="cp">#define NOTE_GS7 3322</span>
-<span class="cp">#define NOTE_A7  3520</span>
-<span class="cp">#define NOTE_AS7 3729</span>
-<span class="cp">#define NOTE_B7  3951</span>
-<span class="cp">#define NOTE_C8  4186</span>
-<span class="cp">#define NOTE_CS8 4435</span>
-<span class="cp">#define NOTE_D8  4699</span>
-<span class="cp">#define NOTE_DS8 4978</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#define NOTE_B0  31
+#define NOTE_C1  33
+#define NOTE_CS1 35
+#define NOTE_D1  37
+#define NOTE_DS1 39
+#define NOTE_E1  41
+#define NOTE_F1  44
+#define NOTE_FS1 46
+#define NOTE_G1  49
+#define NOTE_GS1 52
+#define NOTE_A1  55
+#define NOTE_AS1 58
+#define NOTE_B1  62
+#define NOTE_C2  65
+#define NOTE_CS2 69
+#define NOTE_D2  73
+#define NOTE_DS2 78
+#define NOTE_E2  82
+#define NOTE_F2  87
+#define NOTE_FS2 93
+#define NOTE_G2  98
+#define NOTE_GS2 104
+#define NOTE_A2  110
+#define NOTE_AS2 117
+#define NOTE_B2  123
+#define NOTE_C3  131
+#define NOTE_CS3 139
+#define NOTE_D3  147
+#define NOTE_DS3 156
+#define NOTE_E3  165
+#define NOTE_F3  175
+#define NOTE_FS3 185
+#define NOTE_G3  196
+#define NOTE_GS3 208
+#define NOTE_A3  220
+#define NOTE_AS3 233
+#define NOTE_B3  247
+#define NOTE_C4  262
+#define NOTE_CS4 277
+#define NOTE_D4  294
+#define NOTE_DS4 311
+#define NOTE_E4  330
+#define NOTE_F4  349
+#define NOTE_FS4 370
+#define NOTE_G4  392
+#define NOTE_GS4 415
+#define NOTE_A4  440
+#define NOTE_AS4 466
+#define NOTE_B4  494
+#define NOTE_C5  523
+#define NOTE_CS5 554
+#define NOTE_D5  587
+#define NOTE_DS5 622
+#define NOTE_E5  659
+#define NOTE_F5  698
+#define NOTE_FS5 740
+#define NOTE_G5  784
+#define NOTE_GS5 831
+#define NOTE_A5  880
+#define NOTE_AS5 932
+#define NOTE_B5  988
+#define NOTE_C6  1047
+#define NOTE_CS6 1109
+#define NOTE_D6  1175
+#define NOTE_DS6 1245
+#define NOTE_E6  1319
+#define NOTE_F6  1397
+#define NOTE_FS6 1480
+#define NOTE_G6  1568
+#define NOTE_GS6 1661
+#define NOTE_A6  1760
+#define NOTE_AS6 1865
+#define NOTE_B6  1976
+#define NOTE_C7  2093
+#define NOTE_CS7 2217
+#define NOTE_D7  2349
+#define NOTE_DS7 2489
+#define NOTE_E7  2637
+#define NOTE_F7  2794
+#define NOTE_FS7 2960
+#define NOTE_G7  3136
+#define NOTE_GS7 3322
+#define NOTE_A7  3520
+#define NOTE_AS7 3729
+#define NOTE_B7  3951
+#define NOTE_C8  4186
+#define NOTE_CS8 4435
+#define NOTE_D8  4699
+#define NOTE_DS8 4978</span></code></pre></figure>
 
 <p>Save that file and navigate back to your tone project we were working on before.</p>
 
-<p>Next we’ll define the tones duration, and again we’ll use a matching <code>array of integers</code></p>
+<p>Next we’ll define the tones duration, and again we’ll use a matching <code class="highlighter-rouge">array of integers</code></p>
 
 <figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// note durations: 4 = quarter note, 8 = eighth note, etc.:</span>
 <span class="kt">int</span> <span class="n">noteDurations</span><span class="o">[]</span> <span class="o">=</span> <span class="o">{</span><span class="mi">4</span><span class="o">,</span> <span class="mi">8</span><span class="o">,</span> <span class="mi">8</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">4</span><span class="o">};</span></code></pre></figure>
 
-<p>Now that we have a tune setup and defined we can move into the <code>setup()</code> block and begin writing the code that will play our tones.</p>
+<p>Now that we have a tune setup and defined we can move into the <code class="highlighter-rouge">setup()</code> block and begin writing the code that will play our tones.</p>
 
-<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kt">void</span> <span class="nf">setup</span><span class="o">()</span> <span class="o">{</span>
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kt">void</span> <span class="nf">setup</span><span class="p">(</span><span class="o">)</span> <span class="o">{</span>
   <span class="c1">// iterate over the notes of the melody:</span>
   <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">thisNote</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">thisNote</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="o">;</span> <span class="n">thisNote</span><span class="o">++)</span> <span class="o">{</span>
 
@@ -293,7 +293,7 @@
     <span class="n">tone</span><span class="o">(</span><span class="n">tonePin</span><span class="o">,</span> <span class="n">melody</span><span class="o">[</span><span class="n">thisNote</span><span class="o">],</span> <span class="n">noteDuration</span><span class="o">);</span>
 
     <span class="c1">// to distinguish the notes, set a minimum time between them.</span>
-    <span class="c1">// the note&#39;s duration + 30% seems to work well:</span>
+    <span class="c1">// the note's duration + 30% seems to work well:</span>
     <span class="kt">int</span> <span class="n">pauseBetweenNotes</span> <span class="o">=</span> <span class="n">noteDuration</span> <span class="o">*</span> <span class="mf">1.30</span><span class="o">;</span>
     <span class="n">delay</span><span class="o">(</span><span class="n">pauseBetweenNotes</span><span class="o">);</span>
     <span class="c1">// stop the tone playing:</span>
@@ -301,11 +301,11 @@
   <span class="o">}</span>
 <span class="o">}</span>
 
-<span class="kt">void</span> <span class="nf">loop</span><span class="o">()</span> <span class="o">{</span>
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">(</span><span class="o">)</span> <span class="o">{</span>
   <span class="c1">// no need to repeat the melody.</span>
 <span class="o">}</span></code></pre></figure>
 
-<p>Run your code and enjoy the jams! Note that since we haven’t setup this code to <code>loop</code>; you’ll need to either reboot your <code>Arduino</code> or press the <code>reset button</code> on the board to get the tone to replay. You could even move the code block in <code>setup()</code> down into <code>loop()</code> to get it to continuously play the tones.</p>
+<p>Run your code and enjoy the jams! Note that since we haven’t setup this code to <code class="highlighter-rouge">loop</code>; you’ll need to either reboot your <code class="highlighter-rouge">Arduino</code> or press the <code class="highlighter-rouge">reset button</code> on the board to get the tone to replay. You could even move the code block in <code class="highlighter-rouge">setup()</code> down into <code class="highlighter-rouge">loop()</code> to get it to continuously play the tones.</p>
 
 <h1 id="conclusion">Conclusion</h1>
 
@@ -315,23 +315,210 @@
 
               </div>
               
+
+              
+              <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+              </div>
+              
             </div>
           </div>
         </div>
         <div class="col-md-4 hidden-xs">
           <div class="sidebar ">
-  <h1>Recent Posts</h1>
+  
+    <h1>Related By Tags</h1>
+  
   <ul>
     
-    <li><a href="/2015/12/arduino-projects-working-with-sound">Arduino Projects - Working with Sound</a></li>
     
-    <li><a href="/2015/12/arduino-project-lcd-displays">Arduino Projects - LCD Displays</a></li>
+      
+      
+        
+          
+            <li><a href="http://t04glovern.github.io/2015/12/arduino-project-lcd-displays">Arduino Projects - LCD Displays</a></li>
+            
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
     
-    <li><a href="/2015/12/arduino-projects-thumbstick-to-rgb-led">Arduino Projects - Thumbstick to RGB LED</a></li>
+      
+      
+        
+          
+            <li><a href="http://t04glovern.github.io/2015/12/arduino-projects-thumbstick-to-rgb-led">Arduino Projects - Thumbstick to RGB LED</a></li>
+            
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
     
-    <li><a href="/2015/12/learning-aspnet-building-in-visual-studio-2015-part-3">Learning ASP.NET - Building in Visual Studio 2015 (Part 3)</a></li>
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
     
-    <li><a href="/2015/12/learning-aspnet-using-vscode-and-yeoman-part-2">Learning ASP.NET - Using VScode and Yeoman (Part 2)</a></li>
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
     
   </ul>
 </div>
@@ -339,30 +526,30 @@
 <div class="sidebar">
   <h1>Tags</h1>
   <ul>
-    
-      <li><a href="/tag/node.js">node.js</a></li>
-    
-      <li><a href="/tag/bash">bash</a></li>
-    
-      <li><a href="/tag/script">script</a></li>
+     
+      <li><a href="/tag/arduino">arduino</a></li>
     
       <li><a href="/tag/asp.net">asp.net</a></li>
     
-      <li><a href="/tag/windows">windows</a></li>
-    
-      <li><a href="/tag/yeoman">yeoman</a></li>
-    
-      <li><a href="/tag/vscode">vscode</a></li>
-    
-      <li><a href="/tag/visualstudio">visualstudio</a></li>
-    
-      <li><a href="/tag/arduino">arduino</a></li>
+      <li><a href="/tag/bash">bash</a></li>
     
       <li><a href="/tag/electronics">electronics</a></li>
     
       <li><a href="/tag/lcd">lcd</a></li>
     
+      <li><a href="/tag/node.js">node.js</a></li>
+    
+      <li><a href="/tag/script">script</a></li>
+    
       <li><a href="/tag/sound">sound</a></li>
+    
+      <li><a href="/tag/visualstudio">visualstudio</a></li>
+    
+      <li><a href="/tag/vscode">vscode</a></li>
+    
+      <li><a href="/tag/windows">windows</a></li>
+    
+      <li><a href="/tag/yeoman">yeoman</a></li>
     
   </ul>
 </div>
@@ -371,6 +558,22 @@
       </div>
     </div>
     
+<!-- Add Disqus comments. -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = "t04glovern"; // required: replace example with your forum shortname
+  var disqus_identifier = "/2015/12/arduino-projects-working-with-sound";
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
 
   </div>
       <footer class="footer-distributed">
@@ -381,33 +584,55 @@
 
 <ul class="social-media">
 
-  
+    
     <li>
-      <a title="t04glovern on Github" href="https://github.com/t04glovern" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+        <a title="t04glovern on Github"
+            href="https://github.com/t04glovern"
+            target="_blank"><i class="fa fa-github fa-2x"></i></a>
     </li>
-  
+    
 
-  
+    
     <li>
-      <a title="5443325 on StackOverflow" href="http://stackoverflow.com/users/5443325" target="_blank"><i class="fa fa-stack-overflow fa-2x"></i></a>
+        <a title="5443325 on StackOverflow"
+            href="http://stackoverflow.com/users/5443325"
+            target="_blank"><i class="fa fa-stack-overflow fa-2x"></i></a>
     </li>
-  
+    
 
-  
+    
     <li>
-      <a title="t04glovern on LinkedIn" href="https://www.linkedin.com/in/glovernathan" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
+        <a title="t04glovern on LinkedIn"
+            href="https://www.linkedin.com/in/glovernathan"
+            target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
     </li>
-  
+    
 
-  
 
-  
-
-  
+    
     <li>
-      <a title="feed.xml RSS" href="http://t04glovern.github.io/feed.xml" target="_blank"><i class="fa fa-rss fa-2x"></i></a>
+        <a title="nathanglove on Instagram"
+            href="https://instagram.com/nathanglove"
+            target="_blank"><i class="fa fa-instagram fa-2x"></i></a>
     </li>
-  
+    
+
+
+    
+    <li>
+        <a title="t04glovern on LastFm"
+            href="http://lastfm.com/user/t04glovern"
+            target="_blank"><i class="fa fa-lastfm fa-2x"></i></a>
+    </li>
+    
+
+    
+    <li>
+        <a title="feed.xml RSS"
+            href="http://t04glovern.github.io/feed.xml"
+            target="_blank"><i class="fa fa-rss fa-2x"></i></a>
+    </li>
+    
 
 </ul>
 

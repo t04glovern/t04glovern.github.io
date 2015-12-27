@@ -7,11 +7,12 @@
   <script src="http://t04glovern.github.io/js/jquery.min.js"></script>
   <script src="http://t04glovern.github.io/js/bootstrap.min.js"></script>
   <script src="http://t04glovern.github.io/js/header.js"></script>
-  <script src="http://t04glovern.github.io/js/toc.js"></script>
   <link href="http://t04glovern.github.io/css/bootstrap.min.css" rel="stylesheet">
   <link href="http://t04glovern.github.io/css/theme.css" rel="stylesheet">
   <link href="http://t04glovern.github.io/css/syntax.css" rel="stylesheet">
   <link href="http://t04glovern.github.io/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu+Mono&subset=latin">
+
 </head>
 
 <body>
@@ -35,7 +36,7 @@
   
 
 
- <script type="text/javascript">
+  <script type="text/javascript">
   WebFontConfig = {
     google: {
       families: ['Ubuntu::latin']
@@ -96,10 +97,9 @@
                 </ul>
               </div>
               <div class="post-content">
-                <div id="toc" class="toc"></div>
                 <h2 id="introduction-to-the-aspnet-runtime">Introduction to the ASP.NET Runtime</h2>
 
-<p><code>ASP.NET</code> is an open-source server-side web application framework designed for web development to produce dynamic webpages. That’s what <a href="https://en.wikipedia.org/wiki/ASP.NET">Wikipedia</a> says about it anyway… I personally had no clue what it was until I recently began <a href="https://app.pluralsight.com/library/courses/aspdotnet-5-ef7-bootstrap-angular-web-app">taking a course</a> that was available as part of the free 6 months worth of <a href="https://app.pluralsight.com">Pluralsight</a> I picked up from the <a href="https://myprodscussu1.app.vssubscriptions.visualstudio.com/Dashboard">Visual Studio Dev Essentials pack</a>.</p>
+<p><code class="highlighter-rouge">ASP.NET</code> is an open-source server-side web application framework designed for web development to produce dynamic webpages. That’s what <a href="https://en.wikipedia.org/wiki/ASP.NET">Wikipedia</a> says about it anyway… I personally had no clue what it was until I recently began <a href="https://app.pluralsight.com/library/courses/aspdotnet-5-ef7-bootstrap-angular-web-app">taking a course</a> that was available as part of the free 6 months worth of <a href="https://app.pluralsight.com">Pluralsight</a> I picked up from the <a href="https://myprodscussu1.app.vssubscriptions.visualstudio.com/Dashboard">Visual Studio Dev Essentials pack</a>.</p>
 
 <h2 id="three-frameworks">Three Frameworks</h2>
 
@@ -107,11 +107,11 @@
 
 <p><img src="http://t04glovern.github.io/images/posts/asp.net-hosting.png" alt="ASP.NET Hosting" /></p>
 
-<p><code>.NET 4.6</code> is the .NET we’ve always known. It was built for the windows platform so it didn’t natively function on other systems. This is where Mono came in.</p>
+<p><code class="highlighter-rouge">.NET 4.6</code> is the .NET we’ve always known. It was built for the windows platform so it didn’t natively function on other systems. This is where Mono came in.</p>
 
-<p><code>Mono</code> is a community driven project that allows .NET code to run on OSX/Linux systems. It is still widely used and very popular.</p>
+<p><code class="highlighter-rouge">Mono</code> is a community driven project that allows .NET code to run on OSX/Linux systems. It is still widely used and very popular.</p>
 
-<p><code>.NET Core</code> is the most recent edition to the .NET family. It’s open source like Mono but supports both Windows, OSX and Linux platforms.</p>
+<p><code class="highlighter-rouge">.NET Core</code> is the most recent edition to the .NET family. It’s open source like Mono but supports both Windows, OSX and Linux platforms.</p>
 
 <ul>
   <li><strong>CoreCLR</strong> is a subset of the .NET Framework.</li>
@@ -126,125 +126,125 @@
     </ul>
   </li>
   <li>
-    <p>Download and install <code>ASP.NET 5</code> from <a href="https://go.microsoft.com/fwlink/?LinkId=627627">here</a>.</p>
+    <p>Download and install <code class="highlighter-rouge">ASP.NET 5</code> from <a href="https://go.microsoft.com/fwlink/?LinkId=627627">here</a>.</p>
   </li>
-  <li>You will now have access to the <code>DNVM</code> cmdlet. Running the following command will display a full list of commands you have access to.</li>
+  <li>You will now have access to the <code class="highlighter-rouge">DNVM</code> cmdlet. Running the following command will display a full list of commands you have access to.</li>
 </ol>
 
-<figure class="highlight"><pre><code class="language-bat" data-lang="bat">C:\Users\Nathan<span class="p">&gt;</span><span class="n">dnvm</span>
+<figure class="highlight"><pre><code class="language-bat" data-lang="bat">C:\Users\Nathan&gt;dnvm
    ___  _  ___   ____  ___
   / _ \/ |/ / | / /  |/  /
- / <span class="n">//</span> /    <span class="n">/|</span> |/ / <span class="n">/|_/</span> /
-<span class="n">/____/_/|_/</span> <span class="p">|</span><span class="n">___/_/</span>  <span class="n">/_/</span>
-.NET Version Manager v<span class="m">1</span>.<span class="m">0</span>.<span class="m">0</span>-rc<span class="m">1-15540</span>
-By Microsoft Open Technologies<span class="p">,</span> Inc.
-usage: dnvm <span class="p">&lt;</span><span class="n">command</span>&gt; [<span class="p">&lt;</span><span class="n">arguments</span>...&gt;]
+ / // /    /| |/ / /|_/ /
+/____/_/|_/ |___/_/  /_/
+.NET Version Manager v1.0.0-rc1-15540
+By Microsoft Open Technologies, Inc.
+usage: dnvm &lt;command&gt; [&lt;arguments...&gt;]
 
 Current feed settings:
-Default Stable: https:<span class="n">//www.nuget.org/api/v2</span>
-Default Unstable: https:<span class="n">//www.myget.org/F/aspnetvnext/api/v2</span>
-Current Stable Override: <span class="p">&lt;</span><span class="n">none</span><span class="p">&gt;</span>
-<span class="n">Current</span> Unstable Override: <span class="p">&lt;</span><span class="n">none</span><span class="p">&gt;</span>
+Default Stable: https://www.nuget.org/api/v2
+Default Unstable: https://www.myget.org/F/aspnetvnext/api/v2
+Current Stable Override: &lt;none&gt;
+Current Unstable Override: &lt;none&gt;
 
-    <span class="n">To</span> use override feeds<span class="p">,</span> <span class="k">set</span> <span class="nv">DNX_FEED</span> and DNX_UNSTABLE_FEED environment keys respectively
+    To use override feeds, set DNX_FEED and DNX_UNSTABLE_FEED environment keys respectively
 
 commands:
     alias           Lists and manages aliases
     exec            Executes the specified command in a sub-shell where the PATH has been augmented to include the specified DNX
-    help            Displays a list of commands<span class="p">,</span> and help <span class="k">for</span> specific commands
+    help            Displays a list of commands, and help for specific commands
     install         Installs a version of the runtime
     list            Lists available runtimes
-    run             Locates the dnx.exe <span class="k">for</span> the specified version or alias and executes it<span class="p">,</span> providing the remaining arguments to dnx.exe
+    run             Locates the dnx.exe for the specified version or alias and executes it, providing the remaining arguments to dnx.exe
     setup           Installs the version manager into your User profile directory
     uninstall       Uninstalls a version of the runtime
     update-self     Updates DNVM to the latest version.
     upgrade         Installs the latest version of the runtime and reassigns the specified alias to point at it
-    use             Adds a runtime to the PATH environment variable <span class="k">for</span> your current shell
+    use             Adds a runtime to the PATH environment variable for your current shell
     version         Displays the DNVM version.</code></pre></figure>
 
 <h2 id="setting-up">Setting up</h2>
 
-<p>Running the command <code>dnvm list</code> from command line will result in a list of the current versions of ASP.NET 5 you currently have installed on your system</p>
+<p>Running the command <code class="highlighter-rouge">dnvm list</code> from command line will result in a list of the current versions of ASP.NET 5 you currently have installed on your system</p>
 
-<figure class="highlight"><pre><code class="language-bat" data-lang="bat">C:\Users\Nathan<span class="p">&gt;</span><span class="n">dnvm</span> list
+<figure class="highlight"><pre><code class="language-bat" data-lang="bat">C:\Users\Nathan&gt;dnvm list
 
 Active Version           Runtime Architecture OperatingSystem Alias
 ------ -------           ------- ------------ --------------- -----
-  *    <span class="m">1</span>.<span class="m">0</span>.<span class="m">0</span>-rc<span class="m">1</span>-update<span class="m">1</span> clr     x<span class="m">64</span>          win             default
-       <span class="m">1</span>.<span class="m">0</span>.<span class="m">0</span>-rc<span class="m">1</span>-update<span class="m">1</span> clr     x<span class="m">86</span>          win
-       <span class="m">1</span>.<span class="m">0</span>.<span class="m">0</span>-rc<span class="m">1</span>-update<span class="m">1</span> coreclr x<span class="m">64</span>          win
-       <span class="m">1</span>.<span class="m">0</span>.<span class="m">0</span>-rc<span class="m">1</span>-update<span class="m">1</span> coreclr x<span class="m">86</span>          win</code></pre></figure>
+  *    1.0.0-rc1-update1 clr     x64          win             default
+       1.0.0-rc1-update1 clr     x86          win
+       1.0.0-rc1-update1 coreclr x64          win
+       1.0.0-rc1-update1 coreclr x86          win</code></pre></figure>
 
-<p>These runtimes are stored in your user directory, and you can prove this by listing the files in <code>.dnx\runtimes</code>. Run the following to show a list of installed runtimes under your home directory.</p>
+<p>These runtimes are stored in your user directory, and you can prove this by listing the files in <code class="highlighter-rouge">.dnx\runtimes</code>. Run the following to show a list of installed runtimes under your home directory.</p>
 
-<figure class="highlight"><pre><code class="language-bat" data-lang="bat">C:\Users\Nathan<span class="p">&gt;</span><span class="n">dir</span> .dnx\runtimes
+<figure class="highlight"><pre><code class="language-bat" data-lang="bat">C:\Users\Nathan&gt;dir .dnx\runtimes
  Volume in drive C has no label.
- Volume Serial Number is <span class="m">2</span>A<span class="m">20</span>-B<span class="m">603</span>
+ Volume Serial Number is 2A20-B603
 
  Directory of C:\Users\Nathan\.dnx\runtimes
 
-<span class="m">11</span><span class="n">/12/2015</span>  <span class="m">12</span><span class="nl">:02</span> AM    <span class="p">&lt;</span><span class="n">DIR</span>&gt;          .
-<span class="m">11</span><span class="n">/12/2015</span>  <span class="m">12</span><span class="nl">:02</span> AM    <span class="p">&lt;</span><span class="n">DIR</span>&gt;          ..
-<span class="m">10</span><span class="n">/12/2015</span>  <span class="m">11</span><span class="nl">:56</span> PM    <span class="p">&lt;</span><span class="n">DIR</span><span class="p">&gt;</span>          <span class="n">dnx</span>-clr-win-x<span class="m">64</span>.<span class="m">1</span>.<span class="m">0</span>.<span class="m">0</span>-rc<span class="m">1</span>-update<span class="m">1</span>
-<span class="m">10</span><span class="n">/12/2015</span>  <span class="m">11</span><span class="nl">:45</span> PM    <span class="p">&lt;</span><span class="n">DIR</span><span class="p">&gt;</span>          <span class="n">dnx</span>-clr-win-x<span class="m">86</span>.<span class="m">1</span>.<span class="m">0</span>.<span class="m">0</span>-rc<span class="m">1</span>-update<span class="m">1</span>
-<span class="m">11</span><span class="n">/12/2015</span>  <span class="m">12</span><span class="nl">:01</span> AM    <span class="p">&lt;</span><span class="n">DIR</span><span class="p">&gt;</span>          <span class="n">dnx</span>-coreclr-win-x<span class="m">64</span>.<span class="m">1</span>.<span class="m">0</span>.<span class="m">0</span>-rc<span class="m">1</span>-update<span class="m">1</span>
-<span class="m">11</span><span class="n">/12/2015</span>  <span class="m">12</span><span class="nl">:02</span> AM    <span class="p">&lt;</span><span class="n">DIR</span><span class="p">&gt;</span>          <span class="n">dnx</span>-coreclr-win-x<span class="m">86</span>.<span class="m">1</span>.<span class="m">0</span>.<span class="m">0</span>-rc<span class="m">1</span>-update<span class="m">1</span>
-               <span class="m">0</span> File(s)              <span class="m">0</span> bytes
-               <span class="m">6</span> Dir(s)  <span class="m">44</span><span class="p">,</span><span class="m">004</span><span class="p">,</span><span class="m">626</span><span class="p">,</span><span class="m">432</span> bytes free</code></pre></figure>
+11/12/2015  12:02 AM    &lt;DIR&gt;          .
+11/12/2015  12:02 AM    &lt;DIR&gt;          ..
+10/12/2015  11:56 PM    &lt;DIR&gt;          dnx-clr-win-x64.1.0.0-rc1-update1
+10/12/2015  11:45 PM    &lt;DIR&gt;          dnx-clr-win-x86.1.0.0-rc1-update1
+11/12/2015  12:01 AM    &lt;DIR&gt;          dnx-coreclr-win-x64.1.0.0-rc1-update1
+11/12/2015  12:02 AM    &lt;DIR&gt;          dnx-coreclr-win-x86.1.0.0-rc1-update1
+               0 File(s)              0 bytes
+               6 Dir(s)  44,004,626,432 bytes free</code></pre></figure>
 
-<p>You can also run <code>dnvm upgrade</code> in order to pull down the most recent versions of the ASP.NET 5 runtime. If there is a more recent runtime available it will be downloaded and set as your default runtime.</p>
+<p>You can also run <code class="highlighter-rouge">dnvm upgrade</code> in order to pull down the most recent versions of the ASP.NET 5 runtime. If there is a more recent runtime available it will be downloaded and set as your default runtime.</p>
 
-<figure class="highlight"><pre><code class="language-bat" data-lang="bat">C:\Users\Nathan<span class="p">&gt;</span><span class="n">dnvm</span> upgrade
+<figure class="highlight"><pre><code class="language-bat" data-lang="bat">C:\Users\Nathan&gt;dnvm upgrade
 Determining latest version
-<span class="s1">&#39;dnx-clr-win-x86.1.0.0-rc1-update1&#39;</span> is already installed in C:\Users\Nathan\.dnx\runtimes\dnx-clr-win-x<span class="m">86</span>.<span class="m">1</span>.<span class="m">0</span>.<span class="m">0</span>-rc<span class="m">1</span>-update<span class="m">1</span>.
-Adding C:\Users\Nathan\.dnx\runtimes\dnx-clr-win-x<span class="m">86</span>.<span class="m">1</span>.<span class="m">0</span>.<span class="m">0</span>-rc<span class="m">1</span>-update<span class="m">1</span>\bin to process PATH
-Adding C:\Users\Nathan\.dnx\runtimes\dnx-clr-win-x<span class="m">86</span>.<span class="m">1</span>.<span class="m">0</span>.<span class="m">0</span>-rc<span class="m">1</span>-update<span class="m">1</span>\bin to user PATH
-Updating alias <span class="s1">&#39;default&#39;</span> to <span class="s1">&#39;dnx-clr-win-x86.1.0.0-rc1-update1&#39;</span></code></pre></figure>
+'dnx-clr-win-x86.1.0.0-rc1-update1' is already installed in C:\Users\Nathan\.dnx\runtimes\dnx-clr-win-x86.1.0.0-rc1-update1.
+Adding C:\Users\Nathan\.dnx\runtimes\dnx-clr-win-x86.1.0.0-rc1-update1\bin to process PATH
+Adding C:\Users\Nathan\.dnx\runtimes\dnx-clr-win-x86.1.0.0-rc1-update1\bin to user PATH
+Updating alias 'default' to 'dnx-clr-win-x86.1.0.0-rc1-update1'</code></pre></figure>
 
 <p>You can also manually pull down other versions using the following in order to support different architectures.</p>
 
-<figure class="highlight"><pre><code class="language-bat" data-lang="bat">dnvm install <span class="m">1</span>.<span class="m">0</span>.<span class="m">0</span>-rc<span class="m">1</span>-update<span class="m">1</span> -arch x<span class="m">64</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-bat" data-lang="bat">dnvm install 1.0.0-rc1-update1 -arch x64</code></pre></figure>
 
-<p>You might also want the <code>coreclr</code> versions, in which case you can run the following to pull down the respective version. Do the same for the x86 version.</p>
+<p>You might also want the <code class="highlighter-rouge">coreclr</code> versions, in which case you can run the following to pull down the respective version. Do the same for the x86 version.</p>
 
-<figure class="highlight"><pre><code class="language-bat" data-lang="bat">dnvm install <span class="m">1</span>.<span class="m">0</span>.<span class="m">0</span>-rc<span class="m">1</span>-update<span class="m">1</span> -r coreclr
-dnvm install <span class="m">1</span>.<span class="m">0</span>.<span class="m">0</span>-rc<span class="m">1</span>-update<span class="m">1</span> -r coreclr -arch x<span class="m">86</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-bat" data-lang="bat">dnvm install 1.0.0-rc1-update1 -r coreclr
+dnvm install 1.0.0-rc1-update1 -r coreclr -arch x86</code></pre></figure>
 
 <p>With a full suite of runtimes installed, you can now use the following command to switch between runtimes.</p>
 
-<figure class="highlight"><pre><code class="language-bat" data-lang="bat">dnvm use <span class="m">1</span>.<span class="m">0</span>.<span class="m">0</span>-rc<span class="m">1</span>-update<span class="m">1</span> -r clr -arch x<span class="m">64</span> -p</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bat" data-lang="bat">dnvm use 1.0.0-rc1-update1 -r clr -arch x64 -p</code></pre></figure>
 
-<p>Note that the <code>-p</code> makes the path persistent so you won’t need to re-run the command each time you open a new terminal</p>
+<p>Note that the <code class="highlighter-rouge">-p</code> makes the path persistent so you won’t need to re-run the command each time you open a new terminal</p>
 
-<p>Running <code>dnx --version</code> will show you the runtime currently active</p>
+<p>Running <code class="highlighter-rouge">dnx --version</code> will show you the runtime currently active</p>
 
-<figure class="highlight"><pre><code class="language-bat" data-lang="bat">C:\Users\Nathan<span class="p">&gt;</span><span class="n">dnx</span> --version
+<figure class="highlight"><pre><code class="language-bat" data-lang="bat">C:\Users\Nathan&gt;dnx --version
 Microsoft .NET Execution environment
- Version:      <span class="m">1</span>.<span class="m">0</span>.<span class="m">0</span>-rc<span class="m">1-16231</span>
+ Version:      1.0.0-rc1-16231
  Type:         Clr
- Architecture: x<span class="m">86</span>
+ Architecture: x86
  OS Name:      Windows
- OS Version:   <span class="m">10</span>.<span class="m">0</span>
- Runtime Id:   win<span class="m">10</span>-x<span class="m">86</span></code></pre></figure>
+ OS Version:   10.0
+ Runtime Id:   win10-x86</code></pre></figure>
 
 <h2 id="hello-world">Hello World</h2>
 
 <p>At this stage we are ready to use the runtime we just installed. In order to do this you’ll need to create two new files in a working directory with the following contents</p>
 
-<p><code>project.json</code></p>
+<p><code class="highlighter-rouge">project.json</code></p>
 
 <p>Specifies the framework we want to use. can also contain other project based traits (you’ll see this in up-comming tutorials)</p>
 
 <figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="p">{</span>
-  <span class="s2">&quot;frameworks&quot;</span><span class="o">:</span>
+  <span class="s2">"frameworks"</span><span class="err">:</span>
   <span class="p">{</span>
-    <span class="s2">&quot;dnx451&quot;</span><span class="o">:</span><span class="p">{}</span>
+    <span class="s2">"dnx451"</span><span class="err">:</span><span class="p">{}</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
 
-<p><code>program.cs</code></p>
+<p><code class="highlighter-rouge">program.cs</code></p>
 
-<p>Contains straight <code>C#</code> code.</p>
+<p>Contains straight <code class="highlighter-rouge">C#</code> code.</p>
 
 <figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
 
@@ -252,13 +252,13 @@ Microsoft .NET Execution environment
 <span class="p">{</span>
   <span class="k">public</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">()</span>
   <span class="p">{</span>
-    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Hello World&quot;</span><span class="p">);</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Hello World"</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
 
 <p>And that’s it!. You can run your Hello World using the following syntax:</p>
 
-<figure class="highlight"><pre><code class="language-bat" data-lang="bat">C:\Users\Nathan\OneDrive\<span class="m">02</span> - Code\<span class="m">15</span> - ASP.NET\helloWorld<span class="p">&gt;</span><span class="n">dnx</span> run program.cs
+<figure class="highlight"><pre><code class="language-bat" data-lang="bat">C:\Users\Nathan\OneDrive\02 - Code\15 - ASP.NET\helloWorld&gt;dnx run program.cs
 Hello World</code></pre></figure>
 
 <h2 id="summary">Summary</h2>
@@ -267,23 +267,170 @@ Hello World</code></pre></figure>
 
               </div>
               
+
+              
+              <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+              </div>
+              
             </div>
           </div>
         </div>
         <div class="col-md-4 hidden-xs">
           <div class="sidebar ">
-  <h1>Recent Posts</h1>
+  
+    <h1>Related By Tags</h1>
+  
   <ul>
     
-    <li><a href="/2015/12/arduino-projects-working-with-sound">Arduino Projects - Working with Sound</a></li>
     
-    <li><a href="/2015/12/arduino-project-lcd-displays">Arduino Projects - LCD Displays</a></li>
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
     
-    <li><a href="/2015/12/arduino-projects-thumbstick-to-rgb-led">Arduino Projects - Thumbstick to RGB LED</a></li>
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
     
-    <li><a href="/2015/12/learning-aspnet-building-in-visual-studio-2015-part-3">Learning ASP.NET - Building in Visual Studio 2015 (Part 3)</a></li>
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
     
-    <li><a href="/2015/12/learning-aspnet-using-vscode-and-yeoman-part-2">Learning ASP.NET - Using VScode and Yeoman (Part 2)</a></li>
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+            <li><a href="http://t04glovern.github.io/2015/12/learning-aspnet-building-in-visual-studio-2015-part-3">Learning ASP.NET - Building in Visual Studio 2015 (Part 3)</a></li>
+            
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+            <li><a href="http://t04glovern.github.io/2015/12/learning-aspnet-using-vscode-and-yeoman-part-2">Learning ASP.NET - Using VScode and Yeoman (Part 2)</a></li>
+            
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
     
   </ul>
 </div>
@@ -291,30 +438,30 @@ Hello World</code></pre></figure>
 <div class="sidebar">
   <h1>Tags</h1>
   <ul>
-    
-      <li><a href="/tag/node.js">node.js</a></li>
-    
-      <li><a href="/tag/bash">bash</a></li>
-    
-      <li><a href="/tag/script">script</a></li>
+     
+      <li><a href="/tag/arduino">arduino</a></li>
     
       <li><a href="/tag/asp.net">asp.net</a></li>
     
-      <li><a href="/tag/windows">windows</a></li>
-    
-      <li><a href="/tag/yeoman">yeoman</a></li>
-    
-      <li><a href="/tag/vscode">vscode</a></li>
-    
-      <li><a href="/tag/visualstudio">visualstudio</a></li>
-    
-      <li><a href="/tag/arduino">arduino</a></li>
+      <li><a href="/tag/bash">bash</a></li>
     
       <li><a href="/tag/electronics">electronics</a></li>
     
       <li><a href="/tag/lcd">lcd</a></li>
     
+      <li><a href="/tag/node.js">node.js</a></li>
+    
+      <li><a href="/tag/script">script</a></li>
+    
       <li><a href="/tag/sound">sound</a></li>
+    
+      <li><a href="/tag/visualstudio">visualstudio</a></li>
+    
+      <li><a href="/tag/vscode">vscode</a></li>
+    
+      <li><a href="/tag/windows">windows</a></li>
+    
+      <li><a href="/tag/yeoman">yeoman</a></li>
     
   </ul>
 </div>
@@ -323,6 +470,22 @@ Hello World</code></pre></figure>
       </div>
     </div>
     
+<!-- Add Disqus comments. -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = "t04glovern"; // required: replace example with your forum shortname
+  var disqus_identifier = "/2015/12/learning-aspnet-part-1";
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
 
   </div>
       <footer class="footer-distributed">
@@ -333,33 +496,55 @@ Hello World</code></pre></figure>
 
 <ul class="social-media">
 
-  
+    
     <li>
-      <a title="t04glovern on Github" href="https://github.com/t04glovern" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+        <a title="t04glovern on Github"
+            href="https://github.com/t04glovern"
+            target="_blank"><i class="fa fa-github fa-2x"></i></a>
     </li>
-  
+    
 
-  
+    
     <li>
-      <a title="5443325 on StackOverflow" href="http://stackoverflow.com/users/5443325" target="_blank"><i class="fa fa-stack-overflow fa-2x"></i></a>
+        <a title="5443325 on StackOverflow"
+            href="http://stackoverflow.com/users/5443325"
+            target="_blank"><i class="fa fa-stack-overflow fa-2x"></i></a>
     </li>
-  
+    
 
-  
+    
     <li>
-      <a title="t04glovern on LinkedIn" href="https://www.linkedin.com/in/glovernathan" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
+        <a title="t04glovern on LinkedIn"
+            href="https://www.linkedin.com/in/glovernathan"
+            target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
     </li>
-  
+    
 
-  
 
-  
-
-  
+    
     <li>
-      <a title="feed.xml RSS" href="http://t04glovern.github.io/feed.xml" target="_blank"><i class="fa fa-rss fa-2x"></i></a>
+        <a title="nathanglove on Instagram"
+            href="https://instagram.com/nathanglove"
+            target="_blank"><i class="fa fa-instagram fa-2x"></i></a>
     </li>
-  
+    
+
+
+    
+    <li>
+        <a title="t04glovern on LastFm"
+            href="http://lastfm.com/user/t04glovern"
+            target="_blank"><i class="fa fa-lastfm fa-2x"></i></a>
+    </li>
+    
+
+    
+    <li>
+        <a title="feed.xml RSS"
+            href="http://t04glovern.github.io/feed.xml"
+            target="_blank"><i class="fa fa-rss fa-2x"></i></a>
+    </li>
+    
 
 </ul>
 

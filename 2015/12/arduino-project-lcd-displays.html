@@ -7,11 +7,12 @@
   <script src="http://t04glovern.github.io/js/jquery.min.js"></script>
   <script src="http://t04glovern.github.io/js/bootstrap.min.js"></script>
   <script src="http://t04glovern.github.io/js/header.js"></script>
-  <script src="http://t04glovern.github.io/js/toc.js"></script>
   <link href="http://t04glovern.github.io/css/bootstrap.min.css" rel="stylesheet">
   <link href="http://t04glovern.github.io/css/theme.css" rel="stylesheet">
   <link href="http://t04glovern.github.io/css/syntax.css" rel="stylesheet">
   <link href="http://t04glovern.github.io/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu+Mono&subset=latin">
+
 </head>
 
 <body>
@@ -35,7 +36,7 @@
   
 
 
- <script type="text/javascript">
+  <script type="text/javascript">
   WebFontConfig = {
     google: {
       families: ['Ubuntu::latin']
@@ -98,49 +99,48 @@
                 </ul>
               </div>
               <div class="post-content">
-                <div id="toc" class="toc"></div>
                 <h1 id="introduction">Introduction</h1>
 
-<p>I’ve had to use an <code>LCD display</code> a couple times with some projects in the past, but never really understood what I was doing as I followed tutorials telling me what to plug where. Today I decided I would go through and document what each pin does on a standard <code>16x2 LCD display</code> does and try to get it printing my Blogs title.</p>
+<p>I’ve had to use an <code class="highlighter-rouge">LCD display</code> a couple times with some projects in the past, but never really understood what I was doing as I followed tutorials telling me what to plug where. Today I decided I would go through and document what each pin does on a standard <code class="highlighter-rouge">16x2 LCD display</code> does and try to get it printing my Blogs title.</p>
 
 <h1 id="the-pins">The Pins</h1>
 
-<p>There are <code>16 pins</code> on a standard <code>2x16 LCD Display</code></p>
+<p>There are <code class="highlighter-rouge">16 pins</code> on a standard <code class="highlighter-rouge">2x16 LCD Display</code></p>
 
 <p><img src="http://t04glovern.github.io/images/posts/arduino-lcd-pins.jpg" alt="LCD Display Pins" /></p>
 
 <ol>
   <li><strong>Vss</strong>
     <ul>
-      <li>This is the <code>Negative supply</code>; or the <code>ground pin</code>. It is excepted to be at 0V, so in almost every case you will just link this pin straight to your circuits <code>GND pin</code>.</li>
+      <li>This is the <code class="highlighter-rouge">Negative supply</code>; or the <code class="highlighter-rouge">ground pin</code>. It is excepted to be at 0V, so in almost every case you will just link this pin straight to your circuits <code class="highlighter-rouge">GND pin</code>.</li>
     </ul>
   </li>
   <li><strong>Vcc</strong>
     <ul>
-      <li><code>Positive supply voltage</code>. This is the pin we use to power the main LCD module. There is a separate pin for the actual backlight (see pin 15-16).</li>
+      <li><code class="highlighter-rouge">Positive supply voltage</code>. This is the pin we use to power the main LCD module. There is a separate pin for the actual backlight (see pin 15-16).</li>
     </ul>
   </li>
   <li><strong>Vø</strong>
     <ul>
-      <li>This is how we adjust the contrast of our display. Generally a <code>potentiometer</code> or any other device that will allow for variable settings</li>
+      <li>This is how we adjust the contrast of our display. Generally a <code class="highlighter-rouge">potentiometer</code> or any other device that will allow for variable settings</li>
     </ul>
   </li>
   <li><strong>RS</strong>
     <ul>
-      <li><code>Register selector</code> allows us to toggle between the command and data registers</li>
-      <li><code>Command Register</code> is selected with the RS Pin is Low. It tells the LCD that a command is being send to the display. Examples of commands could be Clear Display, Home Cursor, Entry Mode Set etc…</li>
-      <li><code>Data Register</code> is the opposite and is selected with the RS Pin is High. It tells the LCD that the incoming stream is data that needs to be displayed.</li>
+      <li><code class="highlighter-rouge">Register selector</code> allows us to toggle between the command and data registers</li>
+      <li><code class="highlighter-rouge">Command Register</code> is selected with the RS Pin is Low. It tells the LCD that a command is being send to the display. Examples of commands could be Clear Display, Home Cursor, Entry Mode Set etc…</li>
+      <li><code class="highlighter-rouge">Data Register</code> is the opposite and is selected with the RS Pin is High. It tells the LCD that the incoming stream is data that needs to be displayed.</li>
       <li>You will find that there is already a library that will do all the RS pin toggling for you, but it’s still good to understand the difference between the two. If you’d like to know more about some of the commands, there is a great tutorial on LCDs <a href="http://microcontrollerboard.com/lcd.html">Here</a>.</li>
     </ul>
   </li>
   <li><strong>R/W</strong>
     <ul>
-      <li><code>Low to write</code> to the register; <code>High to read</code> from the register. There are some situations where you might want to read from the LCD display back into the program. It isn’t something that you will need to deal with often, but it’s another interesting thing to understand.</li>
+      <li><code class="highlighter-rouge">Low to write</code> to the register; <code class="highlighter-rouge">High to read</code> from the register. There are some situations where you might want to read from the LCD display back into the program. It isn’t something that you will need to deal with often, but it’s another interesting thing to understand.</li>
     </ul>
   </li>
   <li><strong>E</strong>
     <ul>
-      <li><code>Enabling pin</code>; when this pin is set to <code>logical low</code>, the LCD does not care what is happening with <code>R/W</code>, <code>RS</code>, and the <code>data bus lines</code>; when this pin is set to <code>logical high</code>, the LCD is processing the incoming data. It allows us to check if the LCD is still processing data that it has been given, so that we don’t write onto lines and corrupt our output.</li>
+      <li><code class="highlighter-rouge">Enabling pin</code>; when this pin is set to <code class="highlighter-rouge">logical low</code>, the LCD does not care what is happening with <code class="highlighter-rouge">R/W</code>, <code class="highlighter-rouge">RS</code>, and the <code class="highlighter-rouge">data bus lines</code>; when this pin is set to <code class="highlighter-rouge">logical high</code>, the LCD is processing the incoming data. It allows us to check if the LCD is still processing data that it has been given, so that we don’t write onto lines and corrupt our output.</li>
     </ul>
   </li>
   <li><strong>D0</strong>
@@ -185,12 +185,12 @@
   </li>
   <li><strong>LED+</strong>
     <ul>
-      <li><code>Backlight Vcc positive supply</code>. This pin powers the LCD backlight and normally runs at <code>5V</code></li>
+      <li><code class="highlighter-rouge">Backlight Vcc positive supply</code>. This pin powers the LCD backlight and normally runs at <code class="highlighter-rouge">5V</code></li>
     </ul>
   </li>
   <li><strong>LED-</strong>
     <ul>
-      <li><code>Backlight GND negative supply</code>. This pin is the <code>GND</code> pin for the backlight. Expected to be <code>0V</code></li>
+      <li><code class="highlighter-rouge">Backlight GND negative supply</code>. This pin is the <code class="highlighter-rouge">GND</code> pin for the backlight. Expected to be <code class="highlighter-rouge">0V</code></li>
     </ul>
   </li>
 </ol>
@@ -199,22 +199,22 @@
 
 <p>Next I wired up the LCD using the following configurations.</p>
 
-<figure class="highlight"><pre><code class="language-bat" data-lang="bat">LCD Pin <span class="m">1</span> -<span class="p">&gt;</span> <span class="n">GND</span>
-LCD Pin <span class="m">2</span> -<span class="p">&gt;</span> <span class="n">5V</span>
-LCD Pin <span class="m">3</span> -<span class="p">&gt;</span> <span class="n">Input</span> from potentiometer
-LCD Pin <span class="m">4</span> -<span class="p">&gt;</span> <span class="n">Digital</span> Pin <span class="m">12</span>
-LCD Pin <span class="m">5</span> -<span class="p">&gt;</span> <span class="n">Digital</span> Pin <span class="m">13</span>
-LCD Pin <span class="m">6</span> -<span class="p">&gt;</span> <span class="n">Digital</span> Pin <span class="m">11</span>
-LCD Pin <span class="m">7</span> -<span class="p">&gt;</span> <span class="n">Digital</span> Pin <span class="m">2</span>
-LCD Pin <span class="m">8</span> -<span class="p">&gt;</span> <span class="n">Digital</span> Pin <span class="m">3</span>
-LCD Pin <span class="m">9</span> -<span class="p">&gt;</span> <span class="n">Digital</span> Pin <span class="m">4</span>
-LCD Pin <span class="m">10</span> -<span class="p">&gt;</span> <span class="n">Digital</span> Pin <span class="m">5</span>
-LCD Pin <span class="m">11</span> -<span class="p">&gt;</span> <span class="n">Digital</span> Pin <span class="m">6</span>
-LCD Pin <span class="m">12</span> -<span class="p">&gt;</span> <span class="n">Digital</span> Pin <span class="m">7</span>
-LCD Pin <span class="m">13</span> -<span class="p">&gt;</span> <span class="n">Digital</span> Pin <span class="m">8</span>
-LCD Pin <span class="m">14</span> -<span class="p">&gt;</span> <span class="n">Digital</span> Pin <span class="m">9</span>
-LCD Pin <span class="m">15</span> -<span class="p">&gt;</span> <span class="n">220</span>Ω Resistor in series with <span class="m">5</span>V input
-LCD Pin <span class="m">16</span> -<span class="p">&gt;</span> <span class="n">GND</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-bat" data-lang="bat">LCD Pin 1 -&gt; GND
+LCD Pin 2 -&gt; 5V
+LCD Pin 3 -&gt; Input from potentiometer
+LCD Pin 4 -&gt; Digital Pin 12
+LCD Pin 5 -&gt; Digital Pin 13
+LCD Pin 6 -&gt; Digital Pin 11
+LCD Pin 7 -&gt; Digital Pin 2
+LCD Pin 8 -&gt; Digital Pin 3
+LCD Pin 9 -&gt; Digital Pin 4
+LCD Pin 10 -&gt; Digital Pin 5
+LCD Pin 11 -&gt; Digital Pin 6
+LCD Pin 12 -&gt; Digital Pin 7
+LCD Pin 13 -&gt; Digital Pin 8
+LCD Pin 14 -&gt; Digital Pin 9
+LCD Pin 15 -&gt; 220Ω Resistor in series with 5V input
+LCD Pin 16 -&gt; GND</code></pre></figure>
 
 <p>Below is an example of how I wired it up. Yours might look completely different; especially with this many wires, it isn’t easy to keep things neat.</p>
 
@@ -222,7 +222,7 @@ LCD Pin <span class="m">16</span> -<span class="p">&gt;</span> <span class="n">G
 
 <h1 id="writing-the-code">Writing the Code</h1>
 
-<p>To start with we’re going to want to define our <code>pin constants</code> as we’ll be referencing them a lot. Make sure you use logical naming conventions.</p>
+<p>To start with we’re going to want to define our <code class="highlighter-rouge">pin constants</code> as we’ll be referencing them a lot. Make sure you use logical naming conventions.</p>
 
 <figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// Map Register selector</span>
 <span class="kd">const</span> <span class="kt">int</span> <span class="n">lcd_RS</span> <span class="o">=</span> <span class="mi">12</span><span class="o">;</span>
@@ -243,11 +243,11 @@ LCD Pin <span class="m">16</span> -<span class="p">&gt;</span> <span class="n">G
 <span class="kd">const</span> <span class="kt">int</span> <span class="n">lcd_D6</span> <span class="o">=</span> <span class="mi">8</span><span class="o">;</span> <span class="c1">// Data 6</span>
 <span class="kd">const</span> <span class="kt">int</span> <span class="n">lcd_D7</span> <span class="o">=</span> <span class="mi">9</span><span class="o">;</span> <span class="c1">// Data 7</span></code></pre></figure>
 
-<p>The next bit is tricky, we need to find a way to take all the various mapped pins and write out to them. Luckily there’s already libraries in place that we can use. For this example we’re just using the standard <code>LiquidCrystal</code> library; which can be imported into our project by adding the following to the top of the file.</p>
+<p>The next bit is tricky, we need to find a way to take all the various mapped pins and write out to them. Luckily there’s already libraries in place that we can use. For this example we’re just using the standard <code class="highlighter-rouge">LiquidCrystal</code> library; which can be imported into our project by adding the following to the top of the file.</p>
 
 <figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;LiquidCrystal.h&gt;</span></code></pre></figure>
 
-<p>In order to access the functions within the <code>LiquidCrystal</code> library we just imported, we first need to create an <code>LCD object</code> that we can use to interact with various functions. I referred to the <a href="https://www.arduino.cc/en/Reference/LiquidCrystalConstructor">following</a> while trying to track down what the <code>default constructors</code> for the <code>LiquidCrystal object</code> were and found that I had four options.</p>
+<p>In order to access the functions within the <code class="highlighter-rouge">LiquidCrystal</code> library we just imported, we first need to create an <code class="highlighter-rouge">LCD object</code> that we can use to interact with various functions. I referred to the <a href="https://www.arduino.cc/en/Reference/LiquidCrystalConstructor">following</a> while trying to track down what the <code class="highlighter-rouge">default constructors</code> for the <code class="highlighter-rouge">LiquidCrystal object</code> were and found that I had four options.</p>
 
 <figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">LiquidCrystal</span><span class="o">(</span><span class="n">rs</span><span class="o">,</span> <span class="n">enable</span><span class="o">,</span> <span class="n">d4</span><span class="o">,</span> <span class="n">d5</span><span class="o">,</span> <span class="n">d6</span><span class="o">,</span> <span class="n">d7</span><span class="o">)</span>
 <span class="n">LiquidCrystal</span><span class="o">(</span><span class="n">rs</span><span class="o">,</span> <span class="n">rw</span><span class="o">,</span> <span class="n">enable</span><span class="o">,</span> <span class="n">d4</span><span class="o">,</span> <span class="n">d5</span><span class="o">,</span> <span class="n">d6</span><span class="o">,</span> <span class="n">d7</span><span class="o">)</span>
@@ -258,12 +258,12 @@ LCD Pin <span class="m">16</span> -<span class="p">&gt;</span> <span class="n">G
 
 <p><img src="http://t04glovern.github.io/images/posts/arduino-lcd-wires.jpg" alt="Futurama Wires" /></p>
 
-<p>Since there’s no harm including all the inputs, I went ahead and used the <code>constructor</code> that required all inputs to be defined. The following code was added, ensuring I was referencing the constants I defined earlier on.</p>
+<p>Since there’s no harm including all the inputs, I went ahead and used the <code class="highlighter-rouge">constructor</code> that required all inputs to be defined. The following code was added, ensuring I was referencing the constants I defined earlier on.</p>
 
-<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">LiquidCrystal</span> <span class="nf">lcd</span><span class="o">(</span><span class="n">lcd_RS</span><span class="o">,</span> <span class="n">lcd_RW</span><span class="o">,</span> <span class="n">lcd_E</span><span class="o">,</span>
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">LiquidCrystal</span> <span class="nf">lcd</span><span class="p">(</span><span class="n">lcd_RS</span><span class="o">,</span> <span class="n">lcd_RW</span><span class="o">,</span> <span class="n">lcd_E</span><span class="o">,</span>
   <span class="n">lcd_D0</span><span class="o">,</span> <span class="n">lcd_D1</span><span class="o">,</span> <span class="n">lcd_D2</span><span class="o">,</span> <span class="n">lcd_D3</span><span class="o">,</span> <span class="n">lcd_D4</span><span class="o">,</span> <span class="n">lcd_D5</span><span class="o">,</span> <span class="n">lcd_D6</span><span class="o">,</span> <span class="n">lcd_D7</span><span class="o">);</span></code></pre></figure>
 
-<p>Now that I had an <code>LCD object</code> created, I could start accessing the <code>Functions</code> that are available as part of the <code>LiquidCrystal class</code></p>
+<p>Now that I had an <code class="highlighter-rouge">LCD object</code> created, I could start accessing the <code class="highlighter-rouge">Functions</code> that are available as part of the <code class="highlighter-rouge">LiquidCrystal class</code></p>
 
 <p>Documentation on the various Functions can be found <a href="https://www.arduino.cc/en/Reference/LiquidCrystal">here</a>, but the important ones I needed to start with were:</p>
 
@@ -276,10 +276,10 @@ LCD Pin <span class="m">16</span> -<span class="p">&gt;</span> <span class="n">G
   </li>
 </ol>
 
-<p>I added the following lines of code in order to Initialize the LCD and write out Hello, World to the screen. The parameters <code>lcd.begin()</code> takes are <code>lcd.begin(cols, rows)</code>.</p>
+<p>I added the following lines of code in order to Initialize the LCD and write out Hello, World to the screen. The parameters <code class="highlighter-rouge">lcd.begin()</code> takes are <code class="highlighter-rouge">lcd.begin(cols, rows)</code>.</p>
 
 <figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">lcd</span><span class="o">.</span><span class="na">begin</span><span class="o">(</span><span class="mi">16</span><span class="o">,</span><span class="mi">2</span><span class="o">);</span>
-<span class="n">lcd</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;Hello, World!&quot;</span><span class="o">);</span></code></pre></figure>
+<span class="n">lcd</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Hello, World!"</span><span class="o">);</span></code></pre></figure>
 
 <p>Compiled the code and loaded it onto the board….</p>
 
@@ -288,7 +288,7 @@ LCD Pin <span class="m">16</span> -<span class="p">&gt;</span> <span class="n">G
 <p>Sweet, that worked great! Lets try getting it to print out my blogs title</p>
 
 <figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">lcd</span><span class="o">.</span><span class="na">begin</span><span class="o">(</span><span class="mi">16</span><span class="o">,</span><span class="mi">2</span><span class="o">);</span>
-<span class="n">lcd</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;TwoFactor Assimilation&quot;</span><span class="o">);</span></code></pre></figure>
+<span class="n">lcd</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"TwoFactor Assimilation"</span><span class="o">);</span></code></pre></figure>
 
 <p><img src="http://t04glovern.github.io/images/posts/arduino-lcd-twofactor-wrong.jpg" alt="Print blog title" /></p>
 
@@ -298,12 +298,12 @@ LCD Pin <span class="m">16</span> -<span class="p">&gt;</span> <span class="n">G
 
 <p><a href="https://www.arduino.cc/en/Reference/LiquidCrystalSetCursor">setCursor()</a> - Position the LCD cursor; that is, set the location at which subsequent text written to the LCD will be displayed.</p>
 
-<p>This means that using the parameters <code>lcd.setCursor(col, row)</code> I can tell the board to move the position I’m writing in from down to the second row before printing <em>Assimilation</em>.</p>
+<p>This means that using the parameters <code class="highlighter-rouge">lcd.setCursor(col, row)</code> I can tell the board to move the position I’m writing in from down to the second row before printing <em>Assimilation</em>.</p>
 
 <figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">lcd</span><span class="o">.</span><span class="na">begin</span><span class="o">(</span><span class="mi">16</span><span class="o">,</span><span class="mi">2</span><span class="o">);</span>
-<span class="n">lcd</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;TwoFactor&quot;</span><span class="o">);</span>
+<span class="n">lcd</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"TwoFactor"</span><span class="o">);</span>
 <span class="n">lcd</span><span class="o">.</span><span class="na">setCursor</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span><span class="mi">2</span><span class="o">);</span>
-<span class="n">lcd</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;Assimilation&quot;</span><span class="o">);</span></code></pre></figure>
+<span class="n">lcd</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Assimilation"</span><span class="o">);</span></code></pre></figure>
 
 <p><img src="http://t04glovern.github.io/images/posts/arduino-lcd-twofactor-fixed.jpg" alt="Print blog title Fixed" /></p>
 
@@ -311,12 +311,19 @@ LCD Pin <span class="m">16</span> -<span class="p">&gt;</span> <span class="n">G
 
 <h1 id="conclusion">Conclusion</h1>
 
-<p>There’s a tonne of things you can do with the <code>LiquidCrystal libraries</code>, so don’t yet this be all you do. Something interesting you could look into is having text centered (by moving the cursor around), or even having <a href="https://www.arduino.cc/en/Reference/LiquidCrystalAutoscroll">scrolling text</a>.</p>
+<p>There’s a tonne of things you can do with the <code class="highlighter-rouge">LiquidCrystal libraries</code>, so don’t yet this be all you do. Something interesting you could look into is having text centered (by moving the cursor around), or even having <a href="https://www.arduino.cc/en/Reference/LiquidCrystalAutoscroll">scrolling text</a>.</p>
 
-<p>In the future I would like to use <code>LCDs</code> a lot more and spent a fair amount of time tonight reading up on the functions behind the pretty libraries.</p>
+<p>In the future I would like to use <code class="highlighter-rouge">LCDs</code> a lot more and spent a fair amount of time tonight reading up on the functions behind the pretty libraries.</p>
 
-<p>If you’d like to learn more, check out <a href="http://microcontrollerboard.com/lcd.html">This</a> page I mentioned before. Either that or even <a href="http://matidavid.com/pic/LCD%20interfacing/lcd-programming.htm">this page</a> which goes into more depth of how the LCD works on an <code>assembler</code> level.</p>
+<p>If you’d like to learn more, check out <a href="http://microcontrollerboard.com/lcd.html">This</a> page I mentioned before. Either that or even <a href="http://matidavid.com/pic/LCD%20interfacing/lcd-programming.htm">this page</a> which goes into more depth of how the LCD works on an <code class="highlighter-rouge">assembler</code> level.</p>
 
+              </div>
+              
+
+              
+              <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
               </div>
               
             </div>
@@ -324,18 +331,198 @@ LCD Pin <span class="m">16</span> -<span class="p">&gt;</span> <span class="n">G
         </div>
         <div class="col-md-4 hidden-xs">
           <div class="sidebar ">
-  <h1>Recent Posts</h1>
+  
+    <h1>Related By Tags</h1>
+  
   <ul>
     
-    <li><a href="/2015/12/arduino-projects-working-with-sound">Arduino Projects - Working with Sound</a></li>
     
-    <li><a href="/2015/12/arduino-project-lcd-displays">Arduino Projects - LCD Displays</a></li>
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
     
-    <li><a href="/2015/12/arduino-projects-thumbstick-to-rgb-led">Arduino Projects - Thumbstick to RGB LED</a></li>
+      
+      
+        
+          
+            <li><a href="http://t04glovern.github.io/2015/12/arduino-projects-thumbstick-to-rgb-led">Arduino Projects - Thumbstick to RGB LED</a></li>
+            
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
     
-    <li><a href="/2015/12/learning-aspnet-building-in-visual-studio-2015-part-3">Learning ASP.NET - Building in Visual Studio 2015 (Part 3)</a></li>
+      
+      
+        
+          
+            <li><a href="http://t04glovern.github.io/2015/12/arduino-projects-working-with-sound">Arduino Projects - Working with Sound</a></li>
+            
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
     
-    <li><a href="/2015/12/learning-aspnet-using-vscode-and-yeoman-part-2">Learning ASP.NET - Using VScode and Yeoman (Part 2)</a></li>
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
     
   </ul>
 </div>
@@ -343,30 +530,30 @@ LCD Pin <span class="m">16</span> -<span class="p">&gt;</span> <span class="n">G
 <div class="sidebar">
   <h1>Tags</h1>
   <ul>
-    
-      <li><a href="/tag/node.js">node.js</a></li>
-    
-      <li><a href="/tag/bash">bash</a></li>
-    
-      <li><a href="/tag/script">script</a></li>
+     
+      <li><a href="/tag/arduino">arduino</a></li>
     
       <li><a href="/tag/asp.net">asp.net</a></li>
     
-      <li><a href="/tag/windows">windows</a></li>
-    
-      <li><a href="/tag/yeoman">yeoman</a></li>
-    
-      <li><a href="/tag/vscode">vscode</a></li>
-    
-      <li><a href="/tag/visualstudio">visualstudio</a></li>
-    
-      <li><a href="/tag/arduino">arduino</a></li>
+      <li><a href="/tag/bash">bash</a></li>
     
       <li><a href="/tag/electronics">electronics</a></li>
     
       <li><a href="/tag/lcd">lcd</a></li>
     
+      <li><a href="/tag/node.js">node.js</a></li>
+    
+      <li><a href="/tag/script">script</a></li>
+    
       <li><a href="/tag/sound">sound</a></li>
+    
+      <li><a href="/tag/visualstudio">visualstudio</a></li>
+    
+      <li><a href="/tag/vscode">vscode</a></li>
+    
+      <li><a href="/tag/windows">windows</a></li>
+    
+      <li><a href="/tag/yeoman">yeoman</a></li>
     
   </ul>
 </div>
@@ -375,6 +562,22 @@ LCD Pin <span class="m">16</span> -<span class="p">&gt;</span> <span class="n">G
       </div>
     </div>
     
+<!-- Add Disqus comments. -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = "t04glovern"; // required: replace example with your forum shortname
+  var disqus_identifier = "/2015/12/arduino-project-lcd-displays";
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
 
   </div>
       <footer class="footer-distributed">
@@ -385,33 +588,55 @@ LCD Pin <span class="m">16</span> -<span class="p">&gt;</span> <span class="n">G
 
 <ul class="social-media">
 
-  
+    
     <li>
-      <a title="t04glovern on Github" href="https://github.com/t04glovern" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+        <a title="t04glovern on Github"
+            href="https://github.com/t04glovern"
+            target="_blank"><i class="fa fa-github fa-2x"></i></a>
     </li>
-  
+    
 
-  
+    
     <li>
-      <a title="5443325 on StackOverflow" href="http://stackoverflow.com/users/5443325" target="_blank"><i class="fa fa-stack-overflow fa-2x"></i></a>
+        <a title="5443325 on StackOverflow"
+            href="http://stackoverflow.com/users/5443325"
+            target="_blank"><i class="fa fa-stack-overflow fa-2x"></i></a>
     </li>
-  
+    
 
-  
+    
     <li>
-      <a title="t04glovern on LinkedIn" href="https://www.linkedin.com/in/glovernathan" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
+        <a title="t04glovern on LinkedIn"
+            href="https://www.linkedin.com/in/glovernathan"
+            target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
     </li>
-  
+    
 
-  
 
-  
-
-  
+    
     <li>
-      <a title="feed.xml RSS" href="http://t04glovern.github.io/feed.xml" target="_blank"><i class="fa fa-rss fa-2x"></i></a>
+        <a title="nathanglove on Instagram"
+            href="https://instagram.com/nathanglove"
+            target="_blank"><i class="fa fa-instagram fa-2x"></i></a>
     </li>
-  
+    
+
+
+    
+    <li>
+        <a title="t04glovern on LastFm"
+            href="http://lastfm.com/user/t04glovern"
+            target="_blank"><i class="fa fa-lastfm fa-2x"></i></a>
+    </li>
+    
+
+    
+    <li>
+        <a title="feed.xml RSS"
+            href="http://t04glovern.github.io/feed.xml"
+            target="_blank"><i class="fa fa-rss fa-2x"></i></a>
+    </li>
+    
 
 </ul>
 

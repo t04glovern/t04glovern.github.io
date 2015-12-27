@@ -7,11 +7,12 @@
   <script src="http://t04glovern.github.io/js/jquery.min.js"></script>
   <script src="http://t04glovern.github.io/js/bootstrap.min.js"></script>
   <script src="http://t04glovern.github.io/js/header.js"></script>
-  <script src="http://t04glovern.github.io/js/toc.js"></script>
   <link href="http://t04glovern.github.io/css/bootstrap.min.css" rel="stylesheet">
   <link href="http://t04glovern.github.io/css/theme.css" rel="stylesheet">
   <link href="http://t04glovern.github.io/css/syntax.css" rel="stylesheet">
   <link href="http://t04glovern.github.io/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu+Mono&subset=latin">
+
 </head>
 
 <body>
@@ -35,7 +36,7 @@
   
 
 
- <script type="text/javascript">
+  <script type="text/javascript">
   WebFontConfig = {
     google: {
       families: ['Ubuntu::latin']
@@ -98,10 +99,9 @@
                 </ul>
               </div>
               <div class="post-content">
-                <div id="toc" class="toc"></div>
                 <h2 id="problem">Problem</h2>
 
-<p>It’s not uncommon to see <code>Node.js</code> listed as a requirement for packages; In the past I would simply attempt an install with a package manager and cross my fingers that the build given to be was correct, while also worrying about the location and environment variables not being setup correctly.</p>
+<p>It’s not uncommon to see <code class="highlighter-rouge">Node.js</code> listed as a requirement for packages; In the past I would simply attempt an install with a package manager and cross my fingers that the build given to be was correct, while also worrying about the location and environment variables not being setup correctly.</p>
 
 <p>Recently I got fed up while trying to build a particular package I was interested in and decided to track down a more permanent solution to this reoccurring problem.</p>
 
@@ -111,36 +111,36 @@
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#! /bin/bash</span>
 <span class="c"># run it by: bash install-node.sh</span>
-<span class="nb">read</span> -p <span class="s2">&quot; which version of Node do you need to install: enter 0.10.24, 0.10.28, or 4.2.2 (or any other valid version): &quot;</span> VERSIONNAME
-<span class="nb">read</span> -p <span class="s2">&quot; Are you using a 32-bit or 64-bit operating system ? Enter 64 or 32: &quot;</span> ARCHVALUE
-<span class="k">if</span> <span class="o">[[</span> <span class="nv">$ARCHVALUE</span> <span class="o">=</span> <span class="m">32</span> <span class="o">]]</span>
-    <span class="k">then</span>
-    <span class="nb">printf</span> <span class="s2">&quot;user put in 32 \n&quot;</span>
+<span class="nb">read</span> -p <span class="s2">" which version of Node do you need to install: enter 0.10.24, 0.10.28, or 4.2.2 (or any other valid version): "</span> VERSIONNAME
+<span class="nb">read</span> -p <span class="s2">" Are you using a 32-bit or 64-bit operating system ? Enter 64 or 32: "</span> ARCHVALUE
+<span class="k">if</span> <span class="o">[[</span> <span class="nv">$ARCHVALUE</span> <span class="o">=</span> 32 <span class="o">]]</span>
+    <span class="k">then
+    </span><span class="nb">printf</span> <span class="s2">"user put in 32 </span><span class="se">\n</span><span class="s2">"</span>
     <span class="nv">ARCHVALUE</span><span class="o">=</span>86
     <span class="nv">URL</span><span class="o">=</span>http://nodejs.org/dist/v<span class="k">${</span><span class="nv">VERSIONNAME</span><span class="k">}</span>/node-v<span class="k">${</span><span class="nv">VERSIONNAME</span><span class="k">}</span>-linux-x<span class="k">${</span><span class="nv">ARCHVALUE</span><span class="k">}</span>.tar.gz
 
-<span class="k">elif</span> <span class="o">[[</span> <span class="nv">$ARCHVALUE</span> <span class="o">=</span> <span class="m">64</span> <span class="o">]]</span>
-    <span class="k">then</span>
-    <span class="nb">printf</span> <span class="s2">&quot;user put in 64 \n&quot;</span>
+<span class="k">elif</span> <span class="o">[[</span> <span class="nv">$ARCHVALUE</span> <span class="o">=</span> 64 <span class="o">]]</span>
+    <span class="k">then
+    </span><span class="nb">printf</span> <span class="s2">"user put in 64 </span><span class="se">\n</span><span class="s2">"</span>
     <span class="nv">ARCHVALUE</span><span class="o">=</span>64
     <span class="nv">URL</span><span class="o">=</span>http://nodejs.org/dist/v<span class="k">${</span><span class="nv">VERSIONNAME</span><span class="k">}</span>/node-v<span class="k">${</span><span class="nv">VERSIONNAME</span><span class="k">}</span>-linux-x<span class="k">${</span><span class="nv">ARCHVALUE</span><span class="k">}</span>.tar.gz
 
-<span class="k">else</span>
-    <span class="nb">printf</span> <span class="s2">&quot;invalid input expted either 32 or 64 as input, quitting ... \n&quot;</span>
+<span class="k">else
+    </span><span class="nb">printf</span> <span class="s2">"invalid input expted either 32 or 64 as input, quitting ... </span><span class="se">\n</span><span class="s2">"</span>
 
-    <span class="nb">exit</span>
-<span class="k">fi</span>
+    <span class="nb">exit
+</span><span class="k">fi</span>
 
 <span class="c"># setting up the folders and the the symbolic links</span>
-<span class="nb">printf</span> <span class="nv">$URL</span><span class="s2">&quot;\n&quot;</span>
-<span class="nv">ME</span><span class="o">=</span><span class="k">$(</span>whoami<span class="k">)</span> <span class="p">;</span> sudo chown -R <span class="nv">$ME</span> /usr/local <span class="o">&amp;&amp;</span> <span class="nb">cd</span> /usr/local/bin <span class="c">#adding yourself to the group to access /usr/local/bin</span>
-mkdir _node <span class="o">&amp;&amp;</span> <span class="nb">cd</span> <span class="nv">$_</span> <span class="o">&amp;&amp;</span> wget <span class="nv">$URL</span> -O - <span class="p">|</span> tar zxf - --strip-components<span class="o">=</span><span class="m">1</span> <span class="c"># downloads and unzips the content to _node</span>
+<span class="nb">printf</span> <span class="nv">$URL</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span>
+<span class="nv">ME</span><span class="o">=</span><span class="k">$(</span>whoami<span class="k">)</span> ; sudo chown -R <span class="nv">$ME</span> /usr/local <span class="o">&amp;&amp;</span> <span class="nb">cd</span> /usr/local/bin <span class="c">#adding yourself to the group to access /usr/local/bin</span>
+mkdir _node <span class="o">&amp;&amp;</span> <span class="nb">cd</span> <span class="nv">$_</span> <span class="o">&amp;&amp;</span> wget <span class="nv">$URL</span> -O - | tar zxf - --strip-components<span class="o">=</span>1 <span class="c"># downloads and unzips the content to _node</span>
 cp -r ./lib/node_modules/ /usr/local/lib/ <span class="c"># copy the node modules folder to the /lib/ folder</span>
 cp -r ./include/node /usr/local/include/ <span class="c"># copy the /include/node folder to /usr/local/include folder</span>
 mkdir /usr/local/man/man1 <span class="c"># create the man folder</span>
 cp ./share/man/man1/node.1 /usr/local/man/man1/ <span class="c"># copy the man file</span>
 cp bin/node /usr/local/bin/ <span class="c"># copy node to the bin folder</span>
-ln -s <span class="s2">&quot;/usr/local/lib/node_modules/npm/bin/npm-cli.js&quot;</span> ../npm <span class="c">## making the symbolic link to npm</span>
+ln -s <span class="s2">"/usr/local/lib/node_modules/npm/bin/npm-cli.js"</span> ../npm <span class="c">## making the symbolic link to npm</span>
 <span class="c"># print the version of node and npm</span>
 node -v
 npm -v</code></pre></figure>
@@ -154,23 +154,204 @@ npm -v</code></pre></figure>
 
               </div>
               
+
+              
+              <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+              </div>
+              
             </div>
           </div>
         </div>
         <div class="col-md-4 hidden-xs">
           <div class="sidebar ">
-  <h1>Recent Posts</h1>
+  
+    <h1>Related By Tags</h1>
+  
   <ul>
     
-    <li><a href="/2015/12/arduino-projects-working-with-sound">Arduino Projects - Working with Sound</a></li>
     
-    <li><a href="/2015/12/arduino-project-lcd-displays">Arduino Projects - LCD Displays</a></li>
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
     
-    <li><a href="/2015/12/arduino-projects-thumbstick-to-rgb-led">Arduino Projects - Thumbstick to RGB LED</a></li>
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
     
-    <li><a href="/2015/12/learning-aspnet-building-in-visual-studio-2015-part-3">Learning ASP.NET - Building in Visual Studio 2015 (Part 3)</a></li>
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
     
-    <li><a href="/2015/12/learning-aspnet-using-vscode-and-yeoman-part-2">Learning ASP.NET - Using VScode and Yeoman (Part 2)</a></li>
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
     
   </ul>
 </div>
@@ -178,30 +359,30 @@ npm -v</code></pre></figure>
 <div class="sidebar">
   <h1>Tags</h1>
   <ul>
-    
-      <li><a href="/tag/node.js">node.js</a></li>
-    
-      <li><a href="/tag/bash">bash</a></li>
-    
-      <li><a href="/tag/script">script</a></li>
+     
+      <li><a href="/tag/arduino">arduino</a></li>
     
       <li><a href="/tag/asp.net">asp.net</a></li>
     
-      <li><a href="/tag/windows">windows</a></li>
-    
-      <li><a href="/tag/yeoman">yeoman</a></li>
-    
-      <li><a href="/tag/vscode">vscode</a></li>
-    
-      <li><a href="/tag/visualstudio">visualstudio</a></li>
-    
-      <li><a href="/tag/arduino">arduino</a></li>
+      <li><a href="/tag/bash">bash</a></li>
     
       <li><a href="/tag/electronics">electronics</a></li>
     
       <li><a href="/tag/lcd">lcd</a></li>
     
+      <li><a href="/tag/node.js">node.js</a></li>
+    
+      <li><a href="/tag/script">script</a></li>
+    
       <li><a href="/tag/sound">sound</a></li>
+    
+      <li><a href="/tag/visualstudio">visualstudio</a></li>
+    
+      <li><a href="/tag/vscode">vscode</a></li>
+    
+      <li><a href="/tag/windows">windows</a></li>
+    
+      <li><a href="/tag/yeoman">yeoman</a></li>
     
   </ul>
 </div>
@@ -210,6 +391,22 @@ npm -v</code></pre></figure>
       </div>
     </div>
     
+<!-- Add Disqus comments. -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = "t04glovern"; // required: replace example with your forum shortname
+  var disqus_identifier = "/2015/12/install-nodejs-ubuntu";
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
 
   </div>
       <footer class="footer-distributed">
@@ -220,33 +417,55 @@ npm -v</code></pre></figure>
 
 <ul class="social-media">
 
-  
+    
     <li>
-      <a title="t04glovern on Github" href="https://github.com/t04glovern" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+        <a title="t04glovern on Github"
+            href="https://github.com/t04glovern"
+            target="_blank"><i class="fa fa-github fa-2x"></i></a>
     </li>
-  
+    
 
-  
+    
     <li>
-      <a title="5443325 on StackOverflow" href="http://stackoverflow.com/users/5443325" target="_blank"><i class="fa fa-stack-overflow fa-2x"></i></a>
+        <a title="5443325 on StackOverflow"
+            href="http://stackoverflow.com/users/5443325"
+            target="_blank"><i class="fa fa-stack-overflow fa-2x"></i></a>
     </li>
-  
+    
 
-  
+    
     <li>
-      <a title="t04glovern on LinkedIn" href="https://www.linkedin.com/in/glovernathan" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
+        <a title="t04glovern on LinkedIn"
+            href="https://www.linkedin.com/in/glovernathan"
+            target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
     </li>
-  
+    
 
-  
 
-  
-
-  
+    
     <li>
-      <a title="feed.xml RSS" href="http://t04glovern.github.io/feed.xml" target="_blank"><i class="fa fa-rss fa-2x"></i></a>
+        <a title="nathanglove on Instagram"
+            href="https://instagram.com/nathanglove"
+            target="_blank"><i class="fa fa-instagram fa-2x"></i></a>
     </li>
-  
+    
+
+
+    
+    <li>
+        <a title="t04glovern on LastFm"
+            href="http://lastfm.com/user/t04glovern"
+            target="_blank"><i class="fa fa-lastfm fa-2x"></i></a>
+    </li>
+    
+
+    
+    <li>
+        <a title="feed.xml RSS"
+            href="http://t04glovern.github.io/feed.xml"
+            target="_blank"><i class="fa fa-rss fa-2x"></i></a>
+    </li>
+    
 
 </ul>
 
