@@ -7,6 +7,14 @@
 		<atom:link href="http://t04glovern.github.io/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>I Can't ping 8.8.8.8</title>
+				<description>Today I go through the longest period without Internet I&#39;ve had since moving into our new place.</description>
+				<pubDate>Mon, 28 Dec 2015 00:00:00 +0800</pubDate>
+				<link>http://t04glovern.github.io/2015/12/i-cant-ping-8888</link>
+				<guid isPermaLink="true">http://t04glovern.github.io/2015/12/i-cant-ping-8888</guid>
+			</item>
+		
+			<item>
 				<title>Arduino Projects - Working with Sound</title>
 				<description>Today we learn how sound is produced and understand how we can create tones using the Arduino tone() library</description>
 				<pubDate>Sat, 26 Dec 2015 00:00:00 +0800</pubDate>

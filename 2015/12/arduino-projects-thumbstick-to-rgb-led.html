@@ -170,7 +170,7 @@ Y Axis Value: 0</code></pre></figure>
 <figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// Delay allowing system to process</span>
 <span class="n">delay</span><span class="o">(</span><span class="mi">30</span><span class="o">);</span></code></pre></figure>
 
-<h1 id="understanding-the-rgb-module">Understanding the RGB Module</h1>
+<h2 id="understanding-the-rgb-module">Understanding the RGB Module</h2>
 
 <p>The <code class="highlighter-rouge">RGB</code> unit I decided to use has four inputs. Three of those inputs take a variable voltage and uses that value to display a colour based on three sets of 0-255 integers (<code class="highlighter-rouge">Red</code> <code class="highlighter-rouge">Blue</code> <code class="highlighter-rouge">Green</code> combination).</p>
 
@@ -202,7 +202,7 @@ Y Axis Value: 0</code></pre></figure>
 
 <p>Using this setup means that I always deal with expected values and even if I do get a curve-ball input, my system will know how to deal with it.</p>
 
-<h1 id="interface-rgb-unit-with-pwm-pins">Interface RGB Unit with PWM Pins</h1>
+<h2 id="interface-rgb-unit-with-pwm-pins">Interface RGB Unit with PWM Pins</h2>
 
 <p>Now that we are importing logical data, we’re safe to move forward and interface the RGB unit. First I connected the <code class="highlighter-rouge">Digital PWM pins</code> in series with the RGB legs and a single 220Ω Resistor on  each leg of my LED. Following that I added code to map the digital ports to meaningful names</p>
 
@@ -239,7 +239,7 @@ Y Axis Value: 0</code></pre></figure>
 <span class="n">analogWrite</span><span class="o">(</span><span class="n">greenLEDPin</span><span class="o">,</span> <span class="n">valueY</span><span class="o">);</span>
 <span class="n">analogWrite</span><span class="o">(</span><span class="n">blueLEDPin</span><span class="o">,</span> <span class="n">valueMix</span><span class="o">);</span></code></pre></figure>
 
-<h1 id="run-the-code">Run the Code</h1>
+<h2 id="run-the-code">Run the Code</h2>
 
 <p>Presto! my code works great</p>
 
@@ -487,6 +487,21 @@ spends most of his freetime building up his brain with different concepts.
           
         
       
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
         
           
         
@@ -571,6 +586,10 @@ spends most of his freetime building up his brain with different concepts.
       <li><a href="/tag/bash">bash</a></li>
     
       <li><a href="/tag/electronics">electronics</a></li>
+    
+      <li><a href="/tag/grief">grief</a></li>
+    
+      <li><a href="/tag/internet">internet</a></li>
     
       <li><a href="/tag/lcd">lcd</a></li>
     

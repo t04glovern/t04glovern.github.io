@@ -82,75 +82,124 @@
         <div class="col-md-8">
           <div class="article">
             <div class="well">
-              <h1><a href="http://t04glovern.github.io/2015/12/install-nodejs-ubuntu">Installing Node.js the easy way</a></h1>
+              <h1><a href="http://t04glovern.github.io/2015/12/i-cant-ping-8888">I Can't ping 8.8.8.8</a></h1>
               <div class="post-meta">
                 <div class="post-time">
                   <i class="fa fa-calendar"></i>
-                  <time>09 Dec 2015</time>
+                  <time>28 Dec 2015</time>
                 </div>
                 <ul>
                   
-                    <li><a href="http://t04glovern.github.io/tag/node.js">node.js</a></li>
+                    <li><a href="http://t04glovern.github.io/tag/internet">internet</a></li>
                   
-                    <li><a href="http://t04glovern.github.io/tag/bash">bash</a></li>
-                  
-                    <li><a href="http://t04glovern.github.io/tag/script">script</a></li>
+                    <li><a href="http://t04glovern.github.io/tag/grief">grief</a></li>
                   
                 </ul>
               </div>
               <div class="post-content">
-                <h2 id="problem">Problem</h2>
+                <h2 id="introduction-to-hell">Introduction (To Hell)</h2>
 
-<p>It’s not uncommon to see <code class="highlighter-rouge">Node.js</code> listed as a requirement for packages; In the past I would simply attempt an install with a package manager and cross my fingers that the build given to be was correct, while also worrying about the location and environment variables not being setup correctly.</p>
+<p>For the last 24 hours there has been a major fault with the vendor infrastructure that provides the NBN connection to our house. I’ve been through periods without Internet before, but I’ve never had to deal with an outage on a public holiday and knew from the get-go that It was likely to be a difficult time in my life.</p>
 
-<p>Recently I got fed up while trying to build a particular package I was interested in and decided to track down a more permanent solution to this reoccurring problem.</p>
+<h2 id="denial">Denial</h2>
 
-<h2 id="solution">Solution</h2>
+<p>I woke up this morning like any other morning in an Australian summer; with a dry mouth and covered in sweat. I picked up my phone to check see what everyone was up to and noticed the little yellow exclamation point on my WiFi symbol indicating that I was connected to WiFi, but had no connection to the outside world.</p>
 
-<p>After some google-fu (or more specifically, DuckDuck-fu?) I came across the following script.</p>
+<p>I rolled my eyes assuming that the kittens we were looking after had pumped the wireless AP out of its socket again, meaning I would have to get out of bed before I could even think about getting online. I contemplated switching to 4G but quickly dismissed that idea when I remembered I only had 70mb to last me the next 3 days. With a heavy groan I lifted my frail husk of a body out of bed, beads of sweat dripping down my skin as I did so…. It was bloody hot.</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#! /bin/bash</span>
-<span class="c"># run it by: bash install-node.sh</span>
-<span class="nb">read</span> -p <span class="s2">" which version of Node do you need to install: enter 0.10.24, 0.10.28, or 4.2.2 (or any other valid version): "</span> VERSIONNAME
-<span class="nb">read</span> -p <span class="s2">" Are you using a 32-bit or 64-bit operating system ? Enter 64 or 32: "</span> ARCHVALUE
-<span class="k">if</span> <span class="o">[[</span> <span class="nv">$ARCHVALUE</span> <span class="o">=</span> 32 <span class="o">]]</span>
-    <span class="k">then
-    </span><span class="nb">printf</span> <span class="s2">"user put in 32 </span><span class="se">\n</span><span class="s2">"</span>
-    <span class="nv">ARCHVALUE</span><span class="o">=</span>86
-    <span class="nv">URL</span><span class="o">=</span>http://nodejs.org/dist/v<span class="k">${</span><span class="nv">VERSIONNAME</span><span class="k">}</span>/node-v<span class="k">${</span><span class="nv">VERSIONNAME</span><span class="k">}</span>-linux-x<span class="k">${</span><span class="nv">ARCHVALUE</span><span class="k">}</span>.tar.gz
+<p>As I walked towards the room where the access point was a sickening through came to mind; my phone had been connected to the WiFi, it just wasn’t routing to any outside networks…. meaning that the issues probably wasn’t the access point at all. I made a sharp turn into my study and ripped the cord from the wall connecting my router/modem to power. After a moment I plugged the cord back in and took a long, deep breath as I watched the internet LED light flash on then back off.</p>
 
-<span class="k">elif</span> <span class="o">[[</span> <span class="nv">$ARCHVALUE</span> <span class="o">=</span> 64 <span class="o">]]</span>
-    <span class="k">then
-    </span><span class="nb">printf</span> <span class="s2">"user put in 64 </span><span class="se">\n</span><span class="s2">"</span>
-    <span class="nv">ARCHVALUE</span><span class="o">=</span>64
-    <span class="nv">URL</span><span class="o">=</span>http://nodejs.org/dist/v<span class="k">${</span><span class="nv">VERSIONNAME</span><span class="k">}</span>/node-v<span class="k">${</span><span class="nv">VERSIONNAME</span><span class="k">}</span>-linux-x<span class="k">${</span><span class="nv">ARCHVALUE</span><span class="k">}</span>.tar.gz
+<h2 id="anger">Anger</h2>
 
-<span class="k">else
-    </span><span class="nb">printf</span> <span class="s2">"invalid input expted either 32 or 64 as input, quitting ... </span><span class="se">\n</span><span class="s2">"</span>
+<p>NO! I am not ready for this… This is my damn day off and I had plans to play vidya and maybe do some study. Now I’m not going to get anything done and it’s all <em>Insert ISP name here</em>’s fault! I slammed my finger down on the power button to my desktop and navigated to the IP of my router, while also loading up the <em>Insert ISP name here</em> Facebook page to check if anyone else was reporting issues.</p>
 
-    <span class="nb">exit
-</span><span class="k">fi</span>
+<p>I opened the login page and was greeted by the following message under <code class="highlighter-rouge">Internet Connections</code>:</p>
 
-<span class="c"># setting up the folders and the the symbolic links</span>
-<span class="nb">printf</span> <span class="nv">$URL</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span>
-<span class="nv">ME</span><span class="o">=</span><span class="k">$(</span>whoami<span class="k">)</span> ; sudo chown -R <span class="nv">$ME</span> /usr/local <span class="o">&amp;&amp;</span> <span class="nb">cd</span> /usr/local/bin <span class="c">#adding yourself to the group to access /usr/local/bin</span>
-mkdir _node <span class="o">&amp;&amp;</span> <span class="nb">cd</span> <span class="nv">$_</span> <span class="o">&amp;&amp;</span> wget <span class="nv">$URL</span> -O - | tar zxf - --strip-components<span class="o">=</span>1 <span class="c"># downloads and unzips the content to _node</span>
-cp -r ./lib/node_modules/ /usr/local/lib/ <span class="c"># copy the node modules folder to the /lib/ folder</span>
-cp -r ./include/node /usr/local/include/ <span class="c"># copy the /include/node folder to /usr/local/include folder</span>
-mkdir /usr/local/man/man1 <span class="c"># create the man folder</span>
-cp ./share/man/man1/node.1 /usr/local/man/man1/ <span class="c"># copy the man file</span>
-cp bin/node /usr/local/bin/ <span class="c"># copy node to the bin folder</span>
-ln -s <span class="s2">"/usr/local/lib/node_modules/npm/bin/npm-cli.js"</span> ../npm <span class="c">## making the symbolic link to npm</span>
-<span class="c"># print the version of node and npm</span>
-node -v
-npm -v</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Internet: Connected since 01.01.1970, 08:01, iiNet NBN, IP address: xxx.xxx.xxx.xxx</code></pre></figure>
 
-<p>When you run the script you’ll be prompted asking for the version (numbers can be found here: https://nodejs.org/en/download/) and the architecture you’re working on. Simply put in your desired values and presto! you’ll have the correct version installed and ready to go.</p>
+<p>Oh, well that explains everything; I’ve traveled in time to the year 1970 when fibreoptics weren’t even commercially used for data transmission. That’s why I don’t have internet, that makes complete sense you stupid fricken router.</p>
 
-<p>You can check the version your running using the following command:</p>
+<p>I picked up my phone and started to read some of the comments on the <em>Insert ISP name here</em> Facebook page. My heart rate slowed down and I felt a little at ease when I noticed that It wasn’t just me having issues; In fact a very large proportion of NBN users were having issues and <em>Insert ISP name here</em> was posting regular updates regarding the ETR.</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">node --version</code></pre></figure>
+<p>There was also quite a few somewhat pissed of people who clearly shared my frustration and had taken to the internet (ironically) to vent.</p>
 
+<ul>
+  <li><code class="highlighter-rouge">The one who thinks it's as easy as turning it off and on</code></li>
+</ul>
+
+<p><img src="http://t04glovern.github.io/images/posts/internet-not-qualified.png" alt="Not Qualified" /></p>
+
+<ul>
+  <li><code class="highlighter-rouge">The one who states the obvious</code></li>
+</ul>
+
+<p><img src="http://t04glovern.github.io/images/posts/internet-state-the-obvious.png" alt="States the Obvious" /></p>
+
+<ul>
+  <li><code class="highlighter-rouge">The one who wants technical support but complains when things don't work straight away</code></li>
+</ul>
+
+<p><img src="http://t04glovern.github.io/images/posts/internet-posting-heaps.png" alt="Posting Heaps" /></p>
+
+<ul>
+  <li><code class="highlighter-rouge">The one who is feeling pissed off and angry.</code> Don’t worry buddy, I feel your pain</li>
+</ul>
+
+<p><img src="http://t04glovern.github.io/images/posts/internet-angry.png" alt="Angry" /></p>
+
+<ul>
+  <li><code class="highlighter-rouge">The one with empty threats</code></li>
+</ul>
+
+<p><img src="http://t04glovern.github.io/images/posts/internet-call-her-bluff.png" alt="Empty Threat" /></p>
+
+<ul>
+  <li><code class="highlighter-rouge">The one who uses the "O" word whenever he can</code></li>
+</ul>
+
+<p><img src="http://t04glovern.github.io/images/posts/internet-throwing-around-the-O.png" alt="O word" /></p>
+
+<ul>
+  <li><code class="highlighter-rouge">The one who doesn't know how good they have it</code></li>
+</ul>
+
+<p><img src="http://t04glovern.github.io/images/posts/internet-back-to-adsl.png" alt="ADSL &gt; NBN" /></p>
+
+<ul>
+  <li><code class="highlighter-rouge">And then the one who gets trolled hard</code></li>
+</ul>
+
+<p><img src="http://t04glovern.github.io/images/posts/internet-fuel-the-rage.png" alt="Trolled 1" /></p>
+
+<p><img src="http://t04glovern.github.io/images/posts/internet-fuel-the-rage-2.png" alt="Trolled 2" /></p>
+
+<h2 id="bargaining">Bargaining</h2>
+
+<p>Once I’d finished reviewing some of the more humorous posts I began to brainstorm how I was going to get access to the internet while I wait for the home connection to come back up. All bets were on the table and I was seriously considering some pretty awful options.</p>
+
+<p>Maccas always seems like it would be a good option, but it never is. You trudge down to the store and order a coffee that normally tastes burnt like the pits of hell. Then you end up only finding a seat at a table in a high traffic area because everyone else in your area had the same bright idea. You finally setup your laptop on the dirty, crusty table and connect to the WiFI only to find that it’s slower than grandmas dial up because everyone else in the store is streaming netflix. The same goes for coffee shops and dome coffee. Don’t even bother.</p>
+
+<p>Maybe I could go to a friends house or my parents? No that would require socializing and considering it’s a 40 degree day, I don’t think I can handle the small talk and heat at the same time.</p>
+
+<p>The only option I had left is to maybe buy a datapack for my phone and use my megabytes sparingly. Unfortunately I have a high daily usage as it is (over 4-5gb easily) and I doubt I could hold back from spending $50+ on data, so I best not tempt myself at all.</p>
+
+<h2 id="depression">Depression</h2>
+
+<p>Oh god this is worse than I thought It would be. In the back of my mind I had told myself I would get it back pretty quickly and still have enough time in the day to get my stuff done. It is now nearly 2pm and there’s been no status updates on the network issues.</p>
+
+<p>I think this might be it for me, there isn’t much point even trying anymore if I can’t watching re-runs of Arrested Development on netflix while browsing memes.</p>
+
+<p>If there is an all powerful god out there, why does he put me through this torture.</p>
+
+<p>I can’t deal</p>
+
+<p>Hello darkness, my old friend.</p>
+
+<h2 id="acceptance">Acceptance</h2>
+
+<p>Okay It isn’t as bad as I’d first thought. I worked out I could still blog locally as git would still track all my changes offline. I got a bit of cleaning done around the house and spent some time reading a book.</p>
+
+<p>It was relaxing, and I’ve realized that it isn’t the end of the world. I’m not saying I’m happy about this situation, but I do think I may have blown the whole thing out of proportion.</p>
 
               </div>
               
@@ -160,7 +209,7 @@ npm -v</code></pre></figure>
 <h4 class="fa fa-share-alt section-title">Share Post :</h4>
 
 <!-- Twitter -->
-<a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=Installing Node.js the easy way" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+<a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=I Can't ping 8.8.8.8" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
   <i class="fa fa-twitter fa-lg"></i>
   Twitter
 </a>
@@ -179,20 +228,20 @@ npm -v</code></pre></figure>
 
 <!-- StumbleUpon (url, title) -->
 <!--
-<a class="btn btn-default btn-sm StumbleUpon" href="http://www.stumbleupon.com/submit?url=http://t04glovern.github.io/2015/12/install-nodejs-ubuntu&title=Installing Node.js the easy way" target="_blank" class="share-btn stumbleupon">
+<a class="btn btn-default btn-sm StumbleUpon" href="http://www.stumbleupon.com/submit?url=http://t04glovern.github.io/2015/12/i-cant-ping-8888&title=I Can't ping 8.8.8.8" target="_blank" class="share-btn stumbleupon">
   <i class="fa fa-stumbleupon fa-lg"></i>
   StumbleUpon
 </a>
 -->
 
 <!-- Reddit (url, title) -->
-<a class="btn btn-default btn-sm reddit" href="http://reddit.com/submit?url=http://t04glovern.github.io/2015/12/install-nodejs-ubuntu&title=Installing Node.js the easy way" target="_blank" class="share-btn reddit">
+<a class="btn btn-default btn-sm reddit" href="http://reddit.com/submit?url=http://t04glovern.github.io/2015/12/i-cant-ping-8888&title=I Can't ping 8.8.8.8" target="_blank" class="share-btn reddit">
   <i class="fa fa-reddit fa-lg"></i>
   Reddit
 </a>
 
 <!-- LinkedIn -->
-<a class="btn btn-default btn-sm linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=http://t04glovern.github.io/2015/12/install-nodejs-ubuntu&title=Installing Node.js the easy way&source=">
+<a class="btn btn-default btn-sm linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=http://t04glovern.github.io/2015/12/i-cant-ping-8888&title=I Can't ping 8.8.8.8&source=">
   <i class="fa fa-linkedin fa-lg"></i>
   LinkedIn
 </a>
@@ -250,19 +299,13 @@ spends most of his freetime building up his brain with different concepts.
         
           
         
-          
-        
       
         
           
         
           
         
-          
-        
       
-        
-          
         
           
         
@@ -277,11 +320,7 @@ spends most of his freetime building up his brain with different concepts.
         
           
         
-          
-        
       
-        
-          
         
           
         
@@ -296,19 +335,13 @@ spends most of his freetime building up his brain with different concepts.
         
           
         
-          
-        
       
         
           
         
           
         
-          
-        
       
-        
-          
         
           
         
@@ -323,11 +356,7 @@ spends most of his freetime building up his brain with different concepts.
         
           
         
-          
-        
       
-        
-          
         
           
         
@@ -342,19 +371,13 @@ spends most of his freetime building up his brain with different concepts.
         
           
         
-          
-        
       
         
           
         
           
         
-          
-        
       
-        
-          
         
           
         
@@ -369,19 +392,13 @@ spends most of his freetime building up his brain with different concepts.
         
           
         
-          
-        
       
         
           
         
           
         
-          
-        
       
-        
-          
         
           
         
@@ -396,11 +413,7 @@ spends most of his freetime building up his brain with different concepts.
         
           
         
-          
-        
       
-        
-          
         
           
         
@@ -415,6 +428,10 @@ spends most of his freetime building up his brain with different concepts.
         
           
         
+      
+        
+          
+        
           
         
       
@@ -423,19 +440,7 @@ spends most of his freetime building up his brain with different concepts.
         
           
         
-          
-        
       
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
         
           
         
@@ -490,7 +495,7 @@ spends most of his freetime building up his brain with different concepts.
 <script type="text/javascript">
   /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
   var disqus_shortname = "t04glovern"; // required: replace example with your forum shortname
-  var disqus_identifier = "/2015/12/install-nodejs-ubuntu";
+  var disqus_identifier = "/2015/12/i-cant-ping-8888";
   /* * * DON'T EDIT BELOW THIS LINE * * */
   (function() {
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
