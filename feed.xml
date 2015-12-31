@@ -3,71 +3,79 @@
 	<channel>
 		<title>TwoFactor Assimilation</title>
 		<description>Tech Enthusiast</description>
-		<link>http://t04glovern.github.io</link>
-		<atom:link href="http://t04glovern.github.io/feed.xml" rel="self" type="application/rss+xml" />
+		<link>http://localhost:4000</link>
+		<atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+		
+			<item>
+				<title>Arduino Projects - Ethernet using HR911105A</title>
+				<description>Tonight I decided to give Ethernet interfacing with the Arduino a go.</description>
+				<pubDate>Wed, 30 Dec 2015 00:00:00 +0800</pubDate>
+				<link>http://localhost:4000/2015/12/arduino-projects-ethernet-using-hr911105a</link>
+				<guid isPermaLink="true">http://localhost:4000/2015/12/arduino-projects-ethernet-using-hr911105a</guid>
+			</item>
 		
 			<item>
 				<title>I Can't ping 8.8.8.8</title>
 				<description>Today I go through the longest period without Internet I&#39;ve had since moving into our new place.</description>
 				<pubDate>Mon, 28 Dec 2015 00:00:00 +0800</pubDate>
-				<link>http://t04glovern.github.io/2015/12/i-cant-ping-8888</link>
-				<guid isPermaLink="true">http://t04glovern.github.io/2015/12/i-cant-ping-8888</guid>
+				<link>http://localhost:4000/2015/12/i-cant-ping-8888</link>
+				<guid isPermaLink="true">http://localhost:4000/2015/12/i-cant-ping-8888</guid>
 			</item>
 		
 			<item>
 				<title>Arduino Projects - Working with Sound</title>
 				<description>Today we learn how sound is produced and understand how we can create tones using the Arduino tone() library</description>
 				<pubDate>Sat, 26 Dec 2015 00:00:00 +0800</pubDate>
-				<link>http://t04glovern.github.io/2015/12/arduino-projects-working-with-sound</link>
-				<guid isPermaLink="true">http://t04glovern.github.io/2015/12/arduino-projects-working-with-sound</guid>
+				<link>http://localhost:4000/2015/12/arduino-projects-working-with-sound</link>
+				<guid isPermaLink="true">http://localhost:4000/2015/12/arduino-projects-working-with-sound</guid>
 			</item>
 		
 			<item>
 				<title>Arduino Projects - LCD Displays</title>
 				<description>We explore the different functions of a simple LCD display, while also getting and Arduino to control and display my blogs title correctly</description>
 				<pubDate>Tue, 22 Dec 2015 00:00:00 +0800</pubDate>
-				<link>http://t04glovern.github.io/2015/12/arduino-project-lcd-displays</link>
-				<guid isPermaLink="true">http://t04glovern.github.io/2015/12/arduino-project-lcd-displays</guid>
+				<link>http://localhost:4000/2015/12/arduino-project-lcd-displays</link>
+				<guid isPermaLink="true">http://localhost:4000/2015/12/arduino-project-lcd-displays</guid>
 			</item>
 		
 			<item>
 				<title>Arduino Projects - Thumbstick to RGB LED</title>
 				<description>We work on a small Arduino project that uses an analog stick to control a RGB LED</description>
 				<pubDate>Mon, 21 Dec 2015 00:00:00 +0800</pubDate>
-				<link>http://t04glovern.github.io/2015/12/arduino-projects-thumbstick-to-rgb-led</link>
-				<guid isPermaLink="true">http://t04glovern.github.io/2015/12/arduino-projects-thumbstick-to-rgb-led</guid>
+				<link>http://localhost:4000/2015/12/arduino-projects-thumbstick-to-rgb-led</link>
+				<guid isPermaLink="true">http://localhost:4000/2015/12/arduino-projects-thumbstick-to-rgb-led</guid>
 			</item>
 		
 			<item>
 				<title>Learning ASP.NET - Building in Visual Studio 2015 (Part 3)</title>
 				<description>Expanding on the things we&#39;ve learned from deploying via Yeoman, we now create a project from scratch without the use of templates.</description>
 				<pubDate>Sat, 12 Dec 2015 00:00:00 +0800</pubDate>
-				<link>http://t04glovern.github.io/2015/12/learning-aspnet-building-in-visual-studio-2015-part-3</link>
-				<guid isPermaLink="true">http://t04glovern.github.io/2015/12/learning-aspnet-building-in-visual-studio-2015-part-3</guid>
+				<link>http://localhost:4000/2015/12/learning-aspnet-building-in-visual-studio-2015-part-3</link>
+				<guid isPermaLink="true">http://localhost:4000/2015/12/learning-aspnet-building-in-visual-studio-2015-part-3</guid>
 			</item>
 		
 			<item>
 				<title>Learning ASP.NET - Using VScode and Yeoman (Part 2)</title>
 				<description>Using Yeoman to deploy a ASP.NET project template, we generate our first working page</description>
 				<pubDate>Fri, 11 Dec 2015 00:00:00 +0800</pubDate>
-				<link>http://t04glovern.github.io/2015/12/learning-aspnet-using-vscode-and-yeoman-part-2</link>
-				<guid isPermaLink="true">http://t04glovern.github.io/2015/12/learning-aspnet-using-vscode-and-yeoman-part-2</guid>
+				<link>http://localhost:4000/2015/12/learning-aspnet-using-vscode-and-yeoman-part-2</link>
+				<guid isPermaLink="true">http://localhost:4000/2015/12/learning-aspnet-using-vscode-and-yeoman-part-2</guid>
 			</item>
 		
 			<item>
 				<title>Learning ASP.NET - Installing ASP.NET Runtime (Part 1)</title>
 				<description>We run through the basics of the ASP.NET framework including installing and configuring the platform</description>
 				<pubDate>Thu, 10 Dec 2015 00:00:00 +0800</pubDate>
-				<link>http://t04glovern.github.io/2015/12/learning-aspnet-part-1</link>
-				<guid isPermaLink="true">http://t04glovern.github.io/2015/12/learning-aspnet-part-1</guid>
+				<link>http://localhost:4000/2015/12/learning-aspnet-part-1</link>
+				<guid isPermaLink="true">http://localhost:4000/2015/12/learning-aspnet-part-1</guid>
 			</item>
 		
 			<item>
 				<title>Installing Node.js the easy way</title>
 				<description>A simple method for installing any version of Node.js using bash.</description>
 				<pubDate>Wed, 09 Dec 2015 00:00:00 +0800</pubDate>
-				<link>http://t04glovern.github.io/2015/12/install-nodejs-ubuntu</link>
-				<guid isPermaLink="true">http://t04glovern.github.io/2015/12/install-nodejs-ubuntu</guid>
+				<link>http://localhost:4000/2015/12/install-nodejs-ubuntu</link>
+				<guid isPermaLink="true">http://localhost:4000/2015/12/install-nodejs-ubuntu</guid>
 			</item>
 		
 	</channel>
