@@ -1,0 +1,774 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>TwoFactor Assimilation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="http://t04glovern.github.io/js/jquery.min.js"></script>
+  <script src="http://t04glovern.github.io/js/bootstrap.min.js"></script>
+  <script src="http://t04glovern.github.io/js/header.js"></script>
+  <link href="http://t04glovern.github.io/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://t04glovern.github.io/css/theme.css" rel="stylesheet">
+  <link href="http://t04glovern.github.io/css/syntax.css" rel="stylesheet">
+  <link href="http://t04glovern.github.io/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu+Mono&subset=latin">
+
+</head>
+
+<body>
+
+  
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-71336829-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+  
+
+
+  <script type="text/javascript">
+  WebFontConfig = {
+    google: {
+      families: ['Ubuntu::latin']
+    }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+</script>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://t04glovern.github.io/">TwoFactor Assimilation</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="http://t04glovern.github.io/">/home</a></li>
+          <li><a href="http://t04glovern.github.io/archive.html">/archive</a></li>
+          <li><a href="http://t04glovern.github.io/tags.html">/tags</a></li>
+          <li><a href="http://t04glovern.github.io/about.html">/about</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+<div class="wrapper">
+  <div class="content">
+    <div class="container container-center">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="article">
+            <div class="well">
+              <h1><a href="http://t04glovern.github.io/2016/01/python-image-manipulation">Python - Image Manipulation</a></h1>
+              <div class="post-meta">
+                <div class="post-time">
+                  <i class="fa fa-calendar"></i>
+                  <time>24 Jan 2016</time>
+                </div>
+                <ul>
+                  
+                    <li><a href="http://t04glovern.github.io/tag/python">python</a></li>
+                  
+                </ul>
+              </div>
+              <div class="post-content">
+                <h2 id="introduction">Introduction</h2>
+
+<p>As part of a program through my University and <a href="http://www.coderdojowa.org.au/">CoderdojoWA</a> I’ve been asked to oversee a project relating to image manipulation in <code class="highlighter-rouge">Python</code> using the <a href="http://pythonware.com/products/pil/">Python Image Library</a>. While I wasn’t the one to write the guide, I have been asked to test and confirm I understand it well enough to be able to teach the content this coming February.</p>
+
+<h2 id="base-code--image">Base Code + Image</h2>
+
+<p>The following code was written with <code class="highlighter-rouge">PIL (Python Imaging Library)</code> that is currently only supported officially on <code class="highlighter-rouge">Python2.7</code>. Below is the base code that we will be using throughout the course of this lesson.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
+
+<span class="c"># Include some open-source code to help us load the images</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+
+<span class="c"># This is the code that does the actual filtering. We should replace</span>
+<span class="c"># filter_name with the name of our filter, but keep in mind that</span>
+<span class="c"># *it must match up with the filter_name used below!*</span>
+
+<span class="k">def</span> <span class="nf">filter_name</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+    <span class="c"># Get the width and height (number of columns and rows) of the image</span>
+    <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">size</span>
+    <span class="c"># Make a copy of the image so that we don't write over the original data.</span>
+    <span class="n">new_img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="c"># PUT YOUR CODE HERE</span>
+
+    <span class="k">return</span> <span class="n">new_img</span>
+
+<span class="c"># The entry point for our application. This is where the computer will</span>
+<span class="c"># begin running our code.</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="c"># Open the image file and read in its data so that we can access it</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="nb">open</span><span class="p">(</span><span class="s">'EarthRender.bmp'</span><span class="p">)</span>
+
+    <span class="c"># Run the code for the filter. We should replace filter_name</span>
+    <span class="c"># with the name of our filter.</span>
+    <span class="n">new_img</span> <span class="o">=</span> <span class="n">filter_name</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+
+    <span class="c"># Save the image file so that we can view it</span>
+    <span class="n">new_img</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">'OutputImage.bmp'</span><span class="p">)</span></code></pre></figure>
+
+<p>Below is the image we’ll be using to test; If you’d like to use your own, try to pick a <code class="highlighter-rouge">24-bit BMP</code> for the best results.</p>
+
+<p><img src="http://t04glovern.github.io/images/posts/python-earth-render-base.png" alt="Earth Render Base" /></p>
+
+<p>You can find the original copy that was rendered by <code class="highlighter-rouge">Wikimedia user Tesseract2</code> <a href="https://commons.wikimedia.org/wiki/File:EarthRender.png">Here.</a>. The copy on that site is not in the correct format. You can convert the image by opening it in <code class="highlighter-rouge">GIMP</code> and exporting as <code class="highlighter-rouge">Windows BMP</code>.</p>
+
+<p>Once you have the <code class="highlighter-rouge">EarthRender.bmp</code> in the same folder as your base code; run it using the following command from your terminal</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">python2 filter.py</code></pre></figure>
+
+<p>The code now will export an identical copy of the original BMP file but with the new name <code class="highlighter-rouge">OutputImage.bmp</code>.</p>
+
+<p>The rest of the tutorial will demonstrate the methods required to manipulate images in a number of different ways. Simply add the new function into your code and change the <code class="highlighter-rouge">new_img = filter_name(img)</code> line in your <code class="highlighter-rouge">__main__</code> to match the method you’d like to execute.</p>
+
+<h2 id="invert">Invert</h2>
+
+<p><img src="http://t04glovern.github.io/images/posts/python-earth-render-invert.bmp" alt="Earth Render Invert" /></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">invert</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+    <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">size</span>
+    <span class="n">new_img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">width</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">height</span><span class="p">):</span>
+            <span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">getpixel</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span>
+            <span class="n">new_red</span> <span class="o">=</span> <span class="mi">255</span> <span class="o">-</span> <span class="n">red</span>
+            <span class="n">new_green</span> <span class="o">=</span> <span class="mi">255</span> <span class="o">-</span> <span class="n">green</span>
+            <span class="n">new_blue</span> <span class="o">=</span> <span class="mi">255</span> <span class="o">-</span> <span class="n">blue</span>
+            <span class="n">new_img</span><span class="o">.</span><span class="n">putpixel</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="n">new_red</span><span class="p">,</span> <span class="n">new_green</span><span class="p">,</span> <span class="n">new_blue</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">new_img</span></code></pre></figure>
+
+<h2 id="mask-black-and-white">Mask (Black and White)</h2>
+
+<p><img src="http://t04glovern.github.io/images/posts/python-earth-render-mask.bmp" alt="Earth Render Mask" /></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">mask</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+    <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">size</span>
+    <span class="n">new_img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">width</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">height</span><span class="p">):</span>
+            <span class="n">cur_pixel</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">getpixel</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span>
+            <span class="n">average</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">cur_pixel</span><span class="p">)</span> <span class="o">/</span> <span class="mf">3.0</span>
+
+            <span class="k">if</span> <span class="n">average</span> <span class="o">&lt;</span> <span class="mi">128</span><span class="p">:</span>
+                <span class="n">average</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">average</span> <span class="o">=</span> <span class="mi">255</span>
+
+            <span class="n">new_img</span><span class="o">.</span><span class="n">putpixel</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="n">average</span><span class="p">,)</span><span class="o">*</span><span class="mi">3</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">new_img</span></code></pre></figure>
+
+<h2 id="grayscale">Grayscale</h2>
+
+<p><img src="http://t04glovern.github.io/images/posts/python-earth-render-greyscale.bmp" alt="Earth Render Greyscale" /></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">greyscale</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+    <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">size</span>
+    <span class="n">new_img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">width</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">height</span><span class="p">):</span>
+            <span class="n">cur_pixel</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">getpixel</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span>
+            <span class="n">average</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">cur_pixel</span><span class="p">)</span> <span class="o">/</span> <span class="mi">3</span>
+            <span class="n">new_img</span><span class="o">.</span><span class="n">putpixel</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="n">average</span><span class="p">,)</span><span class="o">*</span><span class="mi">3</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">new_img</span></code></pre></figure>
+
+<h2 id="sepia-tone">Sepia Tone</h2>
+
+<p><img src="http://t04glovern.github.io/images/posts/python-earth-render-sepia.bmp" alt="Earth Render Sepia Tone" /></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">sepia</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+    <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">size</span>
+    <span class="n">new_img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">width</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">height</span><span class="p">):</span>
+            <span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">getpixel</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span>
+            <span class="n">new_val</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.3</span> <span class="o">*</span> <span class="n">red</span> <span class="o">+</span> <span class="mf">0.59</span> <span class="o">*</span> <span class="n">green</span> <span class="o">+</span> <span class="mf">0.11</span> <span class="o">*</span> <span class="n">blue</span><span class="p">)</span>
+
+            <span class="n">new_red</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">new_val</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">new_red</span> <span class="o">&gt;</span> <span class="mi">255</span><span class="p">:</span>
+                <span class="n">new_red</span> <span class="o">=</span> <span class="mi">255</span>
+            <span class="n">new_green</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">new_val</span> <span class="o">*</span> <span class="mf">1.5</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">new_green</span> <span class="o">&gt;</span> <span class="mi">255</span><span class="p">:</span>
+                <span class="n">new_green</span> <span class="o">=</span> <span class="mi">255</span>
+            <span class="n">new_blue</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">new_val</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">new_blue</span> <span class="o">&gt;</span> <span class="mi">255</span><span class="p">:</span>
+                <span class="n">new_blue</span> <span class="o">=</span> <span class="mi">255</span>
+
+            <span class="n">new_img</span><span class="o">.</span><span class="n">putpixel</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="n">new_red</span><span class="p">,</span> <span class="n">new_green</span><span class="p">,</span> <span class="n">new_blue</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">new_img</span></code></pre></figure>
+
+<h2 id="swap-channels">Swap Channels</h2>
+
+<p><img src="http://t04glovern.github.io/images/posts/python-earth-render-swap.bmp" alt="Earth Render Swap Channels" /></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">swap_channels</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+    <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">size</span>
+    <span class="n">new_img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">width</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">height</span><span class="p">):</span>
+            <span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">getpixel</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span>
+            <span class="n">new_img</span><span class="o">.</span><span class="n">putpixel</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="n">blue</span><span class="p">,</span> <span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">new_img</span></code></pre></figure>
+
+<h2 id="flipping">Flipping</h2>
+
+<p><img src="http://t04glovern.github.io/images/posts/python-earth-render-flip.bmp" alt="Earth Render Flipping" /></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">flip</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+    <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">size</span>
+    <span class="n">new_img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">width</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">height</span><span class="p">):</span>
+            <span class="n">new_img</span><span class="o">.</span><span class="n">putpixel</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">img</span><span class="o">.</span><span class="n">getpixel</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">height</span> <span class="o">-</span> <span class="n">y</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)))</span>
+
+    <span class="k">return</span> <span class="n">new_img</span></code></pre></figure>
+
+<h2 id="mirroring">Mirroring</h2>
+
+<p><img src="http://t04glovern.github.io/images/posts/python-earth-render-mirror.bmp" alt="Earth Render Mirroring" /></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">mirror</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+    <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">size</span>
+    <span class="n">new_img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">height</span><span class="p">):</span>
+            <span class="n">new_img</span><span class="o">.</span><span class="n">putpixel</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">img</span><span class="o">.</span><span class="n">getpixel</span><span class="p">((</span><span class="n">width</span> <span class="o">-</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">)))</span>
+
+    <span class="k">return</span> <span class="n">new_img</span></code></pre></figure>
+
+<h2 id="contrast">Contrast</h2>
+
+<p><img src="http://t04glovern.github.io/images/posts/python-earth-render-contrast.bmp" alt="Earth Render Contrast" /></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">contrast</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+    <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">size</span>
+    <span class="n">new_img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">width</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">height</span><span class="p">):</span>
+            <span class="n">func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">v</span><span class="p">:</span> <span class="n">v</span> <span class="o">/</span> <span class="mi">2</span> <span class="k">if</span> <span class="n">v</span> <span class="o">&lt;</span> <span class="mi">128</span> <span class="k">else</span> <span class="n">v</span> <span class="o">*</span> <span class="mi">2</span>
+            <span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">getpixel</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+
+            <span class="n">red</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">red</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">red</span> <span class="o">&gt;</span> <span class="mi">255</span><span class="p">:</span>
+                <span class="n">red</span> <span class="o">=</span> <span class="mi">255</span>
+            <span class="n">green</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">green</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">green</span> <span class="o">&gt;</span> <span class="mi">255</span><span class="p">:</span>
+                <span class="n">green</span> <span class="o">=</span> <span class="mi">255</span>
+            <span class="n">blue</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">blue</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">blue</span> <span class="o">&gt;</span> <span class="mi">255</span><span class="p">:</span>
+                <span class="n">blue</span> <span class="o">=</span> <span class="mi">255</span>
+
+            <span class="n">new_img</span><span class="o">.</span><span class="n">putpixel</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">new_img</span></code></pre></figure>
+
+<h2 id="get-block-average-function">Get Block Average Function</h2>
+
+<p>For the remaining tasks we’ll be utilizing the following function. Be sure to add it into your project so we can reference it.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">get_block_average</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">block_size</span><span class="p">):</span>
+    <span class="s">"""A helper function to return the average of the pixels
+    in an block_size * block_size square at position x, y.
+    Won't read past the edges of the image. """</span>
+
+    <span class="c">#Ensure we don't read past the edges</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">end_x</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span> <span class="o">+</span> <span class="n">block_size</span><span class="p">)</span>
+    <span class="n">end_y</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">y</span> <span class="o">+</span> <span class="n">block_size</span><span class="p">)</span>
+
+    <span class="c">#Get all of the pixels in the block into a list</span>
+    <span class="n">pixel_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">end_x</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">end_y</span><span class="p">):</span>
+            <span class="n">pixel_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">getpixel</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)))</span>
+
+    <span class="c">#Sum all of the components (seperately)</span>
+    <span class="n">sums</span> <span class="o">=</span> <span class="nb">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> <span class="n">pixel_list</span><span class="p">)</span>
+
+    <span class="c">#Return averages</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">sums</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">pixel_list</span><span class="p">),</span>
+            <span class="n">sums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">pixel_list</span><span class="p">),</span>
+            <span class="n">sums</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">pixel_list</span><span class="p">))</span></code></pre></figure>
+
+<h2 id="blur">Blur</h2>
+
+<p><img src="http://t04glovern.github.io/images/posts/python-earth-render-blur.bmp" alt="Earth Render Blur" /></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">blur</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+    <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">size</span>
+    <span class="n">new_img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">width</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">height</span><span class="p">):</span>
+            <span class="n">new_img</span><span class="o">.</span><span class="n">putpixel</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">get_block_average</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">5</span><span class="p">,</span> <span class="n">y</span> <span class="o">-</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">new_img</span></code></pre></figure>
+
+<h2 id="stark-lines">Stark Lines</h2>
+
+<p><img src="http://t04glovern.github.io/images/posts/python-earth-render-line.bmp" alt="Earth Render Stark Lines" /></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">line</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+    <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">size</span>
+    <span class="n">new_img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">width</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">height</span><span class="p">):</span>
+            <span class="n">ave_red</span><span class="p">,</span> <span class="n">ave_green</span><span class="p">,</span> <span class="n">ave_blue</span> <span class="o">=</span> <span class="n">get_block_average</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="n">y</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+            <span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">getpixel</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+
+            <span class="n">edge</span> <span class="o">=</span> <span class="bp">False</span>
+            <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">red</span> <span class="o">-</span> <span class="n">ave_red</span><span class="p">)</span> <span class="o">+</span> <span class="nb">abs</span><span class="p">(</span><span class="n">green</span> <span class="o">-</span> <span class="n">ave_green</span><span class="p">)</span> <span class="o">+</span> <span class="nb">abs</span><span class="p">(</span><span class="n">blue</span> <span class="o">-</span> <span class="n">ave_blue</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">45</span><span class="p">:</span>
+                <span class="n">edge</span> <span class="o">=</span> <span class="bp">True</span>
+
+            <span class="n">pixel</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span> <span class="k">if</span> <span class="n">edge</span> <span class="k">else</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+            <span class="n">new_img</span><span class="o">.</span><span class="n">putpixel</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">pixel</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">new_img</span></code></pre></figure>
+
+<h2 id="pixelize">Pixelize</h2>
+
+<p><img src="http://t04glovern.github.io/images/posts/python-earth-render-pixel.bmp" alt="Earth Render Pixelize" /></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">pixelize</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+    <span class="n">pixel_size</span> <span class="o">=</span> <span class="mi">16</span>
+
+    <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">size</span>
+    <span class="n">new_img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">width</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">height</span><span class="p">):</span>
+            <span class="n">near_x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="p">(</span><span class="n">x</span> <span class="o">%</span> <span class="n">pixel_size</span><span class="p">)</span>
+            <span class="n">near_y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="p">(</span><span class="n">y</span> <span class="o">%</span> <span class="n">pixel_size</span><span class="p">)</span>
+            <span class="n">new_img</span><span class="o">.</span><span class="n">putpixel</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">get_block_average</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">near_x</span><span class="p">,</span> <span class="n">near_y</span><span class="p">,</span> <span class="n">pixel_size</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">new_img</span></code></pre></figure>
+
+<h2 id="image-synthesis">Image Synthesis</h2>
+
+<p>Finally we can actually generate our own images using this library. Here’s an interesting one that uses XOR</p>
+
+<p><img src="http://t04glovern.github.io/images/posts/python-earth-render-xor-synth.bmp" alt="Earth Render XOR Synthesis" /></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">xor_synth</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+    <span class="n">new_img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s">'RGB'</span><span class="p">,</span> <span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">500</span><span class="p">))</span>
+    <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">new_img</span><span class="o">.</span><span class="n">size</span>
+
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">width</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">height</span><span class="p">):</span>
+            <span class="n">val</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">^</span> <span class="n">y</span><span class="p">)</span> <span class="o">%</span> <span class="mi">255</span>
+            <span class="n">new_img</span><span class="o">.</span><span class="n">putpixel</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="n">val</span><span class="p">,)</span><span class="o">*</span><span class="mi">3</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">new_img</span></code></pre></figure>
+
+
+              </div>
+              
+
+<!-- Social Button HTML -->
+<div class="fa fa-share-bar">
+<h4 class="fa fa-share-alt section-title">Share Post :</h4>
+
+<!-- Twitter -->
+<a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=Python - Image Manipulation" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+  <i class="fa fa-twitter fa-lg"></i>
+  Twitter
+</a>
+
+<!-- Google Plus -->
+<a class="btn btn-default btn-sm gplus" onclick="window.open('https://plus.google.com/share?url='+window.location.href, 'google-plus-share', 'width=490,height=530');return false;">
+  <i class="fa fa-google-plus fa-lg"></i>
+  Google+
+</a>
+
+<!-- Facebook -->
+<a class="btn btn-default btn-sm facebook" href="https://www.facebook.com/sharer/sharer.php" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+  <i class="fa fa-facebook fa-lg"></i>
+  Facebook
+</a>
+
+<!-- StumbleUpon (url, title) -->
+<!--
+<a class="btn btn-default btn-sm StumbleUpon" href="http://www.stumbleupon.com/submit?url=http://t04glovern.github.io/2016/01/python-image-manipulation&title=Python - Image Manipulation" target="_blank" class="share-btn stumbleupon">
+  <i class="fa fa-stumbleupon fa-lg"></i>
+  StumbleUpon
+</a>
+-->
+
+<!-- Reddit (url, title) -->
+<a class="btn btn-default btn-sm reddit" href="http://reddit.com/submit?url=http://t04glovern.github.io/2016/01/python-image-manipulation&title=Python - Image Manipulation" target="_blank" class="share-btn reddit">
+  <i class="fa fa-reddit fa-lg"></i>
+  Reddit
+</a>
+
+<!-- LinkedIn -->
+<a class="btn btn-default btn-sm linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=http://t04glovern.github.io/2016/01/python-image-manipulation&title=Python - Image Manipulation&source=">
+  <i class="fa fa-linkedin fa-lg"></i>
+  LinkedIn
+</a>
+
+<!-- Email -->
+<!--
+<a class="btn btn-default btn-sm email" href="mailto:?subject=<SUBJECT&body=<BODY>" target="_blank" class="share-btn email">
+  <i class="fa fa-envelope"></i>
+  Email
+</a>
+-->
+</div><p></p>
+
+
+
+              
+
+<section class="site-author1 col-sm-2">
+  <br>
+  <img src="http://www.gravatar.com/avatar/3f588f12eca6a2e82161a1da2451fe89" class="img-rounded author-image" />
+</section>
+
+<section class="site-author2 col-sm-10">
+<h4 class="section-title author-name"></h4>
+<p class="author-bio">Nathan Glover is a passionate technology enthusiast with a strong
+understanding of Windows Server 2012 / Hyper-V and Windows Operating
+system support. He has an eagerness to learn new things and generally
+spends most of his freetime building up his brain with different concepts.
+</p>
+</section>
+
+
+
+              
+              <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 hidden-xs">
+          <div class="sidebar ">
+  
+    <h1>Related By Tags</h1>
+  
+  <ul>
+    
+    
+      
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+      
+    
+  </ul>
+</div>
+
+<div class="sidebar">
+  <h1>Tags</h1>
+  <ul>
+     
+      <li><a href="/tag/arduino">arduino</a></li>
+    
+      <li><a href="/tag/asp.net">asp.net</a></li>
+    
+      <li><a href="/tag/bash">bash</a></li>
+    
+      <li><a href="/tag/electronics">electronics</a></li>
+    
+      <li><a href="/tag/ethernet">ethernet</a></li>
+    
+      <li><a href="/tag/grief">grief</a></li>
+    
+      <li><a href="/tag/internet">internet</a></li>
+    
+      <li><a href="/tag/lcd">lcd</a></li>
+    
+      <li><a href="/tag/node.js">node.js</a></li>
+    
+      <li><a href="/tag/python">python</a></li>
+    
+      <li><a href="/tag/script">script</a></li>
+    
+      <li><a href="/tag/shift register">shift register</a></li>
+    
+      <li><a href="/tag/sound">sound</a></li>
+    
+      <li><a href="/tag/visualstudio">visualstudio</a></li>
+    
+      <li><a href="/tag/vscode">vscode</a></li>
+    
+      <li><a href="/tag/windows">windows</a></li>
+    
+      <li><a href="/tag/yeoman">yeoman</a></li>
+    
+  </ul>
+</div>
+
+        </div>
+      </div>
+    </div>
+    
+<!-- Add Disqus comments. -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = "t04glovern"; // required: replace example with your forum shortname
+  var disqus_identifier = "/2016/01/python-image-manipulation";
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+  </div>
+      <footer class="footer-distributed">
+      <div class="container">
+        <div class="footer">
+          <p>Nathan Glover &copy; 2015</p>
+          <h6>Follow me</h6>
+
+<ul class="social-media">
+
+    
+    <li>
+        <a title="t04glovern on Github"
+            href="https://github.com/t04glovern"
+            target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    </li>
+    
+
+    
+    <li>
+        <a title="5443325 on StackOverflow"
+            href="http://stackoverflow.com/users/5443325"
+            target="_blank"><i class="fa fa-stack-overflow fa-2x"></i></a>
+    </li>
+    
+
+    
+    <li>
+        <a title="t04glovern on LinkedIn"
+            href="https://www.linkedin.com/in/glovernathan"
+            target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
+    </li>
+    
+
+
+    
+    <li>
+        <a title="nathanglove on Instagram"
+            href="https://instagram.com/nathanglove"
+            target="_blank"><i class="fa fa-instagram fa-2x"></i></a>
+    </li>
+    
+
+
+    
+    <li>
+        <a title="t04glovern on LastFm"
+            href="http://lastfm.com/user/t04glovern"
+            target="_blank"><i class="fa fa-lastfm fa-2x"></i></a>
+    </li>
+    
+
+    
+    <li>
+        <a title="feed.xml RSS"
+            href="http://t04glovern.github.io/feed.xml"
+            target="_blank"><i class="fa fa-rss fa-2x"></i></a>
+    </li>
+    
+
+</ul>
+
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+</div>

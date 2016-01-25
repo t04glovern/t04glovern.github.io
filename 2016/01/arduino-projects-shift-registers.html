@@ -148,7 +148,7 @@
 
 <h2 id="how-the-shift-register-works">How the Shift Register works</h2>
 
-<p>A shift register is a <code class="highlighter-rouge">synchronous device</code>; it only acts on the r<code class="highlighter-rouge">ising edge</code> of the clock signal. Every time the clock signal transitions from low to high, all the values currently stored in the eight output registers are shifted over one position (the last one is either discarded or output on the <code class="highlighter-rouge">Q(H)'</code> pin if you are cascading registers).</p>
+<p>A shift register is a <code class="highlighter-rouge">synchronous device</code>; it only acts on the <code class="highlighter-rouge">rising edge</code> of the clock signal. Every time the clock signal transitions from low to high, all the values currently stored in the eight output registers are shifted over one position (the last one is either discarded or output on the <code class="highlighter-rouge">Q(H)'</code> pin if you are cascading registers).</p>
 
 <p>Simultaneously, the value currently on the DATA input is shifted into the first position. By doing this eight times, the present values are shifted out and the new values are shifted into the register. The <code class="highlighter-rouge">LATCH pin</code> is set high at the end of the cycle to make the newly shifted values appear on the outputs.</p>
 
@@ -590,6 +590,15 @@ spends most of his freetime building up his brain with different concepts.
         
       
     
+      
+      
+        
+          
+        
+          
+        
+      
+    
   </ul>
 </div>
 
@@ -614,6 +623,8 @@ spends most of his freetime building up his brain with different concepts.
       <li><a href="/tag/lcd">lcd</a></li>
     
       <li><a href="/tag/node.js">node.js</a></li>
+    
+      <li><a href="/tag/python">python</a></li>
     
       <li><a href="/tag/script">script</a></li>
     

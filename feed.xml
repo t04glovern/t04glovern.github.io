@@ -7,6 +7,14 @@
 		<atom:link href="http://t04glovern.github.io/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Python - Image Manipulation</title>
+				<description>Working through a tutorial written for kids to learn how to manipulate images with Python</description>
+				<pubDate>Sun, 24 Jan 2016 00:00:00 +0800</pubDate>
+				<link>http://t04glovern.github.io/2016/01/python-image-manipulation</link>
+				<guid isPermaLink="true">http://t04glovern.github.io/2016/01/python-image-manipulation</guid>
+			</item>
+		
+			<item>
 				<title>Arduino Projects - Shift Registers</title>
 				<description>Investigating Shift Registers with Arduino</description>
 				<pubDate>Sun, 03 Jan 2016 00:00:00 +0800</pubDate>
@@ -76,14 +84,6 @@
 				<pubDate>Thu, 10 Dec 2015 00:00:00 +0800</pubDate>
 				<link>http://t04glovern.github.io/2015/12/learning-aspnet-part-1</link>
 				<guid isPermaLink="true">http://t04glovern.github.io/2015/12/learning-aspnet-part-1</guid>
-			</item>
-		
-			<item>
-				<title>Installing Node.js the easy way</title>
-				<description>A simple method for installing any version of Node.js using bash.</description>
-				<pubDate>Wed, 09 Dec 2015 00:00:00 +0800</pubDate>
-				<link>http://t04glovern.github.io/2015/12/install-nodejs-ubuntu</link>
-				<guid isPermaLink="true">http://t04glovern.github.io/2015/12/install-nodejs-ubuntu</guid>
 			</item>
 		
 	</channel>
