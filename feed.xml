@@ -7,6 +7,14 @@
 		<atom:link href="http://t04glovern.github.io/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>EqualLogic storage pool connection via iSCSI into ESXi</title>
+				<description>The process required to connect EqualLogic storage pools into ESXi via iSCSI</description>
+				<pubDate>Tue, 02 Feb 2016 00:00:00 +0800</pubDate>
+				<link>http://t04glovern.github.io/2016/02/equallogic-storage-pool-connection-via-iscsi-into-esxi</link>
+				<guid isPermaLink="true">http://t04glovern.github.io/2016/02/equallogic-storage-pool-connection-via-iscsi-into-esxi</guid>
+			</item>
+		
+			<item>
 				<title>Python - Image Manipulation</title>
 				<description>Working through a tutorial written for kids to learn how to manipulate images with Python</description>
 				<pubDate>Sun, 24 Jan 2016 00:00:00 +0800</pubDate>
@@ -76,14 +84,6 @@
 				<pubDate>Fri, 11 Dec 2015 00:00:00 +0800</pubDate>
 				<link>http://t04glovern.github.io/2015/12/learning-aspnet-using-vscode-and-yeoman-part-2</link>
 				<guid isPermaLink="true">http://t04glovern.github.io/2015/12/learning-aspnet-using-vscode-and-yeoman-part-2</guid>
-			</item>
-		
-			<item>
-				<title>Learning ASP.NET - Installing ASP.NET Runtime (Part 1)</title>
-				<description>We run through the basics of the ASP.NET framework including installing and configuring the platform</description>
-				<pubDate>Thu, 10 Dec 2015 00:00:00 +0800</pubDate>
-				<link>http://t04glovern.github.io/2015/12/learning-aspnet-part-1</link>
-				<guid isPermaLink="true">http://t04glovern.github.io/2015/12/learning-aspnet-part-1</guid>
 			</item>
 		
 	</channel>

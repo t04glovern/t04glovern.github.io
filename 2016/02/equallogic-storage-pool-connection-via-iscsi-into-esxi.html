@@ -82,75 +82,80 @@
         <div class="col-md-8">
           <div class="article">
             <div class="well">
-              <h1><a href="http://t04glovern.github.io/2015/12/install-nodejs-ubuntu">Installing Node.js the easy way</a></h1>
+              <h1><a href="http://t04glovern.github.io/2016/02/equallogic-storage-pool-connection-via-iscsi-into-esxi">EqualLogic storage pool connection via iSCSI into ESXi</a></h1>
               <div class="post-meta">
                 <div class="post-time">
                   <i class="fa fa-calendar"></i>
-                  <time>09 Dec 2015</time>
+                  <time>02 Feb 2016</time>
                 </div>
                 <ul>
                   
-                    <li><a href="http://t04glovern.github.io/tag/node.js">node.js</a></li>
+                    <li><a href="http://t04glovern.github.io/tag/equallogic">equallogic</a></li>
                   
-                    <li><a href="http://t04glovern.github.io/tag/bash">bash</a></li>
+                    <li><a href="http://t04glovern.github.io/tag/esxi">esxi</a></li>
                   
-                    <li><a href="http://t04glovern.github.io/tag/script">script</a></li>
+                    <li><a href="http://t04glovern.github.io/tag/iscsi">iscsi</a></li>
                   
                 </ul>
               </div>
               <div class="post-content">
-                <h2 id="problem">Problem</h2>
+                <h2 id="introduction">Introduction</h2>
 
-<p>It’s not uncommon to see <code class="highlighter-rouge">Node.js</code> listed as a requirement for packages; In the past I would simply attempt an install with a package manager and cross my fingers that the build given to be was correct, while also worrying about the location and environment variables not being setup correctly.</p>
+<p>This guide outlines how to get <code class="highlighter-rouge">Borrowed Space</code> storage pools created in EqualLogic storage manager talking with ESXi over an iSCSI link. I make the assumption that you already have the various storage pools setup, my guide uses three existing spaces called Gold, Silver and Bronze.</p>
 
-<p>Recently I got fed up while trying to build a particular package I was interested in and decided to track down a more permanent solution to this reoccurring problem.</p>
+<h2 id="setup-an-iscsi-host-adaptor">Setup an iSCSI host adaptor</h2>
 
-<h2 id="solution">Solution</h2>
+<p>Login to one of the ESXi boxes you want to configure with the vSphere client and navigate to the Configuration tab &gt; Storage Adapters. You’ll be greeted with various storage adapters that are currently attached to your physical system. In order for us to talk with the EqualLogic storage device we need an iSCSI adapter setup.</p>
 
-<p>After some google-fu (or more specifically, DuckDuck-fu?) I came across the following script.</p>
+<p><img src="http://t04glovern.github.io/images/posts/equallogic-storage/equallogic-storage-pool-adapter.png" alt="Adapter Creation" /></p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#! /bin/bash</span>
-<span class="c"># run it by: bash install-node.sh</span>
-<span class="nb">read</span> -p <span class="s2">" which version of Node do you need to install: enter 0.10.24, 0.10.28, or 4.2.2 (or any other valid version): "</span> VERSIONNAME
-<span class="nb">read</span> -p <span class="s2">" Are you using a 32-bit or 64-bit operating system ? Enter 64 or 32: "</span> ARCHVALUE
-<span class="k">if</span> <span class="o">[[</span> <span class="nv">$ARCHVALUE</span> <span class="o">=</span> 32 <span class="o">]]</span>
-    <span class="k">then
-    </span><span class="nb">printf</span> <span class="s2">"user put in 32 </span><span class="se">\n</span><span class="s2">"</span>
-    <span class="nv">ARCHVALUE</span><span class="o">=</span>86
-    <span class="nv">URL</span><span class="o">=</span>http://nodejs.org/dist/v<span class="k">${</span><span class="nv">VERSIONNAME</span><span class="k">}</span>/node-v<span class="k">${</span><span class="nv">VERSIONNAME</span><span class="k">}</span>-linux-x<span class="k">${</span><span class="nv">ARCHVALUE</span><span class="k">}</span>.tar.gz
+<p>Right click and select <code class="highlighter-rouge">Add Software iSCSI Adapter</code> then hit OK on the screen alerting you to the creation of the new adapter. Awesome, now we have an adapter that will handle our storage traffic between the EqualLogic and our hosts.</p>
 
-<span class="k">elif</span> <span class="o">[[</span> <span class="nv">$ARCHVALUE</span> <span class="o">=</span> 64 <span class="o">]]</span>
-    <span class="k">then
-    </span><span class="nb">printf</span> <span class="s2">"user put in 64 </span><span class="se">\n</span><span class="s2">"</span>
-    <span class="nv">ARCHVALUE</span><span class="o">=</span>64
-    <span class="nv">URL</span><span class="o">=</span>http://nodejs.org/dist/v<span class="k">${</span><span class="nv">VERSIONNAME</span><span class="k">}</span>/node-v<span class="k">${</span><span class="nv">VERSIONNAME</span><span class="k">}</span>-linux-x<span class="k">${</span><span class="nv">ARCHVALUE</span><span class="k">}</span>.tar.gz
+<p>Go ahead and check out the properties of the new adapter. Take note (copy) the iSCSI Name. It’ll be a very long string that uniquely defines the interface; we’ll be using it shortly so make sure you’ve copied it down somewhere.</p>
 
-<span class="k">else
-    </span><span class="nb">printf</span> <span class="s2">"invalid input expted either 32 or 64 as input, quitting ... </span><span class="se">\n</span><span class="s2">"</span>
+<p><img src="http://t04glovern.github.io/images/posts/equallogic-storage/equallogic-storage-pool-adapter-name.png" alt="Adapter Creation with Name" /></p>
 
-    <span class="nb">exit
-</span><span class="k">fi</span>
+<h2 id="equallogic-access-policies">EqualLogic Access policies</h2>
 
-<span class="c"># setting up the folders and the the symbolic links</span>
-<span class="nb">printf</span> <span class="nv">$URL</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span>
-<span class="nv">ME</span><span class="o">=</span><span class="k">$(</span>whoami<span class="k">)</span> ; sudo chown -R <span class="nv">$ME</span> /usr/local <span class="o">&amp;&amp;</span> <span class="nb">cd</span> /usr/local/bin <span class="c">#adding yourself to the group to access /usr/local/bin</span>
-mkdir _node <span class="o">&amp;&amp;</span> <span class="nb">cd</span> <span class="nv">$_</span> <span class="o">&amp;&amp;</span> wget <span class="nv">$URL</span> -O - | tar zxf - --strip-components<span class="o">=</span>1 <span class="c"># downloads and unzips the content to _node</span>
-cp -r ./lib/node_modules/ /usr/local/lib/ <span class="c"># copy the node modules folder to the /lib/ folder</span>
-cp -r ./include/node /usr/local/include/ <span class="c"># copy the /include/node folder to /usr/local/include folder</span>
-mkdir /usr/local/man/man1 <span class="c"># create the man folder</span>
-cp ./share/man/man1/node.1 /usr/local/man/man1/ <span class="c"># copy the man file</span>
-cp bin/node /usr/local/bin/ <span class="c"># copy node to the bin folder</span>
-ln -s <span class="s2">"/usr/local/lib/node_modules/npm/bin/npm-cli.js"</span> ../npm <span class="c">## making the symbolic link to npm</span>
-<span class="c"># print the version of node and npm</span>
-node -v
-npm -v</code></pre></figure>
+<p>Login to the <code class="highlighter-rouge">EqualLogic Group Manager</code> and jump into the <code class="highlighter-rouge">Group Configuration</code> section. You can see I’ve already setup the pools to connect with my first ESXi host.</p>
 
-<p>When you run the script you’ll be prompted asking for the version (numbers can be found here: https://nodejs.org/en/download/) and the architecture you’re working on. Simply put in your desired values and presto! you’ll have the correct version installed and ready to go.</p>
+<p><img src="http://t04glovern.github.io/images/posts/equallogic-storage/equallogic-storage-pool-access-policies.png" alt="Group Manager Access Policies" /></p>
 
-<p>You can check the version your running using the following command:</p>
+<p>Next open up the Access Policies section and check <code class="highlighter-rouge">New</code> under <code class="highlighter-rouge">Access Policies</code>. Give it a common name that make sense, generally the name of the ESXi host that you’re connecting to makes sense.</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">node --version</code></pre></figure>
+<p><img src="http://t04glovern.github.io/images/posts/equallogic-storage/equallogic-storage-pool-access-policies-name.png" alt="Group Manager Access Policies Name" /></p>
 
+<p>Click <code class="highlighter-rouge">New</code> to add a new access point. The only box we’ll worry about here is the <code class="highlighter-rouge">iSCSI Initiator Name</code>, which will be the name of the adaptor I told you to copy down before. Punch that in and click <code class="highlighter-rouge">Ok</code> and then Ok on the remaining windows.</p>
+
+<p><img src="http://t04glovern.github.io/images/posts/equallogic-storage/equallogic-storage-pool-access-policies-iscsi-name.png" alt="Group Manager Access Policies iSCSI Name" /></p>
+
+<p>Now all we need to do is assign various Space targets to the policies. Do this by selecting the new Policy we just created and clicking <code class="highlighter-rouge">Add</code> in the <code class="highlighter-rouge">Targets</code> menu (top right)</p>
+
+<p><img src="http://t04glovern.github.io/images/posts/equallogic-storage/equallogic-storage-pool-access-policies-targets.png" alt="Group Manager Access Policies Target" /></p>
+
+<p>Simply check all the various volumes you’d like to be available to the host connected to the policy we just setup and click <code class="highlighter-rouge">Ok</code></p>
+
+<p><img src="http://t04glovern.github.io/images/posts/equallogic-storage/equallogic-storage-pool-access-policies-targets-select.png" alt="Group Manager Access Policies Target Select" /></p>
+
+<h2 id="connect-iscsi-storage">Connect iSCSI Storage</h2>
+
+<p>Back in ESXi right click and select <code class="highlighter-rouge">Properites</code> on your <code class="highlighter-rouge">iSCSI Software Adapter</code> and click the <code class="highlighter-rouge">Dynamic Discovery</code> tab. Add a new location and put in the IP Address of the EqualLogic group manager (port is standard iSCSI 3260) and click <code class="highlighter-rouge">Ok</code></p>
+
+<p><img src="http://t04glovern.github.io/images/posts/equallogic-storage/equallogic-storage-pool-adapter-discovery.png" alt="ESXi iSCSI Dynamic Discovery" /></p>
+
+<p>Click on Static Discovery and you’ll likely already see the three storage targets we setup prior</p>
+
+<p><img src="http://t04glovern.github.io/images/posts/equallogic-storage/equallogic-storage-pool-adapter-discovery-static.png" alt="ESXi iSCSI Static Discovery" /></p>
+
+<p>Now we just need to add the discovered devices as storage locations; do this by navigating to the <code class="highlighter-rouge">Configuration &gt; Storage</code> section. You might find that the Datastores already show up and have been added automatically. If they have then don’t worry about the following steps (you’re done!)</p>
+
+<p>If they don’t show up simply click <code class="highlighter-rouge">Add Storage</code> with the storage type <code class="highlighter-rouge">Disk/LUN</code> and individually add the three targets making sure to name them something reasonable.</p>
+
+<p><img src="http://t04glovern.github.io/images/posts/equallogic-storage/equallogic-storage-pool-added.png" alt="ESXi iSCSI Datastores" /></p>
+
+<h2 id="summary">Summary</h2>
+
+<p>Using iSCSI Datastores means you can leverage some great vMotion and HA features that exist in vSphere without having to worry about large data migrations during VM moves. It’s also a great way to ensure that all your various storage arrays are somewhat centralized.</p>
 
               </div>
               
@@ -160,7 +165,7 @@ npm -v</code></pre></figure>
 <h4 class="fa fa-share-alt section-title">Share Post :</h4>
 
 <!-- Twitter -->
-<a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=Installing Node.js the easy way" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+<a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=EqualLogic storage pool connection via iSCSI into ESXi" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
   <i class="fa fa-twitter fa-lg"></i>
   Twitter
 </a>
@@ -179,20 +184,20 @@ npm -v</code></pre></figure>
 
 <!-- StumbleUpon (url, title) -->
 <!--
-<a class="btn btn-default btn-sm StumbleUpon" href="http://www.stumbleupon.com/submit?url=http://t04glovern.github.io/2015/12/install-nodejs-ubuntu&title=Installing Node.js the easy way" target="_blank" class="share-btn stumbleupon">
+<a class="btn btn-default btn-sm StumbleUpon" href="http://www.stumbleupon.com/submit?url=http://t04glovern.github.io/2016/02/equallogic-storage-pool-connection-via-iscsi-into-esxi&title=EqualLogic storage pool connection via iSCSI into ESXi" target="_blank" class="share-btn stumbleupon">
   <i class="fa fa-stumbleupon fa-lg"></i>
   StumbleUpon
 </a>
 -->
 
 <!-- Reddit (url, title) -->
-<a class="btn btn-default btn-sm reddit" href="http://reddit.com/submit?url=http://t04glovern.github.io/2015/12/install-nodejs-ubuntu&title=Installing Node.js the easy way" target="_blank" class="share-btn reddit">
+<a class="btn btn-default btn-sm reddit" href="http://reddit.com/submit?url=http://t04glovern.github.io/2016/02/equallogic-storage-pool-connection-via-iscsi-into-esxi&title=EqualLogic storage pool connection via iSCSI into ESXi" target="_blank" class="share-btn reddit">
   <i class="fa fa-reddit fa-lg"></i>
   Reddit
 </a>
 
 <!-- LinkedIn -->
-<a class="btn btn-default btn-sm linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=http://t04glovern.github.io/2015/12/install-nodejs-ubuntu&title=Installing Node.js the easy way&source=">
+<a class="btn btn-default btn-sm linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=http://t04glovern.github.io/2016/02/equallogic-storage-pool-connection-via-iscsi-into-esxi&title=EqualLogic storage pool connection via iSCSI into ESXi&source=">
   <i class="fa fa-linkedin fa-lg"></i>
   LinkedIn
 </a>
@@ -578,7 +583,7 @@ spends most of his freetime building up his brain with different concepts.
 <script type="text/javascript">
   /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
   var disqus_shortname = "t04glovern"; // required: replace example with your forum shortname
-  var disqus_identifier = "/2015/12/install-nodejs-ubuntu";
+  var disqus_identifier = "/2016/02/equallogic-storage-pool-connection-via-iscsi-into-esxi";
   /* * * DON'T EDIT BELOW THIS LINE * * */
   (function() {
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
