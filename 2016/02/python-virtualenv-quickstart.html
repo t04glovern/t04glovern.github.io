@@ -82,75 +82,57 @@
         <div class="col-md-8">
           <div class="article">
             <div class="well">
-              <h1><a href="http://t04glovern.github.io/2015/12/install-nodejs-ubuntu">Installing Node.js the easy way</a></h1>
+              <h1><a href="http://t04glovern.github.io/2016/02/python-virtualenv-quickstart">Python - Virtualenv Quickstart</a></h1>
               <div class="post-meta">
                 <div class="post-time">
                   <i class="fa fa-calendar"></i>
-                  <time>09 Dec 2015</time>
+                  <time>03 Feb 2016</time>
                 </div>
                 <ul>
                   
-                    <li><a href="http://t04glovern.github.io/tag/node.js">node.js</a></li>
+                    <li><a href="http://t04glovern.github.io/tag/python">python</a></li>
                   
-                    <li><a href="http://t04glovern.github.io/tag/bash">bash</a></li>
-                  
-                    <li><a href="http://t04glovern.github.io/tag/script">script</a></li>
+                    <li><a href="http://t04glovern.github.io/tag/virtualenv">virtualenv</a></li>
                   
                 </ul>
               </div>
               <div class="post-content">
-                <h2 id="problem">Problem</h2>
+                <h2 id="introduction">Introduction</h2>
 
-<p>It’s not uncommon to see <code class="highlighter-rouge">Node.js</code> listed as a requirement for packages; In the past I would simply attempt an install with a package manager and cross my fingers that the build given to be was correct, while also worrying about the location and environment variables not being setup correctly.</p>
+<p>Virtualenv is a tool that is used to isolated Python environments. It does this by creating a folder that contains all the necessary executables to use the packages that a Python project would need.</p>
 
-<p>Recently I got fed up while trying to build a particular package I was interested in and decided to track down a more permanent solution to this reoccurring problem.</p>
+<h2 id="installation">Installation</h2>
 
-<h2 id="solution">Solution</h2>
+<p>You can install virtualenv via pip</p>
 
-<p>After some google-fu (or more specifically, DuckDuck-fu?) I came across the following script.</p>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>pip install virtualenv</code></pre></figure>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#! /bin/bash</span>
-<span class="c"># run it by: bash install-node.sh</span>
-<span class="nb">read</span> -p <span class="s2">" which version of Node do you need to install: enter 0.10.24, 0.10.28, or 4.2.2 (or any other valid version): "</span> VERSIONNAME
-<span class="nb">read</span> -p <span class="s2">" Are you using a 32-bit or 64-bit operating system ? Enter 64 or 32: "</span> ARCHVALUE
-<span class="k">if</span> <span class="o">[[</span> <span class="nv">$ARCHVALUE</span> <span class="o">=</span> 32 <span class="o">]]</span>
-    <span class="k">then
-    </span><span class="nb">printf</span> <span class="s2">"user put in 32 </span><span class="se">\n</span><span class="s2">"</span>
-    <span class="nv">ARCHVALUE</span><span class="o">=</span>86
-    <span class="nv">URL</span><span class="o">=</span>http://nodejs.org/dist/v<span class="k">${</span><span class="nv">VERSIONNAME</span><span class="k">}</span>/node-v<span class="k">${</span><span class="nv">VERSIONNAME</span><span class="k">}</span>-linux-x<span class="k">${</span><span class="nv">ARCHVALUE</span><span class="k">}</span>.tar.gz
+<h2 id="basic-usage">Basic Usage</h2>
 
-<span class="k">elif</span> <span class="o">[[</span> <span class="nv">$ARCHVALUE</span> <span class="o">=</span> 64 <span class="o">]]</span>
-    <span class="k">then
-    </span><span class="nb">printf</span> <span class="s2">"user put in 64 </span><span class="se">\n</span><span class="s2">"</span>
-    <span class="nv">ARCHVALUE</span><span class="o">=</span>64
-    <span class="nv">URL</span><span class="o">=</span>http://nodejs.org/dist/v<span class="k">${</span><span class="nv">VERSIONNAME</span><span class="k">}</span>/node-v<span class="k">${</span><span class="nv">VERSIONNAME</span><span class="k">}</span>-linux-x<span class="k">${</span><span class="nv">ARCHVALUE</span><span class="k">}</span>.tar.gz
+<ol>
+  <li>Create a virtual environment for a project</li>
+</ol>
 
-<span class="k">else
-    </span><span class="nb">printf</span> <span class="s2">"invalid input expted either 32 or 64 as input, quitting ... </span><span class="se">\n</span><span class="s2">"</span>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span><span class="nb">cd </span>project_folder
+<span class="gp">$ </span>virtualenv venv</code></pre></figure>
 
-    <span class="nb">exit
-</span><span class="k">fi</span>
+<p>This will create a folder in the current working directory that will contain a copy of all your python executable files from the current default python on your system</p>
 
-<span class="c"># setting up the folders and the the symbolic links</span>
-<span class="nb">printf</span> <span class="nv">$URL</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span>
-<span class="nv">ME</span><span class="o">=</span><span class="k">$(</span>whoami<span class="k">)</span> ; sudo chown -R <span class="nv">$ME</span> /usr/local <span class="o">&amp;&amp;</span> <span class="nb">cd</span> /usr/local/bin <span class="c">#adding yourself to the group to access /usr/local/bin</span>
-mkdir _node <span class="o">&amp;&amp;</span> <span class="nb">cd</span> <span class="nv">$_</span> <span class="o">&amp;&amp;</span> wget <span class="nv">$URL</span> -O - | tar zxf - --strip-components<span class="o">=</span>1 <span class="c"># downloads and unzips the content to _node</span>
-cp -r ./lib/node_modules/ /usr/local/lib/ <span class="c"># copy the node modules folder to the /lib/ folder</span>
-cp -r ./include/node /usr/local/include/ <span class="c"># copy the /include/node folder to /usr/local/include folder</span>
-mkdir /usr/local/man/man1 <span class="c"># create the man folder</span>
-cp ./share/man/man1/node.1 /usr/local/man/man1/ <span class="c"># copy the man file</span>
-cp bin/node /usr/local/bin/ <span class="c"># copy node to the bin folder</span>
-ln -s <span class="s2">"/usr/local/lib/node_modules/npm/bin/npm-cli.js"</span> ../npm <span class="c">## making the symbolic link to npm</span>
-<span class="c"># print the version of node and npm</span>
-node -v
-npm -v</code></pre></figure>
+<p>You can specify which python interpreter you’d like to use as well:</p>
 
-<p>When you run the script you’ll be prompted asking for the version (numbers can be found here: https://nodejs.org/en/download/) and the architecture you’re working on. Simply put in your desired values and presto! you’ll have the correct version installed and ready to go.</p>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>virtualenv -p /usr/bin/python2.7 venv</code></pre></figure>
 
-<p>You can check the version your running using the following command:</p>
+<p>To start up your environment, activate it with the following</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">node --version</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span><span class="nb">source </span>venv/bin/activate</code></pre></figure>
 
+<p>The name of the current virtual environment will now appear on the left of the prompt to let you know it’s active</p>
+
+<p><img src="http://t04glovern.github.io/images/posts/python-virtualenv/python-virtualenv-path.png" alt="Virtualenv" /></p>
+
+<h2 id="removing-environment">Removing environment</h2>
+
+<p>In order to remove and envinroment, simple <code class="highlighter-rouge">rm -rf</code> the virtualenv folder in your project; or delete the project folder all together.</p>
 
               </div>
               
@@ -160,7 +142,7 @@ npm -v</code></pre></figure>
 <h4 class="fa fa-share-alt section-title">Share Post :</h4>
 
 <!-- Twitter -->
-<a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=Installing Node.js the easy way" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+<a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=Python - Virtualenv Quickstart" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
   <i class="fa fa-twitter fa-lg"></i>
   Twitter
 </a>
@@ -179,20 +161,20 @@ npm -v</code></pre></figure>
 
 <!-- StumbleUpon (url, title) -->
 <!--
-<a class="btn btn-default btn-sm StumbleUpon" href="http://www.stumbleupon.com/submit?url=http://t04glovern.github.io/2015/12/install-nodejs-ubuntu&title=Installing Node.js the easy way" target="_blank" class="share-btn stumbleupon">
+<a class="btn btn-default btn-sm StumbleUpon" href="http://www.stumbleupon.com/submit?url=http://t04glovern.github.io/2016/02/python-virtualenv-quickstart&title=Python - Virtualenv Quickstart" target="_blank" class="share-btn stumbleupon">
   <i class="fa fa-stumbleupon fa-lg"></i>
   StumbleUpon
 </a>
 -->
 
 <!-- Reddit (url, title) -->
-<a class="btn btn-default btn-sm reddit" href="http://reddit.com/submit?url=http://t04glovern.github.io/2015/12/install-nodejs-ubuntu&title=Installing Node.js the easy way" target="_blank" class="share-btn reddit">
+<a class="btn btn-default btn-sm reddit" href="http://reddit.com/submit?url=http://t04glovern.github.io/2016/02/python-virtualenv-quickstart&title=Python - Virtualenv Quickstart" target="_blank" class="share-btn reddit">
   <i class="fa fa-reddit fa-lg"></i>
   Reddit
 </a>
 
 <!-- LinkedIn -->
-<a class="btn btn-default btn-sm linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=http://t04glovern.github.io/2015/12/install-nodejs-ubuntu&title=Installing Node.js the easy way&source=">
+<a class="btn btn-default btn-sm linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=http://t04glovern.github.io/2016/02/python-virtualenv-quickstart&title=Python - Virtualenv Quickstart&source=">
   <i class="fa fa-linkedin fa-lg"></i>
   LinkedIn
 </a>
@@ -250,11 +232,7 @@ spends most of his freetime building up his brain with different concepts.
         
           
         
-          
-        
       
-        
-          
         
           
         
@@ -269,19 +247,13 @@ spends most of his freetime building up his brain with different concepts.
         
           
         
-          
-        
       
         
           
         
           
         
-          
-        
       
-        
-          
         
           
         
@@ -296,11 +268,7 @@ spends most of his freetime building up his brain with different concepts.
         
           
         
-          
-        
       
-        
-          
         
           
         
@@ -315,11 +283,7 @@ spends most of his freetime building up his brain with different concepts.
         
           
         
-          
-        
       
-        
-          
         
           
         
@@ -334,19 +298,13 @@ spends most of his freetime building up his brain with different concepts.
         
           
         
-          
-        
       
         
           
         
           
         
-          
-        
       
-        
-          
         
           
         
@@ -361,19 +319,13 @@ spends most of his freetime building up his brain with different concepts.
         
           
         
-          
-        
       
         
           
         
           
         
-          
-        
       
-        
-          
         
           
         
@@ -388,11 +340,7 @@ spends most of his freetime building up his brain with different concepts.
         
           
         
-          
-        
       
-        
-          
         
           
         
@@ -407,19 +355,13 @@ spends most of his freetime building up his brain with different concepts.
         
           
         
-          
-        
       
         
           
         
           
         
-          
-        
       
-        
-          
         
           
         
@@ -434,19 +376,13 @@ spends most of his freetime building up his brain with different concepts.
         
           
         
-          
-        
       
         
           
         
           
         
-          
-        
       
-        
-          
         
           
         
@@ -461,11 +397,7 @@ spends most of his freetime building up his brain with different concepts.
         
           
         
-          
-        
       
-        
-          
         
           
         
@@ -480,19 +412,7 @@ spends most of his freetime building up his brain with different concepts.
         
           
         
-          
-        
       
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
         
           
         
@@ -502,6 +422,22 @@ spends most of his freetime building up his brain with different concepts.
         
           
         
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+            <li><a href="http://t04glovern.github.io/2016/01/python-image-manipulation">Python - Image Manipulation</a></li>
+            
           
         
           
@@ -515,22 +451,7 @@ spends most of his freetime building up his brain with different concepts.
         
           
         
-          
-        
       
-    
-      
-      
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
         
           
         
@@ -599,7 +520,7 @@ spends most of his freetime building up his brain with different concepts.
 <script type="text/javascript">
   /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
   var disqus_shortname = "t04glovern"; // required: replace example with your forum shortname
-  var disqus_identifier = "/2015/12/install-nodejs-ubuntu";
+  var disqus_identifier = "/2016/02/python-virtualenv-quickstart";
   /* * * DON'T EDIT BELOW THIS LINE * * */
   (function() {
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

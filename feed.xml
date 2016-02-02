@@ -7,6 +7,14 @@
 		<atom:link href="http://t04glovern.github.io/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Python - Virtualenv Quickstart</title>
+				<description>An extremely quickstart guide to virtualenv</description>
+				<pubDate>Wed, 03 Feb 2016 00:00:00 +0800</pubDate>
+				<link>http://t04glovern.github.io/2016/02/python-virtualenv-quickstart</link>
+				<guid isPermaLink="true">http://t04glovern.github.io/2016/02/python-virtualenv-quickstart</guid>
+			</item>
+		
+			<item>
 				<title>EqualLogic storage pool connection via iSCSI into ESXi</title>
 				<description>The process required to connect EqualLogic storage pools into ESXi via iSCSI</description>
 				<pubDate>Tue, 02 Feb 2016 00:00:00 +0800</pubDate>
@@ -76,14 +84,6 @@
 				<pubDate>Sat, 12 Dec 2015 00:00:00 +0800</pubDate>
 				<link>http://t04glovern.github.io/2015/12/learning-aspnet-building-in-visual-studio-2015-part-3</link>
 				<guid isPermaLink="true">http://t04glovern.github.io/2015/12/learning-aspnet-building-in-visual-studio-2015-part-3</guid>
-			</item>
-		
-			<item>
-				<title>Learning ASP.NET - Using VScode and Yeoman (Part 2)</title>
-				<description>Using Yeoman to deploy a ASP.NET project template, we generate our first working page</description>
-				<pubDate>Fri, 11 Dec 2015 00:00:00 +0800</pubDate>
-				<link>http://t04glovern.github.io/2015/12/learning-aspnet-using-vscode-and-yeoman-part-2</link>
-				<guid isPermaLink="true">http://t04glovern.github.io/2015/12/learning-aspnet-using-vscode-and-yeoman-part-2</guid>
 			</item>
 		
 	</channel>
