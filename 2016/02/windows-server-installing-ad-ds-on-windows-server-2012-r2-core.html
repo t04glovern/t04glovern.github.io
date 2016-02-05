@@ -1,0 +1,749 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>TwoFactor Assimilation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="http://t04glovern.github.io/js/jquery.min.js"></script>
+  <script src="http://t04glovern.github.io/js/bootstrap.min.js"></script>
+  <script src="http://t04glovern.github.io/js/header.js"></script>
+  <link href="http://t04glovern.github.io/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://t04glovern.github.io/css/theme.css" rel="stylesheet">
+  <link href="http://t04glovern.github.io/css/syntax.css" rel="stylesheet">
+  <link href="http://t04glovern.github.io/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu+Mono&subset=latin">
+
+</head>
+
+<body>
+
+  
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-71336829-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+  
+
+
+  <script type="text/javascript">
+  WebFontConfig = {
+    google: {
+      families: ['Ubuntu::latin']
+    }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+</script>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://t04glovern.github.io/">TwoFactor Assimilation</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="http://t04glovern.github.io/">/home</a></li>
+          <li><a href="http://t04glovern.github.io/archive.html">/archive</a></li>
+          <li><a href="http://t04glovern.github.io/tags.html">/tags</a></li>
+          <li><a href="http://t04glovern.github.io/about.html">/about</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+<div class="wrapper">
+  <div class="content">
+    <div class="container container-center">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="article">
+            <div class="well">
+              <h1><a href="http://t04glovern.github.io/2016/02/windows-server-installing-ad-ds-on-windows-server-2012-r2-core">Windows Server - Installing AD DS on Windows Server 2012 R2 Core</a></h1>
+              <div class="post-meta">
+                <div class="post-time">
+                  <i class="fa fa-calendar"></i>
+                  <time>05 Feb 2016</time>
+                </div>
+                <ul>
+                  
+                    <li><a href="http://t04glovern.github.io/tag/ad">ad</a></li>
+                  
+                    <li><a href="http://t04glovern.github.io/tag/powershell">powershell</a></li>
+                  
+                </ul>
+              </div>
+              <div class="post-content">
+                <h2 id="introduction">Introduction</h2>
+
+<p>Recently there has been a big shift away from the well known <code class="highlighter-rouge">GUI interface</code> that comes with the standard <code class="highlighter-rouge">Windows Server</code> products and more focus has been put on building infrastructure that does a single task with very little overhead.</p>
+
+<p>Because of this trend I thought it would be best to look into the process required to setup a Domain entirely on <a href="https://msdn.microsoft.com/en-us/library/hh846323%28v=vs.85%29.aspx?f=255&amp;MSPPError=-2147217396">Server Core</a>. I’m also in the process of setting up a test lab for my office; so I thought it would be nice to document my interpretation and execution of a <em>some-what</em> best practice environment.</p>
+
+<p>We will cover the following:<br />
+1. Installing Server Core (Server 2012 R2 specifically)<br />
+2. Renaming Server with PowerShell<br />
+3. Setting IP and DNS Addresses with PowerShell<br />
+4. Installing the Active Directory Domain Services role with PowerShell<br />
+5. Domain Services / General Server Management</p>
+
+<h2 id="install-server-core">Install Server Core</h2>
+
+<p>I’ve opted to use <code class="highlighter-rouge">Windows Server 2012 R2 Evaluation</code> for this installation, making sure to select <code class="highlighter-rouge">Server Core</code> and not the full standard install with a GUI.</p>
+
+<p>When you first login you’ll be greeted with a very bland command prompt sporting a blinking cursor. I know it seems daunting but stick with it; you’ll find you learn a lot more when you’re given less.</p>
+
+<p><img src="http://t04glovern.github.io/images/posts/2016.02.05/ad-ds-cmdprompt.png" alt="Core Command Prompt" /></p>
+
+<p>The default command prompt won’t be enough for what we want to do, so go ahead and fire up <a href="https://msdn.microsoft.com/powershell">PowerShell</a> by simple running:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">PowerShell.exe</code></pre></figure>
+
+<p>You should see a small <code class="highlighter-rouge">PS</code> show up before the working directory now, this indicates that you’re working with the PowerShell…shell…. <em>shruggs</em></p>
+
+<p><img src="http://t04glovern.github.io/images/posts/2016.02.05/ad-ds-powershell.png" alt="Core PowerShell" /></p>
+
+<p>If you’re like me and hate the look/feel of the windows console, you can run <code class="highlighter-rouge">taskmgr.exe</code> and then <code class="highlighter-rouge">File &gt; Create new Task</code> and open <code class="highlighter-rouge">powershell</code></p>
+
+<p><img src="http://t04glovern.github.io/images/posts/2016.02.05/ad-ds-taskmgr-powershell.png" alt="Task Manager PowerShell" /></p>
+
+<h2 id="renaming-the-server">Renaming the Server</h2>
+
+<p>Our first task will be to rename the server. We’ll be using a simple PowerShell cmdlet for this:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Rename-Computer -NewName PC-Name-Here</code></pre></figure>
+
+<p><img src="http://t04glovern.github.io/images/posts/2016.02.05/ad-ds-powershell-rename.png" alt="PowerShell Rename" /></p>
+
+<p>Now let’s restart the server to apply those changes. You can do this through PowerShell as well! <em>(starting to see why it’s awesome?)</em></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Restart-Computer –Force</code></pre></figure>
+
+<p>Once you boot back in, fire up PowerShell and confirm the PC name changes went through with the following:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$env</span>:COMPUTERNAME</code></pre></figure>
+
+<p><img src="http://t04glovern.github.io/images/posts/2016.02.05/ad-ds-powershell-rename-check.png" alt="PowerShell Rename Check" /></p>
+
+<h2 id="set-the-ip-and-dns-addresses">Set the IP and DNS Addresses</h2>
+
+<p>Now that the name is all setup lets have a crack at setting the <code class="highlighter-rouge">IP</code> and <code class="highlighter-rouge">DNS Addresses</code> with PowerShell. Before we jump in, run the following cmdlet to generate a list of network adapter interfaces currently registered with your system.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Get-NetAdapter</code></pre></figure>
+
+<p><strong>NOTE</strong> If you are running this lab in <code class="highlighter-rouge">ESXi</code> or <code class="highlighter-rouge">VMware</code> then you’ll need to install <code class="highlighter-rouge">VMware tools</code> on the server before PowerShell will be able to query the Adapter information. This can be done by mounting the tools in the DVD/CD drive as usual, changing to the tools directory (<code class="highlighter-rouge">cd D:\</code>) and then running the following:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">.<span class="se">\s</span>etup.exe</code></pre></figure>
+
+<p><img src="http://t04glovern.github.io/images/posts/2016.02.05/ad-ds-powershell-check-network.png" alt="PowerShell Check Network" /></p>
+
+<p>Take note of the <code class="highlighter-rouge">ifIndex</code> value, in our case it’s <strong>12</strong>. This will be the interface number we reference when making changes to the IP and DNS Address settings</p>
+
+<p>The two cmdlets we’ll be using to make the IP changes are <code class="highlighter-rouge">New-NetIPAddress</code> and <code class="highlighter-rouge">Set-DNSClientServerAddress</code>. My plan is to have the IP Settings to be the following:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">IP Address: 192.168.0.200
+Subnet Mask: 255.255.255.0
+Gateway: 192.168.0.1
+DNS Server: 192.168.0.200 <span class="o">(</span>itself<span class="o">)</span></code></pre></figure>
+
+<p>I achieve this with the following two commands:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">New-NetIPAddress -InterfaceIndex 12 -IPAddress 192.168.0.200 -PrefixLength 24 -DefaultGateway 192.168.0.1</code></pre></figure>
+
+<p><img src="http://t04glovern.github.io/images/posts/2016.02.05/ad-ds-powershell-set-network-ip.png" alt="PowerShell Set Network IP" /></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Set-DNSClientServerAddress -InterfaceIndex 12 -ServerAddresses 192.168.0.200</code></pre></figure>
+
+<p><img src="http://t04glovern.github.io/images/posts/2016.02.05/ad-ds-powershell-set-network-dns.png" alt="PowerShell Set Network DNS" /></p>
+
+<h2 id="install-the-active-directory-domain-services-role">Install the Active Directory Domain Services role</h2>
+
+<p>Next we install the <code class="highlighter-rouge">AD DS Role</code> onto the server. This is done using the <code class="highlighter-rouge">Install-WindowsFeature</code> cmdlet.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Install-WindowsFeature -Name AD-Domain-Services</code></pre></figure>
+
+<p><img src="http://t04glovern.github.io/images/posts/2016.02.05/ad-ds-powershell-install-role.png" alt="AD DS Role Install" /></p>
+
+<h2 id="promote-the-server-to-a-domain-controller">Promote the server to a Domain Controller</h2>
+
+<p>Promoting the server to a domain controller can be done in a single line; granted it is a very long line… but still pretty impressive.</p>
+
+<p>Below is the full script we’re going to run in order to setup the <code class="highlighter-rouge">CONTOSO</code> domain.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$Password</span> <span class="o">=</span> ConvertTo-SecureString -AsPlainText -String PASSWORDHERE -Force
+Install-ADDSForest -DomainName contoso.com -SafeModeAdministratorPassword <span class="nv">$Password</span> <span class="sb">`</span>
+-DomainNetbiosName CONTOSO -DomainMode Win2012R2 -ForestMode Win2012R2 -DatabasePath <span class="s2">"%SYSTEMROOT%</span><span class="se">\N</span><span class="s2">TDS"</span> <span class="sb">`</span>
+-LogPath <span class="s2">"%SYSTEMROOT%</span><span class="se">\N</span><span class="s2">TDS"</span> -SysvolPath <span class="s2">"%SYSTEMROOT%</span><span class="se">\S</span><span class="s2">YSVOL"</span> -NoRebootOnCompletion -InstallDns -Force</code></pre></figure>
+
+<p>I’ll explain each part before we execute it</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$Password</span> <span class="o">=</span> ConvertTo-SecureString -AsPlainText -String PASSWORDHERE -Force, -SafeModeAdministratorPassword <span class="nv">$Password</span> <span class="sb">`</span></code></pre></figure>
+
+<p>During the installation we need to provide a <code class="highlighter-rouge">Safe Mode Administrator Password</code> and unfortunately it isn’t as easy as just passing the install instructions a normal string.</p>
+
+<p>The <code class="highlighter-rouge">-SafeModeAdministratorPassword</code> cmdlet requires a <a href="https://msdn.microsoft.com/en-us/library/system.security.securestring%28v=vs.110%29.aspx">SecureString</a> which we are able to create using the <a href="https://technet.microsoft.com/en-us/library/hh849818.aspx">ConvertTo-SecureString</a> cmdlet.</p>
+
+<p>The Generated secure string is stored in a <code class="highlighter-rouge">$Password</code> variable and then referenced later in our main scripts body. Be sure to also change the -String PASSWORDHERE to include your desired password.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Install-ADDSForest -DomainName contoso.com</code></pre></figure>
+
+<p>At this point we need to specify the domain name so we can create the <code class="highlighter-rouge">Domain Forest</code>. I’m using <code class="highlighter-rouge">contoso.com</code> but feel free to use what you want.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">-DomainNetbiosName CONTOSO -DomainMode Win2012R2 -ForestMode Win2012R2</code></pre></figure>
+
+<p>Here we specify the <code class="highlighter-rouge">NetBiosName</code> and the <a href="https://msdn.microsoft.com/en-us/library/cc771294.aspx">domain functioning level</a>. I’m just using the version of server we’re building this lab on but your situation might be different.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">-NoRebootOnCompletion -InstallDns -Force</code></pre></figure>
+
+<p>The final important part are <code class="highlighter-rouge">-NoRebootOnCompletion</code> which does exactly what it says it will do; <code class="highlighter-rouge">-InstallDns</code> which will also install the DNS Role on this server and <code class="highlighter-rouge">-Force</code> which will unconditionally try to complete all tasks.</p>
+
+<p>Executing the full script should result in similar outputs displays below.</p>
+
+<p><img src="http://t04glovern.github.io/images/posts/2016.02.05/ad-ds-powershell-create-domain-execute.png" alt="Create Domain Forest" /></p>
+
+<p>Let’s reboot the server and see if it worked!</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Restart-Computer -Force</code></pre></figure>
+
+<p><img src="http://t04glovern.github.io/images/posts/2016.02.05/ad-ds-powershell-login-screen.png" alt="Login Screen" /></p>
+
+<p>Awesome! Now join a client to the new domain and confirm everything works as expected. Below is an example of my management client after successfully joining my <code class="highlighter-rouge">contoso.com</code> domain.</p>
+
+<p><img src="http://t04glovern.github.io/images/posts/2016.02.05/ad-ds-powershell-joined-domain.png" alt="Domain Join Successful" /></p>
+
+<h2 id="domain-management">Domain Management</h2>
+
+<p>Just because you don’t have a GUI doesn’t mean you can’t effectively manage your Active directory suite, in fact it’s pretty damn easy to get what you need done with one of two methods.</p>
+
+<ol>
+  <li>Remote Server Administration Tools (RSAT)</li>
+  <li>PowerShell</li>
+</ol>
+
+<h3 id="rsat-management">RSAT Management</h3>
+
+<p>You can install the Remote Server Administration Tools from the following link.</p>
+
+<p><a href="https://www.microsoft.com/en-us/download/details.aspx?id=45520">https://www.microsoft.com/en-us/download/details.aspx?id=45520</a></p>
+
+<p>For Active directory management I would recommend using the <code class="highlighter-rouge">Active Directory Administrative Center</code> which can be found under <code class="highlighter-rouge">Administrative Tools</code>. It gives you a lot of control over all the various components of Active Directory and also provides a nice interface.</p>
+
+<p><img src="http://t04glovern.github.io/images/posts/2016.02.05/ad-ds-rsat-create-user.png" alt="RSAT User Create" /></p>
+
+<h3 id="powershell">PowerShell</h3>
+
+<p>You will also notice that when you commit changes, a <code class="highlighter-rouge">PowerShell history</code> entry is created along the bottom of the page. This gives you an idea of some of the various commands you can use to perform the same operations you just made with the GUI.</p>
+
+<p><img src="http://t04glovern.github.io/images/posts/2016.02.05/ad-ds-rsat-create-user-powershell.png" alt="RSAT User Create PowerShell" /></p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Overall I can see the appeal in Core; It isn’t really that much more difficult to manage than Server Standard, plus you save resources by not including anything you don’t absolutely need.</p>
+
+<p>Another great reason to switch to it is you’re forced to learn a bit of PowerShell; which is great fun when you get the hang of it.</p>
+
+              </div>
+              
+
+<!-- Social Button HTML -->
+<div class="fa fa-share-bar">
+<h4 class="fa fa-share-alt section-title">Share Post :</h4>
+
+<!-- Twitter -->
+<a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=Windows Server - Installing AD DS on Windows Server 2012 R2 Core" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+  <i class="fa fa-twitter fa-lg"></i>
+  Twitter
+</a>
+
+<!-- Google Plus -->
+<a class="btn btn-default btn-sm gplus" onclick="window.open('https://plus.google.com/share?url='+window.location.href, 'google-plus-share', 'width=490,height=530');return false;">
+  <i class="fa fa-google-plus fa-lg"></i>
+  Google+
+</a>
+
+<!-- Facebook -->
+<a class="btn btn-default btn-sm facebook" href="https://www.facebook.com/sharer/sharer.php" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+  <i class="fa fa-facebook fa-lg"></i>
+  Facebook
+</a>
+
+<!-- StumbleUpon (url, title) -->
+<!--
+<a class="btn btn-default btn-sm StumbleUpon" href="http://www.stumbleupon.com/submit?url=http://t04glovern.github.io/2016/02/windows-server-installing-ad-ds-on-windows-server-2012-r2-core&title=Windows Server - Installing AD DS on Windows Server 2012 R2 Core" target="_blank" class="share-btn stumbleupon">
+  <i class="fa fa-stumbleupon fa-lg"></i>
+  StumbleUpon
+</a>
+-->
+
+<!-- Reddit (url, title) -->
+<a class="btn btn-default btn-sm reddit" href="http://reddit.com/submit?url=http://t04glovern.github.io/2016/02/windows-server-installing-ad-ds-on-windows-server-2012-r2-core&title=Windows Server - Installing AD DS on Windows Server 2012 R2 Core" target="_blank" class="share-btn reddit">
+  <i class="fa fa-reddit fa-lg"></i>
+  Reddit
+</a>
+
+<!-- LinkedIn -->
+<a class="btn btn-default btn-sm linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=http://t04glovern.github.io/2016/02/windows-server-installing-ad-ds-on-windows-server-2012-r2-core&title=Windows Server - Installing AD DS on Windows Server 2012 R2 Core&source=">
+  <i class="fa fa-linkedin fa-lg"></i>
+  LinkedIn
+</a>
+
+<!-- Email -->
+<!--
+<a class="btn btn-default btn-sm email" href="mailto:?subject=<SUBJECT&body=<BODY>" target="_blank" class="share-btn email">
+  <i class="fa fa-envelope"></i>
+  Email
+</a>
+-->
+</div><p></p>
+
+
+
+              
+
+<section class="site-author1 col-sm-2">
+  <br>
+  <img src="http://www.gravatar.com/avatar/3f588f12eca6a2e82161a1da2451fe89" class="img-rounded author-image" />
+</section>
+
+<section class="site-author2 col-sm-10">
+<h4 class="section-title author-name"></h4>
+<p class="author-bio">Nathan Glover is a passionate technology enthusiast with a strong
+understanding of Windows Server 2012 / Hyper-V and Windows Operating
+system support. He has an eagerness to learn new things and generally
+spends most of his freetime building up his brain with different concepts.
+</p>
+</section>
+
+
+
+              
+              <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 hidden-xs">
+          <div class="sidebar ">
+  
+    <h1>Related By Tags</h1>
+  
+  <ul>
+    
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+  </ul>
+</div>
+
+<div class="sidebar">
+  <h1>Tags</h1>
+  <ul>
+     
+      <li><a href="/tag/ad">ad</a></li>
+    
+      <li><a href="/tag/arduino">arduino</a></li>
+    
+      <li><a href="/tag/asp.net">asp.net</a></li>
+    
+      <li><a href="/tag/bash">bash</a></li>
+    
+      <li><a href="/tag/electronics">electronics</a></li>
+    
+      <li><a href="/tag/equallogic">equallogic</a></li>
+    
+      <li><a href="/tag/esxi">esxi</a></li>
+    
+      <li><a href="/tag/ethernet">ethernet</a></li>
+    
+      <li><a href="/tag/grief">grief</a></li>
+    
+      <li><a href="/tag/internet">internet</a></li>
+    
+      <li><a href="/tag/iscsi">iscsi</a></li>
+    
+      <li><a href="/tag/lcd">lcd</a></li>
+    
+      <li><a href="/tag/node.js">node.js</a></li>
+    
+      <li><a href="/tag/powershell">powershell</a></li>
+    
+      <li><a href="/tag/python">python</a></li>
+    
+      <li><a href="/tag/script">script</a></li>
+    
+      <li><a href="/tag/shift register">shift register</a></li>
+    
+      <li><a href="/tag/sound">sound</a></li>
+    
+      <li><a href="/tag/virtualenv">virtualenv</a></li>
+    
+      <li><a href="/tag/visualstudio">visualstudio</a></li>
+    
+      <li><a href="/tag/vscode">vscode</a></li>
+    
+      <li><a href="/tag/windows">windows</a></li>
+    
+      <li><a href="/tag/yeoman">yeoman</a></li>
+    
+  </ul>
+</div>
+
+        </div>
+      </div>
+    </div>
+    
+<!-- Add Disqus comments. -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = "t04glovern"; // required: replace example with your forum shortname
+  var disqus_identifier = "/2016/02/windows-server-installing-ad-ds-on-windows-server-2012-r2-core";
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+  </div>
+      <footer class="footer-distributed">
+      <div class="container">
+        <div class="footer">
+          <p>Nathan Glover &copy; 2015</p>
+          <h6>Follow me</h6>
+
+<ul class="social-media">
+
+    
+    <li>
+        <a title="t04glovern on Github"
+            href="https://github.com/t04glovern"
+            target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    </li>
+    
+
+    
+    <li>
+        <a title="5443325 on StackOverflow"
+            href="http://stackoverflow.com/users/5443325"
+            target="_blank"><i class="fa fa-stack-overflow fa-2x"></i></a>
+    </li>
+    
+
+    
+    <li>
+        <a title="t04glovern on LinkedIn"
+            href="https://www.linkedin.com/in/glovernathan"
+            target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
+    </li>
+    
+
+
+    
+    <li>
+        <a title="nathanglove on Instagram"
+            href="https://instagram.com/nathanglove"
+            target="_blank"><i class="fa fa-instagram fa-2x"></i></a>
+    </li>
+    
+
+
+    
+    <li>
+        <a title="t04glovern on LastFm"
+            href="http://lastfm.com/user/t04glovern"
+            target="_blank"><i class="fa fa-lastfm fa-2x"></i></a>
+    </li>
+    
+
+    
+    <li>
+        <a title="feed.xml RSS"
+            href="http://t04glovern.github.io/feed.xml"
+            target="_blank"><i class="fa fa-rss fa-2x"></i></a>
+    </li>
+    
+
+</ul>
+
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+</div>

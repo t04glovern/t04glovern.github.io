@@ -107,7 +107,7 @@
 
 <p>A <code class="highlighter-rouge">shift register</code> is a device that accepts a stream of serial bits and simultaneously output the values of those bits onto parallel I/O pins. They come in handy when trying to drive a large numbers of LEDs or basically any other component that might require a vast number of outputs. The diagram below illustrates all the various inputs and outputs available on a standard shift register IC.</p>
 
-<p><img src="http://t04glovern.github.io/images/posts/arduino-shift-reg-basic.png" alt="Shift Register Basic" /></p>
+<p><img src="http://t04glovern.github.io/images/posts/2016.01.03/arduino-shift-reg-basic.png" alt="Shift Register Basic" /></p>
 
 <p>The inputs are made up of three <code class="highlighter-rouge">serial communication lines</code> that connect to the shift register from the Arduino. The eight circles represent LEDs connected to eight outputs of the shift register.</p>
 
@@ -117,7 +117,7 @@
 
 <p>Take a look at the pin-out diagram for our Shift register below</p>
 
-<p><img src="http://t04glovern.github.io/images/posts/arduino-shift-pinout.png" alt="Shift Register Pinout" /></p>
+<p><img src="http://t04glovern.github.io/images/posts/2016.01.03/arduino-shift-pinout.png" alt="Shift Register Pinout" /></p>
 
 <ol>
   <li>
@@ -154,7 +154,7 @@
 
 <p>Below depicts the process we would take if we wanted to set every other LED to the ON state (<code class="highlighter-rouge">Q(A)</code>, <code class="highlighter-rouge">Q(C)</code>, <code class="highlighter-rouge">Q(E)</code>, <code class="highlighter-rouge">Q(G)</code>). Represented in binary, we want the output of the parallel pins on the shift register to look like this: <code class="highlighter-rouge">10101010</code>.</p>
 
-<p><img src="http://t04glovern.github.io/images/posts/arduino-shift-process.jpg" alt="Shift Register Process" /></p>
+<p><img src="http://t04glovern.github.io/images/posts/2016.01.03/arduino-shift-process.jpg" alt="Shift Register Process" /></p>
 
 <p>First, the <code class="highlighter-rouge">LATCH pin</code> is set <code class="highlighter-rouge">low</code> so that the current LED states are not changed while new values are shifted in. Then, the LED states are shifted into the registers in order on the <code class="highlighter-rouge">CLOCK edge</code> from the <code class="highlighter-rouge">DATA line</code>. After all the values have been shifted in, the <code class="highlighter-rouge">LATCH pin</code> is set <code class="highlighter-rouge">high</code> again, and the values are outputted from the shift registers.</p>
 
@@ -183,11 +183,11 @@
 
 <p>Using this knowledge I went about setting up my circuit. The goal was to have eight LEDs controlled by our three pin inputs and have them display in binary; the numbers 0-255. Refer to my circuit diagram below for details on the circuit design.</p>
 
-<p><img src="http://t04glovern.github.io/images/posts/arduino-shift-reg-board.png" alt="Shift Register Circuit" /></p>
+<p><img src="http://t04glovern.github.io/images/posts/2016.01.03/arduino-shift-reg-board.png" alt="Shift Register Circuit" /></p>
 
 <p>Once you’ve wired up your circuit you’ll have something that will look at little bit like the following (yours will probably be neater than mine).</p>
 
-<p><img src="http://t04glovern.github.io/images/posts/arduino-shift-reg-pic.jpg" alt="Shift Register Circuit" /></p>
+<p><img src="http://t04glovern.github.io/images/posts/2016.01.03/arduino-shift-reg-pic.jpg" alt="Shift Register Circuit" /></p>
 
 <h2 id="the-code">The Code</h2>
 
@@ -237,7 +237,7 @@
 
 <p>Lets run the code!</p>
 
-<p><img src="http://t04glovern.github.io/images/posts/arduino-shift-demo.gif" alt="Shift Demo" /></p>
+<p><img src="http://t04glovern.github.io/images/posts/2016.01.03/arduino-shift-demo.gif" alt="Shift Demo" /></p>
 
 <h2 id="expand-on-ideas">Expand on ideas</h2>
 
@@ -245,7 +245,7 @@
 
 <p>I used the Shift register circuit we built plus a simple potentiometer input. I’ve included the code and some pictures below that outline my design.</p>
 
-<p><img src="http://t04glovern.github.io/images/posts/arduino-shift-reg-potent-board.png" alt="Shift Potentiometer Board" /></p>
+<p><img src="http://t04glovern.github.io/images/posts/2016.01.03/arduino-shift-reg-potent-board.png" alt="Shift Potentiometer Board" /></p>
 
 <figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="k">const</span> <span class="kt">int</span> <span class="n">SER</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span> <span class="c1">// Serial output to shift register
 </span><span class="k">const</span> <span class="kt">int</span> <span class="n">LATCH</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span> <span class="c1">// Shift register latch pin
@@ -293,7 +293,7 @@
   <span class="n">delay</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
 <span class="p">}</span></code></pre></figure>
 
-<p><img src="http://t04glovern.github.io/images/posts/arduino-shift-demo-potent.gif" alt="Shift Demo Potentiometer" /></p>
+<p><img src="http://t04glovern.github.io/images/posts/2016.01.03/arduino-shift-demo-potent.gif" alt="Shift Demo Potentiometer" /></p>
 
 <h2 id="conclusion">Conclusion</h2>
 
@@ -635,6 +635,21 @@ spends most of his freetime building up his brain with different concepts.
         
       
     
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
   </ul>
 </div>
 
@@ -642,6 +657,8 @@ spends most of his freetime building up his brain with different concepts.
   <h1>Tags</h1>
   <ul>
      
+      <li><a href="/tag/ad">ad</a></li>
+    
       <li><a href="/tag/arduino">arduino</a></li>
     
       <li><a href="/tag/asp.net">asp.net</a></li>
@@ -665,6 +682,8 @@ spends most of his freetime building up his brain with different concepts.
       <li><a href="/tag/lcd">lcd</a></li>
     
       <li><a href="/tag/node.js">node.js</a></li>
+    
+      <li><a href="/tag/powershell">powershell</a></li>
     
       <li><a href="/tag/python">python</a></li>
     

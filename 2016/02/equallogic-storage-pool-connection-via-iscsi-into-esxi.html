@@ -107,51 +107,51 @@
 
 <p>Login to one of the ESXi boxes you want to configure with the vSphere client and navigate to the <code class="highlighter-rouge">Configuration tab &gt; Storage Adapters</code>. You’ll be greeted with various storage adapters that are currently attached to your physical system. In order for us to talk with the EqualLogic storage device we need an iSCSI adapter setup.</p>
 
-<p><img src="http://t04glovern.github.io/images/posts/equallogic-storage/equallogic-storage-pool-adapter.png" alt="Adapter Creation" /></p>
+<p><img src="http://t04glovern.github.io/images/posts/2016.02.02/equallogic-storage-pool-adapter.png" alt="Adapter Creation" /></p>
 
 <p>Right click and select <code class="highlighter-rouge">Add Software iSCSI Adapter</code> then hit OK on the screen alerting you to the creation of the new adapter. Awesome, now we have an adapter that will handle our storage traffic between the EqualLogic and our hosts.</p>
 
 <p>Go ahead and check out the properties of the new adapter. Take note (copy) the iSCSI Name. It’ll be a very long string that uniquely defines the interface; we’ll be using it shortly so make sure you’ve copied it down somewhere.</p>
 
-<p><img src="http://t04glovern.github.io/images/posts/equallogic-storage/equallogic-storage-pool-adapter-name.png" alt="Adapter Creation with Name" /></p>
+<p><img src="http://t04glovern.github.io/images/posts/2016.02.02/equallogic-storage-pool-adapter-name.png" alt="Adapter Creation with Name" /></p>
 
 <h2 id="equallogic-access-policies">EqualLogic Access policies</h2>
 
 <p>Login to the <code class="highlighter-rouge">EqualLogic Group Manager</code> and jump into the <code class="highlighter-rouge">Group Configuration</code> section. You can see I’ve already setup the pools to connect with my first ESXi host.</p>
 
-<p><img src="http://t04glovern.github.io/images/posts/equallogic-storage/equallogic-storage-pool-access-policies.png" alt="Group Manager Access Policies" /></p>
+<p><img src="http://t04glovern.github.io/images/posts/2016.02.02/equallogic-storage-pool-access-policies.png" alt="Group Manager Access Policies" /></p>
 
 <p>Next open up the Access Policies section and check <code class="highlighter-rouge">New</code> under <code class="highlighter-rouge">Access Policies</code>. Give it a common name that make sense, generally the name of the ESXi host that you’re connecting to makes sense.</p>
 
-<p><img src="http://t04glovern.github.io/images/posts/equallogic-storage/equallogic-storage-pool-access-policies-name.png" alt="Group Manager Access Policies Name" /></p>
+<p><img src="http://t04glovern.github.io/images/posts/2016.02.02/equallogic-storage-pool-access-policies-name.png" alt="Group Manager Access Policies Name" /></p>
 
 <p>Click <code class="highlighter-rouge">New</code> to add a new access point. The only box we’ll worry about here is the <code class="highlighter-rouge">iSCSI Initiator Name</code>, which will be the name of the adaptor I told you to copy down before. Punch that in and click <code class="highlighter-rouge">Ok</code> and then <code class="highlighter-rouge">Ok</code> on the remaining windows.</p>
 
-<p><img src="http://t04glovern.github.io/images/posts/equallogic-storage/equallogic-storage-pool-access-policies-iscsi-name.png" alt="Group Manager Access Policies iSCSI Name" /></p>
+<p><img src="http://t04glovern.github.io/images/posts/2016.02.02/equallogic-storage-pool-access-policies-iscsi-name.png" alt="Group Manager Access Policies iSCSI Name" /></p>
 
 <p>Now all we need to do is assign various Space targets to the policies. Do this by selecting the new Policy we just created and clicking <code class="highlighter-rouge">Add</code> in the <code class="highlighter-rouge">Targets</code> menu (top right)</p>
 
-<p><img src="http://t04glovern.github.io/images/posts/equallogic-storage/equallogic-storage-pool-access-policies-targets.png" alt="Group Manager Access Policies Target" /></p>
+<p><img src="http://t04glovern.github.io/images/posts/2016.02.02/equallogic-storage-pool-access-policies-targets.png" alt="Group Manager Access Policies Target" /></p>
 
 <p>Simply check all the various volumes you’d like to be available to the host connected to the policy we just setup and click <code class="highlighter-rouge">Ok</code></p>
 
-<p><img src="http://t04glovern.github.io/images/posts/equallogic-storage/equallogic-storage-pool-access-policies-targets-select.png" alt="Group Manager Access Policies Target Select" /></p>
+<p><img src="http://t04glovern.github.io/images/posts/2016.02.02/equallogic-storage-pool-access-policies-targets-select.png" alt="Group Manager Access Policies Target Select" /></p>
 
 <h2 id="connect-iscsi-storage">Connect iSCSI Storage</h2>
 
 <p>Back in ESXi right click and select <code class="highlighter-rouge">Properites</code> on your <code class="highlighter-rouge">iSCSI Software Adapter</code> and click the <code class="highlighter-rouge">Dynamic Discovery</code> tab. Add a new location and put in the IP Address of the EqualLogic group manager (port is standard iSCSI 3260) and click <code class="highlighter-rouge">Ok</code></p>
 
-<p><img src="http://t04glovern.github.io/images/posts/equallogic-storage/equallogic-storage-pool-adapter-discovery.png" alt="ESXi iSCSI Dynamic Discovery" /></p>
+<p><img src="http://t04glovern.github.io/images/posts/2016.02.02/equallogic-storage-pool-adapter-discovery.png" alt="ESXi iSCSI Dynamic Discovery" /></p>
 
 <p>Click on Static Discovery and you’ll likely already see the three storage targets we setup prior</p>
 
-<p><img src="http://t04glovern.github.io/images/posts/equallogic-storage/equallogic-storage-pool-adapter-discovery-static.png" alt="ESXi iSCSI Static Discovery" /></p>
+<p><img src="http://t04glovern.github.io/images/posts/2016.02.02/equallogic-storage-pool-adapter-discovery-static.png" alt="ESXi iSCSI Static Discovery" /></p>
 
 <p>Now we just need to add the discovered devices as storage locations; do this by navigating to the <code class="highlighter-rouge">Configuration &gt; Storage</code> section. You might find that the Datastores already show up and have been added automatically. If they have, then don’t worry about the following steps (you’re done!)</p>
 
 <p>If they don’t show up simply click <code class="highlighter-rouge">Add Storage</code> with the storage type <code class="highlighter-rouge">Disk/LUN</code> and individually add the three targets making sure to name them something reasonable.</p>
 
-<p><img src="http://t04glovern.github.io/images/posts/equallogic-storage/equallogic-storage-pool-added.png" alt="ESXi iSCSI Datastores" /></p>
+<p><img src="http://t04glovern.github.io/images/posts/2016.02.02/equallogic-storage-pool-added.png" alt="ESXi iSCSI Datastores" /></p>
 
 <h2 id="summary">Summary</h2>
 
@@ -543,6 +543,25 @@ spends most of his freetime building up his brain with different concepts.
         
       
     
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+    
   </ul>
 </div>
 
@@ -550,6 +569,8 @@ spends most of his freetime building up his brain with different concepts.
   <h1>Tags</h1>
   <ul>
      
+      <li><a href="/tag/ad">ad</a></li>
+    
       <li><a href="/tag/arduino">arduino</a></li>
     
       <li><a href="/tag/asp.net">asp.net</a></li>
@@ -573,6 +594,8 @@ spends most of his freetime building up his brain with different concepts.
       <li><a href="/tag/lcd">lcd</a></li>
     
       <li><a href="/tag/node.js">node.js</a></li>
+    
+      <li><a href="/tag/powershell">powershell</a></li>
     
       <li><a href="/tag/python">python</a></li>
     

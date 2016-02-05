@@ -7,6 +7,14 @@
 		<atom:link href="http://t04glovern.github.io/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Windows Server - Installing AD DS on Windows Server 2012 R2 Core</title>
+				<description>The process required to setup Active Directory Domain Services on Windows Server 2012 R2 Core</description>
+				<pubDate>Fri, 05 Feb 2016 00:00:00 +0800</pubDate>
+				<link>http://t04glovern.github.io/2016/02/windows-server-installing-ad-ds-on-windows-server-2012-r2-core</link>
+				<guid isPermaLink="true">http://t04glovern.github.io/2016/02/windows-server-installing-ad-ds-on-windows-server-2012-r2-core</guid>
+			</item>
+		
+			<item>
 				<title>Python - Virtualenv Quickstart</title>
 				<description>An extremely quickstart guide to virtualenv</description>
 				<pubDate>Wed, 03 Feb 2016 00:00:00 +0800</pubDate>
@@ -76,14 +84,6 @@
 				<pubDate>Mon, 21 Dec 2015 00:00:00 +0800</pubDate>
 				<link>http://t04glovern.github.io/2015/12/arduino-projects-thumbstick-to-rgb-led</link>
 				<guid isPermaLink="true">http://t04glovern.github.io/2015/12/arduino-projects-thumbstick-to-rgb-led</guid>
-			</item>
-		
-			<item>
-				<title>Learning ASP.NET - Building in Visual Studio 2015 (Part 3)</title>
-				<description>Expanding on the things we&#39;ve learned from deploying via Yeoman, we now create a project from scratch without the use of templates.</description>
-				<pubDate>Sat, 12 Dec 2015 00:00:00 +0800</pubDate>
-				<link>http://t04glovern.github.io/2015/12/learning-aspnet-building-in-visual-studio-2015-part-3</link>
-				<guid isPermaLink="true">http://t04glovern.github.io/2015/12/learning-aspnet-building-in-visual-studio-2015-part-3</guid>
 			</item>
 		
 	</channel>
