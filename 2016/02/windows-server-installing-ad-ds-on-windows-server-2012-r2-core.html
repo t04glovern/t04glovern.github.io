@@ -208,7 +208,7 @@ Install-ADDSForest -DomainName contoso.com -SafeModeAdministratorPassword <span 
 
 <p>The <code class="highlighter-rouge">-SafeModeAdministratorPassword</code> cmdlet requires a <a href="https://msdn.microsoft.com/en-us/library/system.security.securestring%28v=vs.110%29.aspx">SecureString</a> which we are able to create using the <a href="https://technet.microsoft.com/en-us/library/hh849818.aspx">ConvertTo-SecureString</a> cmdlet.</p>
 
-<p>The Generated secure string is stored in a <code class="highlighter-rouge">$Password</code> variable and then referenced later in our main scripts body. Be sure to also change the -String PASSWORDHERE to include your desired password.</p>
+<p>The Generated secure string is stored in a <code class="highlighter-rouge">$Password</code> variable and then referenced later in our main scripts body. Be sure to also change the <code class="highlighter-rouge">-String PASSWORDHERE</code> to include your desired password.</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">Install-ADDSForest -DomainName contoso.com</code></pre></figure>
 
