@@ -1,0 +1,740 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>TwoFactor Assimilation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="http://t04glovern.github.io/js/jquery.min.js"></script>
+  <script src="http://t04glovern.github.io/js/bootstrap.min.js"></script>
+  <!--<script src="http://t04glovern.github.io/js/header.js"></script>-->
+  <link href="http://t04glovern.github.io/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://t04glovern.github.io/css/theme.css" rel="stylesheet">
+  <link href="http://t04glovern.github.io/css/syntax.css" rel="stylesheet">
+  <link href="http://t04glovern.github.io/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu+Mono&subset=latin">
+
+</head>
+
+<body>
+
+  
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-71336829-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+  
+
+
+  <script type="text/javascript">
+  WebFontConfig = {
+    google: {
+      families: ['Ubuntu::latin']
+    }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+</script>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top shrink">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://t04glovern.github.io/">TwoFactor Assimilation</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="http://t04glovern.github.io/">/home</a></li>
+          <li><a href="http://t04glovern.github.io/archive.html">/archive</a></li>
+          <li><a href="http://t04glovern.github.io/tags.html">/tags</a></li>
+          <li><a href="http://t04glovern.github.io/about.html">/about</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+<div class="wrapper">
+  <div class="content">
+    <div class="container container-center">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="article">
+            <div class="well">
+              <h1><a href="http://t04glovern.github.io/2016/02/raspberry-pi-installing-manjaro-arm">Raspberry Pi - Installing Manjaro ARM</a></h1>
+              <div class="post-meta">
+                <div class="post-time">
+                  <i class="fa fa-calendar"></i>
+                  <time>09 Feb 2016</time>
+                </div>
+                <ul>
+                  
+                    <li><a href="http://t04glovern.github.io/tag/arm">arm</a></li>
+                  
+                    <li><a href="http://t04glovern.github.io/tag/pi">pi</a></li>
+                  
+                </ul>
+              </div>
+              <div class="post-content">
+                <h2 id="introduction">Introduction</h2>
+
+<p>Anyone who knows me knows that recently I’ve gotten a little bit too attached to a particular distribution called <a href="https://manjaro.github.io/">Manjaro Linux</a>. So when I heard that an <code class="highlighter-rouge">ARM version</code> was released and would work on my <code class="highlighter-rouge">Raspberry Pi 2</code> I got pretty excited!</p>
+
+<p>In this tutorial I go through the steps required to setup the Manjaro Full ARM release, but the same steps can be followed for installation of the headless/minimal version.</p>
+
+<p>These instructions are pretty heavily copied from <a href="http://wiki.manjaro-arm.org/index.php?title=Full_New_Users_Installation_guide">this official post</a>, but I thought I would put my own spin on it and add some screenshots to make it easier to follow.</p>
+
+<h4 id="what-youll-need"><strong>What you’ll need:</strong></h4>
+
+<ol>
+  <li>MicroSD Card should be at least 4GB and a class 4 or better.</li>
+  <li>Copy of the latest build <a href="http://manjaro-arm.org/downloads.php">found here</a>.</li>
+  <li>A distribution with access to various partitioning tools</li>
+</ol>
+
+<h2 id="preparing-environment">Preparing Environment</h2>
+
+<p>Open up a terminal and navigate to your HOME directory. From there create two folder; <code class="highlighter-rouge">root</code> and <code class="highlighter-rouge">boot</code></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span><span class="nb">cd</span> ~
+<span class="gp">$ </span>mkdir root
+<span class="gp">$ </span>mkdir boot</code></pre></figure>
+
+<p><img src="http://t04glovern.github.io/images/posts/2016.02.09/manjaro-arm-home-folder.png" alt="Manjaro ARM Home Directory" /></p>
+
+<p>You’ll also notice I have copies of both the <code class="highlighter-rouge">tar.gz</code> builds. I’ll only be using <code class="highlighter-rouge">Manjaro-Arm_Base_16.01-alpha1.tar.gz</code> from this point on.</p>
+
+<h2 id="making-the-partitions">Making the Partitions</h2>
+
+<p>Insert the MicroSD card into an adapter on your Linux computer and run <code class="highlighter-rouge">lsblk</code> to see if the device is registered. You will get an output similar to the following.</p>
+
+<p><img src="http://t04glovern.github.io/images/posts/2016.02.09/manjaro-arm-lsblk.png" alt="Manjaro ARM lsblk" /></p>
+
+<p>In my case the MicroSD is registered as <code class="highlighter-rouge">sdc</code> and has existing partitions on it already (probably an old rasbian image). You might have slightly different device names; so expect something like <code class="highlighter-rouge">mmcblk1</code>. Note down the name of the registered device, you’ll need it for the next part.</p>
+
+<p>Now that we have found the device name, its time to setup the two partitions that the MicroSD card needs:</p>
+
+<ol>
+  <li>/boot</li>
+  <li>/root</li>
+</ol>
+
+<p><strong>The following commands need to be run as root (not using sudo)</strong> so go ahead and elevate your privileges (be care from this point on!).</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>sudo su</code></pre></figure>
+
+<p><img src="http://t04glovern.github.io/images/posts/2016.02.09/manjaro-arm-su-sudo.png" alt="Manjaro ARM sudo" /></p>
+
+<p>Now run our disk partitioning tool <code class="highlighter-rouge">fdisk</code></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># fdisk /dev/sdc</span>
+  <span class="o">(</span>replace sdc with your devices registered name<span class="o">)</span></code></pre></figure>
+
+<p><img src="http://t04glovern.github.io/images/posts/2016.02.09/manjaro-arm-fdisk.png" alt="Manjaro ARM fdisk" /></p>
+
+<p>You’ll be greeted with an input cursor. <code class="highlighter-rouge">Carefully</code> run the following commands in order.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">type</span> <span class="s1">'o'</span> to clear the partition table
+<span class="nb">type</span> <span class="s1">'p'</span> to ensure there is no partition listed
+<span class="nb">type</span> <span class="s1">'n'</span> to create a new partition
+<span class="nb">type</span> <span class="s1">'p'</span> to <span class="k">select </span>primary partition
+<span class="nb">type</span> <span class="s1">'1'</span> to make it partition one
+press enter to <span class="nb">set </span>the default first sector
+<span class="nb">type</span> <span class="s1">'+100M'</span> to make the partition 100 MBytes
+<span class="nb">type</span> <span class="s1">'t'</span> and <span class="k">then</span> <span class="s1">'c'</span> to change the partition <span class="nb">type </span>to W95 FAT32
+<span class="nb">type</span> <span class="s1">'n'</span> <span class="k">then</span> <span class="s1">'p'</span> to create a new primary partition
+press enter to <span class="k">select </span>the default partition 2
+press enter twice to <span class="k">select </span>the default start and end sectors <span class="o">(</span>it will take up the space left on the device<span class="o">)</span>
+<span class="nb">type</span> <span class="s1">'w'</span> to write the partition table and <span class="nb">exit</span></code></pre></figure>
+
+<p>Your output should look similar to the following:</p>
+
+<p><img src="http://t04glovern.github.io/images/posts/2016.02.09/manjaro-arm-fdisk-1.png" alt="Manjaro ARM fdisk 1" /><br />
+<img src="http://t04glovern.github.io/images/posts/2016.02.09/manjaro-arm-fdisk-2.png" alt="Manjaro ARM fdisk 2" /></p>
+
+<h2 id="making-the-filesystems">Making the Filesystems</h2>
+
+<p>Now that the <code class="highlighter-rouge">partitions</code> are created on the device, we need to construct <code class="highlighter-rouge">filesystems</code> on them to hold the data. These commands will also need to be done as root (not using sudo).</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># mkfs.vfat /dev/sdc1</span>
+<span class="o">(</span>replace sdc with device name, the 1 stands <span class="k">for </span>partition 1 <span class="o">[</span>the 100MB partition we made <span class="k">for</span> /boot]<span class="o">)</span>
+<span class="c"># mkfs.ext4 /dev/sdc2</span>
+<span class="o">(</span>replace sdc with device name, the 2 stands <span class="k">for </span>partition 2 <span class="o">[</span>the / or root partition we will be using]<span class="o">)</span></code></pre></figure>
+
+<p>You might be prompted to erase a current file system, just <code class="highlighter-rouge">y</code> the prompt. Your output again will look similar to the following:</p>
+
+<p><img src="http://t04glovern.github.io/images/posts/2016.02.09/manjaro-arm-mkfs.png" alt="Manjaro ARM mkfs" /></p>
+
+<p>Now we just have to <code class="highlighter-rouge">mount</code> the filesystems. This is done with the following commands:</p>
+
+<p><strong>Be careful you are doing the following step in your <code class="highlighter-rouge">home directory</code> and ensure you don’t include any <code class="highlighter-rouge">/</code> before <code class="highlighter-rouge">boot</code> or <code class="highlighter-rouge">root</code></strong></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># mount /dev/sdc1 boot</span>
+<span class="c"># mount /dev/sdc2 root</span>
+<span class="o">(</span>change the <span class="sb">`</span>sdc<span class="sb">`</span> to the device name <span class="k">for </span>your card<span class="o">)</span></code></pre></figure>
+
+<p>Use the <code class="highlighter-rouge">BSD tar</code> command to extract the tarball to the <code class="highlighter-rouge">root/ (sdc2)</code></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># bsdtar -xpf Manjaro-Arm_Base_16.01-alpha1.tar.gz -C root/</span>
+<span class="o">(</span>replace the tarball name with your chosen build<span class="o">)</span></code></pre></figure>
+
+<p>This part will take some but once it completes you should see the populated filesystem under the root folder in your home directory</p>
+
+<p><img src="http://t04glovern.github.io/images/posts/2016.02.09/manjaro-arm-root-folder.png" alt="Manjaro ARM root folder" /></p>
+
+<p>After the <code class="highlighter-rouge">Tarball</code> is extracted, we need to <code class="highlighter-rouge">move</code> the <code class="highlighter-rouge">boot files</code> over to the boot partition. This can be done easily with the following:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># mv root/boot/* boot/</span>
+<span class="o">(</span>be careful with the <span class="sb">`</span>/<span class="sb">`</span><span class="o">)</span></code></pre></figure>
+
+<p><strong>NOTE:</strong> You might get errors similar to the following regarding failure to preserve ownership. Don’t worry about it too much, the process still works regardless.</p>
+
+<p><img src="http://t04glovern.github.io/images/posts/2016.02.09/manjaro-arm-ownership.png" alt="Manjaro ARM ownership" /></p>
+
+<p>Finally just unmount the sdcard and you’re good to remove it from the system</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># umount boot/ root/</span>
+<span class="c"># exit &lt;to return to standard user&gt;</span></code></pre></figure>
+
+<h2 id="using-the-system">Using the System</h2>
+
+<p>Plug the MicroSD into your <code class="highlighter-rouge">Raspberry Pi 2</code> and boot it up! If you used the <code class="highlighter-rouge">headless</code> build you can login to your system over <code class="highlighter-rouge">ssh</code></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>ssh manjaro@&lt;ip&gt;
+<span class="o">(</span>password is manjaro<span class="o">)</span></code></pre></figure>
+
+<p>or as <code class="highlighter-rouge">root</code></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>ssh root@&lt;ip&gt;
+<span class="o">(</span>password is root<span class="o">)</span></code></pre></figure>
+
+<p>If you opted for the full build the system will automatically log you in as the <code class="highlighter-rouge">manjaro</code> user account</p>
+
+<p><img src="http://t04glovern.github.io/images/posts/2016.02.09/manjaro-arm-manjaro-gui.png" alt="Manjaro ARM booted gui" /></p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>I love Manajaro for x86, and the ARM version is just as lovable! I would highly recommend it to anyone looking at moving away from the standard distributions available for the Raspberry Pi. Not only is it a good <code class="highlighter-rouge">introduction to Arch</code>, but it can utilize <code class="highlighter-rouge">AUR</code> for updates so you’ve got a good foundation for binary and application build support.</p>
+
+              </div>
+              
+
+<!-- Social Button HTML -->
+<div class="fa fa-share-bar">
+<h4 class="fa fa-share-alt section-title">Share Post :</h4>
+
+<!-- Twitter -->
+<a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=Raspberry Pi - Installing Manjaro ARM" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+  <i class="fa fa-twitter fa-lg"></i>
+  Twitter
+</a>
+
+<!-- Google Plus -->
+<a class="btn btn-default btn-sm gplus" onclick="window.open('https://plus.google.com/share?url='+window.location.href, 'google-plus-share', 'width=490,height=530');return false;">
+  <i class="fa fa-google-plus fa-lg"></i>
+  Google+
+</a>
+
+<!-- Facebook -->
+<a class="btn btn-default btn-sm facebook" href="https://www.facebook.com/sharer/sharer.php" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+  <i class="fa fa-facebook fa-lg"></i>
+  Facebook
+</a>
+
+<!-- StumbleUpon (url, title) -->
+<!--
+<a class="btn btn-default btn-sm StumbleUpon" href="http://www.stumbleupon.com/submit?url=http://t04glovern.github.io/2016/02/raspberry-pi-installing-manjaro-arm&title=Raspberry Pi - Installing Manjaro ARM" target="_blank" class="share-btn stumbleupon">
+  <i class="fa fa-stumbleupon fa-lg"></i>
+  StumbleUpon
+</a>
+-->
+
+<!-- Reddit (url, title) -->
+<a class="btn btn-default btn-sm reddit" href="http://reddit.com/submit?url=http://t04glovern.github.io/2016/02/raspberry-pi-installing-manjaro-arm&title=Raspberry Pi - Installing Manjaro ARM" target="_blank" class="share-btn reddit">
+  <i class="fa fa-reddit fa-lg"></i>
+  Reddit
+</a>
+
+<!-- LinkedIn -->
+<a class="btn btn-default btn-sm linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=http://t04glovern.github.io/2016/02/raspberry-pi-installing-manjaro-arm&title=Raspberry Pi - Installing Manjaro ARM&source=">
+  <i class="fa fa-linkedin fa-lg"></i>
+  LinkedIn
+</a>
+
+<!-- Email -->
+<!--
+<a class="btn btn-default btn-sm email" href="mailto:?subject=<SUBJECT&body=<BODY>" target="_blank" class="share-btn email">
+  <i class="fa fa-envelope"></i>
+  Email
+</a>
+-->
+</div><p></p>
+
+
+
+              
+
+<section class="site-author1 col-sm-2">
+  <br>
+  <img src="http://www.gravatar.com/avatar/3f588f12eca6a2e82161a1da2451fe89" class="img-rounded author-image" />
+</section>
+
+<section class="site-author2 col-sm-10">
+<h4 class="section-title author-name"></h4>
+<p class="author-bio">Nathan Glover is a passionate technology enthusiast with a strong
+understanding of Windows Server 2012 / Hyper-V and Windows Operating
+system support. He has an eagerness to learn new things and generally
+spends most of his freetime building up his brain with different concepts.
+</p>
+</section>
+
+
+
+              
+              <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 hidden-xs">
+          <div class="sidebar ">
+  
+    <h1>Related By Tags</h1>
+  
+  <ul>
+    
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+  </ul>
+</div>
+
+<div class="sidebar">
+  <h1>Tags</h1>
+  <ul>
+     
+      <li><a href="/tag/ad">ad</a></li>
+    
+      <li><a href="/tag/arduino">arduino</a></li>
+    
+      <li><a href="/tag/arm">arm</a></li>
+    
+      <li><a href="/tag/asp.net">asp.net</a></li>
+    
+      <li><a href="/tag/bash">bash</a></li>
+    
+      <li><a href="/tag/electronics">electronics</a></li>
+    
+      <li><a href="/tag/equallogic">equallogic</a></li>
+    
+      <li><a href="/tag/esxi">esxi</a></li>
+    
+      <li><a href="/tag/ethernet">ethernet</a></li>
+    
+      <li><a href="/tag/grief">grief</a></li>
+    
+      <li><a href="/tag/internet">internet</a></li>
+    
+      <li><a href="/tag/iscsi">iscsi</a></li>
+    
+      <li><a href="/tag/lcd">lcd</a></li>
+    
+      <li><a href="/tag/node.js">node.js</a></li>
+    
+      <li><a href="/tag/pi">pi</a></li>
+    
+      <li><a href="/tag/powershell">powershell</a></li>
+    
+      <li><a href="/tag/python">python</a></li>
+    
+      <li><a href="/tag/script">script</a></li>
+    
+      <li><a href="/tag/shift register">shift register</a></li>
+    
+      <li><a href="/tag/sound">sound</a></li>
+    
+      <li><a href="/tag/virtualenv">virtualenv</a></li>
+    
+      <li><a href="/tag/visualstudio">visualstudio</a></li>
+    
+      <li><a href="/tag/vscode">vscode</a></li>
+    
+      <li><a href="/tag/windows">windows</a></li>
+    
+      <li><a href="/tag/yeoman">yeoman</a></li>
+    
+  </ul>
+</div>
+
+        </div>
+      </div>
+    </div>
+    
+<!-- Add Disqus comments. -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = "t04glovern"; // required: replace example with your forum shortname
+  var disqus_identifier = "/2016/02/raspberry-pi-installing-manjaro-arm";
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+  </div>
+      <footer class="footer-distributed">
+      <div class="container">
+        <div class="footer">
+          <p>Nathan Glover &copy; 2015</p>
+          <h6>Follow me</h6>
+
+<ul class="social-media">
+
+    
+    <li>
+        <a title="t04glovern on Github"
+            href="https://github.com/t04glovern"
+            target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    </li>
+    
+
+    
+    <li>
+        <a title="5443325 on StackOverflow"
+            href="http://stackoverflow.com/users/5443325"
+            target="_blank"><i class="fa fa-stack-overflow fa-2x"></i></a>
+    </li>
+    
+
+    
+    <li>
+        <a title="t04glovern on LinkedIn"
+            href="https://www.linkedin.com/in/glovernathan"
+            target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
+    </li>
+    
+
+
+    
+    <li>
+        <a title="nathanglove on Instagram"
+            href="https://instagram.com/nathanglove"
+            target="_blank"><i class="fa fa-instagram fa-2x"></i></a>
+    </li>
+    
+
+
+    
+    <li>
+        <a title="t04glovern on LastFm"
+            href="http://lastfm.com/user/t04glovern"
+            target="_blank"><i class="fa fa-lastfm fa-2x"></i></a>
+    </li>
+    
+
+    
+    <li>
+        <a title="feed.xml RSS"
+            href="http://t04glovern.github.io/feed.xml"
+            target="_blank"><i class="fa fa-rss fa-2x"></i></a>
+    </li>
+    
+
+</ul>
+
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+</div>
