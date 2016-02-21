@@ -13,9 +13,6 @@
     word-wrap: normal;
     border: none;
     white-space: pre;
-    -webkit-box-shadow: inset 0 1px 10px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.1), 0 -1px 0 rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: inset 0 1px 10px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.1), 0 -1px 0 rgba(0, 0, 0, 0.5);
-    box-shadow: inset 0 1px 10px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.1), 0 -1px 0 rgba(0, 0, 0, 0.5);
     background-color: #333; }
     .highlight pre code {
       white-space: pre;
@@ -33,6 +30,11 @@
     background-color: #214283;
     color: #A9B7C6; }
 
+.highlight > pre {
+  -webkit-box-shadow: inset 0 1px 10px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.1), 0 -1px 0 rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: inset 0 1px 10px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.1), 0 -1px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 1px 10px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.1), 0 -1px 0 rgba(0, 0, 0, 0.5); }
+
 .highlight,
 img,
 p > nobr > code,
@@ -49,6 +51,13 @@ p > code,
   -webkit-box-shadow: inset 0 1px 10px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.1), 0 -1px 0 rgba(0, 0, 0, 0.5);
   -moz-box-shadow: inset 0 1px 10px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.1), 0 -1px 0 rgba(0, 0, 0, 0.5);
   box-shadow: inset 0 1px 10px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.1), 0 -1px 0 rgba(0, 0, 0, 0.5); }
+
+/* line numbers */
+.lineno {
+  border-right: dashed 1px #A9B7C6 !important;
+  color: #A9B7C6;
+  padding-right: 5px;
+  padding-left: 0 !important; }
 
 .hll {
   background-color: #49483e; }
@@ -301,9 +310,3 @@ p > code,
 /* Generic.Inserted & Diff Inserted */
 .l-Scalar-Plain {
   color: #88be05; }
-
-/* line numbers */
-.lineno {
-  border-right: solid 1px #A9B7C6;
-  color: #A9B7C6;
-  padding-right: 5px; }
