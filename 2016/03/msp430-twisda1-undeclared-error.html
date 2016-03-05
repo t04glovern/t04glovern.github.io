@@ -82,100 +82,94 @@
         <div class="col-md-8">
           <div class="article">
             <div class="well">
-              <h1><a href="http://t04glovern.github.io/2016/02/what-if-operating-systems-were-airlines">What if Operating Systems were airlines?</a></h1>
+              <h1><a href="http://t04glovern.github.io/2016/03/msp430-twisda1-undeclared-error">MSP430 - 'TWISDA1' undeclared error</a></h1>
               <div class="post-meta">
                 <div class="post-time">
                   <i class="fa fa-calendar"></i>
-                  <time>26 Feb 2016</time>
+                  <time>05 Mar 2016</time>
                 </div>
                 <ul>
                   
-                    <li><a href="http://t04glovern.github.io/tag/windows">windows</a></li>
+                    <li><a href="http://t04glovern.github.io/tag/MSP430">MSP430</a></li>
                   
-                    <li><a href="http://t04glovern.github.io/tag/linux">linux</a></li>
-                  
-                    <li><a href="http://t04glovern.github.io/tag/humor">humor</a></li>
+                    <li><a href="http://t04glovern.github.io/tag/Energia">Energia</a></li>
                   
                 </ul>
               </div>
               <div class="post-content">
-                <h2 id="introduction">Introduction</h2>
+                <h2 id="problem">Problem</h2>
 
-<p>One of my lecturers pointed me in the direction of a PDF with some humorous re-imaginings of what airlines would be like if they were various operating systems from the 80/90’s. I thought I’d share them here.</p>
+<p>When trying to compile code for the MSP430 Experimental board (specifically the MSP-EXP430FR5739) in Energia version 0101E0017 the following error stream is presented:</p>
 
-<h1 id="dos-airlines">DOS Airlines</h1>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">C:<span class="se">\P</span>rogram Files <span class="o">(</span>x86<span class="o">)</span><span class="se">\E</span>nergia<span class="se">\h</span>ardware<span class="se">\m</span>sp430<span class="se">\c</span>ores<span class="se">\m</span>sp430<span class="se">\t</span>wi_sw.c: In <span class="k">function</span> <span class="s1">'i2c_sw_init'</span>:
+C:<span class="se">\P</span>rogram Files <span class="o">(</span>x86<span class="o">)</span><span class="se">\E</span>nergia<span class="se">\h</span>ardware<span class="se">\m</span>sp430<span class="se">\c</span>ores<span class="se">\m</span>sp430<span class="se">\t</span>wi_sw.c:43:16: error: <span class="s1">'TWISDA1'</span> undeclared <span class="o">(</span>first use <span class="k">in </span>this <span class="k">function</span><span class="o">)</span>
+C:<span class="se">\P</span>rogram Files <span class="o">(</span>x86<span class="o">)</span><span class="se">\E</span>nergia<span class="se">\h</span>ardware<span class="se">\m</span>sp430<span class="se">\c</span>ores<span class="se">\m</span>sp430<span class="se">\t</span>wi_sw.c:43:16: note: each undeclared identifier is reported only once <span class="k">for </span>each <span class="k">function </span>it appears <span class="k">in
+</span>C:<span class="se">\P</span>rogram Files <span class="o">(</span>x86<span class="o">)</span><span class="se">\E</span>nergia<span class="se">\h</span>ardware<span class="se">\m</span>sp430<span class="se">\c</span>ores<span class="se">\m</span>sp430<span class="se">\t</span>wi_sw.c:44:16: error: <span class="s1">'TWISCL1'</span> undeclared <span class="o">(</span>first use <span class="k">in </span>this <span class="k">function</span><span class="o">)</span>
+C:<span class="se">\P</span>rogram Files <span class="o">(</span>x86<span class="o">)</span><span class="se">\E</span>nergia<span class="se">\h</span>ardware<span class="se">\m</span>sp430<span class="se">\c</span>ores<span class="se">\m</span>sp430<span class="se">\t</span>wi_sw.c: In <span class="k">function</span> <span class="s1">'i2c_sw_start'</span>:
+C:<span class="se">\P</span>rogram Files <span class="o">(</span>x86<span class="o">)</span><span class="se">\E</span>nergia<span class="se">\h</span>ardware<span class="se">\m</span>sp430<span class="se">\c</span>ores<span class="se">\m</span>sp430<span class="se">\t</span>wi_sw.c:84:11: error: <span class="s1">'TWISDA1'</span> undeclared <span class="o">(</span>first use <span class="k">in </span>this <span class="k">function</span><span class="o">)</span>
+C:<span class="se">\P</span>rogram Files <span class="o">(</span>x86<span class="o">)</span><span class="se">\E</span>nergia<span class="se">\h</span>ardware<span class="se">\m</span>sp430<span class="se">\c</span>ores<span class="se">\m</span>sp430<span class="se">\t</span>wi_sw.c:86:11: error: <span class="s1">'TWISCL1'</span> undeclared <span class="o">(</span>first use <span class="k">in </span>this <span class="k">function</span><span class="o">)</span>
+C:<span class="se">\P</span>rogram Files <span class="o">(</span>x86<span class="o">)</span><span class="se">\E</span>nergia<span class="se">\h</span>ardware<span class="se">\m</span>sp430<span class="se">\c</span>ores<span class="se">\m</span>sp430<span class="se">\t</span>wi_sw.c: In <span class="k">function</span> <span class="s1">'i2c_sw_txByte'</span>:
+C:<span class="se">\P</span>rogram Files <span class="o">(</span>x86<span class="o">)</span><span class="se">\E</span>nergia<span class="se">\h</span>ardware<span class="se">\m</span>sp430<span class="se">\c</span>ores<span class="se">\m</span>sp430<span class="se">\t</span>wi_sw.c:99:15: error: <span class="s1">'TWISDA1'</span> undeclared <span class="o">(</span>first use <span class="k">in </span>this <span class="k">function</span><span class="o">)</span>
+C:<span class="se">\P</span>rogram Files <span class="o">(</span>x86<span class="o">)</span><span class="se">\E</span>nergia<span class="se">\h</span>ardware<span class="se">\m</span>sp430<span class="se">\c</span>ores<span class="se">\m</span>sp430<span class="se">\t</span>wi_sw.c:103:13: error: <span class="s1">'TWISCL1'</span> undeclared <span class="o">(</span>first use <span class="k">in </span>this <span class="k">function</span><span class="o">)</span>
+C:<span class="se">\P</span>rogram Files <span class="o">(</span>x86<span class="o">)</span><span class="se">\E</span>nergia<span class="se">\h</span>ardware<span class="se">\m</span>sp430<span class="se">\c</span>ores<span class="se">\m</span>sp430<span class="se">\t</span>wi_sw.c: In <span class="k">function</span> <span class="s1">'i2c_sw_ack'</span>:
+C:<span class="se">\P</span>rogram Files <span class="o">(</span>x86<span class="o">)</span><span class="se">\E</span>nergia<span class="se">\h</span>ardware<span class="se">\m</span>sp430<span class="se">\c</span>ores<span class="se">\m</span>sp430<span class="se">\t</span>wi_sw.c:122:12: error: <span class="s1">'TWISCL1'</span> undeclared <span class="o">(</span>first use <span class="k">in </span>this <span class="k">function</span><span class="o">)</span>
+C:<span class="se">\P</span>rogram Files <span class="o">(</span>x86<span class="o">)</span><span class="se">\E</span>nergia<span class="se">\h</span>ardware<span class="se">\m</span>sp430<span class="se">\c</span>ores<span class="se">\m</span>sp430<span class="se">\t</span>wi_sw.c: In <span class="k">function</span> <span class="s1">'i2c_sw_rxByte'</span>:
+C:<span class="se">\P</span>rogram Files <span class="o">(</span>x86<span class="o">)</span><span class="se">\E</span>nergia<span class="se">\h</span>ardware<span class="se">\m</span>sp430<span class="se">\c</span>ores<span class="se">\m</span>sp430<span class="se">\t</span>wi_sw.c:132:12: error: <span class="s1">'TWISDA1'</span> undeclared <span class="o">(</span>first use <span class="k">in </span>this <span class="k">function</span><span class="o">)</span>
+C:<span class="se">\P</span>rogram Files <span class="o">(</span>x86<span class="o">)</span><span class="se">\E</span>nergia<span class="se">\h</span>ardware<span class="se">\m</span>sp430<span class="se">\c</span>ores<span class="se">\m</span>sp430<span class="se">\t</span>wi_sw.c:136:15: error: <span class="s1">'TWISCL1'</span> undeclared <span class="o">(</span>first use <span class="k">in </span>this <span class="k">function</span><span class="o">)</span>
+C:<span class="se">\P</span>rogram Files <span class="o">(</span>x86<span class="o">)</span><span class="se">\E</span>nergia<span class="se">\h</span>ardware<span class="se">\m</span>sp430<span class="se">\c</span>ores<span class="se">\m</span>sp430<span class="se">\t</span>wi_sw.c: In <span class="k">function</span> <span class="s1">'i2c_sw_stop'</span>:
+C:<span class="se">\P</span>rogram Files <span class="o">(</span>x86<span class="o">)</span><span class="se">\E</span>nergia<span class="se">\h</span>ardware<span class="se">\m</span>sp430<span class="se">\c</span>ores<span class="se">\m</span>sp430<span class="se">\t</span>wi_sw.c:157:11: error: <span class="s1">'TWISDA1'</span> undeclared <span class="o">(</span>first use <span class="k">in </span>this <span class="k">function</span><span class="o">)</span>
+C:<span class="se">\P</span>rogram Files <span class="o">(</span>x86<span class="o">)</span><span class="se">\E</span>nergia<span class="se">\h</span>ardware<span class="se">\m</span>sp430<span class="se">\c</span>ores<span class="se">\m</span>sp430<span class="se">\t</span>wi_sw.c:159:11: error: <span class="s1">'TWISCL1'</span> undeclared <span class="o">(</span>first use <span class="k">in </span>this <span class="k">function</span><span class="o">)</span></code></pre></figure>
 
-<p><img src="http://t04glovern.github.io/images/posts/2016.02.26/msdos.jpg" alt="DOS" /></p>
+<p>The issues occurs because the the I2C SW library loads but isn’t included explicitely so the sketch won’t load (yay c)</p>
 
-<p>Everybody pushes the airplane until it glides, then they jump on and let the plane coast until it hits the ground again, then they push again jump on again, and so on.</p>
+<h2 id="resolution">Resolution</h2>
 
-<h1 id="os2-airlines">OS/2 Airlines</h1>
+<p>The fix is documented <a href="https://github.com/energia/Energia/commit/827e338d22f57e03f21ffb5a064c271498d983b6">here</a> and is available for people who clone their Energia from git instead of using the installation binary.</p>
 
-<p><img src="http://t04glovern.github.io/images/posts/2016.02.26/os2.jpg" alt="OS/2" /></p>
+<p>You have two options:</p>
 
-<p>The terminal is almost empty, with only a few prospective passengers milling about. The announcer says that their flight has just departed, wishes them a good flight, though there are no planes on the runway. Airline personnel walk around, apologizing profusely to customers in hushed voices, pointing from time to time to the sleek, powerful jets outside the terminal on the field. They tell each passenger how good the real flight will be on these new jets and how much safer it will be than Windows Airlines, but that they will have to wait a little longer for the technicians to finish the flight systems.</p>
+<ol>
+  <li>Clone/Update from the <a href="https://github.com/energia/Energia">GitHub repo</a></li>
+  <li>Make the changes yourself!</li>
+</ol>
 
-<p>Once they finally finished you’re offered a flight at reduced cost.  To board the plane, you have your ticket stamped ten different times by standing in ten different lines. Then you fill our a form showing where you want to sit and whether the plane should look and feel like an ocean liner, a passenger train or a bus. If you succeed in getting on the plane and the plane succeeds in taking off the ground, you have a wonderful trip…except for the time when the rudder and flaps get frozen in position, in which case you will just have time to say your prayers and get in crash position.</p>
+<p>Your choice…</p>
 
-<h1 id="windows-air">Windows Air</h1>
+<h4 id="option-1---cloneupdate">Option 1 - Clone/Update</h4>
 
-<p><img src="http://t04glovern.github.io/images/posts/2016.02.26/windows.jpg" alt="Windows" /></p>
+<p>Ensure you have <a href="http://www.git-scm.com/">git</a> installed and clone the repo to a desired location on your harddrive</p>
 
-<p>The terminal is pretty and colorful, with friendly stewards, easy baggage check and boarding, and a smooth take-off.  After about 10 minutes in the air, the plane explodes with no warning whatsoever.</p>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git clone --recursive https://github.com/energia/Energia.git</code></pre></figure>
 
-<h1 id="windows-nt-air">Windows NT Air</h1>
+<p>If you already have a clone of Energia then:</p>
 
-<p><img src="http://t04glovern.github.io/images/posts/2016.02.26/windows-nt.gif" alt="Windows NT" /></p>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git submodule update --init --recursive
+git submodule sync
+<span class="nb">cd </span>emt
+git pull
+<span class="nb">cd</span> ..</code></pre></figure>
 
-<p>Just like Windows Air, but costs more, uses much bigger planes, and takes out all the other aircraft within a 40-mile radius when it explodes.</p>
+<h4 id="option-2---update-yourself">Option 2 - Update yourself</h4>
 
-<h1 id="mac-airlines">Mac Airlines</h1>
+<p>Navigate to the following subdirectory of the Energia folder and open twi_sw.c</p>
 
-<p><img src="http://t04glovern.github.io/images/posts/2016.02.26/mac.jpg" alt="Mac" /></p>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Energia<span class="se">\h</span>ardware<span class="se">\m</span>sp430<span class="se">\c</span>ores<span class="se">\m</span>sp430<span class="se">\t</span>wi_sw.c</code></pre></figure>
 
-<p>All the stewards, stewardesses, captains, baggage handlers, and ticket agents look the same, act the same, and talk the same. Every time you ask questions about details, you are told you don’t need to know, don’t want to know, and would you please return to your seat and watch the movie.</p>
+<p>On line 26 you should see your <code class="highlighter-rouge">#include "twi_sw.h"</code>. Just below that add the following line:</p>
 
-<h1 id="unix-airlines">Unix Airlines</h1>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#if DEFAULT_I2C == -1 </span><span class="cm">/* indicates SW I2C on pseudo module 1 */</span></code></pre></figure>
 
-<p><img src="http://t04glovern.github.io/images/posts/2016.02.26/unix.png" alt="Unix" /></p>
+<p><img src="http://t04glovern.github.io/images/posts/2016.03.05/energia-line-change-1.png" alt="Line Change 1" /></p>
 
-<p>Each passenger brings a piece of the airplane and a box of tools to the airport. They gather on the tarmac, arguing constantly about what kind of plane they want to build and how to put it together. Eventually, they build several different aircraft, but give them all the same name. Some passengers actually reach their destinations. All passengers believe they got there.</p>
+<p>On the last line in the file (just after the last bracket) add your endif statement</p>
 
-<h1 id="wings-of-os400">Wings of OS/400</h1>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#endif // #if DEFAULT_I2C = -1 /* indicates SW I2C on pseudo module 1 */</span></code></pre></figure>
 
-<p><img src="http://t04glovern.github.io/images/posts/2016.02.26/os400.png" alt="OS/400" /></p>
+<p><img src="http://t04glovern.github.io/images/posts/2016.03.05/energia-line-change-2.png" alt="Line Change 2" /></p>
 
-<p>The airline has bought ancient DC-3s, arguably the best and safest planes that ever flew, and painted “747” on their tails to make them look as if they are fast. The flight attendants, of course, attend to your every need, though the drinks cost $15 a pop. Stupid questions cost $230 per hour, unless you have SupportLine, which requires a first class ticket and membership in the frequent flyer club. Then they cost $500, but your accounting department can call it overhead.</p>
+<h2 id="results">Results</h2>
 
-<h1 id="mach-airlines">Mach Airlines</h1>
-
-<p><img src="http://t04glovern.github.io/images/posts/2016.02.26/mach.png" alt="Mach" /></p>
-
-<p>There is no airplane. The passengers gather and shout for an airplane, then wait and wait and wait and wait. A bunch of people come, each carrying one piece of the plane with them. These people all go out on the runway and put the plane together piece by piece, arguing constantly about what kind of plane they’re building. The plane finally takes off, leaving the passengers on the ground waiting and waiting and waiting and waiting. After the plane lands, the pilot telephones the passengers at the departing airport to inform them that they have arrived.</p>
-
-<h1 id="newton-airlines">Newton Airlines</h1>
-
-<p><img src="http://t04glovern.github.io/images/posts/2016.02.26/newton.jpg" alt="Newton" /></p>
-
-<p>After buying your ticket 18 months in advance, you finally get to board the plane. Upon boarding the plane you are asked your name. After 6 times, the crew member recognizes your name and then you are allowed to take your seat. As you are getting ready to take your seat, the steward announces that you have to repeat the boarding process because they are out of room and need to recount to make sure they can take more passengers.</p>
-
-<h1 id="vms-airlines">VMS Airlines</h1>
-
-<p><img src="http://t04glovern.github.io/images/posts/2016.02.26/vms.png" alt="VMS" /></p>
-
-<p>The passengers all gather in the hanger, watching hundreds of technicians check the flight systems on this immense, luxury aircraft. This plane has at least 10 engines and seats over 1,000 passengers. All the passengers scramble aboard, as do the necessary complement of 200 technicians. The pilot takes his place up in the glass cockpit. He guns the engines, only to realize that the plane is too big to get through the hangar doors.</p>
-
-<h1 id="beos-air">BeOS Air</h1>
-
-<p><img src="http://t04glovern.github.io/images/posts/2016.02.26/beos.jpg" alt="BeOS" /></p>
-
-<p>You have to pay for the tickets, but they’re half the price of Windows Air, and if you are an aircraft mechanic you can probably ride for free. It only takes 15 minutes to get to the airport and you are cheuferred there in a limozine. BeOS Air only has limited types of planes that only only hold new luggage. All planes are single seaters and the model names all start with an “F” (F-14, F-15, F-16, F-18, etc.). The plane will fly you to your destination on autopilot in half the time of other Airways or you can fly the plane yourself. There are limited destinations, but they are only places you’d want to go to anyway. You tell all your friends how great BeOS Air is and all they say is “What do you mean I can’t bring all my old baggage with me?”</p>
-
-<h1 id="linux-airlines">Linux Airlines</h1>
-
-<p><img src="http://t04glovern.github.io/images/posts/2016.02.26/linux.jpg" alt="BeOS" /></p>
-
-<p>Disgruntled employees of all the other OS airlines decide to start their own airline. They build the planes, ticket counters, and pave the runways themselves. They charge a small fee to cover the cost of printing the ticket, but you can also download and print the ticket yourself. When you board the plane, you are given a seat, four bolts, a wrench and a copy of the seat-HOWTO.html. Once settled, the fully adjustable seat is very comfortable, the plane leaves and arrives on time without a single problem, the in-flight meal is wonderful. You try to tell customers of the other airlines about the great trip, but all they can say is, “You had to do what with the seat?”</p>
+<p>After making the changes above you should be able to push your sketch over to your MSP430 without any issues</p>
 
               </div>
               
@@ -185,7 +179,7 @@
 <h4 class="fa fa-share-alt section-title">Share Post :</h4>
 
 <!-- Twitter -->
-<a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=What if Operating Systems were airlines?" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+<a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=MSP430 - 'TWISDA1' undeclared error" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
   <i class="fa fa-twitter fa-lg"></i>
   Twitter
 </a>
@@ -204,20 +198,20 @@
 
 <!-- StumbleUpon (url, title) -->
 <!--
-<a class="btn btn-default btn-sm StumbleUpon" href="http://www.stumbleupon.com/submit?url=http://t04glovern.github.io/2016/02/what-if-operating-systems-were-airlines&title=What if Operating Systems were airlines?" target="_blank" class="share-btn stumbleupon">
+<a class="btn btn-default btn-sm StumbleUpon" href="http://www.stumbleupon.com/submit?url=http://t04glovern.github.io/2016/03/msp430-twisda1-undeclared-error&title=MSP430 - 'TWISDA1' undeclared error" target="_blank" class="share-btn stumbleupon">
   <i class="fa fa-stumbleupon fa-lg"></i>
   StumbleUpon
 </a>
 -->
 
 <!-- Reddit (url, title) -->
-<a class="btn btn-default btn-sm reddit" href="http://reddit.com/submit?url=http://t04glovern.github.io/2016/02/what-if-operating-systems-were-airlines&title=What if Operating Systems were airlines?" target="_blank" class="share-btn reddit">
+<a class="btn btn-default btn-sm reddit" href="http://reddit.com/submit?url=http://t04glovern.github.io/2016/03/msp430-twisda1-undeclared-error&title=MSP430 - 'TWISDA1' undeclared error" target="_blank" class="share-btn reddit">
   <i class="fa fa-reddit fa-lg"></i>
   Reddit
 </a>
 
 <!-- LinkedIn -->
-<a class="btn btn-default btn-sm linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=http://t04glovern.github.io/2016/02/what-if-operating-systems-were-airlines&title=What if Operating Systems were airlines?&source=">
+<a class="btn btn-default btn-sm linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=http://t04glovern.github.io/2016/03/msp430-twisda1-undeclared-error&title=MSP430 - 'TWISDA1' undeclared error&source=">
   <i class="fa fa-linkedin fa-lg"></i>
   LinkedIn
 </a>
@@ -275,11 +269,7 @@ spends most of his freetime building up his brain with different concepts.
         
           
         
-          
-        
       
-        
-          
         
           
         
@@ -294,19 +284,13 @@ spends most of his freetime building up his brain with different concepts.
         
           
         
-          
-        
       
         
           
         
           
         
-          
-        
       
-        
-          
         
           
         
@@ -321,11 +305,7 @@ spends most of his freetime building up his brain with different concepts.
         
           
         
-          
-        
       
-        
-          
         
           
         
@@ -340,11 +320,7 @@ spends most of his freetime building up his brain with different concepts.
         
           
         
-          
-        
       
-        
-          
         
           
         
@@ -359,19 +335,13 @@ spends most of his freetime building up his brain with different concepts.
         
           
         
-          
-        
       
         
           
         
           
         
-          
-        
       
-        
-          
         
           
         
@@ -386,19 +356,13 @@ spends most of his freetime building up his brain with different concepts.
         
           
         
-          
-        
       
         
           
         
           
         
-          
-        
       
-        
-          
         
           
         
@@ -413,11 +377,7 @@ spends most of his freetime building up his brain with different concepts.
         
           
         
-          
-        
       
-        
-          
         
           
         
@@ -432,19 +392,13 @@ spends most of his freetime building up his brain with different concepts.
         
           
         
-          
-        
       
         
           
         
           
         
-          
-        
       
-        
-          
         
           
         
@@ -459,22 +413,13 @@ spends most of his freetime building up his brain with different concepts.
         
           
         
-          
-        
       
-        
-          
-            <li><a href="http://t04glovern.github.io/2015/12/learning-aspnet-building-in-visual-studio-2015-part-3">Learning ASP.NET - Building in Visual Studio 2015 (Part 3)</a></li>
-            
-          
         
           
         
           
         
       
-        
-          
         
           
         
@@ -489,14 +434,7 @@ spends most of his freetime building up his brain with different concepts.
         
           
         
-          
-        
       
-        
-          
-            <li><a href="http://t04glovern.github.io/2015/12/learning-aspnet-part-1">Learning ASP.NET - Installing ASP.NET Runtime (Part 1)</a></li>
-            
-          
         
           
         
@@ -511,14 +449,7 @@ spends most of his freetime building up his brain with different concepts.
         
           
         
-          
-        
       
-        
-          
-            <li><a href="http://t04glovern.github.io/2015/12/learning-aspnet-using-vscode-and-yeoman-part-2">Learning ASP.NET - Using VScode and Yeoman (Part 2)</a></li>
-            
-          
         
           
         
@@ -530,11 +461,7 @@ spends most of his freetime building up his brain with different concepts.
         
           
         
-          
-        
       
-        
-          
         
           
         
@@ -549,11 +476,7 @@ spends most of his freetime building up his brain with different concepts.
         
           
         
-          
-        
       
-        
-          
         
           
         
@@ -568,8 +491,6 @@ spends most of his freetime building up his brain with different concepts.
         
           
         
-          
-        
       
     
       
@@ -579,30 +500,7 @@ spends most of his freetime building up his brain with different concepts.
         
           
         
-          
-        
       
-        
-          
-        
-          
-        
-          
-        
-      
-    
-      
-      
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
         
           
         
@@ -617,19 +515,7 @@ spends most of his freetime building up his brain with different concepts.
         
           
         
-          
-        
       
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
         
           
         
@@ -644,11 +530,28 @@ spends most of his freetime building up his brain with different concepts.
         
           
         
+      
+        
+          
+        
           
         
       
         
           
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
         
           
         
@@ -733,7 +636,7 @@ spends most of his freetime building up his brain with different concepts.
 <script type="text/javascript">
   /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
   var disqus_shortname = "t04glovern"; // required: replace example with your forum shortname
-  var disqus_identifier = "/2016/02/what-if-operating-systems-were-airlines";
+  var disqus_identifier = "/2016/03/msp430-twisda1-undeclared-error";
   /* * * DON'T EDIT BELOW THIS LINE * * */
   (function() {
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

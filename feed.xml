@@ -7,9 +7,17 @@
 		<atom:link href="http://t04glovern.github.io/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>MSP430 - 'TWISDA1' undeclared error</title>
+				<description>Instructions to resolve &#39;TWISDA1&#39; undeclared errors in Energia 17</description>
+				<pubDate>Sat, 05 Mar 2016 00:00:00 +0800</pubDate>
+				<link>http://t04glovern.github.io/2016/03/msp430-twisda1-undeclared-error</link>
+				<guid isPermaLink="true">http://t04glovern.github.io/2016/03/msp430-twisda1-undeclared-error</guid>
+			</item>
+		
+			<item>
 				<title>What if Operating Systems were airlines?</title>
 				<description>A humorous post description of various operating systems re-imagined as if they were airlines</description>
-				<pubDate>Fri, 26 Feb 2016 22:23:32 +0800</pubDate>
+				<pubDate>Fri, 26 Feb 2016 00:00:00 +0800</pubDate>
 				<link>http://t04glovern.github.io/2016/02/what-if-operating-systems-were-airlines</link>
 				<guid isPermaLink="true">http://t04glovern.github.io/2016/02/what-if-operating-systems-were-airlines</guid>
 			</item>
@@ -76,14 +84,6 @@
 				<pubDate>Mon, 28 Dec 2015 00:00:00 +0800</pubDate>
 				<link>http://t04glovern.github.io/2015/12/i-cant-ping-8888</link>
 				<guid isPermaLink="true">http://t04glovern.github.io/2015/12/i-cant-ping-8888</guid>
-			</item>
-		
-			<item>
-				<title>Arduino Projects - Working with Sound</title>
-				<description>Today we learn how sound is produced and understand how we can create tones using the Arduino tone() library</description>
-				<pubDate>Sat, 26 Dec 2015 00:00:00 +0800</pubDate>
-				<link>http://t04glovern.github.io/2015/12/arduino-projects-working-with-sound</link>
-				<guid isPermaLink="true">http://t04glovern.github.io/2015/12/arduino-projects-working-with-sound</guid>
 			</item>
 		
 	</channel>
