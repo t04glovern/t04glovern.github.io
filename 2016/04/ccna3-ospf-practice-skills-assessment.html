@@ -1,0 +1,1745 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>TwoFactor Assimilation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="http://t04glovern.github.io/js/jquery.min.js"></script>
+  <script src="http://t04glovern.github.io/js/bootstrap.min.js"></script>
+  <!--<script src="http://t04glovern.github.io/js/header.js"></script>-->
+  <link href="http://t04glovern.github.io/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://t04glovern.github.io/css/theme.css" rel="stylesheet">
+  <link href="http://t04glovern.github.io/css/syntax.css" rel="stylesheet">
+  <link href="http://t04glovern.github.io/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu+Mono&subset=latin">
+
+</head>
+
+<body>
+
+  
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-71336829-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+  
+
+
+  <script type="text/javascript">
+  WebFontConfig = {
+    google: {
+      families: ['Ubuntu::latin']
+    }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+</script>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top shrink">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://t04glovern.github.io/">TwoFactor Assimilation</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="http://t04glovern.github.io/">/home</a></li>
+          <li><a href="http://t04glovern.github.io/archive.html">/archive</a></li>
+          <li><a href="http://t04glovern.github.io/tags.html">/tags</a></li>
+          <li><a href="http://t04glovern.github.io/about.html">/about</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+<div class="wrapper">
+  <div class="content">
+    <div class="container container-center">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="article">
+            <div class="well">
+              <h1><a href="http://t04glovern.github.io/2016/04/ccna3-ospf-practice-skills-assessment">CCNA3 - OSPF Practice Skills Assessment</a></h1>
+              <div class="post-meta">
+                <div class="post-time">
+                  <i class="fa fa-calendar"></i>
+                  <time>18 Apr 2016</time>
+                </div>
+                <ul>
+                  
+                    <li><a href="http://t04glovern.github.io/tag/ccna3">ccna3</a></li>
+                  
+                    <li><a href="http://t04glovern.github.io/tag/ospf">ospf</a></li>
+                  
+                </ul>
+              </div>
+              <div class="post-content">
+                <h1 id="overview">Overview</h1>
+
+<hr />
+
+<p>The following are the skills covered in the following assessment:</p>
+
+<ul>
+  <li>Configuration of initial device settings</li>
+  <li>IPv4 address assignment and configuration</li>
+  <li>Configuration and addressing of device interfaces</li>
+  <li>Configuration of the OSPFv2 routing protocol</li>
+  <li>Configuration of a default route</li>
+  <li>Configuration of ACL to limit device access</li>
+  <li>Configuration of switch management settings including SSH</li>
+  <li>Configuration of port security</li>
+  <li>Configuration of unused switch ports according to security best practices</li>
+  <li>Configuration of RPVST+</li>
+  <li>Configuration of  EtherChannel </li>
+  <li>Configuration of a router as a DHCP server</li>
+  <li>Configuration of VLANs and trunks</li>
+  <li>Configuration of routing between VLANs</li>
+</ul>
+
+<hr />
+
+<h1 id="initial-information">Initial Information</h1>
+
+<hr />
+
+<h4 id="network-diagram-diagram-uses-slightly-different-naming-convention-same-topology"><strong>Network Diagram</strong> (diagram uses slightly different naming convention, same topology)</h4>
+<p><img src="http://t04glovern.github.io/images/posts/2016.04.18/ospf-network-diagram.png" alt="Addressing Table Complete" /></p>
+
+<h4 id="addressing-table"><strong>Addressing table</strong></h4>
+<p><img src="http://t04glovern.github.io/images/posts/2016.04.18/ospf-address-table.png" alt="Addressing Table" /></p>
+
+<h4 id="vlan-switch-port-assignment-table"><strong>VLAN Switch Port Assignment Table</strong></h4>
+<p><img src="http://t04glovern.github.io/images/posts/2016.04.18/vlan-switch-port-assignment-table.png" alt="VLAN Switch Port Table" /></p>
+
+<h4 id="port-channel-groups"><strong>Port Channel Groups</strong></h4>
+<p><img src="http://t04glovern.github.io/images/posts/2016.04.18/port-channel-groups.png" alt="Port Channel Groups" /></p>
+
+<hr />
+
+<h1 id="step-1-plan-the-addressing">Step 1: Plan the Addressing</h1>
+
+<hr />
+
+<h4 id="task"><strong>Task:</strong></h4>
+<p>Determine the IP addresses that you will use for the required interfaces on the devices and LAN hosts. Follow the configuration details provided in the Addressing Table.</p>
+
+<h4 id="how"><strong>How:</strong></h4>
+<p>This part requires and understanding of the addressing constants that make up a normal network separated by subnets. Let’s take a look at the first entry we are asked to find. We are asked to pick <code class="highlighter-rouge">any address in the network 192.168.100.20/30</code>.</p>
+
+<p>A Typical network range has two addresses that are not suitable as host addresses, these are the First and the Last addresses are corespond to the Subnet ID and Broadcast address. So with our network we know that 192.168.100.20 will be the Subnet ID so our First usable host address will be <code class="highlighter-rouge">192.168.100.21/30</code></p>
+
+<p>The next issue we run into is working out how many host addresses are available in the subnet. To explain this process I’m going to draw out 32bits representing the 4 octets of 8bits that make up an IPv4 address.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>00000000] . <span class="o">[</span>00000000] . <span class="o">[</span>00000000] . <span class="o">[</span>00000000]</code></pre></figure>
+
+<p>Now fill up all the slots that correspond to 30 of the 32 bits</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>11111111] . <span class="o">[</span>11111111] . <span class="o">[</span>11111111] . <span class="o">[</span>11111100]</code></pre></figure>
+
+<p>This leaves a total of 2 bits for our hosts to use.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">BIT     ADDRESS
+00      192.168.100.20      Subnet ID
+01      192.168.100.21      Host
+10      192.168.100.22      Host
+11      192.168.100.23      Broadcast Address</code></pre></figure>
+
+<p>Using the information above will normally allow you to easily work through the table of addresses and pick suitable candicates. Below is the table I will use for the rest of this post.</p>
+
+<h4 id="addressing-table---complete"><strong>Addressing table - Complete</strong></h4>
+<p><img src="http://t04glovern.github.io/images/posts/2016.04.18/ospf-address-table-complete.png" alt="Addressing Table Complete" /></p>
+
+<hr />
+
+<h1 id="step-2-configure-building-1">Step 2: Configure Building 1</h1>
+
+<hr />
+
+<h4 id="task-1"><strong>Task:</strong></h4>
+<p>Configure Building 1 with initial settings:</p>
+
+<ul>
+  <li>Configure the router host name: Bldg-1. This value must be entered exactly as it appears here.</li>
+  <li>Prevent the router from attempting to resolve command line entries to IP addresses.</li>
+  <li>Protect device configurations from unauthorized access with an encrypted secret password.</li>
+  <li>Secure the router console and remote access lines.</li>
+  <li>Prevent system status messages from interrupting console output.</li>
+  <li>Configure a message-of-the-day banner.</li>
+  <li>Encrypt all clear text passwords.</li>
+</ul>
+
+<h4 id="how-1"><strong>How:</strong></h4>
+<ul>
+  <li>Configure the router host name: Bldg-1. This value must be entered exactly as it appears here.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Router<span class="o">(</span>config<span class="o">)</span><span class="c">#hostname Bldg-1</span></code></pre></figure>
+
+<ul>
+  <li>Prevent the router from attempting to resolve command line entries to IP addresses.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Bldg-1<span class="o">(</span>config<span class="o">)</span><span class="c">#no ip domain lookup</span></code></pre></figure>
+
+<ul>
+  <li>Protect device configurations from unauthorized access with an encrypted secret password.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Bldg-1<span class="o">(</span>config<span class="o">)</span><span class="c">#enable secret class</span></code></pre></figure>
+
+<ul>
+  <li>Secure the router console and remote access lines.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Bldg-1<span class="o">(</span>config<span class="o">)</span><span class="c">#line console 0</span>
+Bldg-1<span class="o">(</span>config-line<span class="o">)</span><span class="c">#password cisco</span>
+Bldg-1<span class="o">(</span>config-line<span class="o">)</span><span class="c">#login</span>
+Bldg-1<span class="o">(</span>config-line<span class="o">)</span><span class="c">#line vty 0 4</span>
+Bldg-1<span class="o">(</span>config-line<span class="o">)</span><span class="c">#password cisco</span>
+Bldg-1<span class="o">(</span>config-line<span class="o">)</span><span class="c">#login</span>
+Bldg-1<span class="o">(</span>config-line<span class="o">)</span><span class="c">#line aux 0</span>
+Bldg-1<span class="o">(</span>config-line<span class="o">)</span><span class="c">#password cisco</span>
+Bldg-1<span class="o">(</span>config-line<span class="o">)</span><span class="c">#login</span></code></pre></figure>
+
+<ul>
+  <li>Prevent system status messages from interrupting console output.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Bldg-1<span class="o">(</span>config<span class="o">)</span><span class="c">#line console 0</span>
+Bldg-1<span class="o">(</span>config-line<span class="o">)</span><span class="c">#logging synchronous</span></code></pre></figure>
+
+<ul>
+  <li>Configure a message-of-the-day banner.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Bldg-1<span class="o">(</span>config<span class="o">)</span><span class="c">#banner motd "Authorized Access Only"</span></code></pre></figure>
+
+<ul>
+  <li>Encrypt all clear text passwords.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Bldg-1<span class="o">(</span>config<span class="o">)</span><span class="c">#service password-encryption</span></code></pre></figure>
+
+<hr />
+
+<h1 id="step-3-configure-the-router-interfaces">Step 3: Configure the Router Interfaces</h1>
+
+<hr />
+
+<h4 id="task-2"><strong>Task:</strong></h4>
+<p>Configure the interfaces of all routers for full connectivity with the following:</p>
+
+<ul>
+  <li>IP addressing</li>
+  <li>Descriptions for serial interfaces.</li>
+  <li>Configure DCE settings where required. Use a rate of 128000.</li>
+</ul>
+
+<h4 id="how-2"><strong>How:</strong></h4>
+<ul>
+  <li>IP addressing</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Bldg-1<span class="o">(</span>config<span class="o">)</span><span class="c">#int s0/0/0</span>
+Bldg-1<span class="o">(</span>config-if<span class="o">)</span><span class="c">#ip address 192.168.100.22 255.255.255.252</span>
+Bldg-1<span class="o">(</span>config-if<span class="o">)</span><span class="c">#no shutdown</span>
+
+Bldg-1<span class="o">(</span>config<span class="o">)</span><span class="c">#int g0/0</span>
+Bldg-1<span class="o">(</span>config-if<span class="o">)</span><span class="c">#ip address 192.168.8.1 255.255.255.0</span>
+Bldg-1<span class="o">(</span>config-if<span class="o">)</span><span class="c">#no shutdown</span>
+
+Bldg-1<span class="o">(</span>config<span class="o">)</span><span class="c">#int g0/1</span>
+Bldg-1<span class="o">(</span>config-if<span class="o">)</span><span class="c">#ip address 192.168.9.1 255.255.255.0</span>
+Bldg-1<span class="o">(</span>config-if<span class="o">)</span><span class="c">#no shutdown</span>
+
+Main<span class="o">(</span>config<span class="o">)</span><span class="c">#int s0/0/0</span>
+Main<span class="o">(</span>config-if<span class="o">)</span><span class="c">#ip address 192.168.100.21 255.255.255.252</span>
+Main<span class="o">(</span>config-if<span class="o">)</span><span class="c">#no shutdown</span>
+
+Main<span class="o">(</span>config<span class="o">)</span><span class="c">#int s0/0/1</span>
+Main<span class="o">(</span>config-if<span class="o">)</span><span class="c">#ip address 192.168.100.37 255.255.255.252</span>
+Main<span class="o">(</span>config-if<span class="o">)</span><span class="c">#no shutdown</span>
+
+Main<span class="o">(</span>config<span class="o">)</span><span class="c">#int s0/1/0</span>
+Main<span class="o">(</span>config-if<span class="o">)</span><span class="c">#ip address 203.0.113.18 255.255.255.248</span>
+Main<span class="o">(</span>config-if<span class="o">)</span><span class="c">#no shutdown</span>
+
+Bldg-2<span class="o">(</span>config<span class="o">)</span><span class="c">#int s0/0/1</span>
+Bldg-2<span class="o">(</span>config-if<span class="o">)</span><span class="c">#ip address 192.168.100.38 255.255.255.252</span>
+Bldg-2<span class="o">(</span>config-if<span class="o">)</span><span class="c">#no shutdown</span>
+
+Bldg-2<span class="o">(</span>config<span class="o">)</span><span class="c">#int g0/1</span>
+Bldg-2<span class="o">(</span>config-if<span class="o">)</span><span class="c">#no shutdown</span></code></pre></figure>
+
+<ul>
+  <li>Descriptions for serial interfaces.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Main<span class="o">(</span>config<span class="o">)</span><span class="c">#int s0/0/0</span>
+Main<span class="o">(</span>config-if<span class="o">)</span><span class="c">#description 2-Building1</span>
+
+Main<span class="o">(</span>config<span class="o">)</span><span class="c">#int s0/0/1</span>
+Main<span class="o">(</span>config-if<span class="o">)</span><span class="c">#description 2-Building2</span>
+
+Main<span class="o">(</span>config<span class="o">)</span><span class="c">#int s0/1/0</span>
+Main<span class="o">(</span>config-if<span class="o">)</span><span class="c">#description 2-INTERNET</span></code></pre></figure>
+
+<ul>
+  <li>Configure DCE settings where required. Use a rate of 128000.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Bldg-1<span class="o">(</span>config<span class="o">)</span><span class="c">#int s0/0/0</span>
+Bldg-1<span class="o">(</span>config-if<span class="o">)</span><span class="c">#clock rate 128000</span>
+
+Main<span class="o">(</span>config<span class="o">)</span><span class="c">#int s0/0/1</span>
+Main<span class="o">(</span>config-if<span class="o">)</span><span class="c">#clock rate 128000</span></code></pre></figure>
+
+<hr />
+
+<h1 id="step-4-configure-inter-vlan-routing-on-building-2">Step 4: Configure inter-VLAN routing on Building 2</h1>
+
+<hr />
+
+<h4 id="task-3"><strong>Task:</strong></h4>
+<p>Configure router Building 2 to route between VLANs using information in the Addressing Table and VLAN Switch Port Assignment Table. The VLANs will be configured on the switches later in this assessment.</p>
+
+<ul>
+  <li>Do not route the VLAN 99 network.</li>
+</ul>
+
+<h4 id="how-3"><strong>How:</strong></h4>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Bldg-2<span class="o">(</span>config<span class="o">)</span><span class="c">#int g0/1.2</span>
+Bldg-2<span class="o">(</span>config-subif<span class="o">)</span><span class="c">#encapsulation dot1Q 2</span>
+Bldg-2<span class="o">(</span>config-subif<span class="o">)</span><span class="c">#ip address 10.10.2.1 255.255.255.0</span>
+
+Bldg-2<span class="o">(</span>config-subif<span class="o">)</span><span class="c">#int g0/1.4</span>
+Bldg-2<span class="o">(</span>config-subif<span class="o">)</span><span class="c">#encapsulation dot1Q 4</span>
+Bldg-2<span class="o">(</span>config-subif<span class="o">)</span><span class="c">#ip address 10.10.4.1 255.255.255.0</span>
+
+Bldg-2<span class="o">(</span>config-subif<span class="o">)</span><span class="c">#int g0/1.8</span>
+Bldg-2<span class="o">(</span>config-subif<span class="o">)</span><span class="c">#encapsulation dot1Q 8</span>
+Bldg-2<span class="o">(</span>config-subif<span class="o">)</span><span class="c">#ip address 10.10.8.1 255.255.255.0</span>
+
+Bldg-2<span class="o">(</span>config-subif<span class="o">)</span><span class="c">#int g0/1.15</span>
+Bldg-2<span class="o">(</span>config-subif<span class="o">)</span><span class="c">#encapsulation dot1Q 15</span>
+Bldg-2<span class="o">(</span>config-subif<span class="o">)</span><span class="c">#ip address 10.10.15.1 255.255.255.0</span>
+
+Bldg-2<span class="o">(</span>config-subif<span class="o">)</span><span class="c">#int g0/1.25</span>
+Bldg-2<span class="o">(</span>config-subif<span class="o">)</span><span class="c">#encapsulation dot1Q 25</span>
+Bldg-2<span class="o">(</span>config-subif<span class="o">)</span><span class="c">#ip address 10.10.25.1 255.255.255.0</span></code></pre></figure>
+
+<hr />
+
+<h1 id="step-5-configure-default-routing">Step 5: Configure Default Routing</h1>
+
+<hr />
+
+<h4 id="task-4"><strong>Task:</strong></h4>
+<p>On Main, configure a default route to the Internet. Use the exit interface argument.</p>
+
+<h4 id="how-4"><strong>How:</strong></h4>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Main<span class="o">(</span>config<span class="o">)</span><span class="c">#ip route 0.0.0.0 0.0.0.0 s0/1/0</span></code></pre></figure>
+
+<hr />
+
+<h1 id="step-6-configure-ospf-routing">Step 6: Configure OSPF Routing</h1>
+
+<hr />
+
+<h4 id="task-5"><strong>Task:</strong></h4>
+<ol>
+  <li>On all routers:</li>
+</ol>
+
+<ul>
+  <li>Configure multiarea OSPFv2 to route between all internal networks. Use a process ID of 1.</li>
+  <li>Use the area numbers shown in the topology.</li>
+  <li>Use the correct wild card masks for all network statements.</li>
+  <li>You are not required to route the manage network on Building 2.</li>
+  <li>Prevent routing updates from being sent to the LANs.</li>
+</ul>
+
+<ol>
+  <li>On the Main router:</li>
+</ol>
+
+<ul>
+  <li>Configure multiarea OSPFv2 to distribute the default route to the other routers.</li>
+</ul>
+
+<h4 id="how-5"><strong>How:</strong></h4>
+<ul>
+  <li>Configure multiarea OSPFv2 to route between all internal networks. Use a process ID of 1.</li>
+  <li>Use the area numbers shown in the topology.</li>
+  <li>Use the correct wild card masks for all network statements.</li>
+  <li>You are not required to route the manage network on Building 2.</li>
+</ul>
+
+<p>Calculating the wildcard for each OSPF route is done by looking again at the subnet mask bit. lets use the 192.168.100.20/30 network. The following shows what a wild card mask for 0.0.0.0 or /32 would look like</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>00000000] . <span class="o">[</span>00000000] . <span class="o">[</span>00000000] . <span class="o">[</span>00000000]</code></pre></figure>
+
+<p>If we have 30 bits instead we’re left with two bits</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>00000000] . <span class="o">[</span>00000000] . <span class="o">[</span>00000000] . <span class="o">[</span>00000011]</code></pre></figure>
+
+<p>This gives us a wild card of 0.0.0.3. Similarly you can look at what a /24 networks bit pattern looks like below.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>00000000] . <span class="o">[</span>00000000] . <span class="o">[</span>00000000] . <span class="o">[</span>11111111]</code></pre></figure>
+
+<p>/24’s wild card mask is 0.0.0.255.</p>
+
+<p>Using this information we can setup the various networks on each of the routers</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Bldg-1<span class="o">(</span>config<span class="o">)</span><span class="c">#router ospf 1</span>
+Bldg-1<span class="o">(</span>config-router<span class="o">)</span><span class="c">#network 192.168.100.20 0.0.0.3 area 0</span>
+Bldg-1<span class="o">(</span>config-router<span class="o">)</span><span class="c">#network 192.168.8.0 0.0.0.255 area 1</span>
+Bldg-1<span class="o">(</span>config-router<span class="o">)</span><span class="c">#network 192.168.9.0 0.0.0.255 area 1</span>
+
+Main<span class="o">(</span>config<span class="o">)</span><span class="c">#router ospf 1</span>
+Main<span class="o">(</span>config-router<span class="o">)</span><span class="c">#network 192.168.100.20 0.0.0.3 area 0</span>
+Main<span class="o">(</span>config-router<span class="o">)</span><span class="c">#network 192.168.100.36 0.0.0.3 area 0</span>
+
+Bldg-2<span class="o">(</span>config<span class="o">)</span><span class="c">#router ospf 1</span>
+Bldg-2<span class="o">(</span>config-router<span class="o">)</span><span class="c">#network 192.168.100.36 0.0.0.3 area 0</span>
+Bldg-2<span class="o">(</span>config-router<span class="o">)</span><span class="c">#network 10.10.2.0 0.0.0.255 area 2</span>
+Bldg-2<span class="o">(</span>config-router<span class="o">)</span><span class="c">#network 10.10.4.0 0.0.0.255 area 2</span>
+Bldg-2<span class="o">(</span>config-router<span class="o">)</span><span class="c">#network 10.10.8.0 0.0.0.255 area 2</span>
+Bldg-2<span class="o">(</span>config-router<span class="o">)</span><span class="c">#network 10.10.15.0 0.0.0.255 area 2</span></code></pre></figure>
+
+<ul>
+  <li>Prevent routing updates from being sent to the LANs.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Bldg-1<span class="o">(</span>config<span class="o">)</span><span class="c">#router ospf 1</span>
+Bldg-1<span class="o">(</span>config-router<span class="o">)</span><span class="c">#passive-interface GigabitEthernet0/0</span>
+Bldg-1<span class="o">(</span>config-router<span class="o">)</span><span class="c">#passive-interface GigabitEthernet0/1</span>
+
+Main<span class="o">(</span>config<span class="o">)</span><span class="c">#router ospf 1</span>
+Main<span class="o">(</span>config-router<span class="o">)</span><span class="c">#passive-interface Serial0/1/0</span>
+
+Bldg-2<span class="o">(</span>config<span class="o">)</span><span class="c">#router ospf 1</span>
+Bldg-2<span class="o">(</span>config-router<span class="o">)</span><span class="c">#passive-interface GigabitEthernet0/1</span>
+Bldg-2<span class="o">(</span>config-router<span class="o">)</span><span class="c">#passive-interface g0/1.2</span>
+Bldg-2<span class="o">(</span>config-router<span class="o">)</span><span class="c">#passive-interface g0/1.4</span>
+Bldg-2<span class="o">(</span>config-router<span class="o">)</span><span class="c">#passive-interface g0/1.8</span>
+Bldg-2<span class="o">(</span>config-router<span class="o">)</span><span class="c">#passive-interface g0/1.15</span></code></pre></figure>
+
+<ul>
+  <li>Configure multiarea OSPFv2 (Main) to distribute the default route to the other routers.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Main<span class="o">(</span>config<span class="o">)</span><span class="c">#router ospf 1</span>
+Main<span class="o">(</span>config-router<span class="o">)</span><span class="c">#default-information originate</span></code></pre></figure>
+
+<hr />
+
+<h1 id="step-7-customize-multiarea-ospfv2">Step 7: Customize Multiarea OSPFv2</h1>
+
+<hr />
+
+<h4 id="task-6"><strong>Task:</strong></h4>
+<p>Customize multiarea OSPFv2 by performing the following configuration tasks:</p>
+
+<ol>
+  <li>
+    <p>Set the bandwidth of all serial interfaces to 128 kb/s.</p>
+  </li>
+  <li>
+    <p>Configure OSPF router IDs as follows:</p>
+  </li>
+</ol>
+
+<ul>
+  <li>Building 1: 1.1.1.1</li>
+  <li>Main: 2.2.2.2</li>
+  <li>Building 2: 3.3.3.3</li>
+  <li>The configured router IDs should be in effect on all three routes.</li>
+</ul>
+
+<ol>
+  <li>Configure the OSPF cost of the link between Building 1 and Main to 7500.</li>
+</ol>
+
+<h4 id="how-6"><strong>How:</strong></h4>
+<ol>
+  <li>Set the bandwidth of all serial interfaces to 128 kb/s.</li>
+</ol>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Bldg-1<span class="o">(</span>config<span class="o">)</span><span class="c">#int s0/0/0</span>
+Bldg-1<span class="o">(</span>config-if<span class="o">)</span><span class="c">#bandwidth 128</span>
+
+Main<span class="o">(</span>config<span class="o">)</span><span class="c">#int s0/0/0</span>
+Main<span class="o">(</span>config-if<span class="o">)</span><span class="c">#bandwidth 128</span>
+Main<span class="o">(</span>config<span class="o">)</span><span class="c">#int s0/0/1</span>
+Main<span class="o">(</span>config-if<span class="o">)</span><span class="c">#bandwidth 128</span>
+
+Bldg-2<span class="o">(</span>config<span class="o">)</span><span class="c">#int s0/0/1</span>
+Bldg-2<span class="o">(</span>config-if<span class="o">)</span><span class="c">#bandwidth 128</span></code></pre></figure>
+
+<ol>
+  <li>Configure OSPF router IDs as follows:</li>
+</ol>
+
+<ul>
+  <li>Building 1: 1.1.1.1</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Bldg-1<span class="o">(</span>config<span class="o">)</span><span class="c">#router ospf 1</span>
+Bldg-1<span class="o">(</span>config-router<span class="o">)</span><span class="c">#router-id 1.1.1.1</span></code></pre></figure>
+
+<ul>
+  <li>Main: 2.2.2.2</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Main<span class="o">(</span>config<span class="o">)</span><span class="c">#router ospf 1</span>
+Main<span class="o">(</span>config-router<span class="o">)</span><span class="c">#router-id 2.2.2.2</span></code></pre></figure>
+
+<ul>
+  <li>Building 2: 3.3.3.3</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Bldg-2<span class="o">(</span>config<span class="o">)</span><span class="c">#router ospf 1</span>
+Bldg-2<span class="o">(</span>config-router<span class="o">)</span><span class="c">#router-id 3.3.3.3</span></code></pre></figure>
+
+<ol>
+  <li>Configure the OSPF cost of the link between Building 1 and Main to 7500.</li>
+</ol>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Bldg-1<span class="o">(</span>config<span class="o">)</span><span class="c">#int s0/0/0</span>
+Bldg-1<span class="o">(</span>config-if<span class="o">)</span><span class="c">#ip ospf cost 7500</span>
+
+Main<span class="o">(</span>config<span class="o">)</span><span class="c">#int s0/0/0</span>
+Main<span class="o">(</span>config-if<span class="o">)</span><span class="c">#ip ospf cost 7500</span></code></pre></figure>
+
+<hr />
+
+<h1 id="step-8-configure-ospf-md5-authentication-on-the-required-interfaces">Step 8: Configure OSPF MD5 Authentication on the Required Interfaces</h1>
+
+<hr />
+
+<h4 id="task-7"><strong>Task:</strong></h4>
+<p>Configure OSPF to authenticate routing updates with MD5 authentication on the OSPF interfaces.</p>
+
+<ul>
+  <li>Use a key value of 1.</li>
+  <li>Use xyz_OSPF as the password.</li>
+  <li>Apply MD5 authentication to the required interfaces.</li>
+</ul>
+
+<h4 id="how-7"><strong>How:</strong></h4>
+<ul>
+  <li>Use a key value of 1.</li>
+  <li>Use xyz_OSPF as the password.</li>
+  <li>Apply MD5 authentication to the required interfaces.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Bldg-1<span class="o">(</span>config<span class="o">)</span><span class="c">#int s0/0/0</span>
+Bldg-1<span class="o">(</span>config-if<span class="o">)</span><span class="c">#ip ospf message-digest-key 1 md5 xyz_OSPF</span>
+Bldg-1<span class="o">(</span>config-if<span class="o">)</span><span class="c">#ip ospf authentication message-digest</span>
+
+Main<span class="o">(</span>config<span class="o">)</span><span class="c">#int s0/1/0</span>
+Main<span class="o">(</span>config-if<span class="o">)</span><span class="c">#ip ospf message-digest-key 1 md5 xyz_OSPF</span>
+Main<span class="o">(</span>config-if<span class="o">)</span><span class="c">#ip ospf authentication message-digest</span>
+Main<span class="o">(</span>config<span class="o">)</span><span class="c">#int s0/0/1</span>
+Main<span class="o">(</span>config-if<span class="o">)</span><span class="c">#ip ospf message-digest-key 1 md5 xyz_OSPF</span>
+Main<span class="o">(</span>config-if<span class="o">)</span><span class="c">#ip ospf authentication message-digest</span>
+
+Bldg-2<span class="o">(</span>config<span class="o">)</span><span class="c">#int s0/0/1</span>
+Bldg-2<span class="o">(</span>config-if<span class="o">)</span><span class="c">#ip ospf message-digest-key 1 md5 xyz_OSPF</span>
+Bldg-2<span class="o">(</span>config-if<span class="o">)</span><span class="c">#ip ospf authentication message-digest</span></code></pre></figure>
+
+<hr />
+
+<h1 id="step-9-configure-access-control-lists">Step 9: Configure Access Control Lists</h1>
+
+<hr />
+
+<h4 id="taskhow"><strong>Task/How:</strong></h4>
+<ol>
+  <li>Restrict access to the vty lines on Main with an ACL:</li>
+</ol>
+
+<ul>
+  <li>Create a named standard ACL using the name TELNET-BLOCK. Be sure that you enter this name exactly as it appears in this instruction.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Main<span class="o">(</span>config<span class="o">)</span><span class="c">#ip access-list standard TELNET-BLOCK</span></code></pre></figure>
+
+<ul>
+  <li>Allow only Admin Host to access the vty lines of Main.</li>
+  <li>No other Internet hosts (including hosts not visible in the topology) should be able to access the vty lines of Main.</li>
+  <li>Your solution should consist of one ACL statement.</li>
+  <li>Your ACL should be placed in the most efficient location as possible to conserve network bandwidth and device processing resources.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Main<span class="o">(</span>config-std-nacl<span class="o">)</span><span class="c">#permit host 198.51.100.5</span>
+Main<span class="o">(</span>config<span class="o">)</span><span class="c">#line vty 0 15</span>
+Main<span class="o">(</span>config-line<span class="o">)</span><span class="c">#access-class TELNET-BLOCK in</span></code></pre></figure>
+
+<ol>
+  <li>Block ping requests from the Internet with an ACL:</li>
+</ol>
+
+<ul>
+  <li>Use access list number 101.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Main<span class="o">(</span>config<span class="o">)</span><span class="c">#interface serial 0/1/0</span>
+Main<span class="o">(</span>config-if<span class="o">)</span><span class="c">#ip access-group 101 in</span></code></pre></figure>
+
+<ul>
+  <li>Allow only Admin Host to ping addresses within the Company A (Main) network. Only echo messages should be permitted.</li>
+  <li>Prevent all other Internet hosts (not only the Internet hosts visible in the topology) from pinging addresses inside the Company A network. Block echo messages only.</li>
+  <li>All other traffic should be allowed.</li>
+  <li>Your ACL should consist of three statements.</li>
+  <li>Your ACL should be placed in the most efficient location as possible to conserve network bandwidth and device processing resources.</li>
+</ul>
+
+<ol>
+  <li>Control access to the management interfaces (SVI) of the three switches attached to Building 2 as follows:</li>
+</ol>
+
+<ul>
+  <li>Create a standard ACL.</li>
+  <li>Use the number 1 for the list.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Bldg-2<span class="o">(</span>config<span class="o">)</span><span class="c">#access-list 1 permit 10.10.15.0 0.0.0.255</span></code></pre></figure>
+
+<ul>
+  <li>Permit only addresses from the admin VLAN network to access any address on the manage network (VLAN25).</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Bldg-2<span class="o">(</span>config<span class="o">)</span><span class="c">#interface gi0/1.25</span>
+Bldg-2<span class="o">(</span>config-if<span class="o">)</span><span class="c">#ip access-group 1 out</span></code></pre></figure>
+
+<ul>
+  <li>Hosts on the NetAdmin VLAN network should be able to reach all other destinations.</li>
+  <li>Your list should consist of one statement.</li>
+  <li>Your ACL should be placed in the most efficient location as possible to conserve network bandwidth and device processing resources.</li>
+  <li>You will be able to test this ACL at the end of this assessment.</li>
+</ul>
+
+<hr />
+
+<h1 id="step-10-create-and-name-vlans">Step 10: Create and name VLANs</h1>
+
+<hr />
+
+<h4 id="task-8"><strong>Task:</strong></h4>
+<p>On all three switches that are attached to Building 2, create and name the VLANs shown in the VLAN Table.</p>
+
+<ul>
+  <li>The VLAN names that you configure must match the values in the table exactly.</li>
+  <li>Each switch should be configured with all of the VLANs shown in the table.</li>
+</ul>
+
+<h4 id="how-8"><strong>How:</strong></h4>
+<ul>
+  <li>The VLAN names that you configure must match the values in the table exactly.</li>
+  <li>Each switch should be configured with all of the VLANs shown in the table.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#vlan 2</span>
+FL-A<span class="o">(</span>config-vlan<span class="o">)</span><span class="c">#name dept1</span>
+FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#vlan 4</span>
+FL-A<span class="o">(</span>config-vlan<span class="o">)</span><span class="c">#name dept2</span>
+FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#vlan 8</span>
+FL-A<span class="o">(</span>config-vlan<span class="o">)</span><span class="c">#name dept3</span>
+FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#vlan 15</span>
+FL-A<span class="o">(</span>config-vlan<span class="o">)</span><span class="c">#name NetAdmin</span>
+FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#vlan 25</span>
+FL-A<span class="o">(</span>config-vlan<span class="o">)</span><span class="c">#name manage</span>
+FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#vlan 99</span>
+FL-A<span class="o">(</span>config-vlan<span class="o">)</span><span class="c">#name safe</span>
+
+FL-B<span class="o">(</span>config<span class="o">)</span><span class="c">#vlan 2</span>
+FL-B<span class="o">(</span>config-vlan<span class="o">)</span><span class="c">#name dept1</span>
+FL-B<span class="o">(</span>config<span class="o">)</span><span class="c">#vlan 4</span>
+FL-B<span class="o">(</span>config-vlan<span class="o">)</span><span class="c">#name dept2</span>
+FL-B<span class="o">(</span>config<span class="o">)</span><span class="c">#vlan 8</span>
+FL-B<span class="o">(</span>config-vlan<span class="o">)</span><span class="c">#name dept3</span>
+FL-B<span class="o">(</span>config<span class="o">)</span><span class="c">#vlan 15</span>
+FL-B<span class="o">(</span>config-vlan<span class="o">)</span><span class="c">#name NetAdmin</span>
+FL-B<span class="o">(</span>config<span class="o">)</span><span class="c">#vlan 25</span>
+FL-B<span class="o">(</span>config-vlan<span class="o">)</span><span class="c">#name manage</span>
+FL-B<span class="o">(</span>config<span class="o">)</span><span class="c">#vlan 99</span>
+FL-B<span class="o">(</span>config-vlan<span class="o">)</span><span class="c">#name safe</span>
+
+FL-C<span class="o">(</span>config<span class="o">)</span><span class="c">#vlan 2</span>
+FL-C<span class="o">(</span>config-vlan<span class="o">)</span><span class="c">#name dept1</span>
+FL-C<span class="o">(</span>config<span class="o">)</span><span class="c">#vlan 4</span>
+FL-C<span class="o">(</span>config-vlan<span class="o">)</span><span class="c">#name dept2</span>
+FL-C<span class="o">(</span>config<span class="o">)</span><span class="c">#vlan 8</span>
+FL-C<span class="o">(</span>config-vlan<span class="o">)</span><span class="c">#name dept3</span>
+FL-C<span class="o">(</span>config<span class="o">)</span><span class="c">#vlan 15</span>
+FL-C<span class="o">(</span>config-vlan<span class="o">)</span><span class="c">#name NetAdmin</span>
+FL-C<span class="o">(</span>config<span class="o">)</span><span class="c">#vlan 25</span>
+FL-C<span class="o">(</span>config-vlan<span class="o">)</span><span class="c">#name manage</span>
+FL-C<span class="o">(</span>config<span class="o">)</span><span class="c">#vlan 99</span>
+FL-C<span class="o">(</span>config-vlan<span class="o">)</span><span class="c">#name safe</span></code></pre></figure>
+
+<hr />
+
+<h1 id="step-11--assign-switch-ports-to-vlans">Step 11:  Assign switch ports to VLANs.</h1>
+
+<hr />
+
+<h4 id="task-9"><strong>Task:</strong></h4>
+<p>Using the VLAN table, assign switch ports to the VLANs you created in Step 10, as follows:</p>
+
+<ul>
+  <li>All switch ports that you assign to VLANs should be configured to static access mode.</li>
+  <li>All switch ports that you assign to VLANs should be activated.</li>
+  <li>Note that all of the unused ports on SW-A should be assigned to VLAN 99. This configuration step on switches SW-B and SW-C is not required in this assessment for the sake of time.</li>
+  <li>Secure the unused switch ports on SW-A by shutting them down.</li>
+</ul>
+
+<h4 id="how-9"><strong>How:</strong></h4>
+<p>Using the VLAN table, assign switch ports to the VLANs you created in Step 10, as follows:</p>
+
+<ul>
+  <li>All switch ports that you assign to VLANs should be configured to static access mode.</li>
+  <li>All switch ports that you assign to VLANs should be activated.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#interface fa0/5</span>
+FL-A<span class="o">(</span>config-if<span class="o">)</span><span class="c">#switchport mode access</span>
+FL-A<span class="o">(</span>config-if<span class="o">)</span><span class="c">#switchport access vlan 2</span>
+FL-A<span class="o">(</span>config-if<span class="o">)</span><span class="c">#no shutdown</span>
+
+FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#interface fa0/10</span>
+FL-A<span class="o">(</span>config-if<span class="o">)</span><span class="c">#switchport mode access</span>
+FL-A<span class="o">(</span>config-if<span class="o">)</span><span class="c">#switchport access vlan 4</span>
+FL-A<span class="o">(</span>config-if<span class="o">)</span><span class="c">#no shutdown</span>
+
+FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#interface fa0/15</span>
+FL-A<span class="o">(</span>config-if<span class="o">)</span><span class="c">#switchport mode access</span>
+FL-A<span class="o">(</span>config-if<span class="o">)</span><span class="c">#switchport access vlan 8</span>
+FL-A<span class="o">(</span>config-if<span class="o">)</span><span class="c">#no shutdown</span>
+
+FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#interface fa0/24</span>
+FL-A<span class="o">(</span>config-if<span class="o">)</span><span class="c">#switchport mode access</span>
+FL-A<span class="o">(</span>config-if<span class="o">)</span><span class="c">#switchport access vlan 15</span>
+FL-A<span class="o">(</span>config-if<span class="o">)</span><span class="c">#no shutdown</span>
+
+FL-C<span class="o">(</span>config<span class="o">)</span><span class="c">#interface fa0/7</span>
+FL-C<span class="o">(</span>config-if<span class="o">)</span><span class="c">#switchport mode access</span>
+FL-C<span class="o">(</span>config-if<span class="o">)</span><span class="c">#switchport access vlan 2</span>
+FL-C<span class="o">(</span>config-if<span class="o">)</span><span class="c">#no shutdown</span>
+
+FL-C<span class="o">(</span>config<span class="o">)</span><span class="c">#interface fa0/10</span>
+FL-C<span class="o">(</span>config-if<span class="o">)</span><span class="c">#switchport mode access</span>
+FL-C<span class="o">(</span>config-if<span class="o">)</span><span class="c">#switchport access vlan 4</span>
+FL-C<span class="o">(</span>config-if<span class="o">)</span><span class="c">#no shutdown</span>
+
+FL-C<span class="o">(</span>config<span class="o">)</span><span class="c">#interface fa0/15</span>
+FL-C<span class="o">(</span>config-if<span class="o">)</span><span class="c">#switchport mode access</span>
+FL-C<span class="o">(</span>config-if<span class="o">)</span><span class="c">#switchport access vlan 8</span>
+FL-C<span class="o">(</span>config-if<span class="o">)</span><span class="c">#no shutdown</span>
+
+FL-C<span class="o">(</span>config<span class="o">)</span><span class="c">#interface fa0/24</span>
+FL-C<span class="o">(</span>config-if<span class="o">)</span><span class="c">#switchport mode access</span>
+FL-C<span class="o">(</span>config-if<span class="o">)</span><span class="c">#switchport access vlan 15</span>
+FL-C<span class="o">(</span>config-if<span class="o">)</span><span class="c">#no shutdown</span></code></pre></figure>
+
+<ul>
+  <li>Note that all of the unused ports on SW-A should be assigned to VLAN 99. This configuration step on switches SW-B and SW-C is not required in this assessment for the sake of time.</li>
+  <li>Secure the unused switch ports on SW-A by shutting them down.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#interface range fa0/6-9,fa0/11-14,fa0/16-23</span>
+FL-A<span class="o">(</span>config-if-range<span class="o">)</span><span class="c">#switchport mode access</span>
+FL-A<span class="o">(</span>config-if-range<span class="o">)</span><span class="c">#switchport access vlan 99</span>
+FL-A<span class="o">(</span>config-if-range<span class="o">)</span><span class="c">#shutdown</span>
+
+FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#interface range g0/1-2</span>
+FL-A<span class="o">(</span>config-if-range<span class="o">)</span><span class="c">#switchport mode access</span>
+FL-A<span class="o">(</span>config-if-range<span class="o">)</span><span class="c">#switchport access vlan 99</span>
+FL-A<span class="o">(</span>config-if-range<span class="o">)</span><span class="c">#shutdown</span></code></pre></figure>
+
+<hr />
+
+<h1 id="step-12--configure-the-svis">Step 12:  Configure the SVIs</h1>
+
+<hr />
+
+<h4 id="task-10"><strong>Task:</strong></h4>
+<p>Refer to the Addressing Table. Create and address the SVIs on all three of the switches that are attached to Building 2. Configure the switches so that they can communicate with hosts on other networks. Full connectivity will be established after routing between VLANs has been configured later in this assessment.</p>
+
+<h4 id="how-10"><strong>How:</strong></h4>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#ip default-gateway 10.10.25.1</span>
+FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#interface vlan 25</span>
+FL-A<span class="o">(</span>config-vlan<span class="o">)</span><span class="c">#ip address 10.10.25.254 255.255.255.0</span>
+FL-A<span class="o">(</span>config-vlan<span class="o">)</span><span class="c">#no shutdown</span>
+
+FL-B<span class="o">(</span>config<span class="o">)</span><span class="c">#ip default-gateway 10.10.25.1</span>
+FL-B<span class="o">(</span>config<span class="o">)</span><span class="c">#interface vlan 25</span>
+FL-B<span class="o">(</span>config-vlan<span class="o">)</span><span class="c">#ip address 10.10.25.253 255.255.255.0</span>
+FL-B<span class="o">(</span>config-vlan<span class="o">)</span><span class="c">#no shutdown</span>
+
+FL-C<span class="o">(</span>config<span class="o">)</span><span class="c">#ip default-gateway 10.10.25.1</span>
+FL-C<span class="o">(</span>config<span class="o">)</span><span class="c">#interface vlan 25</span>
+FL-C<span class="o">(</span>config-vlan<span class="o">)</span><span class="c">#ip address 10.10.25.252 255.255.255.0</span>
+FL-C<span class="o">(</span>config-vlan<span class="o">)</span><span class="c">#no shutdown</span></code></pre></figure>
+
+<hr />
+
+<h1 id="step-13-configure-trunking-and-etherchannel">Step 13: Configure Trunking and EtherChannel</h1>
+
+<hr />
+
+<h4 id="taskhow-1"><strong>Task/How:</strong></h4>
+<ol>
+  <li>Use the information in the Port-Channel Groups table to configure EtherChannel as follows:</li>
+</ol>
+
+<ul>
+  <li>Use LACP.</li>
+  <li>The switch ports on both sides of Channels 1 and 2 should initiate negotiations for channel establishment.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#interface range fa0/1-2</span>
+FL-A<span class="o">(</span>config-if-range<span class="o">)</span><span class="c">#channel-group 1 mode active</span>
+FL-A<span class="o">(</span>config-if-range<span class="o">)</span><span class="c">#no shutdown</span>
+
+FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#interface range fa0/3-4</span>
+FL-A<span class="o">(</span>config-if-range<span class="o">)</span><span class="c">#channel-group 2 mode active</span>
+FL-A<span class="o">(</span>config-if-range<span class="o">)</span><span class="c">#no shutdown</span>
+
+FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#interface port-channel 1</span>
+FL-A<span class="o">(</span>config-if<span class="o">)</span><span class="c">#switchport mode trunk</span>
+
+FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#interface port-channel 2</span>
+FL-A<span class="o">(</span>config-if<span class="o">)</span><span class="c">#switchport mode trunk</span>
+
+FL-B<span class="o">(</span>config<span class="o">)</span><span class="c">#interface range fa0/3-4</span>
+FL-B<span class="o">(</span>config-if-range<span class="o">)</span><span class="c">#channel-group 2 mode active</span>
+FL-B<span class="o">(</span>config-if-range<span class="o">)</span><span class="c">#no shutdown</span>
+
+FL-B<span class="o">(</span>config<span class="o">)</span><span class="c">#interface port-channel 2</span>
+FL-B<span class="o">(</span>config-if<span class="o">)</span><span class="c">#switchport mode trunk</span>
+
+FL-C<span class="o">(</span>config<span class="o">)</span><span class="c">#interface range fa0/1-2</span>
+FL-C<span class="o">(</span>config-if-range<span class="o">)</span><span class="c">#channel-group 1 mode active</span>
+FL-C<span class="o">(</span>config-if-range<span class="o">)</span><span class="c">#no shutdown</span>
+
+FL-C<span class="o">(</span>config<span class="o">)</span><span class="c">#interface port-channel 1</span>
+FL-C<span class="o">(</span>config-if<span class="o">)</span><span class="c">#switchport mode trunk</span></code></pre></figure>
+
+<ul>
+  <li>The switch ports on the FL-B side of Channel 3 should initiate negotiations with the switch ports on FL-C.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">FL-B<span class="o">(</span>config<span class="o">)</span><span class="c">#interface range fa0/5-6</span>
+FL-B<span class="o">(</span>config-if-range<span class="o">)</span><span class="c">#channel-group 3 mode active</span>
+FL-B<span class="o">(</span>config-if-range<span class="o">)</span><span class="c">#no shutdown</span>
+
+FL-B<span class="o">(</span>config<span class="o">)</span><span class="c">#interface port-channel 3</span>
+FL-B<span class="o">(</span>config-if<span class="o">)</span><span class="c">#switchport mode trunk</span></code></pre></figure>
+
+<ul>
+  <li>The switch ports on the FL-C side of Channel 3 should not initiate negotiations with the switch ports on the other side of the channel.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">FL-C<span class="o">(</span>config<span class="o">)</span><span class="c">#interface range fa0/5-6</span>
+FL-C<span class="o">(</span>config-if-range<span class="o">)</span><span class="c">#channel-group 3 mode passive</span>
+FL-B<span class="o">(</span>config-if-range<span class="o">)</span><span class="c">#no shutdown</span>
+
+FL-C<span class="o">(</span>config<span class="o">)</span><span class="c">#interface port-channel 3</span>
+FL-C<span class="o">(</span>config-if<span class="o">)</span><span class="c">#switchport mode trunk</span></code></pre></figure>
+
+<ul>
+  <li>All channels should be ready to forward data after they have been configured.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">FL-X<span class="o">(</span>config-if<span class="o">)</span><span class="c">#no shutdown (if you didn't do it prior)</span></code></pre></figure>
+
+<ol>
+  <li>Configure all port-channel interfaces as trunks.</li>
+</ol>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">FL-X<span class="o">(</span>config<span class="o">)</span><span class="c">#interface port-channel X (again you should have done it prior)</span>
+FL-X<span class="o">(</span>config-if<span class="o">)</span><span class="c">#switchport mode trunk</span></code></pre></figure>
+
+<ol>
+  <li>Configure static trunking on the switch port on FL-B that is connected to Building 2.</li>
+</ol>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">FL-B<span class="o">(</span>config<span class="o">)</span><span class="c">#interface g0/1</span>
+FL-B<span class="o">(</span>config-if<span class="o">)</span><span class="c">#switchport mode trunk</span></code></pre></figure>
+
+<hr />
+
+<h1 id="step-14-configure-rapid-pvst">Step 14: Configure Rapid PVST+</h1>
+
+<hr />
+
+<h4 id="taskhow-2"><strong>Task/How:</strong></h4>
+<p>Configure Rapid PVST+ as follows:</p>
+
+<ol>
+  <li>Activate Rapid PVST+ and set root priorities.</li>
+</ol>
+
+<ul>
+  <li>All three switches should be configured to run Rapid PVST+.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#spanning-tree mode rapid-pvst</span>
+FL-B<span class="o">(</span>config<span class="o">)</span><span class="c">#spanning-tree mode rapid-pvst</span>
+FL-C<span class="o">(</span>config<span class="o">)</span><span class="c">#spanning-tree mode rapid-pvst</span></code></pre></figure>
+
+<ul>
+  <li>FL-A should be configured as root primary for VLAN 2 and VLAN 4 using the default primary priority values.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#spanning-tree vlan 2 root primary</span>
+FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#spanning-tree vlan 4 root primary</span></code></pre></figure>
+
+<ul>
+  <li>FL-A should be configured as root secondary for VLAN 8 and VLAN 15 using the default secondary priority values.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#spanning-tree vlan 8 root secondary</span>
+FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#spanning-tree vlan 15 root secondary</span></code></pre></figure>
+
+<ul>
+  <li>FL-C should be configured as root primary for VLAN 8 and VLAN 15 using the default primary priority values.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">FL-C<span class="o">(</span>config<span class="o">)</span><span class="c">#spanning-tree vlan 8 root primary</span>
+FL-C<span class="o">(</span>config<span class="o">)</span><span class="c">#spanning-tree vlan 15 root primary</span></code></pre></figure>
+
+<ul>
+  <li>FL-C should be configured as root secondary for VLAN 2 and VLAN 4 using the default secondary priority values.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">FL-C<span class="o">(</span>config<span class="o">)</span><span class="c">#spanning-tree vlan 2 root secondary</span>
+FL-C<span class="o">(</span>config<span class="o">)</span><span class="c">#spanning-tree vlan 4 root secondary</span></code></pre></figure>
+
+<ol>
+  <li>Activate PortFast and BPDU Guard on the active FL-C switch access ports.</li>
+</ol>
+
+<ul>
+  <li>On FL-C, configure PortFast on the access ports that are connected to hosts.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">FL-C<span class="o">(</span>config<span class="o">)</span><span class="c">#interface range fa0/7, fa0/10, fa0/15, fa0/24</span>
+FL-C<span class="o">(</span>config-if-range<span class="o">)</span><span class="c">#spanning-tree portfast</span></code></pre></figure>
+
+<ul>
+  <li>On FL-C, activate BPDU Guard on the access ports that are connected to hosts.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">FL-C<span class="o">(</span>config<span class="o">)</span><span class="c">#interface range fa0/7, fa0/10, fa0/15, fa0/24</span>
+FL-C<span class="o">(</span>config-if-range<span class="o">)</span><span class="c">#spanning-tree bpduguard enable</span>
+FL-C<span class="o">(</span>config-if-range<span class="o">)</span><span class="c">#no shutdown</span></code></pre></figure>
+
+<hr />
+
+<h1 id="step-15-configure-switch-security">Step 15: Configure switch security</h1>
+
+<hr />
+
+<h4 id="taskhow-3"><strong>Task/How:</strong></h4>
+<p>You are required to complete the following only on some of the devices in the network for this assessment. In reality, security should be configured on all devices in the network.</p>
+
+<ol>
+  <li>Configure port security on all active access ports that have hosts connected on FL-A.</li>
+</ol>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#interface fa0/5</span>
+FL-A<span class="o">(</span>config-if<span class="o">)</span><span class="c">#switchport port-security</span>
+
+FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#interface fa0/10</span>
+FL-A<span class="o">(</span>config-if<span class="o">)</span><span class="c">#switchport port-security</span>
+
+FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#interface fa0/15</span>
+FL-A<span class="o">(</span>config-if<span class="o">)</span><span class="c">#switchport port-security</span>
+
+FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#interface fa0/24</span>
+FL-A<span class="o">(</span>config-if<span class="o">)</span><span class="c">#switchport port-security</span></code></pre></figure>
+
+<ul>
+  <li>Each active access port should accept only two MAC addresses before a security action occurs.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#interface fa0/5</span>
+FL-A<span class="o">(</span>config-if<span class="o">)</span><span class="c">#switchport port-security maximum 2</span>
+FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#interface fa0/10</span>
+FL-A<span class="o">(</span>config-if<span class="o">)</span><span class="c">#switchport port-security maximum 2</span>
+FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#interface fa0/15</span>
+FL-A<span class="o">(</span>config-if<span class="o">)</span><span class="c">#switchport port-security maximum 2</span>
+FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#interface fa0/24</span>
+FL-A<span class="o">(</span>config-if<span class="o">)</span><span class="c">#switchport port-security maximum 2</span></code></pre></figure>
+
+<ul>
+  <li>The learned MAC addresses should be recorded in the running configuration.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#interface fa0/5</span>
+FL-A<span class="o">(</span>config-if<span class="o">)</span><span class="c">#switchport port-security mac-address sticky</span>
+FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#interface fa0/10</span>
+FL-A<span class="o">(</span>config-if<span class="o">)</span><span class="c">#switchport port-security mac-address sticky</span>
+FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#interface fa0/15</span>
+FL-A<span class="o">(</span>config-if<span class="o">)</span><span class="c">#switchport port-security mac-address sticky</span>
+FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#interface fa0/24</span>
+FL-A<span class="o">(</span>config-if<span class="o">)</span><span class="c">#switchport port-security mac-address sticky</span></code></pre></figure>
+
+<ul>
+  <li>If a security violation occurs, the switch ports should provide notification that a violation has occurred but not place the interface in an err-disabled state.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#interface fa0/5</span>
+FL-A<span class="o">(</span>config-if<span class="o">)</span><span class="c">#switchport port-security violation restrict</span>
+FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#interface fa0/10</span>
+FL-A<span class="o">(</span>config-if<span class="o">)</span><span class="c">#switchport port-security violation restrict</span>
+FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#interface fa0/15</span>
+FL-A<span class="o">(</span>config-if<span class="o">)</span><span class="c">#switchport port-security violation restrict</span>
+FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#interface fa0/24</span>
+FL-A<span class="o">(</span>config-if<span class="o">)</span><span class="c">#switchport port-security violation restrict</span></code></pre></figure>
+
+<ol>
+  <li>On FL-B, configure the virtual terminal lines to accept only SSH connections.</li>
+</ol>
+
+<ul>
+  <li>Use a domain name of ccnaPTSA.com.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">FL-B<span class="o">(</span>config<span class="o">)</span><span class="c">#ip domain-name ccnaPTSA.com</span></code></pre></figure>
+
+<ul>
+  <li>Use FL-B as the host name.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">FL-B<span class="o">(</span>config<span class="o">)</span><span class="c">#hostname FL-B</span></code></pre></figure>
+
+<ul>
+  <li>Use a modulus value of 1024.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">FL-B<span class="o">(</span>config<span class="o">)</span><span class="c">#crypto key generate rsa</span>
+<span class="k">select </span>1024 key length</code></pre></figure>
+
+<ul>
+  <li>Configure SSH version 2.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">FL-B<span class="o">(</span>config<span class="o">)</span><span class="c">#ip ssh version 2</span></code></pre></figure>
+
+<ul>
+  <li>Configure the vty lines to only accept SSH connections.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">FL-B<span class="o">(</span>config<span class="o">)</span><span class="c">#line vty 0 4</span>
+FL-B<span class="o">(</span>config-line<span class="o">)</span><span class="c">#login local</span>
+FL-B<span class="o">(</span>config-line<span class="o">)</span><span class="c">#transport input ssh</span>
+FL-B<span class="o">(</span>config<span class="o">)</span><span class="c">#line vty 5 15</span>
+FL-B<span class="o">(</span>config-line<span class="o">)</span><span class="c">#login local</span>
+FL-B<span class="o">(</span>config-line<span class="o">)</span><span class="c">#transport input ssh</span></code></pre></figure>
+
+<ul>
+  <li>Configure user-based authentication for the SSH connections with a user name of netadmin and a secret password of SSH_secret9. The user name and password must match the values provided here exactly.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">FL-B<span class="o">(</span>config<span class="o">)</span><span class="c">#username netadmin password SSH_secret9</span></code></pre></figure>
+
+<ol>
+  <li>Ensure that all unused switch ports on FL-A have been secured as follows:</li>
+</ol>
+
+<ul>
+  <li>They should be assigned to VLAN 99.</li>
+  <li>They should all be in access mode.</li>
+  <li>They should be shutdown.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Should have been <span class="k">done in </span>Step 11, but here they are anyway
+
+FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#interface range fa0/6-9,fa0/11-14,fa0/16-23</span>
+FL-A<span class="o">(</span>config-if-range<span class="o">)</span><span class="c">#switchport mode access</span>
+FL-A<span class="o">(</span>config-if-range<span class="o">)</span><span class="c">#switchport access vlan 99</span>
+FL-A<span class="o">(</span>config-if-range<span class="o">)</span><span class="c">#shutdown</span>
+
+FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#interface range g0/1-2</span>
+FL-A<span class="o">(</span>config-if-range<span class="o">)</span><span class="c">#switchport mode access</span>
+FL-A<span class="o">(</span>config-if-range<span class="o">)</span><span class="c">#switchport access vlan 99</span>
+FL-A<span class="o">(</span>config-if-range<span class="o">)</span><span class="c">#shutdown</span></code></pre></figure>
+
+<hr />
+
+<h1 id="step-16-configure-building-2-as-a-dhcp-server-for-the-hosts-attached-to-the-fl-a-and-fl-c-switches">Step 16: Configure Building 2 as a DHCP server for the hosts attached to the FL-A and FL-C switches</h1>
+
+<hr />
+
+<h4 id="taskhow-4"><strong>Task/How:</strong></h4>
+<p>Configure three DHCP pools as follows:</p>
+
+<ul>
+  <li>Refer to the information in the Addressing Table.</li>
+  <li>Create a DHCP pool for hosts on VLAN 2 using the pool name vlan2pool.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Bldg-2<span class="o">(</span>config<span class="o">)</span><span class="c">#ip dhcp pool vlan2pool</span>
+Bldg-2<span class="o">(</span>dhcp-config<span class="o">)</span><span class="c">#network 10.10.2.0 255.255.255.0</span>
+Bldg-2<span class="o">(</span>dhcp-config<span class="o">)</span><span class="c">#default-router 10.10.2.1</span>
+Bldg-2<span class="o">(</span>dhcp-config<span class="o">)</span><span class="c">#dns-server 192.168.200.225</span></code></pre></figure>
+
+<ul>
+  <li>Create a DHCP pool for hosts on VLAN 4 using the pool name vlan4pool.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Bldg-2<span class="o">(</span>config<span class="o">)</span><span class="c">#ip dhcp pool vlan4pool</span>
+Bldg-2<span class="o">(</span>dhcp-config<span class="o">)</span><span class="c">#network 10.10.4.0 255.255.255.0</span>
+Bldg-2<span class="o">(</span>dhcp-config<span class="o">)</span><span class="c">#default-router 10.10.4.1</span>
+Bldg-2<span class="o">(</span>dhcp-config<span class="o">)</span><span class="c">#dns-server 192.168.200.225</span></code></pre></figure>
+
+<ul>
+  <li>Create a DHCP pool for hosts on VLAN 8 using the pool name vlan8pool.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Bldg-2<span class="o">(</span>config<span class="o">)</span><span class="c">#ip dhcp pool vlan8pool</span>
+Bldg-2<span class="o">(</span>dhcp-config<span class="o">)</span><span class="c">#network 10.10.8.0 255.255.255.0</span>
+Bldg-2<span class="o">(</span>dhcp-config<span class="o">)</span><span class="c">#default-router 10.10.8.1</span>
+Bldg-2<span class="o">(</span>dhcp-config<span class="o">)</span><span class="c">#dns-server 192.168.200.225</span></code></pre></figure>
+
+<ul>
+  <li>All VLAN pool names must match the provided values exactly.</li>
+  <li>Exclude the first five addresses from each pool.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Bldg-2<span class="o">(</span>config<span class="o">)</span><span class="c">#ip dhcp excluded-address 10.10.2.1 10.10.2.5</span>
+Bldg-2<span class="o">(</span>config<span class="o">)</span><span class="c">#ip dhcp excluded-address 10.10.4.1 10.10.4.5</span>
+Bldg-2<span class="o">(</span>config<span class="o">)</span><span class="c">#ip dhcp excluded-address 10.10.8.1 10.10.8.5</span></code></pre></figure>
+
+<ul>
+  <li>Configure a DNS server address of 192.168.200.225.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Bldg-2<span class="o">(</span>dhcp-config<span class="o">)</span><span class="c">#dns-server 192.168.200.225 (this command from above)</span></code></pre></figure>
+
+<ul>
+  <li>All hosts should be able to communication with hosts on other networks.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Bldg-2<span class="o">(</span>dhcp-config<span class="o">)</span><span class="c">#default-router 10.10.X.1 (this command from above)</span></code></pre></figure>
+
+<hr />
+
+<h1 id="step-17-configure-host-addressing">Step 17: Configure host addressing</h1>
+
+<hr />
+
+<h4 id="task-11"><strong>Task:</strong></h4>
+<p>Hosts should be able to ping each other and external hosts after they have been correctly addressed, where permitted.</p>
+
+<ul>
+  <li>Hosts on VLANs 2, 4, and 8 should be configured to receive addresses dynamically over DHCP.</li>
+  <li>Hosts on VLAN 15 should be addressed statically as indicated in the Addressing Table. Once configured, the hosts should be able to ping hosts on other networks.</li>
+  <li>Hosts on the LANs attached to Site 1 should be statically assigned addresses that enable them to communicate with hosts on other networks, as indicated in the Addressing Table.</li>
+</ul>
+
+<h4 id="how-11"><strong>How:</strong></h4>
+<p>Simply setup all the addressing manually through the GUI on each workstation from the IP Addressing table</p>
+
+              </div>
+              
+
+<!-- Social Button HTML -->
+<div class="fa fa-share-bar">
+<h4 class="fa fa-share-alt section-title">Share Post :</h4>
+
+<!-- Twitter -->
+<a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=CCNA3 - OSPF Practice Skills Assessment" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+  <i class="fa fa-twitter fa-lg"></i>
+  Twitter
+</a>
+
+<!-- Google Plus -->
+<a class="btn btn-default btn-sm gplus" onclick="window.open('https://plus.google.com/share?url='+window.location.href, 'google-plus-share', 'width=490,height=530');return false;">
+  <i class="fa fa-google-plus fa-lg"></i>
+  Google+
+</a>
+
+<!-- Facebook -->
+<a class="btn btn-default btn-sm facebook" href="https://www.facebook.com/sharer/sharer.php" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+  <i class="fa fa-facebook fa-lg"></i>
+  Facebook
+</a>
+
+<!-- StumbleUpon (url, title) -->
+<!--
+<a class="btn btn-default btn-sm StumbleUpon" href="http://www.stumbleupon.com/submit?url=http://t04glovern.github.io/2016/04/ccna3-ospf-practice-skills-assessment&title=CCNA3 - OSPF Practice Skills Assessment" target="_blank" class="share-btn stumbleupon">
+  <i class="fa fa-stumbleupon fa-lg"></i>
+  StumbleUpon
+</a>
+-->
+
+<!-- Reddit (url, title) -->
+<a class="btn btn-default btn-sm reddit" href="http://reddit.com/submit?url=http://t04glovern.github.io/2016/04/ccna3-ospf-practice-skills-assessment&title=CCNA3 - OSPF Practice Skills Assessment" target="_blank" class="share-btn reddit">
+  <i class="fa fa-reddit fa-lg"></i>
+  Reddit
+</a>
+
+<!-- LinkedIn -->
+<a class="btn btn-default btn-sm linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=http://t04glovern.github.io/2016/04/ccna3-ospf-practice-skills-assessment&title=CCNA3 - OSPF Practice Skills Assessment&source=">
+  <i class="fa fa-linkedin fa-lg"></i>
+  LinkedIn
+</a>
+
+<!-- Email -->
+<!--
+<a class="btn btn-default btn-sm email" href="mailto:?subject=<SUBJECT&body=<BODY>" target="_blank" class="share-btn email">
+  <i class="fa fa-envelope"></i>
+  Email
+</a>
+-->
+</div><p></p>
+
+
+
+              
+
+<section class="site-author1 col-sm-2">
+  <br>
+  <img src="http://www.gravatar.com/avatar/3f588f12eca6a2e82161a1da2451fe89" class="img-rounded author-image" />
+</section>
+
+<section class="site-author2 col-sm-10">
+<h4 class="section-title author-name"></h4>
+<p class="author-bio">Nathan Glover is a passionate technology enthusiast with a strong
+understanding of Windows Server 2012 / Hyper-V and Windows Operating
+system support. He has an eagerness to learn new things and generally
+spends most of his freetime building up his brain with different concepts.
+</p>
+</section>
+
+
+
+              
+              <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 hidden-xs">
+          <div class="sidebar ">
+  
+    <h1>Related By Tags</h1>
+  
+  <ul>
+    
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+      
+    
+  </ul>
+</div>
+
+<div class="sidebar">
+  <h1>Tags</h1>
+  <ul>
+     
+      <li><a href="/tag/ad">ad</a></li>
+    
+      <li><a href="/tag/arduino">arduino</a></li>
+    
+      <li><a href="/tag/arm">arm</a></li>
+    
+      <li><a href="/tag/asp.net">asp.net</a></li>
+    
+      <li><a href="/tag/bash">bash</a></li>
+    
+      <li><a href="/tag/ccna3">ccna3</a></li>
+    
+      <li><a href="/tag/electronics">electronics</a></li>
+    
+      <li><a href="/tag/energia">energia</a></li>
+    
+      <li><a href="/tag/equallogic">equallogic</a></li>
+    
+      <li><a href="/tag/esxi">esxi</a></li>
+    
+      <li><a href="/tag/ethernet">ethernet</a></li>
+    
+      <li><a href="/tag/grief">grief</a></li>
+    
+      <li><a href="/tag/humor">humor</a></li>
+    
+      <li><a href="/tag/internet">internet</a></li>
+    
+      <li><a href="/tag/iscsi">iscsi</a></li>
+    
+      <li><a href="/tag/lcd">lcd</a></li>
+    
+      <li><a href="/tag/linux">linux</a></li>
+    
+      <li><a href="/tag/msp430">msp430</a></li>
+    
+      <li><a href="/tag/node.js">node.js</a></li>
+    
+      <li><a href="/tag/ospf">ospf</a></li>
+    
+      <li><a href="/tag/pi">pi</a></li>
+    
+      <li><a href="/tag/powershell">powershell</a></li>
+    
+      <li><a href="/tag/python">python</a></li>
+    
+      <li><a href="/tag/script">script</a></li>
+    
+      <li><a href="/tag/shift register">shift register</a></li>
+    
+      <li><a href="/tag/sound">sound</a></li>
+    
+      <li><a href="/tag/virtualenv">virtualenv</a></li>
+    
+      <li><a href="/tag/visualstudio">visualstudio</a></li>
+    
+      <li><a href="/tag/vscode">vscode</a></li>
+    
+      <li><a href="/tag/windows">windows</a></li>
+    
+      <li><a href="/tag/yeoman">yeoman</a></li>
+    
+  </ul>
+</div>
+
+        </div>
+      </div>
+    </div>
+    
+<!-- Add Disqus comments. -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = "t04glovern"; // required: replace example with your forum shortname
+  var disqus_identifier = "/2016/04/ccna3-ospf-practice-skills-assessment";
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+  </div>
+      <footer class="footer-distributed">
+      <div class="container">
+        <div class="footer">
+          <p>Nathan Glover &copy; 2016</p>
+          <h6>Follow me</h6>
+
+<ul class="social-media">
+
+    
+    <li>
+        <a title="t04glovern on Github"
+            href="https://github.com/t04glovern"
+            target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    </li>
+    
+
+    
+    <li>
+        <a title="5443325 on StackOverflow"
+            href="http://stackoverflow.com/users/5443325"
+            target="_blank"><i class="fa fa-stack-overflow fa-2x"></i></a>
+    </li>
+    
+
+    
+    <li>
+        <a title="t04glovern on LinkedIn"
+            href="https://www.linkedin.com/in/glovernathan"
+            target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
+    </li>
+    
+
+    
+    <li>
+        <a title="t04glovern on CodePen"
+            href="http://codepen.io/t04glovern"
+            target="_blank"><i class="fa fa-codepen fa-2x"></i></a>
+    </li>
+    
+
+    
+    <li>
+        <a title="nathanglove on Instagram"
+            href="https://instagram.com/nathanglove"
+            target="_blank"><i class="fa fa-instagram fa-2x"></i></a>
+    </li>
+    
+
+    
+    <li>
+        <a title="t04glovern on LastFm"
+            href="http://lastfm.com/user/t04glovern"
+            target="_blank"><i class="fa fa-lastfm fa-2x"></i></a>
+    </li>
+    
+
+    
+    <li>
+        <a title="feed.xml RSS"
+            href="http://t04glovern.github.io/feed.xml"
+            target="_blank"><i class="fa fa-rss fa-2x"></i></a>
+    </li>
+    
+
+</ul>
+
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+</div>
