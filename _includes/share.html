@@ -1,0 +1,54 @@
+{% if page.share == true %}
+<hr></hr>
+<!-- Social Button HTML -->
+<center><div class="fa fa-share-bar">
+<h4 class="fa fa-share-alt section-title">Share Post :</h4>
+
+<!-- Twitter -->
+<a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text={{page.title | encode}}{% if site.author.twitter%}&via={{site.author.twitter}}{% endif %}" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+  <i class="fa fa-twitter fa-lg"></i>
+  Twitter
+</a>
+
+<!-- Google Plus -->
+<a class="btn btn-default btn-sm gplus" onclick="window.open('https://plus.google.com/share?url='+window.location.href, 'google-plus-share', 'width=490,height=530');return false;">
+  <i class="fa fa-google-plus fa-lg"></i>
+  Google+
+</a>
+
+<!-- Facebook -->
+<a class="btn btn-default btn-sm facebook" href="https://www.facebook.com/sharer/sharer.php" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+  <i class="fa fa-facebook fa-lg"></i>
+  Facebook
+</a>
+
+<!-- StumbleUpon (url, title) -->
+<!--
+<a class="btn btn-default btn-sm StumbleUpon" href="http://www.stumbleupon.com/submit?url={{ site.url }}{{ page.url }}&title={{ page.title }}" target="_blank" class="share-btn stumbleupon">
+  <i class="fa fa-stumbleupon fa-lg"></i>
+  StumbleUpon
+</a>
+-->
+
+<!-- Reddit (url, title) -->
+<a class="btn btn-default btn-sm reddit" href="http://reddit.com/submit?url={{ site.url }}{{ page.url }}&title={{ page.title }}" target="_blank" class="share-btn reddit">
+  <i class="fa fa-reddit fa-lg"></i>
+  Reddit
+</a>
+
+<!-- LinkedIn -->
+<a class="btn btn-default btn-sm linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url={{ site.url }}{{ page.url }}&title={{ page.title }}&source={{ site.title }}">
+  <i class="fa fa-linkedin fa-lg"></i>
+  LinkedIn
+</a>
+
+<!-- Email -->
+<!--
+<a class="btn btn-default btn-sm email" href="mailto:?subject=<SUBJECT&body=<BODY>" target="_blank" class="share-btn email">
+  <i class="fa fa-envelope"></i>
+  Email
+</a>
+-->
+</div></center>
+<p></p>
+{% endif %}
