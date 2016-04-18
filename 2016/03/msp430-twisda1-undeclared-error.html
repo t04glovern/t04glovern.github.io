@@ -41,7 +41,7 @@
         (w[c] = w[c] || []).push(function() {
             try {
                 w.yaCounter30785898 = new Ya.Metrika({
-                    id:30785898,
+                    id:34439155,
                     clickmap:true,
                     trackLinks:true,
                     accurateTrackBounce:true
@@ -151,7 +151,7 @@ C:<span class="se">\P</span>rogram Files <span class="o">(</span>x86<span class=
 C:<span class="se">\P</span>rogram Files <span class="o">(</span>x86<span class="o">)</span><span class="se">\E</span>nergia<span class="se">\h</span>ardware<span class="se">\m</span>sp430<span class="se">\c</span>ores<span class="se">\m</span>sp430<span class="se">\t</span>wi_sw.c:157:11: error: <span class="s1">'TWISDA1'</span> undeclared <span class="o">(</span>first use <span class="k">in </span>this <span class="k">function</span><span class="o">)</span>
 C:<span class="se">\P</span>rogram Files <span class="o">(</span>x86<span class="o">)</span><span class="se">\E</span>nergia<span class="se">\h</span>ardware<span class="se">\m</span>sp430<span class="se">\c</span>ores<span class="se">\m</span>sp430<span class="se">\t</span>wi_sw.c:159:11: error: <span class="s1">'TWISCL1'</span> undeclared <span class="o">(</span>first use <span class="k">in </span>this <span class="k">function</span><span class="o">)</span></code></pre></figure>
 
-<p>The issues occurs because the the I2C SW library loads but isn’t included explicitely so the sketch won’t load (yay c)</p>
+<p>The issues occurs because the I2C SW library loads but isn’t included explicitly so the sketch won’t load (yay c)</p>
 
 <hr />
 
@@ -159,7 +159,7 @@ C:<span class="se">\P</span>rogram Files <span class="o">(</span>x86<span class=
 
 <hr />
 
-<p>The fix is documented <a href="https://github.com/energia/Energia/commit/827e338d22f57e03f21ffb5a064c271498d983b6">here</a> and is available for people who clone their Energia from git instead of using the installation binary.</p>
+<p>The fix is documented <a href="https://github.com/energia/Energia/commit/827e338d22f57e03f21ffb5a064c271498d983b6">here</a> and is available for people who clone their Energia from Github instead of using the installation binary.</p>
 
 <p>You have two options:</p>
 
@@ -176,7 +176,7 @@ C:<span class="se">\P</span>rogram Files <span class="o">(</span>x86<span class=
 
 <hr />
 
-<p>Ensure you have <a href="http://www.git-scm.com/">git</a> installed and clone the repo to a desired location on your harddrive</p>
+<p>Ensure you have <a href="http://www.git-scm.com/">git</a> installed and clone the repo to a desired location on your hard drive</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">git clone --recursive https://github.com/energia/Energia.git</code></pre></figure>
 
