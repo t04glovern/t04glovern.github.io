@@ -15,6 +15,14 @@
 			</item>
 		
 			<item>
+				<title>CCNA - CLI References</title>
+				<description>Some quick helpful notes for CISCO IOS devices</description>
+				<pubDate>Mon, 18 Apr 2016 00:00:00 +0800</pubDate>
+				<link>http://t04glovern.github.io/2016/04/ccna-cli-references</link>
+				<guid isPermaLink="true">http://t04glovern.github.io/2016/04/ccna-cli-references</guid>
+			</item>
+		
+			<item>
 				<title>MSP430 - 'TWISDA1' undeclared error</title>
 				<description>Instructions to resolve &#39;TWISDA1&#39; undeclared errors in Energia 17</description>
 				<pubDate>Sat, 05 Mar 2016 00:00:00 +0800</pubDate>
@@ -76,14 +84,6 @@
 				<pubDate>Sun, 03 Jan 2016 00:00:00 +0800</pubDate>
 				<link>http://t04glovern.github.io/2016/01/arduino-projects-shift-registers</link>
 				<guid isPermaLink="true">http://t04glovern.github.io/2016/01/arduino-projects-shift-registers</guid>
-			</item>
-		
-			<item>
-				<title>Arduino Projects - Ethernet using a ENC28J60 Ethernet Controller</title>
-				<description>Tonight I decided to give Ethernet interfacing with the Arduino a go.</description>
-				<pubDate>Wed, 30 Dec 2015 00:00:00 +0800</pubDate>
-				<link>http://t04glovern.github.io/2015/12/arduino-projects-ethernet-using-enc28j60</link>
-				<guid isPermaLink="true">http://t04glovern.github.io/2015/12/arduino-projects-ethernet-using-enc28j60</guid>
 			</item>
 		
 	</channel>
