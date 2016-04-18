@@ -2,17 +2,18 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="theme-color" content="#222222" />
+
   <title>TwoFactor Assimilation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="http://t04glovern.github.io/js/jquery.min.js"></script>
   <script src="http://t04glovern.github.io/js/bootstrap.min.js"></script>
-  <!--<script src="http://t04glovern.github.io/js/header.js"></script>-->
+  <script src="http://t04glovern.github.io/js/header.js"></script>
   <link href="http://t04glovern.github.io/css/bootstrap.min.css" rel="stylesheet">
   <link href="http://t04glovern.github.io/css/theme.css" rel="stylesheet">
   <link href="http://t04glovern.github.io/css/syntax.css" rel="stylesheet">
   <link href="http://t04glovern.github.io/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu+Mono&subset=latin">
-
 </head>
 
 <body>
@@ -34,26 +35,53 @@
 
 
   
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter30785898 = new Ya.Metrika({
+                    id:30785898,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true
+                });
+            } catch(e) { }
+        });
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/30785898" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
 
 
   <script type="text/javascript">
-  WebFontConfig = {
-    google: {
-      families: ['Ubuntu::latin']
-    }
-  };
-  (function() {
-    var wf = document.createElement('script');
-    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-    wf.type = 'text/javascript';
-    wf.async = 'true';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(wf, s);
-  })();
-</script>
+    WebFontConfig = {
+      google: {
+        families: ['Ubuntu::latin']
+      }
+    };
+    (function() {
+      var wf = document.createElement('script');
+      wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+        '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+      wf.type = 'text/javascript';
+      wf.async = 'true';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(wf, s);
+    })();
+  </script>
 
-  <nav class="navbar navbar-inverse navbar-fixed-top shrink">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -66,9 +94,10 @@
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li><a href="http://t04glovern.github.io/">/home</a></li>
-          <li><a href="http://t04glovern.github.io/archive.html">/archive</a></li>
-          <li><a href="http://t04glovern.github.io/tags.html">/tags</a></li>
-          <li><a href="http://t04glovern.github.io/about.html">/about</a></li>
+          <li><a href="http://t04glovern.github.io/archive">/archive</a></li>
+          <li><a href="http://t04glovern.github.io/projects">/projects</a></li>
+          <li><a href="http://t04glovern.github.io/tags">/tags</a></li>
+          <li><a href="http://t04glovern.github.io/about">/about</a></li>
         </ul>
       </div>
     </div>
@@ -99,11 +128,17 @@
               <div class="post-content">
                 <h2 id="introduction">Introduction</h2>
 
+<hr />
+
 <p>We just had a <a href="http://www.jaycar.com.au/">Jaycar</a> open in our area and I’ve taken it upon myself to drop in and pick up some in-expensive components every now and then in preparation for some of the <code class="highlighter-rouge">Arduino/Pi</code> based units I’ll be taking next semester when Uni goes back.</p>
 
 <p>I was able to pick up a relatively cheap analog thumbstick today and I came up with the idea to have it control one of the RGB LED units I had sitting around gathering dust at home. I didn’t want to over complicate the project, as I didn’t have a huge amount of experience with the platform and was honestly going to be happy just getting analog serial readings from the thumbstick showing in the <code class="highlighter-rouge">Arduino IDE</code>.</p>
 
+<hr />
+
 <h2 id="part-list">Part List</h2>
+
+<hr />
 
 <p>The following parts were used throughout the build of this project:</p>
 
@@ -117,7 +152,11 @@
 
 <p><img src="http://t04glovern.github.io/images/posts/2015.12.21/arduino-thumbstick-rgb-led.png" alt="Thumbstick RGB Circuit" /></p>
 
+<hr />
+
 <h2 id="reading-input-from-the-thumbstick">Reading input from the Thumbstick</h2>
+
+<hr />
 
 <p>To start with I wanted to make sure that I could easily read from logical values from the thumbstick. In order to do this I connected the <code class="highlighter-rouge">VRx</code> and <code class="highlighter-rouge">VRy</code> lines to the Analog IN Pins <code class="highlighter-rouge">AO</code> and <code class="highlighter-rouge">A1</code> on the <code class="highlighter-rouge">Arduino</code> board.</p>
 
@@ -170,7 +209,11 @@ Y Axis Value: 0</code></pre></figure>
 <figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// Delay allowing system to process</span>
 <span class="n">delay</span><span class="o">(</span><span class="mi">30</span><span class="o">);</span></code></pre></figure>
 
+<hr />
+
 <h2 id="understanding-the-rgb-module">Understanding the RGB Module</h2>
+
+<hr />
 
 <p>The <code class="highlighter-rouge">RGB</code> unit I decided to use has four inputs. Three of those inputs take a variable voltage and uses that value to display a colour based on three sets of 0-255 integers (<code class="highlighter-rouge">Red</code> <code class="highlighter-rouge">Blue</code> <code class="highlighter-rouge">Green</code> combination).</p>
 
@@ -202,7 +245,11 @@ Y Axis Value: 0</code></pre></figure>
 
 <p>Using this setup means that I always deal with expected values and even if I do get a curve-ball input, my system will know how to deal with it.</p>
 
+<hr />
+
 <h2 id="interface-rgb-unit-with-pwm-pins">Interface RGB Unit with PWM Pins</h2>
+
+<hr />
 
 <p>Now that we are importing logical data, we’re safe to move forward and interface the RGB unit. First I connected the <code class="highlighter-rouge">Digital PWM pins</code> in series with the RGB legs and a single 220Ω Resistor on  each leg of my LED. Following that I added code to map the digital ports to meaningful names</p>
 
@@ -239,7 +286,11 @@ Y Axis Value: 0</code></pre></figure>
 <span class="n">analogWrite</span><span class="o">(</span><span class="n">greenLEDPin</span><span class="o">,</span> <span class="n">valueY</span><span class="o">);</span>
 <span class="n">analogWrite</span><span class="o">(</span><span class="n">blueLEDPin</span><span class="o">,</span> <span class="n">valueMix</span><span class="o">);</span></code></pre></figure>
 
+<hr />
+
 <h2 id="run-the-code">Run the Code</h2>
+
+<hr />
 
 <p>Presto! my code works great</p>
 
@@ -321,9 +372,9 @@ Y Axis Value: 0</code></pre></figure>
 
               </div>
               
-
+<hr></hr>
 <!-- Social Button HTML -->
-<div class="fa fa-share-bar">
+<center><div class="fa fa-share-bar">
 <h4 class="fa fa-share-alt section-title">Share Post :</h4>
 
 <!-- Twitter -->
@@ -371,8 +422,8 @@ Y Axis Value: 0</code></pre></figure>
   Email
 </a>
 -->
-</div><p></p>
-
+</div></center>
+<p></p>
 
 
               
@@ -392,7 +443,6 @@ spends most of his freetime building up his brain with different concepts.
 </section>
 
 
-
               
               <div id="disqus_thread">
                 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
@@ -405,7 +455,7 @@ spends most of his freetime building up his brain with different concepts.
         <div class="col-md-4 hidden-xs">
           <div class="sidebar ">
   
-    <h1>Related By Tags</h1>
+    <h2>Related By Tags</h2>
   
   <ul>
     
@@ -738,8 +788,8 @@ spends most of his freetime building up his brain with different concepts.
 </div>
 
 <div class="sidebar">
-  <h1>Tags</h1>
-  <ul>
+  <h2>Tags</h2>
+  <ul class="sideBarTags">
      
       <li><a href="/tag/ad">ad</a></li>
     

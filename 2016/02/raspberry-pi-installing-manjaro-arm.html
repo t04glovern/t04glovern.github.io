@@ -2,17 +2,18 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="theme-color" content="#222222" />
+
   <title>TwoFactor Assimilation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="http://t04glovern.github.io/js/jquery.min.js"></script>
   <script src="http://t04glovern.github.io/js/bootstrap.min.js"></script>
-  <!--<script src="http://t04glovern.github.io/js/header.js"></script>-->
+  <script src="http://t04glovern.github.io/js/header.js"></script>
   <link href="http://t04glovern.github.io/css/bootstrap.min.css" rel="stylesheet">
   <link href="http://t04glovern.github.io/css/theme.css" rel="stylesheet">
   <link href="http://t04glovern.github.io/css/syntax.css" rel="stylesheet">
   <link href="http://t04glovern.github.io/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu+Mono&subset=latin">
-
 </head>
 
 <body>
@@ -34,26 +35,53 @@
 
 
   
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter30785898 = new Ya.Metrika({
+                    id:30785898,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true
+                });
+            } catch(e) { }
+        });
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/30785898" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
 
 
   <script type="text/javascript">
-  WebFontConfig = {
-    google: {
-      families: ['Ubuntu::latin']
-    }
-  };
-  (function() {
-    var wf = document.createElement('script');
-    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-    wf.type = 'text/javascript';
-    wf.async = 'true';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(wf, s);
-  })();
-</script>
+    WebFontConfig = {
+      google: {
+        families: ['Ubuntu::latin']
+      }
+    };
+    (function() {
+      var wf = document.createElement('script');
+      wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+        '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+      wf.type = 'text/javascript';
+      wf.async = 'true';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(wf, s);
+    })();
+  </script>
 
-  <nav class="navbar navbar-inverse navbar-fixed-top shrink">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -66,9 +94,10 @@
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li><a href="http://t04glovern.github.io/">/home</a></li>
-          <li><a href="http://t04glovern.github.io/archive.html">/archive</a></li>
-          <li><a href="http://t04glovern.github.io/tags.html">/tags</a></li>
-          <li><a href="http://t04glovern.github.io/about.html">/about</a></li>
+          <li><a href="http://t04glovern.github.io/archive">/archive</a></li>
+          <li><a href="http://t04glovern.github.io/projects">/projects</a></li>
+          <li><a href="http://t04glovern.github.io/tags">/tags</a></li>
+          <li><a href="http://t04glovern.github.io/about">/about</a></li>
         </ul>
       </div>
     </div>
@@ -99,6 +128,8 @@
               <div class="post-content">
                 <h2 id="introduction">Introduction</h2>
 
+<hr />
+
 <p>Anyone who knows me knows that recently I’ve gotten a little bit too attached to a particular distribution called <a href="https://manjaro.github.io/">Manjaro Linux</a>. So when I heard that an <code class="highlighter-rouge">ARM version</code> was released and would work on my <code class="highlighter-rouge">Raspberry Pi 2</code> I got pretty excited!</p>
 
 <p>In this tutorial I go through the steps required to setup the Manjaro Full ARM release, but the same steps can be followed for installation of the headless/minimal version.</p>
@@ -113,7 +144,11 @@
   <li>A distribution with access to various partitioning tools</li>
 </ol>
 
+<hr />
+
 <h2 id="preparing-environment">Preparing Environment</h2>
+
+<hr />
 
 <p>Open up a terminal and navigate to your HOME directory. From there create two folder; <code class="highlighter-rouge">root</code> and <code class="highlighter-rouge">boot</code></p>
 
@@ -125,7 +160,11 @@
 
 <p>You’ll also notice I have copies of both the <code class="highlighter-rouge">tar.gz</code> builds. I’ll only be using <code class="highlighter-rouge">Manjaro-Arm_Base_16.01-alpha1.tar.gz</code> from this point on.</p>
 
+<hr />
+
 <h2 id="making-the-partitions">Making the Partitions</h2>
+
+<hr />
 
 <p>Insert the MicroSD card into an adapter on your Linux computer and run <code class="highlighter-rouge">lsblk</code> to see if the device is registered. You will get an output similar to the following.</p>
 
@@ -173,7 +212,11 @@ press enter twice to <span class="k">select </span>the default start and end sec
 <p><img src="http://t04glovern.github.io/images/posts/2016.02.09/manjaro-arm-fdisk-1.png" alt="Manjaro ARM fdisk 1" /><br />
 <img src="http://t04glovern.github.io/images/posts/2016.02.09/manjaro-arm-fdisk-2.png" alt="Manjaro ARM fdisk 2" /></p>
 
+<hr />
+
 <h2 id="making-the-filesystems">Making the Filesystems</h2>
+
+<hr />
 
 <p>Now that the <code class="highlighter-rouge">partitions</code> are created on the device, we need to construct <code class="highlighter-rouge">filesystems</code> on them to hold the data. These commands will also need to be done as root (not using sudo).</p>
 
@@ -217,7 +260,11 @@ press enter twice to <span class="k">select </span>the default start and end sec
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># umount boot/ root/</span>
 <span class="c"># exit &lt;to return to standard user&gt;</span></code></pre></figure>
 
+<hr />
+
 <h2 id="using-the-system">Using the System</h2>
+
+<hr />
 
 <p>Plug the MicroSD into your <code class="highlighter-rouge">Raspberry Pi 2</code> and boot it up! If you used the <code class="highlighter-rouge">headless</code> build you can login to your system over <code class="highlighter-rouge">ssh</code></p>
 
@@ -233,15 +280,19 @@ press enter twice to <span class="k">select </span>the default start and end sec
 
 <p><img src="http://t04glovern.github.io/images/posts/2016.02.09/manjaro-arm-manjaro-gui.png" alt="Manjaro ARM booted gui" /></p>
 
+<hr />
+
 <h2 id="conclusion">Conclusion</h2>
+
+<hr />
 
 <p>I love Manajaro for x86, and the ARM version is just as lovable! I would highly recommend it to anyone looking at moving away from the standard distributions available for the Raspberry Pi. Not only is it a good <code class="highlighter-rouge">introduction to Arch</code>, but it can utilize <code class="highlighter-rouge">AUR</code> for updates so you’ve got a good foundation for binary and application build support.</p>
 
               </div>
               
-
+<hr></hr>
 <!-- Social Button HTML -->
-<div class="fa fa-share-bar">
+<center><div class="fa fa-share-bar">
 <h4 class="fa fa-share-alt section-title">Share Post :</h4>
 
 <!-- Twitter -->
@@ -289,8 +340,8 @@ press enter twice to <span class="k">select </span>the default start and end sec
   Email
 </a>
 -->
-</div><p></p>
-
+</div></center>
+<p></p>
 
 
               
@@ -310,7 +361,6 @@ spends most of his freetime building up his brain with different concepts.
 </section>
 
 
-
               
               <div id="disqus_thread">
                 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
@@ -323,7 +373,7 @@ spends most of his freetime building up his brain with different concepts.
         <div class="col-md-4 hidden-xs">
           <div class="sidebar ">
   
-    <h1>Related By Tags</h1>
+    <h2>Related By Tags</h2>
   
   <ul>
     
@@ -644,8 +694,8 @@ spends most of his freetime building up his brain with different concepts.
 </div>
 
 <div class="sidebar">
-  <h1>Tags</h1>
-  <ul>
+  <h2>Tags</h2>
+  <ul class="sideBarTags">
      
       <li><a href="/tag/ad">ad</a></li>
     

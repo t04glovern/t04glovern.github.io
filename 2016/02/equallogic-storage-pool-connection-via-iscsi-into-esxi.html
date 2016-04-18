@@ -2,17 +2,18 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="theme-color" content="#222222" />
+
   <title>TwoFactor Assimilation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="http://t04glovern.github.io/js/jquery.min.js"></script>
   <script src="http://t04glovern.github.io/js/bootstrap.min.js"></script>
-  <!--<script src="http://t04glovern.github.io/js/header.js"></script>-->
+  <script src="http://t04glovern.github.io/js/header.js"></script>
   <link href="http://t04glovern.github.io/css/bootstrap.min.css" rel="stylesheet">
   <link href="http://t04glovern.github.io/css/theme.css" rel="stylesheet">
   <link href="http://t04glovern.github.io/css/syntax.css" rel="stylesheet">
   <link href="http://t04glovern.github.io/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu+Mono&subset=latin">
-
 </head>
 
 <body>
@@ -34,26 +35,53 @@
 
 
   
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter30785898 = new Ya.Metrika({
+                    id:30785898,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true
+                });
+            } catch(e) { }
+        });
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/30785898" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
 
 
   <script type="text/javascript">
-  WebFontConfig = {
-    google: {
-      families: ['Ubuntu::latin']
-    }
-  };
-  (function() {
-    var wf = document.createElement('script');
-    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-    wf.type = 'text/javascript';
-    wf.async = 'true';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(wf, s);
-  })();
-</script>
+    WebFontConfig = {
+      google: {
+        families: ['Ubuntu::latin']
+      }
+    };
+    (function() {
+      var wf = document.createElement('script');
+      wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+        '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+      wf.type = 'text/javascript';
+      wf.async = 'true';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(wf, s);
+    })();
+  </script>
 
-  <nav class="navbar navbar-inverse navbar-fixed-top shrink">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -66,9 +94,10 @@
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li><a href="http://t04glovern.github.io/">/home</a></li>
-          <li><a href="http://t04glovern.github.io/archive.html">/archive</a></li>
-          <li><a href="http://t04glovern.github.io/tags.html">/tags</a></li>
-          <li><a href="http://t04glovern.github.io/about.html">/about</a></li>
+          <li><a href="http://t04glovern.github.io/archive">/archive</a></li>
+          <li><a href="http://t04glovern.github.io/projects">/projects</a></li>
+          <li><a href="http://t04glovern.github.io/tags">/tags</a></li>
+          <li><a href="http://t04glovern.github.io/about">/about</a></li>
         </ul>
       </div>
     </div>
@@ -101,9 +130,15 @@
               <div class="post-content">
                 <h2 id="introduction">Introduction</h2>
 
+<hr />
+
 <p>This guide outlines how to get <code class="highlighter-rouge">Borrowed Space</code> storage pools created in <code class="highlighter-rouge">EqualLogic storage manager</code> talking with ESXi over an iSCSI link. I make the assumption that you already have the various storage pools setup, my guide uses three existing spaces called Gold, Silver and Bronze.</p>
 
+<hr />
+
 <h2 id="setup-an-iscsi-host-adaptor">Setup an iSCSI host adaptor</h2>
+
+<hr />
 
 <p>Login to one of the ESXi boxes you want to configure with the vSphere client and navigate to the <code class="highlighter-rouge">Configuration tab &gt; Storage Adapters</code>. You’ll be greeted with various storage adapters that are currently attached to your physical system. In order for us to talk with the EqualLogic storage device we need an iSCSI adapter setup.</p>
 
@@ -115,7 +150,11 @@
 
 <p><img src="http://t04glovern.github.io/images/posts/2016.02.02/equallogic-storage-pool-adapter-name.png" alt="Adapter Creation with Name" /></p>
 
+<hr />
+
 <h2 id="equallogic-access-policies">EqualLogic Access policies</h2>
+
+<hr />
 
 <p>Login to the <code class="highlighter-rouge">EqualLogic Group Manager</code> and jump into the <code class="highlighter-rouge">Group Configuration</code> section. You can see I’ve already setup the pools to connect with my first ESXi host.</p>
 
@@ -137,7 +176,11 @@
 
 <p><img src="http://t04glovern.github.io/images/posts/2016.02.02/equallogic-storage-pool-access-policies-targets-select.png" alt="Group Manager Access Policies Target Select" /></p>
 
+<hr />
+
 <h2 id="connect-iscsi-storage">Connect iSCSI Storage</h2>
+
+<hr />
 
 <p>Back in ESXi right click and select <code class="highlighter-rouge">Properites</code> on your <code class="highlighter-rouge">iSCSI Software Adapter</code> and click the <code class="highlighter-rouge">Dynamic Discovery</code> tab. Add a new location and put in the IP Address of the EqualLogic group manager (port is standard iSCSI 3260) and click <code class="highlighter-rouge">Ok</code></p>
 
@@ -153,15 +196,19 @@
 
 <p><img src="http://t04glovern.github.io/images/posts/2016.02.02/equallogic-storage-pool-added.png" alt="ESXi iSCSI Datastores" /></p>
 
+<hr />
+
 <h2 id="summary">Summary</h2>
+
+<hr />
 
 <p>Using <code class="highlighter-rouge">iSCSI Datastores</code> mean you can leverage some great <code class="highlighter-rouge">vMotion</code> and <code class="highlighter-rouge">HA</code> features that exist in vSphere without having to worry about large data migrations during VM moves. It’s also a great way to ensure that all your various storage arrays are somewhat centralized.</p>
 
               </div>
               
-
+<hr></hr>
 <!-- Social Button HTML -->
-<div class="fa fa-share-bar">
+<center><div class="fa fa-share-bar">
 <h4 class="fa fa-share-alt section-title">Share Post :</h4>
 
 <!-- Twitter -->
@@ -209,8 +256,8 @@
   Email
 </a>
 -->
-</div><p></p>
-
+</div></center>
+<p></p>
 
 
               
@@ -230,7 +277,6 @@ spends most of his freetime building up his brain with different concepts.
 </section>
 
 
-
               
               <div id="disqus_thread">
                 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
@@ -243,7 +289,7 @@ spends most of his freetime building up his brain with different concepts.
         <div class="col-md-4 hidden-xs">
           <div class="sidebar ">
   
-    <h1>Related By Tags</h1>
+    <h2>Related By Tags</h2>
   
   <ul>
     
@@ -650,8 +696,8 @@ spends most of his freetime building up his brain with different concepts.
 </div>
 
 <div class="sidebar">
-  <h1>Tags</h1>
-  <ul>
+  <h2>Tags</h2>
+  <ul class="sideBarTags">
      
       <li><a href="/tag/ad">ad</a></li>
     

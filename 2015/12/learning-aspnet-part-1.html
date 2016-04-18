@@ -2,17 +2,18 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="theme-color" content="#222222" />
+
   <title>TwoFactor Assimilation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="http://t04glovern.github.io/js/jquery.min.js"></script>
   <script src="http://t04glovern.github.io/js/bootstrap.min.js"></script>
-  <!--<script src="http://t04glovern.github.io/js/header.js"></script>-->
+  <script src="http://t04glovern.github.io/js/header.js"></script>
   <link href="http://t04glovern.github.io/css/bootstrap.min.css" rel="stylesheet">
   <link href="http://t04glovern.github.io/css/theme.css" rel="stylesheet">
   <link href="http://t04glovern.github.io/css/syntax.css" rel="stylesheet">
   <link href="http://t04glovern.github.io/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu+Mono&subset=latin">
-
 </head>
 
 <body>
@@ -34,26 +35,53 @@
 
 
   
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter30785898 = new Ya.Metrika({
+                    id:30785898,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true
+                });
+            } catch(e) { }
+        });
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/30785898" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
 
 
   <script type="text/javascript">
-  WebFontConfig = {
-    google: {
-      families: ['Ubuntu::latin']
-    }
-  };
-  (function() {
-    var wf = document.createElement('script');
-    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-    wf.type = 'text/javascript';
-    wf.async = 'true';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(wf, s);
-  })();
-</script>
+    WebFontConfig = {
+      google: {
+        families: ['Ubuntu::latin']
+      }
+    };
+    (function() {
+      var wf = document.createElement('script');
+      wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+        '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+      wf.type = 'text/javascript';
+      wf.async = 'true';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(wf, s);
+    })();
+  </script>
 
-  <nav class="navbar navbar-inverse navbar-fixed-top shrink">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -66,9 +94,10 @@
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li><a href="http://t04glovern.github.io/">/home</a></li>
-          <li><a href="http://t04glovern.github.io/archive.html">/archive</a></li>
-          <li><a href="http://t04glovern.github.io/tags.html">/tags</a></li>
-          <li><a href="http://t04glovern.github.io/about.html">/about</a></li>
+          <li><a href="http://t04glovern.github.io/archive">/archive</a></li>
+          <li><a href="http://t04glovern.github.io/projects">/projects</a></li>
+          <li><a href="http://t04glovern.github.io/tags">/tags</a></li>
+          <li><a href="http://t04glovern.github.io/about">/about</a></li>
         </ul>
       </div>
     </div>
@@ -99,9 +128,15 @@
               <div class="post-content">
                 <h2 id="introduction-to-the-aspnet-runtime">Introduction to the ASP.NET Runtime</h2>
 
+<hr />
+
 <p><code class="highlighter-rouge">ASP.NET</code> is an open-source server-side web application framework designed for web development to produce dynamic webpages. That’s what <a href="https://en.wikipedia.org/wiki/ASP.NET">Wikipedia</a> says about it anyway… I personally had no clue what it was until I recently began <a href="https://app.pluralsight.com/library/courses/aspdotnet-5-ef7-bootstrap-angular-web-app">taking a course</a> that was available as part of the free 6 months worth of <a href="https://app.pluralsight.com">Pluralsight</a> I picked up from the <a href="https://myprodscussu1.app.vssubscriptions.visualstudio.com/Dashboard">Visual Studio Dev Essentials pack</a>.</p>
 
+<hr />
+
 <h2 id="three-frameworks">Three Frameworks</h2>
+
+<hr />
 
 <p>There are three frameworks available, each of them seamlessly integrate with one and other and provide different levels of functionality.</p>
 
@@ -117,7 +152,11 @@
   <li><strong>CoreCLR</strong> is a subset of the .NET Framework.</li>
 </ul>
 
+<hr />
+
 <h2 id="installing-aspnet">Installing ASP.NET</h2>
+
+<hr />
 
 <ol>
   <li>Start by first installing <a href="https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx">Visual Studio 2015</a> if you haven’t already got it on your system.
@@ -162,7 +201,11 @@ commands:
     use             Adds a runtime to the PATH environment variable for your current shell
     version         Displays the DNVM version.</code></pre></figure>
 
+<hr />
+
 <h2 id="setting-up">Setting up</h2>
+
+<hr />
 
 <p>Running the command <code class="highlighter-rouge">dnvm list</code> from command line will result in a list of the current versions of ASP.NET 5 you currently have installed on your system</p>
 
@@ -227,7 +270,11 @@ Microsoft .NET Execution environment
  OS Version:   10.0
  Runtime Id:   win10-x86</code></pre></figure>
 
+<hr />
+
 <h2 id="hello-world">Hello World</h2>
+
+<hr />
 
 <p>At this stage we are ready to use the runtime we just installed. In order to do this you’ll need to create two new files in a working directory with the following contents</p>
 
@@ -261,15 +308,19 @@ Microsoft .NET Execution environment
 <figure class="highlight"><pre><code class="language-bat" data-lang="bat">C:\Users\Nathan\OneDrive\02 - Code\15 - ASP.NET\helloWorld&gt;dnx run program.cs
 Hello World</code></pre></figure>
 
+<hr />
+
 <h2 id="summary">Summary</h2>
+
+<hr />
 
 <p>As someone new to the .NET scene I was astounded by how simple it was to get started with ASP.NET and I can’t wait to get my fingers into some more difficult challenges. I would highly recommend checking out the <a href="https://app.pluralsight.com/library/courses/aspdotnet-5-ef7-bootstrap-angular-web-app">course</a> I wrote this for; and even follow along with me as I make my way through the several hours worth of <a href="https://myprodscussu1.app.vssubscriptions.visualstudio.com/Dashboard">FREE</a> content.</p>
 
               </div>
               
-
+<hr></hr>
 <!-- Social Button HTML -->
-<div class="fa fa-share-bar">
+<center><div class="fa fa-share-bar">
 <h4 class="fa fa-share-alt section-title">Share Post :</h4>
 
 <!-- Twitter -->
@@ -317,8 +368,8 @@ Hello World</code></pre></figure>
   Email
 </a>
 -->
-</div><p></p>
-
+</div></center>
+<p></p>
 
 
               
@@ -338,7 +389,6 @@ spends most of his freetime building up his brain with different concepts.
 </section>
 
 
-
               
               <div id="disqus_thread">
                 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
@@ -351,7 +401,7 @@ spends most of his freetime building up his brain with different concepts.
         <div class="col-md-4 hidden-xs">
           <div class="sidebar ">
   
-    <h1>Related By Tags</h1>
+    <h2>Related By Tags</h2>
   
   <ul>
     
@@ -681,8 +731,8 @@ spends most of his freetime building up his brain with different concepts.
 </div>
 
 <div class="sidebar">
-  <h1>Tags</h1>
-  <ul>
+  <h2>Tags</h2>
+  <ul class="sideBarTags">
      
       <li><a href="/tag/ad">ad</a></li>
     

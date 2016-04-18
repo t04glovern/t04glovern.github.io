@@ -1,22 +1,90 @@
----
-layout: null
----
-
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
-		<title>{{ site.name }}</title>
-		<description>{{ site.description }}</description>
-		<link>{{ site.url }}{{ site.baseurl }}</link>
-		<atom:link href="{{ site.url }}{{ site.baseurl }}/feed.xml" rel="self" type="application/rss+xml" />
-		{% for post in site.posts limit:10 %}
+		<title>TwoFactor Assimilation</title>
+		<description>Tech Enthusiast</description>
+		<link>http://t04glovern.github.io</link>
+		<atom:link href="http://t04glovern.github.io/feed.xml" rel="self" type="application/rss+xml" />
+		
 			<item>
-				<title>{{ post.title }}</title>
-				<description>{{ post.description | xml_escape }}</description>
-				<pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
-				<link>{{ site.url }}{{ site.baseurl}}{{ post.url }}</link>
-				<guid isPermaLink="true">{{ site.url }}{{ site.baseurl}}{{ post.url }}</guid>
+				<title>CCNA3 - OSPF Practice Skills Assessment</title>
+				<description>I walkthrough the general process for sitting the CCNA3 OSPF Skills Assessment</description>
+				<pubDate>Mon, 18 Apr 2016 00:00:00 +0800</pubDate>
+				<link>http://t04glovern.github.io/2016/04/ccna3-ospf-practice-skills-assessment</link>
+				<guid isPermaLink="true">http://t04glovern.github.io/2016/04/ccna3-ospf-practice-skills-assessment</guid>
 			</item>
-		{% endfor %}
+		
+			<item>
+				<title>MSP430 - 'TWISDA1' undeclared error</title>
+				<description>Instructions to resolve &#39;TWISDA1&#39; undeclared errors in Energia 17</description>
+				<pubDate>Sat, 05 Mar 2016 00:00:00 +0800</pubDate>
+				<link>http://t04glovern.github.io/2016/03/msp430-twisda1-undeclared-error</link>
+				<guid isPermaLink="true">http://t04glovern.github.io/2016/03/msp430-twisda1-undeclared-error</guid>
+			</item>
+		
+			<item>
+				<title>What if Operating Systems were airlines?</title>
+				<description>A humorous post description of various operating systems re-imagined as if they were airlines</description>
+				<pubDate>Fri, 26 Feb 2016 00:00:00 +0800</pubDate>
+				<link>http://t04glovern.github.io/2016/02/what-if-operating-systems-were-airlines</link>
+				<guid isPermaLink="true">http://t04glovern.github.io/2016/02/what-if-operating-systems-were-airlines</guid>
+			</item>
+		
+			<item>
+				<title>Raspberry Pi - Installing Manjaro ARM</title>
+				<description>I go through the steps required in order to get Manjaro ARM installed on a Raspberry Pi 2</description>
+				<pubDate>Tue, 09 Feb 2016 00:00:00 +0800</pubDate>
+				<link>http://t04glovern.github.io/2016/02/raspberry-pi-installing-manjaro-arm</link>
+				<guid isPermaLink="true">http://t04glovern.github.io/2016/02/raspberry-pi-installing-manjaro-arm</guid>
+			</item>
+		
+			<item>
+				<title>Windows Server - Installing AD DS on Windows Server 2012 R2 Core</title>
+				<description>The process required to setup Active Directory Domain Services on Windows Server 2012 R2 Core</description>
+				<pubDate>Fri, 05 Feb 2016 00:00:00 +0800</pubDate>
+				<link>http://t04glovern.github.io/2016/02/windows-server-installing-ad-ds-on-windows-server-2012-r2-core</link>
+				<guid isPermaLink="true">http://t04glovern.github.io/2016/02/windows-server-installing-ad-ds-on-windows-server-2012-r2-core</guid>
+			</item>
+		
+			<item>
+				<title>Python - Virtualenv Quickstart</title>
+				<description>An extremely quickstart guide to virtualenv</description>
+				<pubDate>Wed, 03 Feb 2016 00:00:00 +0800</pubDate>
+				<link>http://t04glovern.github.io/2016/02/python-virtualenv-quickstart</link>
+				<guid isPermaLink="true">http://t04glovern.github.io/2016/02/python-virtualenv-quickstart</guid>
+			</item>
+		
+			<item>
+				<title>EqualLogic storage pool connection via iSCSI into ESXi</title>
+				<description>The process required to connect EqualLogic storage pools into ESXi via iSCSI</description>
+				<pubDate>Tue, 02 Feb 2016 00:00:00 +0800</pubDate>
+				<link>http://t04glovern.github.io/2016/02/equallogic-storage-pool-connection-via-iscsi-into-esxi</link>
+				<guid isPermaLink="true">http://t04glovern.github.io/2016/02/equallogic-storage-pool-connection-via-iscsi-into-esxi</guid>
+			</item>
+		
+			<item>
+				<title>Python - Image Manipulation</title>
+				<description>Working through a tutorial written for kids to learn how to manipulate images with Python</description>
+				<pubDate>Sun, 24 Jan 2016 00:00:00 +0800</pubDate>
+				<link>http://t04glovern.github.io/2016/01/python-image-manipulation</link>
+				<guid isPermaLink="true">http://t04glovern.github.io/2016/01/python-image-manipulation</guid>
+			</item>
+		
+			<item>
+				<title>Arduino Projects - Shift Registers</title>
+				<description>Investigating Shift Registers with Arduino</description>
+				<pubDate>Sun, 03 Jan 2016 00:00:00 +0800</pubDate>
+				<link>http://t04glovern.github.io/2016/01/arduino-projects-shift-registers</link>
+				<guid isPermaLink="true">http://t04glovern.github.io/2016/01/arduino-projects-shift-registers</guid>
+			</item>
+		
+			<item>
+				<title>Arduino Projects - Ethernet using a ENC28J60 Ethernet Controller</title>
+				<description>Tonight I decided to give Ethernet interfacing with the Arduino a go.</description>
+				<pubDate>Wed, 30 Dec 2015 00:00:00 +0800</pubDate>
+				<link>http://t04glovern.github.io/2015/12/arduino-projects-ethernet-using-enc28j60</link>
+				<guid isPermaLink="true">http://t04glovern.github.io/2015/12/arduino-projects-ethernet-using-enc28j60</guid>
+			</item>
+		
 	</channel>
 </rss>

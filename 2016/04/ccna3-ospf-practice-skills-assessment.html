@@ -2,17 +2,18 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="theme-color" content="#222222" />
+
   <title>TwoFactor Assimilation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="http://t04glovern.github.io/js/jquery.min.js"></script>
   <script src="http://t04glovern.github.io/js/bootstrap.min.js"></script>
-  <!--<script src="http://t04glovern.github.io/js/header.js"></script>-->
+  <script src="http://t04glovern.github.io/js/header.js"></script>
   <link href="http://t04glovern.github.io/css/bootstrap.min.css" rel="stylesheet">
   <link href="http://t04glovern.github.io/css/theme.css" rel="stylesheet">
   <link href="http://t04glovern.github.io/css/syntax.css" rel="stylesheet">
   <link href="http://t04glovern.github.io/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu+Mono&subset=latin">
-
 </head>
 
 <body>
@@ -34,26 +35,53 @@
 
 
   
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter30785898 = new Ya.Metrika({
+                    id:30785898,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true
+                });
+            } catch(e) { }
+        });
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/30785898" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
 
 
   <script type="text/javascript">
-  WebFontConfig = {
-    google: {
-      families: ['Ubuntu::latin']
-    }
-  };
-  (function() {
-    var wf = document.createElement('script');
-    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-    wf.type = 'text/javascript';
-    wf.async = 'true';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(wf, s);
-  })();
-</script>
+    WebFontConfig = {
+      google: {
+        families: ['Ubuntu::latin']
+      }
+    };
+    (function() {
+      var wf = document.createElement('script');
+      wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+        '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+      wf.type = 'text/javascript';
+      wf.async = 'true';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(wf, s);
+    })();
+  </script>
 
-  <nav class="navbar navbar-inverse navbar-fixed-top shrink">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -66,9 +94,10 @@
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li><a href="http://t04glovern.github.io/">/home</a></li>
-          <li><a href="http://t04glovern.github.io/archive.html">/archive</a></li>
-          <li><a href="http://t04glovern.github.io/tags.html">/tags</a></li>
-          <li><a href="http://t04glovern.github.io/about.html">/about</a></li>
+          <li><a href="http://t04glovern.github.io/archive">/archive</a></li>
+          <li><a href="http://t04glovern.github.io/projects">/projects</a></li>
+          <li><a href="http://t04glovern.github.io/tags">/tags</a></li>
+          <li><a href="http://t04glovern.github.io/about">/about</a></li>
         </ul>
       </div>
     </div>
@@ -97,7 +126,7 @@
                 </ul>
               </div>
               <div class="post-content">
-                <h1 id="overview">Overview</h1>
+                <h2 id="overview">Overview</h2>
 
 <hr />
 
@@ -122,7 +151,7 @@
 
 <hr />
 
-<h1 id="initial-information">Initial Information</h1>
+<h2 id="initial-information">Initial Information</h2>
 
 <hr />
 
@@ -140,7 +169,7 @@
 
 <hr />
 
-<h1 id="step-1-plan-the-addressing">Step 1: Plan the Addressing</h1>
+<h2 id="step-1-plan-the-addressing">Step 1: Plan the Addressing</h2>
 
 <hr />
 
@@ -175,7 +204,7 @@
 
 <hr />
 
-<h1 id="step-2-configure-building-1">Step 2: Configure Building 1</h1>
+<h2 id="step-2-configure-building-1">Step 2: Configure Building 1</h2>
 
 <hr />
 
@@ -246,7 +275,7 @@ Bldg-1<span class="o">(</span>config-line<span class="o">)</span><span class="c"
 
 <hr />
 
-<h1 id="step-3-configure-the-router-interfaces">Step 3: Configure the Router Interfaces</h1>
+<h2 id="step-3-configure-the-router-interfaces">Step 3: Configure the Router Interfaces</h2>
 
 <hr />
 
@@ -320,7 +349,7 @@ Main<span class="o">(</span>config-if<span class="o">)</span><span class="c">#cl
 
 <hr />
 
-<h1 id="step-4-configure-inter-vlan-routing-on-building-2">Step 4: Configure inter-VLAN routing on Building 2</h1>
+<h2 id="step-4-configure-inter-vlan-routing-on-building-2">Step 4: Configure inter-VLAN routing on Building 2</h2>
 
 <hr />
 
@@ -355,7 +384,7 @@ Bldg-2<span class="o">(</span>config-subif<span class="o">)</span><span class="c
 
 <hr />
 
-<h1 id="step-5-configure-default-routing">Step 5: Configure Default Routing</h1>
+<h2 id="step-5-configure-default-routing">Step 5: Configure Default Routing</h2>
 
 <hr />
 
@@ -368,30 +397,27 @@ Bldg-2<span class="o">(</span>config-subif<span class="o">)</span><span class="c
 
 <hr />
 
-<h1 id="step-6-configure-ospf-routing">Step 6: Configure OSPF Routing</h1>
+<h2 id="step-6-configure-ospf-routing">Step 6: Configure OSPF Routing</h2>
 
 <hr />
 
 <h4 id="task-5"><strong>Task:</strong></h4>
 <ol>
-  <li>On all routers:</li>
+  <li>On all routers:
+    <ul>
+      <li>Configure multiarea OSPFv2 to route between all internal networks. Use a process ID of 1.</li>
+      <li>Use the area numbers shown in the topology.</li>
+      <li>Use the correct wild card masks for all network statements.</li>
+      <li>You are not required to route the manage network on Building 2.</li>
+      <li>Prevent routing updates from being sent to the LANs.</li>
+    </ul>
+  </li>
+  <li>On the Main router:
+    <ul>
+      <li>Configure multiarea OSPFv2 to distribute the default route to the other routers.</li>
+    </ul>
+  </li>
 </ol>
-
-<ul>
-  <li>Configure multiarea OSPFv2 to route between all internal networks. Use a process ID of 1.</li>
-  <li>Use the area numbers shown in the topology.</li>
-  <li>Use the correct wild card masks for all network statements.</li>
-  <li>You are not required to route the manage network on Building 2.</li>
-  <li>Prevent routing updates from being sent to the LANs.</li>
-</ul>
-
-<ol>
-  <li>On the Main router:</li>
-</ol>
-
-<ul>
-  <li>Configure multiarea OSPFv2 to distribute the default route to the other routers.</li>
-</ul>
 
 <h4 id="how-5"><strong>How:</strong></h4>
 <ul>
@@ -460,7 +486,7 @@ Main<span class="o">(</span>config-router<span class="o">)</span><span class="c"
 
 <hr />
 
-<h1 id="step-7-customize-multiarea-ospfv2">Step 7: Customize Multiarea OSPFv2</h1>
+<h2 id="step-7-customize-multiarea-ospfv2">Step 7: Customize Multiarea OSPFv2</h2>
 
 <hr />
 
@@ -471,26 +497,19 @@ Main<span class="o">(</span>config-router<span class="o">)</span><span class="c"
   <li>
     <p>Set the bandwidth of all serial interfaces to 128 kb/s.</p>
   </li>
-  <li>
-    <p>Configure OSPF router IDs as follows:</p>
+  <li>Configure OSPF router IDs as follows:
+    <ul>
+      <li>Building 1: 1.1.1.1</li>
+      <li>Main: 2.2.2.2</li>
+      <li>Building 2: 3.3.3.3</li>
+      <li>The configured router IDs should be in effect on all three routes.</li>
+    </ul>
   </li>
-</ol>
-
-<ul>
-  <li>Building 1: 1.1.1.1</li>
-  <li>Main: 2.2.2.2</li>
-  <li>Building 2: 3.3.3.3</li>
-  <li>The configured router IDs should be in effect on all three routes.</li>
-</ul>
-
-<ol>
   <li>Configure the OSPF cost of the link between Building 1 and Main to 7500.</li>
 </ol>
 
 <h4 id="how-6"><strong>How:</strong></h4>
-<ol>
-  <li>Set the bandwidth of all serial interfaces to 128 kb/s.</li>
-</ol>
+<p>Set the bandwidth of all serial interfaces to 128 kb/s.</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">Bldg-1<span class="o">(</span>config<span class="o">)</span><span class="c">#int s0/0/0</span>
 Bldg-1<span class="o">(</span>config-if<span class="o">)</span><span class="c">#bandwidth 128</span>
@@ -503,9 +522,7 @@ Main<span class="o">(</span>config-if<span class="o">)</span><span class="c">#ba
 Bldg-2<span class="o">(</span>config<span class="o">)</span><span class="c">#int s0/0/1</span>
 Bldg-2<span class="o">(</span>config-if<span class="o">)</span><span class="c">#bandwidth 128</span></code></pre></figure>
 
-<ol>
-  <li>Configure OSPF router IDs as follows:</li>
-</ol>
+<p>Configure OSPF router IDs as follows:</p>
 
 <ul>
   <li>Building 1: 1.1.1.1</li>
@@ -528,9 +545,7 @@ Main<span class="o">(</span>config-router<span class="o">)</span><span class="c"
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">Bldg-2<span class="o">(</span>config<span class="o">)</span><span class="c">#router ospf 1</span>
 Bldg-2<span class="o">(</span>config-router<span class="o">)</span><span class="c">#router-id 3.3.3.3</span></code></pre></figure>
 
-<ol>
-  <li>Configure the OSPF cost of the link between Building 1 and Main to 7500.</li>
-</ol>
+<p>Configure the OSPF cost of the link between Building 1 and Main to 7500.</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">Bldg-1<span class="o">(</span>config<span class="o">)</span><span class="c">#int s0/0/0</span>
 Bldg-1<span class="o">(</span>config-if<span class="o">)</span><span class="c">#ip ospf cost 7500</span>
@@ -540,7 +555,7 @@ Main<span class="o">(</span>config-if<span class="o">)</span><span class="c">#ip
 
 <hr />
 
-<h1 id="step-8-configure-ospf-md5-authentication-on-the-required-interfaces">Step 8: Configure OSPF MD5 Authentication on the Required Interfaces</h1>
+<h2 id="step-8-configure-ospf-md5-authentication-on-the-required-interfaces">Step 8: Configure OSPF MD5 Authentication on the Required Interfaces</h2>
 
 <hr />
 
@@ -577,14 +592,12 @@ Bldg-2<span class="o">(</span>config-if<span class="o">)</span><span class="c">#
 
 <hr />
 
-<h1 id="step-9-configure-access-control-lists">Step 9: Configure Access Control Lists</h1>
+<h2 id="step-9-configure-access-control-lists">Step 9: Configure Access Control Lists</h2>
 
 <hr />
 
 <h4 id="taskhow"><strong>Task/How:</strong></h4>
-<ol>
-  <li>Restrict access to the vty lines on Main with an ACL:</li>
-</ol>
+<p>Restrict access to the vty lines on Main with an ACL:</p>
 
 <ul>
   <li>Create a named standard ACL using the name TELNET-BLOCK. Be sure that you enter this name exactly as it appears in this instruction.</li>
@@ -603,9 +616,7 @@ Bldg-2<span class="o">(</span>config-if<span class="o">)</span><span class="c">#
 Main<span class="o">(</span>config<span class="o">)</span><span class="c">#line vty 0 15</span>
 Main<span class="o">(</span>config-line<span class="o">)</span><span class="c">#access-class TELNET-BLOCK in</span></code></pre></figure>
 
-<ol>
-  <li>Block ping requests from the Internet with an ACL:</li>
-</ol>
+<p>Block ping requests from the Internet with an ACL:</p>
 
 <ul>
   <li>Use access list number 101.</li>
@@ -622,9 +633,7 @@ Main<span class="o">(</span>config-if<span class="o">)</span><span class="c">#ip
   <li>Your ACL should be placed in the most efficient location as possible to conserve network bandwidth and device processing resources.</li>
 </ul>
 
-<ol>
-  <li>Control access to the management interfaces (SVI) of the three switches attached to Building 2 as follows:</li>
-</ol>
+<p>Control access to the management interfaces (SVI) of the three switches attached to Building 2 as follows:</p>
 
 <ul>
   <li>Create a standard ACL.</li>
@@ -649,7 +658,7 @@ Bldg-2<span class="o">(</span>config-if<span class="o">)</span><span class="c">#
 
 <hr />
 
-<h1 id="step-10-create-and-name-vlans">Step 10: Create and name VLANs</h1>
+<h2 id="step-10-create-and-name-vlans">Step 10: Create and name VLANs</h2>
 
 <hr />
 
@@ -708,7 +717,7 @@ FL-C<span class="o">(</span>config-vlan<span class="o">)</span><span class="c">#
 
 <hr />
 
-<h1 id="step-11--assign-switch-ports-to-vlans">Step 11:  Assign switch ports to VLANs.</h1>
+<h2 id="step-11--assign-switch-ports-to-vlans">Step 11:  Assign switch ports to VLANs.</h2>
 
 <hr />
 
@@ -718,8 +727,8 @@ FL-C<span class="o">(</span>config-vlan<span class="o">)</span><span class="c">#
 <ul>
   <li>All switch ports that you assign to VLANs should be configured to static access mode.</li>
   <li>All switch ports that you assign to VLANs should be activated.</li>
-  <li>Note that all of the unused ports on SW-A should be assigned to VLAN 99. This configuration step on switches SW-B and SW-C is not required in this assessment for the sake of time.</li>
-  <li>Secure the unused switch ports on SW-A by shutting them down.</li>
+  <li>Note that all of the unused ports on FL-A should be assigned to VLAN 99. This configuration step on switches FL-B and FL-C is not required in this assessment for the sake of time.</li>
+  <li>Secure the unused switch ports on FL-A by shutting them down.</li>
 </ul>
 
 <h4 id="how-9"><strong>How:</strong></h4>
@@ -771,8 +780,8 @@ FL-C<span class="o">(</span>config-if<span class="o">)</span><span class="c">#sw
 FL-C<span class="o">(</span>config-if<span class="o">)</span><span class="c">#no shutdown</span></code></pre></figure>
 
 <ul>
-  <li>Note that all of the unused ports on SW-A should be assigned to VLAN 99. This configuration step on switches SW-B and SW-C is not required in this assessment for the sake of time.</li>
-  <li>Secure the unused switch ports on SW-A by shutting them down.</li>
+  <li>Note that all of the unused ports on FL-A should be assigned to VLAN 99. This configuration step on switches FL-B and FL-C is not required in this assessment for the sake of time.</li>
+  <li>Secure the unused switch ports on FL-A by shutting them down.</li>
 </ul>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#interface range fa0/6-9,fa0/11-14,fa0/16-23</span>
@@ -787,7 +796,7 @@ FL-A<span class="o">(</span>config-if-range<span class="o">)</span><span class="
 
 <hr />
 
-<h1 id="step-12--configure-the-svis">Step 12:  Configure the SVIs</h1>
+<h2 id="step-12--configure-the-svis">Step 12:  Configure the SVIs</h2>
 
 <hr />
 
@@ -813,14 +822,12 @@ FL-C<span class="o">(</span>config-vlan<span class="o">)</span><span class="c">#
 
 <hr />
 
-<h1 id="step-13-configure-trunking-and-etherchannel">Step 13: Configure Trunking and EtherChannel</h1>
+<h2 id="step-13-configure-trunking-and-etherchannel">Step 13: Configure Trunking and EtherChannel</h2>
 
 <hr />
 
 <h4 id="taskhow-1"><strong>Task/How:</strong></h4>
-<ol>
-  <li>Use the information in the Port-Channel Groups table to configure EtherChannel as follows:</li>
-</ol>
+<p>Use the information in the Port-Channel Groups table to configure EtherChannel as follows:</p>
 
 <ul>
   <li>Use LACP.</li>
@@ -883,23 +890,19 @@ FL-C<span class="o">(</span>config-if<span class="o">)</span><span class="c">#sw
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">FL-X<span class="o">(</span>config-if<span class="o">)</span><span class="c">#no shutdown (if you didn't do it prior)</span></code></pre></figure>
 
-<ol>
-  <li>Configure all port-channel interfaces as trunks.</li>
-</ol>
+<p>Configure all port-channel interfaces as trunks.</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">FL-X<span class="o">(</span>config<span class="o">)</span><span class="c">#interface port-channel X (again you should have done it prior)</span>
 FL-X<span class="o">(</span>config-if<span class="o">)</span><span class="c">#switchport mode trunk</span></code></pre></figure>
 
-<ol>
-  <li>Configure static trunking on the switch port on FL-B that is connected to Building 2.</li>
-</ol>
+<p>Configure static trunking on the switch port on FL-B that is connected to Building 2.</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">FL-B<span class="o">(</span>config<span class="o">)</span><span class="c">#interface g0/1</span>
 FL-B<span class="o">(</span>config-if<span class="o">)</span><span class="c">#switchport mode trunk</span></code></pre></figure>
 
 <hr />
 
-<h1 id="step-14-configure-rapid-pvst">Step 14: Configure Rapid PVST+</h1>
+<h2 id="step-14-configure-rapid-pvst">Step 14: Configure Rapid PVST+</h2>
 
 <hr />
 
@@ -967,16 +970,14 @@ FL-C<span class="o">(</span>config-if-range<span class="o">)</span><span class="
 
 <hr />
 
-<h1 id="step-15-configure-switch-security">Step 15: Configure switch security</h1>
+<h2 id="step-15-configure-switch-security">Step 15: Configure switch security</h2>
 
 <hr />
 
 <h4 id="taskhow-3"><strong>Task/How:</strong></h4>
 <p>You are required to complete the following only on some of the devices in the network for this assessment. In reality, security should be configured on all devices in the network.</p>
 
-<ol>
-  <li>Configure port security on all active access ports that have hosts connected on FL-A.</li>
-</ol>
+<p>Configure port security on all active access ports that have hosts connected on FL-A.</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#interface fa0/5</span>
 FL-A<span class="o">(</span>config-if<span class="o">)</span><span class="c">#switchport port-security</span>
@@ -1029,9 +1030,7 @@ FL-A<span class="o">(</span>config-if<span class="o">)</span><span class="c">#sw
 FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#interface fa0/24</span>
 FL-A<span class="o">(</span>config-if<span class="o">)</span><span class="c">#switchport port-security violation restrict</span></code></pre></figure>
 
-<ol>
-  <li>On FL-B, configure the virtual terminal lines to accept only SSH connections.</li>
-</ol>
+<p>On FL-B, configure the virtual terminal lines to accept only SSH connections.</p>
 
 <ul>
   <li>Use a domain name of ccnaPTSA.com.</li>
@@ -1075,9 +1074,7 @@ FL-B<span class="o">(</span>config-line<span class="o">)</span><span class="c">#
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">FL-B<span class="o">(</span>config<span class="o">)</span><span class="c">#username netadmin password SSH_secret9</span></code></pre></figure>
 
-<ol>
-  <li>Ensure that all unused switch ports on FL-A have been secured as follows:</li>
-</ol>
+<p>Ensure that all unused switch ports on FL-A have been secured as follows:</p>
 
 <ul>
   <li>They should be assigned to VLAN 99.</li>
@@ -1099,7 +1096,7 @@ FL-A<span class="o">(</span>config-if-range<span class="o">)</span><span class="
 
 <hr />
 
-<h1 id="step-16-configure-building-2-as-a-dhcp-server-for-the-hosts-attached-to-the-fl-a-and-fl-c-switches">Step 16: Configure Building 2 as a DHCP server for the hosts attached to the FL-A and FL-C switches</h1>
+<h2 id="step-16-configure-building-2-as-a-dhcp-server-for-the-hosts-attached-to-the-fl-a-and-fl-c-switches">Step 16: Configure Building 2 as a DHCP server for the hosts attached to the FL-A and FL-C switches</h2>
 
 <hr />
 
@@ -1157,7 +1154,7 @@ Bldg-2<span class="o">(</span>config<span class="o">)</span><span class="c">#ip 
 
 <hr />
 
-<h1 id="step-17-configure-host-addressing">Step 17: Configure host addressing</h1>
+<h2 id="step-17-configure-host-addressing">Step 17: Configure host addressing</h2>
 
 <hr />
 
@@ -1175,9 +1172,9 @@ Bldg-2<span class="o">(</span>config<span class="o">)</span><span class="c">#ip 
 
               </div>
               
-
+<hr></hr>
 <!-- Social Button HTML -->
-<div class="fa fa-share-bar">
+<center><div class="fa fa-share-bar">
 <h4 class="fa fa-share-alt section-title">Share Post :</h4>
 
 <!-- Twitter -->
@@ -1225,8 +1222,8 @@ Bldg-2<span class="o">(</span>config<span class="o">)</span><span class="c">#ip 
   Email
 </a>
 -->
-</div><p></p>
-
+</div></center>
+<p></p>
 
 
               
@@ -1246,7 +1243,6 @@ spends most of his freetime building up his brain with different concepts.
 </section>
 
 
-
               
               <div id="disqus_thread">
                 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
@@ -1259,7 +1255,7 @@ spends most of his freetime building up his brain with different concepts.
         <div class="col-md-4 hidden-xs">
           <div class="sidebar ">
   
-    <h1>Related By Tags</h1>
+    <h2>Related By Tags</h2>
   
   <ul>
     
@@ -1580,8 +1576,8 @@ spends most of his freetime building up his brain with different concepts.
 </div>
 
 <div class="sidebar">
-  <h1>Tags</h1>
-  <ul>
+  <h2>Tags</h2>
+  <ul class="sideBarTags">
      
       <li><a href="/tag/ad">ad</a></li>
     
