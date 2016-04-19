@@ -139,6 +139,8 @@
       <li>Password Encryption</li>
       <li>Password Limit Login Attempts</li>
       <li>Disable Domain Lookup</li>
+      <li>Save Configuration</li>
+      <li>Clear Configuration</li>
     </ul>
   </li>
   <li><strong>SSH Configure</strong>
@@ -165,7 +167,7 @@
   <li><strong>Configure Static Route</strong>
     <ul>
       <li>Setup Default route to internet</li>
-      <li>Static Route to neighbour network</li>
+      <li>Static Route to neighbor network</li>
     </ul>
   </li>
   <li><strong>OSPF Configuration</strong>
@@ -178,17 +180,36 @@
       <li>OSPF MD5 Authentication</li>
     </ul>
   </li>
+  <li><strong>EIGRP Configuration</strong>
+    <ul>
+      <li>Display the directly connected networks</li>
+      <li>Configure EIGRP to advertise to directly connected networks</li>
+      <li>Configure Passive Interface (Prevent Updates sent to LAN)</li>
+      <li>Disable Auto Summary</li>
+      <li>Verify EIGRP Routing</li>
+      <li>Manual Summary Calculations</li>
+      <li>Manual Summary Address - Example 1</li>
+      <li>Manual Summary Address - Example 2</li>
+      <li>Manual Summary of the Previous Examples</li>
+      <li>IPv6 Manual Summary - Example 1</li>
+      <li>IPv6 Manual Summary - Example 2</li>
+      <li>IPv6 Manual Summary of the Previous Examples</li>
+    </ul>
+  </li>
   <li><strong>VLANs and Trunking</strong>
     <ul>
       <li>Creating VLANs</li>
       <li>Assign Switch Ports to VLANs</li>
       <li>Switchport Static Access</li>
+      <li>Sub-interface configuration</li>
+      <li>Defines the encapsulation format as IEEE 802.1Q (dot1q)</li>
+      <li>Specifies the VLAN identifier</li>
     </ul>
   </li>
   <li><strong>EtherChannel and Trunking</strong>
     <ul>
       <li>Channel 1 and 2 initiate negotiations</li>
-      <li>Channel 3 side B should negotiiate with side C</li>
+      <li>Channel 3 side B should negotiate with side C</li>
       <li>Channel 3 side C should not initiate negotiations with B</li>
       <li>Configure Static Trunking on switchport</li>
     </ul>
@@ -198,13 +219,25 @@
       <li>Configure port security on all active access ports</li>
       <li>Accept only two MAC addresses</li>
       <li>MAC addresses should be recorded</li>
-      <li>Switchports should provide notification, but not place interface in disabled state.</li>
+      <li>Switchport should provide notification, but not place interface in disabled state.</li>
     </ul>
   </li>
   <li><strong>Configure DHCP</strong>
     <ul>
       <li>DHCP Pool Creation</li>
       <li>Exclude the first five addresses from pool.</li>
+    </ul>
+  </li>
+  <li><strong>Configure Access Control Lists</strong>
+    <ul>
+      <li>Create a named standard ACL using the name MANAGE</li>
+      <li>Allow only the host on 203.0.113.18 access</li>
+      <li>Apply this policy to the VTY lines</li>
+      <li>Create an Access list with number 101</li>
+      <li>Allow external host 203.0.113.18 full access to inside network</li>
+      <li>Allow outside access to 198.51.100.14 over HTTP only</li>
+      <li>Allow responses to data requests to enter the Network</li>
+      <li>Activate access list on interface</li>
     </ul>
   </li>
 </ol>
@@ -303,6 +336,25 @@ R1<span class="o">(</span>config-line<span class="o">)</span><span class="c">#tr
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">User: netadmin
 Pass: SSH_secret9
 R1<span class="o">(</span>config<span class="o">)</span><span class="c">#username netadmin password SSH_secret9</span></code></pre></figure>
+
+<p><strong>Save Configuration</strong></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">R1#copy running-config startup-config</code></pre></figure>
+
+<p><strong>Clear Configuration</strong></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Routers:
+<span class="gp">R1# </span>clear config all
+This <span class="nb">command </span>will clear all configuration <span class="k">in </span>NVRAM.
+This <span class="nb">command </span>will cause ifIndex to be reassigned on the next system startup.
+Do you want to <span class="k">continue</span> <span class="o">(</span>y/n<span class="o">)</span> <span class="o">[</span>n]? y
+
+Switches:
+<span class="gp">S1# </span>write erase
+Erasing the nvram filesystem will remove all files! Continue? <span class="o">[</span>confirm]y[OK]
+Erase of nvram: <span class="nb">complete
+</span>S1#
+<span class="gp">S1# </span>reload</code></pre></figure>
 
 <hr />
 
@@ -443,7 +495,114 @@ Main<span class="o">(</span>config-if<span class="o">)</span><span class="c">#ip
 
 <hr />
 
-<h4 id="center6-vlans-and-trunkingcenter"><center>6. VLANs and Trunking</center></h4>
+<h4 id="center6-eigrp-configurationcenter"><center>6. EIGRP Configuration</center></h4>
+
+<hr />
+
+<p><strong><center>EIGRP Sample Topology</center></strong><br />
+<img src="http://t04glovern.github.io/images/posts/2016.04.18/eigrp-sample-topology.png" alt="EIGRP Routing Table" class="center-image" /></p>
+
+<p><strong><center>EIGRP Address Table</center></strong><br />
+<img src="http://t04glovern.github.io/images/posts/2016.04.18/eigrp-address-table.png" alt="EIGRP Routing Table" class="center-image" /></p>
+
+<p><strong>Display the directly connected networks</strong></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">R1<span class="o">(</span>config-router<span class="o">)</span><span class="c">#do show ip route</span></code></pre></figure>
+
+<p><img src="http://t04glovern.github.io/images/posts/2016.04.18/eigrp-routing-table.png" alt="EIGRP Routing Table" class="center-image" /></p>
+
+<p><strong>Configure EIGRP to advertise to directly connected networks</strong></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">R1<span class="o">(</span>config-router<span class="o">)</span><span class="c">#network 172.16.1.0 0.0.0.255</span>
+R1<span class="o">(</span>config-router<span class="o">)</span><span class="c">#network 172.16.3.0 0.0.0.3</span>
+R1<span class="o">(</span>config-router<span class="o">)</span><span class="c">#network 192.168.10.4 0.0.0.3</span>
+
+R2<span class="o">(</span>config-router<span class="o">)</span><span class="c">#network 172.16.2.0 0.0.0.255</span>
+R2<span class="o">(</span>config-router<span class="o">)</span><span class="c">#network 172.16.3.0 0.0.0.3</span>
+R2<span class="o">(</span>config-router<span class="o">)</span><span class="c">#network 192.168.10.8 0.0.0.3</span>
+
+R3<span class="o">(</span>config-router<span class="o">)</span><span class="c">#network 192.168.1.0 0.0.0.255</span>
+R3<span class="o">(</span>config-router<span class="o">)</span><span class="c">#network 192.168.10.4 0.0.0.3</span>
+R3<span class="o">(</span>config-router<span class="o">)</span><span class="c">#network 192.168.10.8 0.0.0.3</span></code></pre></figure>
+
+<p><strong>Configure Passive Interface (Prevent Updates sent to LAN)</strong></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">R1<span class="o">(</span>config-router<span class="o">)</span><span class="c">#passive-interface g0/0</span>
+R2<span class="o">(</span>config-router<span class="o">)</span><span class="c">#passive-interface g0/0</span>
+R3<span class="o">(</span>config-router<span class="o">)</span><span class="c">#passive-interface g0/0</span></code></pre></figure>
+
+<p><strong>Disable Auto Summary</strong></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">R1<span class="o">(</span>config<span class="o">)</span><span class="c">#router eigrp 1</span>
+R1<span class="o">(</span>config-router<span class="o">)</span><span class="c">#no auto-summary</span></code></pre></figure>
+
+<p><strong>Verify EIGRP Routing</strong></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">R1#show ip eigrp neighbors</code></pre></figure>
+
+<p><img src="http://t04glovern.github.io/images/posts/2016.04.18/eigrp-route-neighbours.png" alt="EIGRP Routing neighbors" class="center-image" /></p>
+
+<p><strong>Manual Summary Calculations</strong></p>
+
+<p><img src="http://t04glovern.github.io/images/posts/2016.04.18/eigrp-topology.png" alt="EIGRP Topology" class="center-image" /></p>
+
+<p><img src="http://t04glovern.github.io/images/posts/2016.04.18/eigrp-addresses.png" alt="EIGRP Address" class="center-image" /></p>
+
+<p><strong>Manual Summary Address - Example 1</strong></p>
+
+<ol>
+  <li>Find the Last place a common bit pattern occurs in the 4 octets. This will be our summary</li>
+</ol>
+
+<p><img src="http://t04glovern.github.io/images/posts/2016.04.18/eigrp-summary-1.png" alt="EIGRP Summary 1" class="center-image" /></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Branch-1<span class="o">(</span>config<span class="o">)</span><span class="c">#int s0/0/0</span>
+Branch-1<span class="o">(</span>config-if<span class="o">)</span><span class="c">#ip summary-address eigrp 1 172.31.8.0 255.255.252.0</span></code></pre></figure>
+
+<p><strong>Manual Summary Address - Example 2</strong></p>
+
+<p><img src="http://t04glovern.github.io/images/posts/2016.04.18/eigrp-summary-2.png" alt="EIGRP Summary 2" class="center-image" /></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Branch-2<span class="o">(</span>config-if<span class="o">)</span><span class="c">#int s0/0/1</span>
+Branch-2<span class="o">(</span>config-if<span class="o">)</span><span class="c">#ip summary-address eigrp 1 172.31.12.0 255.255.252.0</span></code></pre></figure>
+
+<p><strong>Manual Summary of the Previous Examples</strong></p>
+
+<p><img src="http://t04glovern.github.io/images/posts/2016.04.18/eigrp-summary-3.png" alt="EIGRP Summary 3" class="center-image" /></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">IPv4-Edge<span class="o">(</span>config<span class="o">)</span><span class="c">#int s0/1/0</span>
+IPv4-Edge<span class="o">(</span>config-if<span class="o">)</span><span class="c">#ip summary-address eigrp 1 172.31.8.0 255.255.248.0</span></code></pre></figure>
+
+<p><strong>IPv6 Manual Summary - Example 1</strong></p>
+
+<p><img src="http://t04glovern.github.io/images/posts/2016.04.18/eigrp-summary-4.png" alt="EIGRP Summary 4" class="center-image" /></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Branch-3<span class="o">(</span>config<span class="o">)</span><span class="c">#ipv6 router eigrp 1</span>
+Branch-3<span class="o">(</span>config-rtr<span class="o">)</span><span class="c">#eigrp router-id 3.3.3.3</span>
+Branch-3<span class="o">(</span>config-rtr<span class="o">)</span><span class="c">#int s0/0/0</span>
+Branch-3<span class="o">(</span>config-if<span class="o">)</span><span class="c">#ipv6 summary-address eigrp 1 2001:DB8:1:8::/62</span></code></pre></figure>
+
+<p><strong>IPv6 Manual Summary - Example 2</strong></p>
+
+<p><img src="http://t04glovern.github.io/images/posts/2016.04.18/eigrp-summary-5.png" alt="EIGRP Summary 5" class="center-image" /></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Branch-4<span class="o">(</span>config<span class="o">)</span><span class="c">#ipv6 router eigrp 1</span>
+Branch-4<span class="o">(</span>config-rtr<span class="o">)</span><span class="c">#eigrp router-id 4.4.4.4</span>
+Branch-4<span class="o">(</span>config-rtr<span class="o">)</span><span class="c">#int s0/0/1</span>
+Branch-4<span class="o">(</span>config-if<span class="o">)</span><span class="c">#ipv6 summary-address eigrp 1 2001:DB8:1:C::/62</span></code></pre></figure>
+
+<p><strong>IPv6 Manual Summary of the Previous Examples</strong></p>
+
+<p><img src="http://t04glovern.github.io/images/posts/2016.04.18/eigrp-summary-6.png" alt="EIGRP Summary 6" class="center-image" /></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">HQ-IPv6<span class="o">(</span>config<span class="o">)</span><span class="c">#ipv6 router eigrp 1</span>
+HQ-IPv6<span class="o">(</span>config-rtr<span class="o">)</span><span class="c">#eigrp router-id 1.1.1.1</span>
+HQ-IPv6<span class="o">(</span>config<span class="o">)</span><span class="c">#int s0/0/1</span>
+HQ-IPv6<span class="o">(</span>config-if<span class="o">)</span><span class="c">#ipv6 summary-address eigrp 1 2001:DB8:1:8::/61</span></code></pre></figure>
+
+<hr />
+
+<h4 id="center7-vlans-and-trunkingcenter"><center>7. VLANs and Trunking</center></h4>
 
 <hr />
 
@@ -493,9 +652,25 @@ FL-A<span class="o">(</span>config-if<span class="o">)</span><span class="c">#sw
 FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#interface fa0/24</span>
 FL-A<span class="o">(</span>config-if<span class="o">)</span><span class="c">#switchport mode access</span></code></pre></figure>
 
+<p><strong>Sub-interface configuration</strong><br />
+<strong>Defines the encapsulation format as IEEE 802.1Q (dot1q), and specifies the VLAN identifier</strong><br />
+<strong>Specifies the VLAN identifier</strong></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">PoliceDept<span class="o">(</span>config<span class="o">)</span><span class="c">#int g0/0</span>
+PoliceDept<span class="o">(</span>config-if<span class="o">)</span><span class="c">#no shutdown</span>
+PoliceDept<span class="o">(</span>config-if<span class="o">)</span><span class="c">#int g0/0.45</span>
+PoliceDept<span class="o">(</span>config-subif<span class="o">)</span><span class="c">#encapsulation dot1Q 45</span>
+PoliceDept<span class="o">(</span>config-subif<span class="o">)</span><span class="c">#ip address 192.168.45.1 255.255.255.0</span>
+PoliceDept<span class="o">(</span>config-subif<span class="o">)</span><span class="c">#int g0/0.47</span>
+PoliceDept<span class="o">(</span>config-subif<span class="o">)</span><span class="c">#encapsulation dot1Q 47</span>
+PoliceDept<span class="o">(</span>config-subif<span class="o">)</span><span class="c">#ip address 192.168.47.1 255.255.255.0</span>
+PoliceDept<span class="o">(</span>config-subif<span class="o">)</span><span class="c">#int g0/0.101</span>
+PoliceDept<span class="o">(</span>config-subif<span class="o">)</span><span class="c">#encapsulation dot1Q 101</span>
+PoliceDept<span class="o">(</span>config-subif<span class="o">)</span><span class="c">#ip address 192.168.101.1 255.255.255.0</span></code></pre></figure>
+
 <hr />
 
-<h4 id="center7-etherchannel-and-trunkingcenter"><center>7. EtherChannel and Trunking</center></h4>
+<h4 id="center8-etherchannel-and-trunkingcenter"><center>8. EtherChannel and Trunking</center></h4>
 
 <hr />
 
@@ -554,7 +729,7 @@ FL-B<span class="o">(</span>config-if<span class="o">)</span><span class="c">#sw
 
 <hr />
 
-<h4 id="center8-switch-securitycenter"><center>8. Switch Security</center></h4>
+<h4 id="center9-switch-securitycenter"><center>9. Switch Security</center></h4>
 
 <hr />
 
@@ -607,7 +782,7 @@ FL-A<span class="o">(</span>config-if<span class="o">)</span><span class="c">#sw
 
 <hr />
 
-<h4 id="center9-configure-dhcpcenter"><center>9. Configure DHCP</center></h4>
+<h4 id="center10-configure-dhcpcenter"><center>10. Configure DHCP</center></h4>
 
 <hr />
 
@@ -623,6 +798,46 @@ Bldg-2<span class="o">(</span>dhcp-config<span class="o">)</span><span class="c"
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">Bldg-2<span class="o">(</span>config<span class="o">)</span><span class="c">#ip dhcp excluded-address 10.10.2.1 10.10.2.5</span>
 Bldg-2<span class="o">(</span>config<span class="o">)</span><span class="c">#ip dhcp excluded-address 10.10.4.1 10.10.4.5</span>
 Bldg-2<span class="o">(</span>config<span class="o">)</span><span class="c">#ip dhcp excluded-address 10.10.8.1 10.10.8.5</span></code></pre></figure>
+
+<hr />
+
+<h4 id="center11-configure-access-control-listscenter"><center>11. Configure Access Control Lists</center></h4>
+
+<hr />
+
+<p><strong>Create a named standard ACL using the name MANAGE</strong></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Central<span class="o">(</span>config<span class="o">)</span><span class="c">#ip access-list standard MANAGE</span></code></pre></figure>
+
+<p><strong>Allow only the host on 203.0.113.18 access</strong></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Central<span class="o">(</span>config-std-nacl<span class="o">)</span><span class="c">#permit host 203.0.113.18</span></code></pre></figure>
+
+<p><strong>Apply this policy to the VTY lines</strong></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Central<span class="o">(</span>config<span class="o">)</span><span class="c">#line vty 0 4</span>
+Central<span class="o">(</span>config-line<span class="o">)</span><span class="c">#password class</span>
+Central<span class="o">(</span>config-line<span class="o">)</span><span class="c">#login</span>
+Central<span class="o">(</span>config-line<span class="o">)</span><span class="c">#access-class MANAGE in</span></code></pre></figure>
+
+<p><strong>Create an Access list with number 101</strong><br />
+<strong>Allow external host 203.0.113.18 full access to inside network</strong></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Central<span class="o">(</span>config<span class="o">)</span><span class="c">#access-list 101 permit ip host 203.0.113.18 any</span></code></pre></figure>
+
+<p><strong>Allow outside access to 198.51.100.14 over HTTP only</strong></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Central<span class="o">(</span>config<span class="o">)</span><span class="c">#access-list 101 permit tcp any host 198.51.100.14 eq www</span></code></pre></figure>
+
+<p><strong>Allow responses to data requests to enter the Network</strong></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Central<span class="o">(</span>config<span class="o">)</span><span class="c">#access-list 101 permit tcp any any established</span>
+Central<span class="o">(</span>config<span class="o">)</span><span class="c">#access-list 101 deny ip any any</span></code></pre></figure>
+
+<p><strong>Activate access list on interface</strong></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Central<span class="o">(</span>config<span class="o">)</span><span class="c">#int s0/1/0</span>
+Central<span class="o">(</span>config-if<span class="o">)</span><span class="c">#ip access-group 101 in</span></code></pre></figure>
 
 
               </div>
@@ -867,21 +1082,6 @@ spends most of his freetime building up his brain with different concepts.
           
         
       
-    
-      
-      
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-      
         
           
         
@@ -1075,11 +1275,7 @@ spends most of his freetime building up his brain with different concepts.
     
       <li><a href="/tag/ethernet">ethernet</a></li>
     
-      <li><a href="/tag/grief">grief</a></li>
-    
       <li><a href="/tag/humor">humor</a></li>
-    
-      <li><a href="/tag/internet">internet</a></li>
     
       <li><a href="/tag/iscsi">iscsi</a></li>
     
