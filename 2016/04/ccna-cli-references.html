@@ -240,6 +240,26 @@
       <li>Activate access list on interface</li>
     </ul>
   </li>
+  <li><strong>Spanning Tree Protocol</strong>
+    <ul>
+      <li>Activate Rapid PVST+ and set root priorities</li>
+      <li>FL-A should be configured as root primary for VLAN 2 and VLAN 4 using the default primary priority values.</li>
+      <li>FL-A should be configured as root secondary for VLAN 8 and VLAN 15 using the default secondary priority values.</li>
+      <li>FL-C should be configured as root primary for VLAN 8 and VLAN 15 using the default primary priority values.</li>
+      <li>FL-C should be configured as root secondary for VLAN 2 and VLAN 4 using the default secondary priority values.</li>
+      <li>Activate PortFast and BPDU Guard on the active FL-C switch access ports.</li>
+      <li>On FL-C, configure PortFast on the access ports that are connected to hosts.</li>
+      <li>On FL-C, activate BPDU Guard on the access ports that are connected to hosts.</li>
+    </ul>
+  </li>
+  <li><strong>NAT</strong>
+    <ul>
+      <li>Translate the internal address of the server to the address 198.51.100.14</li>
+      <li>Configure the correct interfaces to perform this NAT translation</li>
+      <li>Configure Dynamic NAT, Use a pool name of INTERNET</li>
+      <li>Hosts on LAN can use Internet, source list number 1</li>
+    </ul>
+  </li>
 </ol>
 
 <hr />
@@ -838,6 +858,78 @@ Central<span class="o">(</span>config<span class="o">)</span><span class="c">#ac
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">Central<span class="o">(</span>config<span class="o">)</span><span class="c">#int s0/1/0</span>
 Central<span class="o">(</span>config-if<span class="o">)</span><span class="c">#ip access-group 101 in</span></code></pre></figure>
+
+<hr />
+
+<h4 id="center12-spanning-tree-protocolcenter"><center>12. Spanning Tree Protocol</center></h4>
+
+<hr />
+
+<p><strong>Activate Rapid PVST+ and set root priorities</strong></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#spanning-tree mode rapid-pvst</span>
+FL-B<span class="o">(</span>config<span class="o">)</span><span class="c">#spanning-tree mode rapid-pvst</span>
+FL-C<span class="o">(</span>config<span class="o">)</span><span class="c">#spanning-tree mode rapid-pvst</span></code></pre></figure>
+
+<p><strong>FL-A should be configured as root primary for VLAN 2 and VLAN 4 using the default primary priority values</strong></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#spanning-tree vlan 2 root primary</span>
+FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#spanning-tree vlan 4 root primary</span></code></pre></figure>
+
+<p><strong>FL-A should be configured as root secondary for VLAN 8 and VLAN 15 using the default secondary priority values</strong></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#spanning-tree vlan 8 root secondary</span>
+FL-A<span class="o">(</span>config<span class="o">)</span><span class="c">#spanning-tree vlan 15 root secondary</span></code></pre></figure>
+
+<p><strong>FL-C should be configured as root primary for VLAN 8 and VLAN 15 using the default primary priority values</strong></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">FL-C<span class="o">(</span>config<span class="o">)</span><span class="c">#spanning-tree vlan 8 root primary</span>
+FL-C<span class="o">(</span>config<span class="o">)</span><span class="c">#spanning-tree vlan 15 root primary</span></code></pre></figure>
+
+<p><strong>FL-C should be configured as root secondary for VLAN 2 and VLAN 4 using the default secondary priority values</strong></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">FL-C<span class="o">(</span>config<span class="o">)</span><span class="c">#spanning-tree vlan 2 root secondary</span>
+FL-C<span class="o">(</span>config<span class="o">)</span><span class="c">#spanning-tree vlan 4 root secondary</span></code></pre></figure>
+
+<p><strong>Activate PortFast and BPDU Guard on the active FL-C switch access ports</strong><br />
+<strong>On FL-C, configure PortFast on the access ports that are connected to hosts</strong></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">FL-C<span class="o">(</span>config<span class="o">)</span><span class="c">#interface range fa0/7, fa0/10, fa0/15, fa0/24</span>
+FL-C<span class="o">(</span>config-if-range<span class="o">)</span><span class="c">#spanning-tree portfast</span></code></pre></figure>
+
+<p><strong>On FL-C, activate BPDU Guard on the access ports that are connected to hosts</strong></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">FL-C<span class="o">(</span>config<span class="o">)</span><span class="c">#interface range fa0/7, fa0/10, fa0/15, fa0/24</span>
+FL-C<span class="o">(</span>config-if-range<span class="o">)</span><span class="c">#spanning-tree bpduguard enable</span>
+FL-C<span class="o">(</span>config-if-range<span class="o">)</span><span class="c">#no shutdown</span></code></pre></figure>
+
+<hr />
+
+<h4 id="center13-natcenter"><center>13. NAT</center></h4>
+
+<hr />
+
+<p><strong>Translate the internal address of the server to the address 198.51.100.14</strong></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Central<span class="o">(</span>config<span class="o">)</span><span class="c">#ip nat inside source static 192.168.18.46 198.51.100.14</span></code></pre></figure>
+
+<p><strong>Configure the correct interfaces to perform this NAT translation</strong></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Central<span class="o">(</span>config<span class="o">)</span><span class="c">#int g0/0</span>
+Central<span class="o">(</span>config-if<span class="o">)</span><span class="c">#ip nat inside</span>
+Central<span class="o">(</span>config-if<span class="o">)</span><span class="c">#int s0/1/0</span>
+Central<span class="o">(</span>config-if<span class="o">)</span><span class="c">#ip nat outside</span></code></pre></figure>
+
+<p><strong>Configure Dynamic NAT, Use a pool name of INTERNET</strong></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Central<span class="o">(</span>config<span class="o">)</span><span class="c">#ip nat pool INTERNET 198.51.100.3 198.51.100.13 netmask 255.255.255.240</span></code></pre></figure>
+
+<p><strong>Hosts on LAN can use Internet, source list number 1</strong></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Central<span class="o">(</span>config<span class="o">)</span><span class="c">#access-list 1 permit 192.168.45.0 0.0.0.255</span>
+Central<span class="o">(</span>config<span class="o">)</span><span class="c">#access-list 1 permit 192.168.47.0 0.0.0.255</span>
+Central<span class="o">(</span>config<span class="o">)</span><span class="c">#access-list 1 permit 192.168.200.0 0.0.3.255</span>
+Central<span class="o">(</span>config<span class="o">)</span><span class="c">#ip nat inside source list 1 pool INTERNET</span></code></pre></figure>
 
 
               </div>
