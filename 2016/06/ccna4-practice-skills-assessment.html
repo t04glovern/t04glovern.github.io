@@ -453,8 +453,8 @@ R2<span class="o">(</span>config-if<span class="o">)</span><span class="c">#ppp 
 R2<span class="o">(</span>config-if<span class="o">)</span><span class="c">#description PPP Connection to ISP</span>
 R2<span class="o">(</span>config-if<span class="o">)</span><span class="c">#ip address 209.165.200.225 255.255.255.248</span>
 R2<span class="o">(</span>config-if<span class="o">)</span><span class="c">#clock rate 128000</span>
-R2<span class="o">(</span>config-if<span class="o">)</span><span class="c">#no shutdown</span>
-R2<span class="o">(</span>config-if<span class="o">)</span><span class="c">#encapsulation ppp</span></code></pre></figure>
+R2<span class="o">(</span>config-if<span class="o">)</span><span class="c">#encapsulation ppp</span>
+R2<span class="o">(</span>config-if<span class="o">)</span><span class="c">#no shutdown</span></code></pre></figure>
 
 <p>Set a static default route out S0/0/1</p>
 
@@ -504,8 +504,7 @@ R3<span class="o">(</span>config-if<span class="o">)</span><span class="c">#no s
 
 <p>Define the NAT from the inside source to the outside pool. Make sure to allow multiple PCs access to this single Inside Global address</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">R2<span class="o">(</span>config<span class="o">)</span><span class="c">#ip nat inside source list 1 pool R1-LAN overload</span>
-R2<span class="o">(</span>config<span class="o">)</span><span class="c">#ip nat pool R1-LAN 209.165.200.227 209.165.200.227 netmask</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">R2<span class="o">(</span>config<span class="o">)</span><span class="c">#ip nat inside source list 1 pool R1-LAN overload</span></code></pre></figure>
 
 <p>Define an access control list to permit the R2 LAN for dynamic NAT</p>
 
@@ -517,8 +516,7 @@ R2<span class="o">(</span>config<span class="o">)</span><span class="c">#ip nat 
 
 <p>Define the NAT from the inside source to the outside pool. Make sure to allow multiple PCs access to this single Inside Global address</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">R2<span class="o">(</span>config<span class="o">)</span><span class="c">#ip nat pool R2-LAN 209.165.200.228 209.165.200.228 netmask</span>
-R2<span class="o">(</span>config<span class="o">)</span><span class="c">#ip nat inside source list 2 pool R2-LAN overload</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">R2<span class="o">(</span>config<span class="o">)</span><span class="c">#ip nat inside source list 2 pool R2-LAN overload</span></code></pre></figure>
 
 <p>Assign the outside NAT interface</p>
 
@@ -577,8 +575,8 @@ R2<span class="o">(</span>config-f<span class="o">)</span><span class="c">#ip na
 
 <p>Enable the timestamp service on R1 and R2 for system logging purposes</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">R1<span class="o">(</span>config<span class="o">)</span><span class="c">#services timestamp log datetime msec</span>
-R2<span class="o">(</span>config<span class="o">)</span><span class="c">#services timestamp log datetime msec</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">R1<span class="o">(</span>config<span class="o">)</span><span class="c">#service timestamp log datetime msec</span>
+R2<span class="o">(</span>config<span class="o">)</span><span class="c">#service timestamp log datetime msec</span></code></pre></figure>
 
 <p>Enable logging of messages on R1 and R2</p>
 
@@ -599,18 +597,15 @@ R1<span class="o">(</span>config-std-nacl<span class="o">)</span><span class="c"
 
 <p>Enable SNMP community access to the SNMP-ACCESS access list</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="k">**</span>HELP<span class="k">**</span>
-R1<span class="o">(</span>config<span class="o">)</span><span class="c">#snmp-server community SA-LAB ro SNMP-ACCESS</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">R1<span class="o">(</span>config<span class="o">)</span><span class="c">#snmp-server community SA-LAB ro SNMP-ACCESS</span></code></pre></figure>
 
 <p>Set the SNMP notification host</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="k">**</span>HELP<span class="k">**</span>
-R1<span class="o">(</span>config<span class="o">)</span><span class="c">#snmp-server host 192.168.11.3 version 2c SA-LAB</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">R1<span class="o">(</span>config<span class="o">)</span><span class="c">#snmp-server host 192.168.11.3 version 2c SA-LAB</span></code></pre></figure>
 
 <p>Enable all SNMP traps</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="k">**</span>HELP<span class="k">**</span>
-R1<span class="o">(</span>config<span class="o">)</span><span class="c">#snmp-server enable traps</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">R1<span class="o">(</span>config<span class="o">)</span><span class="c">#snmp-server enable traps</span></code></pre></figure>
 
 <h4 id="collect-netflow-data-on-r2"><strong>Collect NetFlow data on R2</strong></h4>
 
@@ -702,7 +697,7 @@ R2<span class="o">(</span>config-if<span class="o">)</span><span class="c">#no s
 <p>Configure S0/0/0</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">R1<span class="o">(</span>config<span class="o">)</span><span class="c">#int s0/0/0</span>
-R1<span class="o">(</span>config-if<span class="o">)</span><span class="c">#description Frame-Relay Connection to R3</span>
+R1<span class="o">(</span>config-if<span class="o">)</span><span class="c">#description Frame Relay Connection to R3</span>
 R1<span class="o">(</span>config-if<span class="o">)</span><span class="c">#ip address 172.27.13.1 255.255.255.252</span>
 R1<span class="o">(</span>config-if<span class="o">)</span><span class="c">#encapsulation frame-relay</span>
 R1<span class="o">(</span>config-if<span class="o">)</span><span class="c">#clock rate 128000</span>
@@ -738,7 +733,6 @@ R1<span class="o">(</span>config-if<span class="o">)</span><span class="c">#no f
 <p>Configure S0/0/1</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">R3<span class="o">(</span>config<span class="o">)</span><span class="c">#int s0/0/1</span>
-R3<span class="o">(</span>config-if<span class="o">)</span><span class="c">#description Frame Relay Connection to R1</span>
 R3<span class="o">(</span>config-if<span class="o">)</span><span class="c">#encapsulation frame-relay ietf</span>
 R3<span class="o">(</span>config-if<span class="o">)</span><span class="c">#no shutdown</span></code></pre></figure>
 
@@ -820,9 +814,9 @@ R3<span class="o">(</span>config-if<span class="o">)</span><span class="c">#no s
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">R1<span class="o">(</span>config<span class="o">)</span><span class="c">#int s0/0/0</span>
 R1<span class="o">(</span>config-if<span class="o">)</span><span class="c">#description HDLC Connection to ISP</span>
 R1<span class="o">(</span>config-if<span class="o">)</span><span class="c">#ip address 172.27.12.1 255.255.255.252</span>
-R1<span class="o">(</span>config-if<span class="o">)</span><span class="c">#no shutdown</span>
 R1<span class="o">(</span>config-if<span class="o">)</span><span class="c">#encapsulation hdlc</span>
-R1<span class="o">(</span>config-if<span class="o">)</span><span class="c">#clock rate 128000</span></code></pre></figure>
+R1<span class="o">(</span>config-if<span class="o">)</span><span class="c">#clock rate 128000</span>
+R1<span class="o">(</span>config-if<span class="o">)</span><span class="c">#no shutdown</span></code></pre></figure>
 
 <p>R2 Configure S0/0/0</p>
 
@@ -854,6 +848,7 @@ R3<span class="o">(</span>config-if<span class="o">)</span><span class="c">#no s
 <p>Create a GRE tunnel interface</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">R1<span class="o">(</span>config<span class="o">)</span><span class="c">#int tunnel 0</span>
+R1<span class="o">(</span>config-if<span class="o">)</span><span class="c">#description GRE VPN tunnel to R3</span>
 R1<span class="o">(</span>config-if<span class="o">)</span><span class="c">#ip address 172.27.13.1 255.255.255.252</span></code></pre></figure>
 
 <p>Use S0/0/0 as the tunnel source</p>
@@ -874,8 +869,8 @@ R1<span class="o">(</span>config-if<span class="o">)</span><span class="c">#ip a
 
 <p>Advertise the LAN and Tunnel subnets in EIGRP. Set the LAN interface to passive</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">R1<span class="o">(</span>config-router<span class="o">)</span><span class="c">#network 172.27.13.0 0.0.0.3</span>
-R1<span class="o">(</span>config-router<span class="o">)</span><span class="c">#network 192.168.11.0 0.0.0.255</span>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">R1<span class="o">(</span>config-router<span class="o">)</span><span class="c">#network 192.168.11.0 0.0.0.255</span>
+R1<span class="o">(</span>config-router<span class="o">)</span><span class="c">#network 172.27.13.0 0.0.0.3</span>
 R1<span class="o">(</span>config-router<span class="o">)</span><span class="c">#passive-interface g0/0</span></code></pre></figure>
 
 <h4 id="configure-the-gre-vpn-tunnel-and-eigrp-on-r3"><strong>Configure the GRE VPN tunnel and EIGRP on R3</strong></h4>
