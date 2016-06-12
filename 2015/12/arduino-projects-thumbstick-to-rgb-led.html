@@ -108,7 +108,7 @@
   <div class="content">
     <div class="container container-center">
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-9">
           <div class="article">
             <div class="well">
               <h1><a href="http://t04glovern.github.io/2015/12/arduino-projects-thumbstick-to-rgb-led">Arduino Projects - Thumbstick to RGB LED</a></h1>
@@ -166,12 +166,12 @@
 <span class="kd">const</span> <span class="kt">int</span> <span class="n">sensorPinX</span> <span class="o">=</span> <span class="n">A0</span><span class="o">;</span>
 <span class="kd">const</span> <span class="kt">int</span> <span class="n">sensorPinY</span> <span class="o">=</span> <span class="n">A1</span><span class="o">;</span>
 
-<span class="kt">void</span> <span class="nf">setup</span><span class="p">(</span><span class="o">)</span> <span class="o">{</span>
+<span class="kt">void</span> <span class="nf">setup</span><span class="o">()</span> <span class="o">{</span>
   <span class="c1">// open a serial port</span>
   <span class="n">Serial</span><span class="o">.</span><span class="na">begin</span><span class="o">(</span><span class="mi">9600</span><span class="o">);</span>
 <span class="o">}</span>
 
-<span class="kt">void</span> <span class="nf">loop</span><span class="p">(</span><span class="o">)</span> <span class="o">{</span>
+<span class="kt">void</span> <span class="nf">loop</span><span class="o">()</span> <span class="o">{</span>
   <span class="c1">// Read sensor values</span>
   <span class="kt">int</span> <span class="n">sensorXValue</span> <span class="o">=</span> <span class="n">analogRead</span><span class="o">(</span><span class="n">sensorPinX</span><span class="o">);</span>
   <span class="kt">int</span> <span class="n">sensorYValue</span> <span class="o">=</span> <span class="n">analogRead</span><span class="o">(</span><span class="n">sensorPinY</span><span class="o">);</span>
@@ -318,7 +318,7 @@ Y Axis Value: 0</code></pre></figure>
 <span class="kt">int</span> <span class="n">sensorYLow</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
 <span class="kt">int</span> <span class="n">sensorYHigh</span> <span class="o">=</span> <span class="mi">1023</span><span class="o">;</span>
 
-<span class="kt">void</span> <span class="nf">setup</span><span class="p">(</span><span class="o">)</span> <span class="o">{</span>
+<span class="kt">void</span> <span class="nf">setup</span><span class="o">()</span> <span class="o">{</span>
   <span class="c1">// open a serial port</span>
   <span class="n">Serial</span><span class="o">.</span><span class="na">begin</span><span class="o">(</span><span class="mi">9600</span><span class="o">);</span>
 
@@ -328,7 +328,7 @@ Y Axis Value: 0</code></pre></figure>
   <span class="n">pinMode</span><span class="o">(</span><span class="n">blueLEDPin</span><span class="o">,</span><span class="n">OUTPUT</span><span class="o">);</span>
 <span class="o">}</span>
 
-<span class="kt">void</span> <span class="nf">loop</span><span class="p">(</span><span class="o">)</span> <span class="o">{</span>
+<span class="kt">void</span> <span class="nf">loop</span><span class="o">()</span> <span class="o">{</span>
   <span class="c1">// Read sensor values</span>
   <span class="kt">int</span> <span class="n">sensorXValue</span> <span class="o">=</span> <span class="n">analogRead</span><span class="o">(</span><span class="n">sensorPinX</span><span class="o">);</span>
   <span class="kt">int</span> <span class="n">sensorYValue</span> <span class="o">=</span> <span class="n">analogRead</span><span class="o">(</span><span class="n">sensorPinY</span><span class="o">);</span>
@@ -452,7 +452,7 @@ spends most of his freetime building up his brain with different concepts.
             </div>
           </div>
         </div>
-        <div class="col-md-4 hidden-xs">
+        <div class="col-md-3 hidden-xs">
           <div class="sidebar ">
   
     <h2>Related By Tags</h2>

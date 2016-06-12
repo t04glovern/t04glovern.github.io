@@ -108,7 +108,7 @@
   <div class="content">
     <div class="container container-center">
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-9">
           <div class="article">
             <div class="well">
               <h1><a href="http://t04glovern.github.io/2015/12/learning-aspnet-building-in-visual-studio-2015-part-3">Learning ASP.NET - Building in Visual Studio 2015 (Part 3)</a></h1>
@@ -142,8 +142,8 @@
 
 <p>Open <code class="highlighter-rouge">Visual Studio 2015</code> and navigate to the Extension and Updates list. We’ll be using a number of extensions to help make life easier; I would recommend installing them:</p>
 
-<p><code class="highlighter-rouge">Add New File</code> - Allows you to create a blank file very quickly<br />
-<code class="highlighter-rouge">Web Essentials 2015.1</code> - Used quite about for the web application development. Just install the latest version available<br />
+<p><code class="highlighter-rouge">Add New File</code> - Allows you to create a blank file very quickly
+<code class="highlighter-rouge">Web Essentials 2015.1</code> - Used quite about for the web application development. Just install the latest version available
 <code class="highlighter-rouge">Open Command Line</code> - Opens a command line quickly in your project</p>
 
 <p>Proceed to create a new <code class="highlighter-rouge">C#</code> Project and select the <code class="highlighter-rouge">ASP-NET Web Application</code> template under the <code class="highlighter-rouge">Web</code> sub heading. Name your project TheWorld again and save it to your working directory (Don’t try to install it in the same directory as your Yeoman one).</p>
@@ -222,9 +222,9 @@
         <span class="p">{</span>
             <span class="n">app</span><span class="p">.</span><span class="nf">UseIISPlatformHandler</span><span class="p">();</span>
 
-            <span class="n">app</span><span class="p">.</span><span class="nf">Run</span><span class="p">(</span><span class="nf">async</span> <span class="p">(</span><span class="n">context</span><span class="p">)</span> <span class="p">=&gt;</span>
+            <span class="n">app</span><span class="p">.</span><span class="nf">Run</span><span class="p">(</span><span class="k">async</span> <span class="p">(</span><span class="n">context</span><span class="p">)</span> <span class="p">=&gt;</span>
             <span class="p">{</span>
-                <span class="n">await</span> <span class="n">context</span><span class="p">.</span><span class="n">Response</span><span class="p">.</span><span class="nf">WriteAsync</span><span class="p">(</span><span class="s">"Hello World!"</span><span class="p">);</span>
+                <span class="k">await</span> <span class="n">context</span><span class="p">.</span><span class="n">Response</span><span class="p">.</span><span class="nf">WriteAsync</span><span class="p">(</span><span class="s">"Hello World!"</span><span class="p">);</span>
             <span class="p">});</span>
         <span class="p">}</span>
 
@@ -276,7 +276,7 @@
 
 <p>You can test this theory by changing the <code class="highlighter-rouge">await context.Response.WriteAsync("Hello World!");</code> line of code to the following:</p>
 
-<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">await</span> <span class="n">context</span><span class="p">.</span><span class="n">Response</span><span class="p">.</span><span class="nf">WriteAsync</span><span class="p">(</span><span class="err">$</span><span class="s">"Hello World: {context.Request.Path}"</span><span class="p">);</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">await</span> <span class="n">context</span><span class="p">.</span><span class="n">Response</span><span class="p">.</span><span class="nf">WriteAsync</span><span class="p">(</span><span class="err">$</span><span class="s">"Hello World: {context.Request.Path}"</span><span class="p">);</span></code></pre></figure>
 
 <p>Build and run your app again and try to navigate to various subpages on your site. For example <code class="highlighter-rouge">http://localhost:8000</code> will return <code class="highlighter-rouge">Hello World: /</code> while <code class="highlighter-rouge">http://localhost:8000/foo/bar</code> returns <code class="highlighter-rouge">Hello World: /foo/bar</code></p>
 
@@ -374,7 +374,7 @@ spends most of his freetime building up his brain with different concepts.
             </div>
           </div>
         </div>
-        <div class="col-md-4 hidden-xs">
+        <div class="col-md-3 hidden-xs">
           <div class="sidebar ">
   
     <h2>Related By Tags</h2>

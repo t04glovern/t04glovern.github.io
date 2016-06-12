@@ -108,7 +108,7 @@
   <div class="content">
     <div class="container container-center">
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-9">
           <div class="article">
             <div class="well">
               <h1><a href="http://t04glovern.github.io/2015/12/arduino-projects-working-with-sound">Arduino Projects - Working with Sound</a></h1>
@@ -321,7 +321,7 @@
 
 <p>Now that we have a tune setup and defined we can move into the <code class="highlighter-rouge">setup()</code> block and begin writing the code that will play our tones.</p>
 
-<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kt">void</span> <span class="nf">setup</span><span class="p">(</span><span class="o">)</span> <span class="o">{</span>
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kt">void</span> <span class="nf">setup</span><span class="o">()</span> <span class="o">{</span>
   <span class="c1">// iterate over the notes of the melody:</span>
   <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">thisNote</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">thisNote</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="o">;</span> <span class="n">thisNote</span><span class="o">++)</span> <span class="o">{</span>
 
@@ -340,7 +340,7 @@
   <span class="o">}</span>
 <span class="o">}</span>
 
-<span class="kt">void</span> <span class="nf">loop</span><span class="p">(</span><span class="o">)</span> <span class="o">{</span>
+<span class="kt">void</span> <span class="nf">loop</span><span class="o">()</span> <span class="o">{</span>
   <span class="c1">// no need to repeat the melody.</span>
 <span class="o">}</span></code></pre></figure>
 
@@ -438,7 +438,7 @@ spends most of his freetime building up his brain with different concepts.
             </div>
           </div>
         </div>
-        <div class="col-md-4 hidden-xs">
+        <div class="col-md-3 hidden-xs">
           <div class="sidebar ">
   
     <h2>Related By Tags</h2>
