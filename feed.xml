@@ -3,87 +3,87 @@
 	<channel>
 		<title>TwoFactor Assimilation</title>
 		<description>Tech Enthusiast</description>
-		<link>http://t04glovern.github.io</link>
-		<atom:link href="http://t04glovern.github.io/feed.xml" rel="self" type="application/rss+xml" />
+		<link>https://t04glovern.github.io</link>
+		<atom:link href="https://t04glovern.github.io/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
 				<title>CCNA4 - Practice Skills Assessment</title>
 				<description>A general overview of skills required for the CCNA4 Practical Assessment</description>
 				<pubDate>Sat, 04 Jun 2016 00:00:00 +0800</pubDate>
-				<link>http://t04glovern.github.io/2016/06/ccna4-practice-skills-assessment</link>
-				<guid isPermaLink="true">http://t04glovern.github.io/2016/06/ccna4-practice-skills-assessment</guid>
+				<link>https://t04glovern.github.io/2016/06/ccna4-practice-skills-assessment</link>
+				<guid isPermaLink="true">https://t04glovern.github.io/2016/06/ccna4-practice-skills-assessment</guid>
 			</item>
 		
 			<item>
 				<title>OneNote - Tips and Tricks</title>
 				<description>Make OneNote better</description>
 				<pubDate>Thu, 12 May 2016 00:00:00 +0800</pubDate>
-				<link>http://t04glovern.github.io/2016/05/onenote-tips-tricks</link>
-				<guid isPermaLink="true">http://t04glovern.github.io/2016/05/onenote-tips-tricks</guid>
+				<link>https://t04glovern.github.io/2016/05/onenote-tips-tricks</link>
+				<guid isPermaLink="true">https://t04glovern.github.io/2016/05/onenote-tips-tricks</guid>
 			</item>
 		
 			<item>
 				<title>CCNA3 - OSPF Practice Skills Assessment</title>
 				<description>I walkthrough the general process for sitting the CCNA3 OSPF Skills Assessment</description>
 				<pubDate>Mon, 18 Apr 2016 00:00:00 +0800</pubDate>
-				<link>http://t04glovern.github.io/2016/04/ccna3-ospf-practice-skills-assessment</link>
-				<guid isPermaLink="true">http://t04glovern.github.io/2016/04/ccna3-ospf-practice-skills-assessment</guid>
+				<link>https://t04glovern.github.io/2016/04/ccna3-ospf-practice-skills-assessment</link>
+				<guid isPermaLink="true">https://t04glovern.github.io/2016/04/ccna3-ospf-practice-skills-assessment</guid>
 			</item>
 		
 			<item>
 				<title>CCNA - CLI References</title>
 				<description>Some quick helpful notes for CISCO IOS devices</description>
 				<pubDate>Mon, 18 Apr 2016 00:00:00 +0800</pubDate>
-				<link>http://t04glovern.github.io/2016/04/ccna-cli-references</link>
-				<guid isPermaLink="true">http://t04glovern.github.io/2016/04/ccna-cli-references</guid>
+				<link>https://t04glovern.github.io/2016/04/ccna-cli-references</link>
+				<guid isPermaLink="true">https://t04glovern.github.io/2016/04/ccna-cli-references</guid>
 			</item>
 		
 			<item>
 				<title>MSP430 - 'TWISDA1' undeclared error</title>
 				<description>Instructions to resolve &#39;TWISDA1&#39; undeclared errors in Energia 17</description>
 				<pubDate>Sat, 05 Mar 2016 00:00:00 +0800</pubDate>
-				<link>http://t04glovern.github.io/2016/03/msp430-twisda1-undeclared-error</link>
-				<guid isPermaLink="true">http://t04glovern.github.io/2016/03/msp430-twisda1-undeclared-error</guid>
+				<link>https://t04glovern.github.io/2016/03/msp430-twisda1-undeclared-error</link>
+				<guid isPermaLink="true">https://t04glovern.github.io/2016/03/msp430-twisda1-undeclared-error</guid>
 			</item>
 		
 			<item>
 				<title>What if Operating Systems were airlines?</title>
 				<description>A humorous post description of various operating systems re-imagined as if they were airlines</description>
 				<pubDate>Fri, 26 Feb 2016 00:00:00 +0800</pubDate>
-				<link>http://t04glovern.github.io/2016/02/what-if-operating-systems-were-airlines</link>
-				<guid isPermaLink="true">http://t04glovern.github.io/2016/02/what-if-operating-systems-were-airlines</guid>
+				<link>https://t04glovern.github.io/2016/02/what-if-operating-systems-were-airlines</link>
+				<guid isPermaLink="true">https://t04glovern.github.io/2016/02/what-if-operating-systems-were-airlines</guid>
 			</item>
 		
 			<item>
 				<title>Raspberry Pi - Installing Manjaro ARM</title>
 				<description>I go through the steps required in order to get Manjaro ARM installed on a Raspberry Pi 2</description>
 				<pubDate>Tue, 09 Feb 2016 00:00:00 +0800</pubDate>
-				<link>http://t04glovern.github.io/2016/02/raspberry-pi-installing-manjaro-arm</link>
-				<guid isPermaLink="true">http://t04glovern.github.io/2016/02/raspberry-pi-installing-manjaro-arm</guid>
+				<link>https://t04glovern.github.io/2016/02/raspberry-pi-installing-manjaro-arm</link>
+				<guid isPermaLink="true">https://t04glovern.github.io/2016/02/raspberry-pi-installing-manjaro-arm</guid>
 			</item>
 		
 			<item>
 				<title>Windows Server - Installing AD DS on Windows Server 2012 R2 Core</title>
 				<description>The process required to setup Active Directory Domain Services on Windows Server 2012 R2 Core</description>
 				<pubDate>Fri, 05 Feb 2016 00:00:00 +0800</pubDate>
-				<link>http://t04glovern.github.io/2016/02/windows-server-installing-ad-ds-on-windows-server-2012-r2-core</link>
-				<guid isPermaLink="true">http://t04glovern.github.io/2016/02/windows-server-installing-ad-ds-on-windows-server-2012-r2-core</guid>
+				<link>https://t04glovern.github.io/2016/02/windows-server-installing-ad-ds-on-windows-server-2012-r2-core</link>
+				<guid isPermaLink="true">https://t04glovern.github.io/2016/02/windows-server-installing-ad-ds-on-windows-server-2012-r2-core</guid>
 			</item>
 		
 			<item>
 				<title>Python - Virtualenv Quickstart</title>
 				<description>An extremely quickstart guide to virtualenv</description>
 				<pubDate>Wed, 03 Feb 2016 00:00:00 +0800</pubDate>
-				<link>http://t04glovern.github.io/2016/02/python-virtualenv-quickstart</link>
-				<guid isPermaLink="true">http://t04glovern.github.io/2016/02/python-virtualenv-quickstart</guid>
+				<link>https://t04glovern.github.io/2016/02/python-virtualenv-quickstart</link>
+				<guid isPermaLink="true">https://t04glovern.github.io/2016/02/python-virtualenv-quickstart</guid>
 			</item>
 		
 			<item>
 				<title>EqualLogic storage pool connection via iSCSI into ESXi</title>
 				<description>The process required to connect EqualLogic storage pools into ESXi via iSCSI</description>
 				<pubDate>Tue, 02 Feb 2016 00:00:00 +0800</pubDate>
-				<link>http://t04glovern.github.io/2016/02/equallogic-storage-pool-connection-via-iscsi-into-esxi</link>
-				<guid isPermaLink="true">http://t04glovern.github.io/2016/02/equallogic-storage-pool-connection-via-iscsi-into-esxi</guid>
+				<link>https://t04glovern.github.io/2016/02/equallogic-storage-pool-connection-via-iscsi-into-esxi</link>
+				<guid isPermaLink="true">https://t04glovern.github.io/2016/02/equallogic-storage-pool-connection-via-iscsi-into-esxi</guid>
 			</item>
 		
 	</channel>

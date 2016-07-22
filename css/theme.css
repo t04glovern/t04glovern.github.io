@@ -315,7 +315,7 @@ nav.shrink .navbar-toggle {
   color: yellow; }
 
 .share-bar {
-  float: right; }
+  text-align: right; }
 
 ul.share-buttons {
   list-style: none;
