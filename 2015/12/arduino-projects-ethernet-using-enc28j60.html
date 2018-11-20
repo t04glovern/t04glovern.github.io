@@ -6,13 +6,13 @@
 
   <title>TwoFactor Assimilation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://t04glovern.github.io/js/jquery.min.js"></script>
-  <script src="https://t04glovern.github.io/js/bootstrap.min.js"></script>
-  <script src="https://t04glovern.github.io/js/header.js"></script>
-  <link href="https://t04glovern.github.io/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://t04glovern.github.io/css/theme.css" rel="stylesheet">
-  <link href="https://t04glovern.github.io/css/syntax.css" rel="stylesheet">
-  <link href="https://t04glovern.github.io/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <script src="http://localhost:4000/js/jquery.min.js"></script>
+  <script src="http://localhost:4000/js/bootstrap.min.js"></script>
+  <script src="http://localhost:4000/js/header.js"></script>
+  <link href="http://localhost:4000/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://localhost:4000/css/theme.css" rel="stylesheet">
+  <link href="http://localhost:4000/css/syntax.css" rel="stylesheet">
+  <link href="http://localhost:4000/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono&subset=latin">
 </head>
 
@@ -89,15 +89,15 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="https://t04glovern.github.io/">TwoFactor Assimilation</a>
+        <a class="navbar-brand" href="http://localhost:4000/">TwoFactor Assimilation</a>
       </div>
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li><a href="https://t04glovern.github.io/">/home</a></li>
-          <li><a href="https://t04glovern.github.io/archive">/archive</a></li>
-          <li><a href="https://t04glovern.github.io/projects">/projects</a></li>
-          <li><a href="https://t04glovern.github.io/tags">/tags</a></li>
-          <li><a href="https://t04glovern.github.io/about">/about</a></li>
+          <li><a href="http://localhost:4000/">/home</a></li>
+          <li><a href="http://localhost:4000/archive">/archive</a></li>
+          <li><a href="http://localhost:4000/projects">/projects</a></li>
+          <li><a href="http://localhost:4000/tags">/tags</a></li>
+          <li><a href="http://localhost:4000/about">/about</a></li>
         </ul>
       </div>
     </div>
@@ -111,7 +111,7 @@
         <div class="col-md-8">
           <div class="article">
             <div class="well">
-              <h2><a href="https://t04glovern.github.io/2015/12/arduino-projects-ethernet-using-enc28j60">Arduino Projects - Ethernet using a ENC28J60 Ethernet Controller</a></h2>
+              <h2><a href="http://localhost:4000/2015/12/arduino-projects-ethernet-using-enc28j60">Arduino Projects - Ethernet using a ENC28J60 Ethernet Controller</a></h2>
               <div class="post-meta">
                 <div class="post-time">
                   <i class="fa fa-calendar"></i>
@@ -119,9 +119,9 @@
                 </div>
                 <ul>
                   
-                    <li><a href="https://t04glovern.github.io/tag/arduino">arduino</a></li>
+                    <li><a href="http://localhost:4000/tag/arduino">arduino</a></li>
                   
-                    <li><a href="https://t04glovern.github.io/tag/ethernet">ethernet</a></li>
+                    <li><a href="http://localhost:4000/tag/ethernet">ethernet</a></li>
                   
                 </ul>
               </div>
@@ -140,7 +140,7 @@
 
 <p>So lets get started! The module I purchased to work with is a <code class="highlighter-rouge">Duinotech</code> board sporting a <code class="highlighter-rouge">HanRun HR911105A RJ45 connector</code> and the <code class="highlighter-rouge">ENC28J60 Ethernet controller</code>.</p>
 
-<p><img src="https://t04glovern.github.io/images/posts/2015.12.30/arduino-ethernet-board.jpg" alt="Ethernet Board" /></p>
+<p><img src="http://localhost:4000/images/posts/2015.12.30/arduino-ethernet-board.jpg" alt="Ethernet Board" /></p>
 
 <p>The first thing I did was look up the datasheet for the <a href="http://ww1.microchip.com/downloads/en/DeviceDoc/39662e.pdf">ENC28J60 Ethernet controller</a>. I was looking for detailed information on what each of the Ten interface pins on the board did and was happy to find that almost all the information I needed was available in the document provided.</p>
 
@@ -175,7 +175,7 @@
 
 <p>Below is the schematic provided for the <code class="highlighter-rouge">ENC28J60 Ethernet controller</code>. There are only a couple pins that we have direct access to via the Pin headers, I’ll try to explain as best I can what each of these pins are and what they do.</p>
 
-<p><img src="https://t04glovern.github.io/images/posts/2015.12.30/arduino-ethernet-controller-schem.png" alt="Ethernet Controller Schematic" /></p>
+<p><img src="http://localhost:4000/images/posts/2015.12.30/arduino-ethernet-controller-schem.png" alt="Ethernet Controller Schematic" /></p>
 
 <ol>
   <li><code class="highlighter-rouge">CLKOUT</code> - The Programmable clock output pin is provided for use as the host controller clock or as a clock source for other devices in the system.
@@ -212,7 +212,7 @@
 
 <p>If you’re interested in the full block diagram for the controller, it can be seen below. Take note of the various pin labels we just discussed and use them to work out how the system all comes together.</p>
 
-<p><img src="https://t04glovern.github.io/images/posts/2015.12.30/arduino-ethernet-controller-block-diagram.png" alt="Controller Block Diagram" /></p>
+<p><img src="http://localhost:4000/images/posts/2015.12.30/arduino-ethernet-controller-block-diagram.png" alt="Controller Block Diagram" /></p>
 
 <hr />
 
@@ -224,7 +224,7 @@
 
 <p>Below is a timeline displaying the Pin states for both input and output.</p>
 
-<p><img src="https://t04glovern.github.io/images/posts/2015.12.30/arduino-ethernet-controller-input-output.png" alt="Input Output" /></p>
+<p><img src="http://localhost:4000/images/posts/2015.12.30/arduino-ethernet-controller-input-output.png" alt="Input Output" /></p>
 
 <p>These interfaces are mapped to the following ports on the Arduino Uno. You can find the correct pins for other boards under Connections <a href="https://www.arduino.cc/en/Reference/SPI">here</a>. Note that the ENC28J60 controller uses a different pin for CS than the normal pin 10 (SS).</p>
 
@@ -245,7 +245,7 @@
 
 <p><code class="highlighter-rouge">NOTE</code> You can also use the Reset, Ground and 3.3V pins on the ICSP interface. Else just use the normal pins. You can safely ignore the <code class="highlighter-rouge">RESET pin</code> for most examples.</p>
 
-<p><img src="https://t04glovern.github.io/images/posts/2015.12.30/arduino-ethernet-controller-icsp.png" alt="ICSP" /></p>
+<p><img src="http://localhost:4000/images/posts/2015.12.30/arduino-ethernet-controller-icsp.png" alt="ICSP" /></p>
 
 <hr />
 
@@ -255,7 +255,7 @@
 
 <p>In order to get our device communicating we’ll need to use a library called <code class="highlighter-rouge">Ethercard</code>. It can be downloaded from here:</p>
 
-<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="nl">https:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">jcw</span><span class="o">/</span><span class="n">ethercard</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="nl">https:</span><span class="c1">//github.com/jcw/ethercard</span></code></pre></figure>
 
 <p>Once you’ve downloaded the zip, place the contents in your Arduino <code class="highlighter-rouge">libraries</code> folder. The contents of the <code class="highlighter-rouge">ethercard</code> folder comes with a couple examples that we’ll be using to first confirm that our interfacing is correct.</p>
 
@@ -285,30 +285,30 @@
 
 <p>Next we’ll setup a place where we can specify static IP information. We’ll do that by creating and populating the following byte arrays with relevant IP network information</p>
 
-<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="c1">// Ethernet interface ip address
-</span><span class="k">static</span> <span class="n">byte</span> <span class="n">myip</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">192</span><span class="p">,</span><span class="mi">168</span><span class="p">,</span><span class="mi">188</span><span class="p">,</span><span class="mi">200</span> <span class="p">};</span>
-<span class="c1">// Gateway ip address
-</span><span class="k">static</span> <span class="n">byte</span> <span class="n">gwip</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">192</span><span class="p">,</span><span class="mi">168</span><span class="p">,</span><span class="mi">188</span><span class="p">,</span><span class="mi">254</span> <span class="p">};</span>
-<span class="c1">// DNS ip address
-</span><span class="k">static</span> <span class="n">byte</span> <span class="n">dnsip</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">192</span><span class="p">,</span><span class="mi">168</span><span class="p">,</span><span class="mi">188</span><span class="p">,</span><span class="mi">254</span> <span class="p">};</span>
-<span class="c1">// Subnet mask
-</span><span class="k">static</span> <span class="n">byte</span> <span class="n">mask</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span> <span class="p">};</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="c1">// Ethernet interface ip address</span>
+<span class="k">static</span> <span class="n">byte</span> <span class="n">myip</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">192</span><span class="p">,</span><span class="mi">168</span><span class="p">,</span><span class="mi">188</span><span class="p">,</span><span class="mi">200</span> <span class="p">};</span>
+<span class="c1">// Gateway ip address</span>
+<span class="k">static</span> <span class="n">byte</span> <span class="n">gwip</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">192</span><span class="p">,</span><span class="mi">168</span><span class="p">,</span><span class="mi">188</span><span class="p">,</span><span class="mi">254</span> <span class="p">};</span>
+<span class="c1">// DNS ip address</span>
+<span class="k">static</span> <span class="n">byte</span> <span class="n">dnsip</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">192</span><span class="p">,</span><span class="mi">168</span><span class="p">,</span><span class="mi">188</span><span class="p">,</span><span class="mi">254</span> <span class="p">};</span>
+<span class="c1">// Subnet mask</span>
+<span class="k">static</span> <span class="n">byte</span> <span class="n">mask</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span> <span class="p">};</span></code></pre></figure>
 
 <p>Add a another byte array to store the mac address of the interface. You can either make up one yourself or obtain the interfaces actual address from the board itself. If you can’t be bothered with either of these things feel free to use mine.</p>
 
-<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="c1">// Ethernet mac address - must be unique on your network
-</span><span class="k">static</span> <span class="n">byte</span> <span class="n">mymac</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mh">0x74</span><span class="p">,</span><span class="mh">0x69</span><span class="p">,</span><span class="mh">0x69</span><span class="p">,</span><span class="mh">0x2D</span><span class="p">,</span><span class="mh">0x30</span><span class="p">,</span><span class="mh">0x31</span> <span class="p">};</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="c1">// Ethernet mac address - must be unique on your network</span>
+<span class="k">static</span> <span class="n">byte</span> <span class="n">mymac</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mh">0x74</span><span class="p">,</span><span class="mh">0x69</span><span class="p">,</span><span class="mh">0x69</span><span class="p">,</span><span class="mh">0x2D</span><span class="p">,</span><span class="mh">0x30</span><span class="p">,</span><span class="mh">0x31</span> <span class="p">};</span></code></pre></figure>
 
 <p>I would also recommend adding the following line to specify the <code class="highlighter-rouge">TCP/IP buffer size</code>. We will be using this later during the interface initialization.</p>
 
-<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="c1">// TCP/IP send and receive buffer
-</span><span class="n">byte</span> <span class="n">Ethernet</span><span class="o">::</span><span class="n">buffer</span><span class="p">[</span><span class="mi">500</span><span class="p">];</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="c1">// TCP/IP send and receive buffer</span>
+<span class="n">byte</span> <span class="n">Ethernet</span><span class="o">::</span><span class="n">buffer</span><span class="p">[</span><span class="mi">500</span><span class="p">];</span></code></pre></figure>
 
 <p>Now lets get started on the <code class="highlighter-rouge">setup()</code> code. We’ll start by opening up a serial connection for debugging with the baud rate of <code class="highlighter-rouge">57600</code></p>
 
 <figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// Open a serial connection for debugging
-</span>  <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">57600</span><span class="p">);</span>
+  <span class="c1">// Open a serial connection for debugging</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">57600</span><span class="p">);</span>
   <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">[Debugger]"</span><span class="p">);</span></code></pre></figure>
 
 <p>Now we need to initialize the Ethernet interface using the <code class="highlighter-rouge">ether.begin()</code> function. If we have a look at the functions definition in the <code class="highlighter-rouge">EtherCard.h</code> file we can see what values it accepts.</p>
@@ -324,8 +324,8 @@
 
 <p>We can use the information above to construct the ether.begin() function using the Ethernet buffer size and our Ethernet mac address. We also want to wrap this initialization in an <code class="highlighter-rouge">if statement</code> to confirm the interface is constructed correctly. Use the following syntax to get that done:</p>
 
-<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="c1">// Initialize the Ethernet interface
-</span><span class="k">if</span> <span class="p">(</span><span class="n">ether</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="k">sizeof</span> <span class="n">Ethernet</span><span class="o">::</span><span class="n">buffer</span><span class="p">,</span> <span class="n">mymac</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="c1">// Initialize the Ethernet interface</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">ether</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="k">sizeof</span> <span class="n">Ethernet</span><span class="o">::</span><span class="n">buffer</span><span class="p">,</span> <span class="n">mymac</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
   <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span> <span class="s">"Failed to access Ethernet controller"</span><span class="p">);</span></code></pre></figure>
 
 <p>Next we need to setup the interface with either DHCP or the static values we declared earlier on. You can choose to do either by implementing one of the following solutions:</p>
@@ -350,13 +350,13 @@
 
 <p>And therefore can be implemented as follows:</p>
 
-<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="c1">// Setup IP statically
-</span><span class="n">ether</span><span class="p">.</span><span class="n">staticSetup</span><span class="p">(</span><span class="n">myip</span><span class="p">,</span> <span class="n">gwip</span><span class="p">,</span> <span class="n">dnsip</span><span class="p">,</span> <span class="n">mask</span><span class="p">);</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="c1">// Setup IP statically</span>
+<span class="n">ether</span><span class="p">.</span><span class="n">staticSetup</span><span class="p">(</span><span class="n">myip</span><span class="p">,</span> <span class="n">gwip</span><span class="p">,</span> <span class="n">dnsip</span><span class="p">,</span> <span class="n">mask</span><span class="p">);</span></code></pre></figure>
 
 <p>At this point, we should have our interface setup. Just to make sure lets write out the IP values to serial:</p>
 
-<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="c1">// Print IP information out to serial line
-</span><span class="n">ether</span><span class="p">.</span><span class="n">printIp</span><span class="p">(</span><span class="s">"IP:  "</span><span class="p">,</span> <span class="n">ether</span><span class="p">.</span><span class="n">myip</span><span class="p">);</span>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="c1">// Print IP information out to serial line</span>
+<span class="n">ether</span><span class="p">.</span><span class="n">printIp</span><span class="p">(</span><span class="s">"IP:  "</span><span class="p">,</span> <span class="n">ether</span><span class="p">.</span><span class="n">myip</span><span class="p">);</span>
 <span class="n">ether</span><span class="p">.</span><span class="n">printIp</span><span class="p">(</span><span class="s">"GW:  "</span><span class="p">,</span> <span class="n">ether</span><span class="p">.</span><span class="n">gwip</span><span class="p">);</span>
 <span class="n">ether</span><span class="p">.</span><span class="n">printIp</span><span class="p">(</span><span class="s">"DNS: "</span><span class="p">,</span> <span class="n">ether</span><span class="p">.</span><span class="n">dnsip</span><span class="p">);</span></code></pre></figure>
 
@@ -364,8 +364,8 @@
 
 <p>Back at the top of your program add the following as a constant char array. It will store your text in the Arduino <code class="highlighter-rouge">program memory</code> (PROGMEM)</p>
 
-<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="c1">// Define the HTML that will be served
-</span><span class="k">const</span> <span class="kt">char</span> <span class="n">page</span><span class="p">[]</span> <span class="n">PROGMEM</span> <span class="o">=</span>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="c1">// Define the HTML that will be served</span>
+<span class="k">const</span> <span class="kt">char</span> <span class="n">page</span><span class="p">[]</span> <span class="n">PROGMEM</span> <span class="o">=</span>
 <span class="s">"HTTP/1.0 503 Service Unavailable</span><span class="se">\r\n</span><span class="s">"</span>
 <span class="s">"Content-Type: text/html</span><span class="se">\r\n</span><span class="s">"</span>
 <span class="s">"Retry-After: 600</span><span class="se">\r\n</span><span class="s">"</span>
@@ -387,8 +387,8 @@
 <p>The only thing left to do is to setup some code in the <code class="highlighter-rouge">loop()</code> to serve the page whenever someone connects. This is done via the following code block:</p>
 
 <figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="kt">void</span> <span class="nf">loop</span><span class="p">(){</span>
-  <span class="c1">// wait for an incoming TCP packet, but ignore its contents
-</span>  <span class="k">if</span> <span class="p">(</span><span class="n">ether</span><span class="p">.</span><span class="n">packetLoop</span><span class="p">(</span><span class="n">ether</span><span class="p">.</span><span class="n">packetReceive</span><span class="p">()))</span> <span class="p">{</span>
+  <span class="c1">// wait for an incoming TCP packet, but ignore its contents</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">ether</span><span class="p">.</span><span class="n">packetLoop</span><span class="p">(</span><span class="n">ether</span><span class="p">.</span><span class="n">packetReceive</span><span class="p">()))</span> <span class="p">{</span>
     <span class="n">memcpy_P</span><span class="p">(</span><span class="n">ether</span><span class="p">.</span><span class="n">tcpOffset</span><span class="p">(),</span> <span class="n">page</span><span class="p">,</span> <span class="k">sizeof</span> <span class="n">page</span><span class="p">);</span>
     <span class="n">ether</span><span class="p">.</span><span class="n">httpServerReply</span><span class="p">(</span><span class="k">sizeof</span> <span class="n">page</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
   <span class="p">}</span>
@@ -430,8 +430,8 @@
   <li><code class="highlighter-rouge">tcpOffset()</code> - Initializes the SPI interface and serves as a input for the TCP payload</li>
 </ul>
 
-<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="k">static</span> <span class="kt">uint8_t</span><span class="o">*</span> <span class="nf">tcpOffset</span> <span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">buffer</span> <span class="o">+</span> <span class="mh">0x36</span><span class="p">;</span> <span class="p">}</span> <span class="c1">//!&lt; Pointer to the start of TCP payload
-</span>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="k">static</span> <span class="kt">uint8_t</span><span class="o">*</span> <span class="nf">tcpOffset</span> <span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">buffer</span> <span class="o">+</span> <span class="mh">0x36</span><span class="p">;</span> <span class="p">}</span> <span class="c1">//!&lt; Pointer to the start of TCP payload</span>
+
 <span class="cm">/**   @brief  Initialise SPI interface
 *     @note   Configures Arduino pins as input / output, etc.
 */</span></code></pre></figure>
@@ -466,23 +466,23 @@ And have a happy new year</code></pre></figure>
 
 <figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;EtherCard.h&gt;
 </span>
-<span class="c1">// Ethernet interface ip address
-</span><span class="k">static</span> <span class="n">byte</span> <span class="n">myip</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">192</span><span class="p">,</span><span class="mi">168</span><span class="p">,</span><span class="mi">188</span><span class="p">,</span><span class="mi">200</span> <span class="p">};</span>
-<span class="c1">// Gateway ip address
-</span><span class="k">static</span> <span class="n">byte</span> <span class="n">gwip</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">192</span><span class="p">,</span><span class="mi">168</span><span class="p">,</span><span class="mi">188</span><span class="p">,</span><span class="mi">254</span> <span class="p">};</span>
-<span class="c1">// DNS ip address
-</span><span class="k">static</span> <span class="n">byte</span> <span class="n">dnsip</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">192</span><span class="p">,</span><span class="mi">168</span><span class="p">,</span><span class="mi">188</span><span class="p">,</span><span class="mi">254</span> <span class="p">};</span>
-<span class="c1">// Subnet mask
-</span><span class="k">static</span> <span class="n">byte</span> <span class="n">mask</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span> <span class="p">};</span>
+<span class="c1">// Ethernet interface ip address</span>
+<span class="k">static</span> <span class="n">byte</span> <span class="n">myip</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">192</span><span class="p">,</span><span class="mi">168</span><span class="p">,</span><span class="mi">188</span><span class="p">,</span><span class="mi">200</span> <span class="p">};</span>
+<span class="c1">// Gateway ip address</span>
+<span class="k">static</span> <span class="n">byte</span> <span class="n">gwip</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">192</span><span class="p">,</span><span class="mi">168</span><span class="p">,</span><span class="mi">188</span><span class="p">,</span><span class="mi">254</span> <span class="p">};</span>
+<span class="c1">// DNS ip address</span>
+<span class="k">static</span> <span class="n">byte</span> <span class="n">dnsip</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">192</span><span class="p">,</span><span class="mi">168</span><span class="p">,</span><span class="mi">188</span><span class="p">,</span><span class="mi">254</span> <span class="p">};</span>
+<span class="c1">// Subnet mask</span>
+<span class="k">static</span> <span class="n">byte</span> <span class="n">mask</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span> <span class="p">};</span>
 
-<span class="c1">// Ethernet mac address - must be unique on your network
-</span><span class="k">static</span> <span class="n">byte</span> <span class="n">mymac</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mh">0x74</span><span class="p">,</span><span class="mh">0x69</span><span class="p">,</span><span class="mh">0x69</span><span class="p">,</span><span class="mh">0x2D</span><span class="p">,</span><span class="mh">0x30</span><span class="p">,</span><span class="mh">0x31</span> <span class="p">};</span>
+<span class="c1">// Ethernet mac address - must be unique on your network</span>
+<span class="k">static</span> <span class="n">byte</span> <span class="n">mymac</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mh">0x74</span><span class="p">,</span><span class="mh">0x69</span><span class="p">,</span><span class="mh">0x69</span><span class="p">,</span><span class="mh">0x2D</span><span class="p">,</span><span class="mh">0x30</span><span class="p">,</span><span class="mh">0x31</span> <span class="p">};</span>
 
-<span class="c1">// TCP/IP send and receive buffer
-</span><span class="n">byte</span> <span class="n">Ethernet</span><span class="o">::</span><span class="n">buffer</span><span class="p">[</span><span class="mi">500</span><span class="p">];</span>
+<span class="c1">// TCP/IP send and receive buffer</span>
+<span class="n">byte</span> <span class="n">Ethernet</span><span class="o">::</span><span class="n">buffer</span><span class="p">[</span><span class="mi">500</span><span class="p">];</span>
 
-<span class="c1">// Define the HTML that will be served
-</span><span class="k">const</span> <span class="kt">char</span> <span class="n">page</span><span class="p">[]</span> <span class="n">PROGMEM</span> <span class="o">=</span>
+<span class="c1">// Define the HTML that will be served</span>
+<span class="k">const</span> <span class="kt">char</span> <span class="n">page</span><span class="p">[]</span> <span class="n">PROGMEM</span> <span class="o">=</span>
 <span class="s">"HTTP/1.0 503 Service Unavailable</span><span class="se">\r\n</span><span class="s">"</span>
 <span class="s">"Content-Type: text/html</span><span class="se">\r\n</span><span class="s">"</span>
 <span class="s">"Retry-After: 600</span><span class="se">\r\n</span><span class="s">"</span>
@@ -502,26 +502,26 @@ And have a happy new year</code></pre></figure>
 <span class="p">;</span>
 
 <span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// Open a serial connection for debugging
-</span>  <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">57600</span><span class="p">);</span>
+  <span class="c1">// Open a serial connection for debugging</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">57600</span><span class="p">);</span>
   <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">[Debugger]"</span><span class="p">);</span>
 
-  <span class="c1">// Initialize the Ethernet interface
-</span>  <span class="k">if</span> <span class="p">(</span><span class="n">ether</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="k">sizeof</span> <span class="n">Ethernet</span><span class="o">::</span><span class="n">buffer</span><span class="p">,</span> <span class="n">mymac</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+  <span class="c1">// Initialize the Ethernet interface</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">ether</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="k">sizeof</span> <span class="n">Ethernet</span><span class="o">::</span><span class="n">buffer</span><span class="p">,</span> <span class="n">mymac</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
     <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span> <span class="s">"Failed to access Ethernet controller"</span><span class="p">);</span>
 
-  <span class="c1">// Setup IP statically
-</span>  <span class="n">ether</span><span class="p">.</span><span class="n">staticSetup</span><span class="p">(</span><span class="n">myip</span><span class="p">,</span> <span class="n">gwip</span><span class="p">,</span> <span class="n">dnsip</span><span class="p">,</span> <span class="n">mask</span><span class="p">);</span>
+  <span class="c1">// Setup IP statically</span>
+  <span class="n">ether</span><span class="p">.</span><span class="n">staticSetup</span><span class="p">(</span><span class="n">myip</span><span class="p">,</span> <span class="n">gwip</span><span class="p">,</span> <span class="n">dnsip</span><span class="p">,</span> <span class="n">mask</span><span class="p">);</span>
 
-  <span class="c1">// Print IP information out to serial line
-</span>  <span class="n">ether</span><span class="p">.</span><span class="n">printIp</span><span class="p">(</span><span class="s">"IP:  "</span><span class="p">,</span> <span class="n">ether</span><span class="p">.</span><span class="n">myip</span><span class="p">);</span>
+  <span class="c1">// Print IP information out to serial line</span>
+  <span class="n">ether</span><span class="p">.</span><span class="n">printIp</span><span class="p">(</span><span class="s">"IP:  "</span><span class="p">,</span> <span class="n">ether</span><span class="p">.</span><span class="n">myip</span><span class="p">);</span>
   <span class="n">ether</span><span class="p">.</span><span class="n">printIp</span><span class="p">(</span><span class="s">"GW:  "</span><span class="p">,</span> <span class="n">ether</span><span class="p">.</span><span class="n">gwip</span><span class="p">);</span>  
   <span class="n">ether</span><span class="p">.</span><span class="n">printIp</span><span class="p">(</span><span class="s">"DNS: "</span><span class="p">,</span> <span class="n">ether</span><span class="p">.</span><span class="n">dnsip</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="kt">void</span> <span class="nf">loop</span><span class="p">(){</span>
-  <span class="c1">// wait for an incoming TCP packet, but ignore its contents
-</span>  <span class="k">if</span> <span class="p">(</span><span class="n">ether</span><span class="p">.</span><span class="n">packetLoop</span><span class="p">(</span><span class="n">ether</span><span class="p">.</span><span class="n">packetReceive</span><span class="p">()))</span> <span class="p">{</span>
+  <span class="c1">// wait for an incoming TCP packet, but ignore its contents</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">ether</span><span class="p">.</span><span class="n">packetLoop</span><span class="p">(</span><span class="n">ether</span><span class="p">.</span><span class="n">packetReceive</span><span class="p">()))</span> <span class="p">{</span>
     <span class="n">memcpy_P</span><span class="p">(</span><span class="n">ether</span><span class="p">.</span><span class="n">tcpOffset</span><span class="p">(),</span> <span class="n">page</span><span class="p">,</span> <span class="k">sizeof</span> <span class="n">page</span><span class="p">);</span>
     <span class="n">ether</span><span class="p">.</span><span class="n">httpServerReply</span><span class="p">(</span><span class="k">sizeof</span> <span class="n">page</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
   <span class="p">}</span>
@@ -555,20 +555,20 @@ And have a happy new year</code></pre></figure>
 
 <!-- StumbleUpon (url, title) -->
 <!--
-<a class="btn btn-default btn-sm StumbleUpon" href="http://www.stumbleupon.com/submit?url=https://t04glovern.github.io/2015/12/arduino-projects-ethernet-using-enc28j60&title=Arduino Projects - Ethernet using a ENC28J60 Ethernet Controller" target="_blank" class="share-btn stumbleupon">
+<a class="btn btn-default btn-sm StumbleUpon" href="http://www.stumbleupon.com/submit?url=http://localhost:4000/2015/12/arduino-projects-ethernet-using-enc28j60&title=Arduino Projects - Ethernet using a ENC28J60 Ethernet Controller" target="_blank" class="share-btn stumbleupon">
   <i class="fa fa-stumbleupon fa-lg"></i>
   StumbleUpon
 </a>
 -->
 
 <!-- Reddit (url, title) -->
-<a class="btn btn-default btn-sm reddit" href="http://reddit.com/submit?url=https://t04glovern.github.io/2015/12/arduino-projects-ethernet-using-enc28j60&title=Arduino Projects - Ethernet using a ENC28J60 Ethernet Controller" target="_blank" class="share-btn reddit">
+<a class="btn btn-default btn-sm reddit" href="http://reddit.com/submit?url=http://localhost:4000/2015/12/arduino-projects-ethernet-using-enc28j60&title=Arduino Projects - Ethernet using a ENC28J60 Ethernet Controller" target="_blank" class="share-btn reddit">
   <i class="fa fa-reddit fa-lg"></i>
   Reddit
 </a>
 
 <!-- LinkedIn -->
-<a class="btn btn-default btn-sm linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=https://t04glovern.github.io/2015/12/arduino-projects-ethernet-using-enc28j60&title=Arduino Projects - Ethernet using a ENC28J60 Ethernet Controller&source=">
+<a class="btn btn-default btn-sm linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2015/12/arduino-projects-ethernet-using-enc28j60&title=Arduino Projects - Ethernet using a ENC28J60 Ethernet Controller&source=">
   <i class="fa fa-linkedin fa-lg"></i>
   LinkedIn
 </a>
@@ -620,7 +620,7 @@ And have a happy new year</code></pre></figure>
       
         
           
-            <li><a href="https://t04glovern.github.io/2015/12/arduino-project-lcd-displays">Arduino Projects - LCD Displays</a></li>
+            <li><a href="http://localhost:4000/2015/12/arduino-project-lcd-displays">Arduino Projects - LCD Displays</a></li>
             
           
         
@@ -644,7 +644,7 @@ And have a happy new year</code></pre></figure>
       
         
           
-            <li><a href="https://t04glovern.github.io/2016/01/arduino-projects-shift-registers">Arduino Projects - Shift Registers</a></li>
+            <li><a href="http://localhost:4000/2016/01/arduino-projects-shift-registers">Arduino Projects - Shift Registers</a></li>
             
           
         
@@ -662,7 +662,7 @@ And have a happy new year</code></pre></figure>
       
         
           
-            <li><a href="https://t04glovern.github.io/2015/12/arduino-projects-thumbstick-to-rgb-led">Arduino Projects - Thumbstick to RGB LED</a></li>
+            <li><a href="http://localhost:4000/2015/12/arduino-projects-thumbstick-to-rgb-led">Arduino Projects - Thumbstick to RGB LED</a></li>
             
           
         
@@ -680,7 +680,7 @@ And have a happy new year</code></pre></figure>
       
         
           
-            <li><a href="https://t04glovern.github.io/2015/12/arduino-projects-working-with-sound">Arduino Projects - Working with Sound</a></li>
+            <li><a href="http://localhost:4000/2015/12/arduino-projects-working-with-sound">Arduino Projects - Working with Sound</a></li>
             
           
         
@@ -1088,7 +1088,7 @@ And have a happy new year</code></pre></figure>
       <footer class="footer-distributed">
       <div class="container">
         <div class="footer">
-          <p>Nathan Glover &copy; 2017</p>
+          <p>Nathan Glover &copy; 2018</p>
           <h6>Follow me</h6>
 
 <ul class="social-media">

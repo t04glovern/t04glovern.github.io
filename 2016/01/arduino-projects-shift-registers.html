@@ -6,13 +6,13 @@
 
   <title>TwoFactor Assimilation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://t04glovern.github.io/js/jquery.min.js"></script>
-  <script src="https://t04glovern.github.io/js/bootstrap.min.js"></script>
-  <script src="https://t04glovern.github.io/js/header.js"></script>
-  <link href="https://t04glovern.github.io/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://t04glovern.github.io/css/theme.css" rel="stylesheet">
-  <link href="https://t04glovern.github.io/css/syntax.css" rel="stylesheet">
-  <link href="https://t04glovern.github.io/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <script src="http://localhost:4000/js/jquery.min.js"></script>
+  <script src="http://localhost:4000/js/bootstrap.min.js"></script>
+  <script src="http://localhost:4000/js/header.js"></script>
+  <link href="http://localhost:4000/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://localhost:4000/css/theme.css" rel="stylesheet">
+  <link href="http://localhost:4000/css/syntax.css" rel="stylesheet">
+  <link href="http://localhost:4000/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono&subset=latin">
 </head>
 
@@ -89,15 +89,15 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="https://t04glovern.github.io/">TwoFactor Assimilation</a>
+        <a class="navbar-brand" href="http://localhost:4000/">TwoFactor Assimilation</a>
       </div>
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li><a href="https://t04glovern.github.io/">/home</a></li>
-          <li><a href="https://t04glovern.github.io/archive">/archive</a></li>
-          <li><a href="https://t04glovern.github.io/projects">/projects</a></li>
-          <li><a href="https://t04glovern.github.io/tags">/tags</a></li>
-          <li><a href="https://t04glovern.github.io/about">/about</a></li>
+          <li><a href="http://localhost:4000/">/home</a></li>
+          <li><a href="http://localhost:4000/archive">/archive</a></li>
+          <li><a href="http://localhost:4000/projects">/projects</a></li>
+          <li><a href="http://localhost:4000/tags">/tags</a></li>
+          <li><a href="http://localhost:4000/about">/about</a></li>
         </ul>
       </div>
     </div>
@@ -111,7 +111,7 @@
         <div class="col-md-8">
           <div class="article">
             <div class="well">
-              <h2><a href="https://t04glovern.github.io/2016/01/arduino-projects-shift-registers">Arduino Projects - Shift Registers</a></h2>
+              <h2><a href="http://localhost:4000/2016/01/arduino-projects-shift-registers">Arduino Projects - Shift Registers</a></h2>
               <div class="post-meta">
                 <div class="post-time">
                   <i class="fa fa-calendar"></i>
@@ -119,9 +119,9 @@
                 </div>
                 <ul>
                   
-                    <li><a href="https://t04glovern.github.io/tag/arduino">arduino</a></li>
+                    <li><a href="http://localhost:4000/tag/arduino">arduino</a></li>
                   
-                    <li><a href="https://t04glovern.github.io/tag/shift register">shift register</a></li>
+                    <li><a href="http://localhost:4000/tag/shift register">shift register</a></li>
                   
                 </ul>
               </div>
@@ -142,7 +142,7 @@
 
 <p>A <code class="highlighter-rouge">shift register</code> is a device that accepts a stream of serial bits and simultaneously output the values of those bits onto parallel I/O pins. They come in handy when trying to drive a large numbers of LEDs or basically any other component that might require a vast number of outputs. The diagram below illustrates all the various inputs and outputs available on a standard shift register IC.</p>
 
-<p><img src="https://t04glovern.github.io/images/posts/2016.01.03/arduino-shift-reg-basic.png" alt="Shift Register Basic" /></p>
+<p><img src="http://localhost:4000/images/posts/2016.01.03/arduino-shift-reg-basic.png" alt="Shift Register Basic" /></p>
 
 <p>The inputs are made up of three <code class="highlighter-rouge">serial communication lines</code> that connect to the shift register from the Arduino. The eight circles represent LEDs connected to eight outputs of the shift register.</p>
 
@@ -152,7 +152,7 @@
 
 <p>Take a look at the pin-out diagram for our Shift register below</p>
 
-<p><img src="https://t04glovern.github.io/images/posts/2016.01.03/arduino-shift-pinout.png" alt="Shift Register Pinout" /></p>
+<p><img src="http://localhost:4000/images/posts/2016.01.03/arduino-shift-pinout.png" alt="Shift Register Pinout" /></p>
 
 <ol>
   <li>
@@ -193,7 +193,7 @@
 
 <p>Below depicts the process we would take if we wanted to set every other LED to the ON state (<code class="highlighter-rouge">Q(A)</code>, <code class="highlighter-rouge">Q(C)</code>, <code class="highlighter-rouge">Q(E)</code>, <code class="highlighter-rouge">Q(G)</code>). Represented in binary, we want the output of the parallel pins on the shift register to look like this: <code class="highlighter-rouge">10101010</code>.</p>
 
-<p><img src="https://t04glovern.github.io/images/posts/2016.01.03/arduino-shift-process.jpg" alt="Shift Register Process" /></p>
+<p><img src="http://localhost:4000/images/posts/2016.01.03/arduino-shift-process.jpg" alt="Shift Register Process" /></p>
 
 <p>First, the <code class="highlighter-rouge">LATCH pin</code> is set <code class="highlighter-rouge">low</code> so that the current LED states are not changed while new values are shifted in. Then, the LED states are shifted into the registers in order on the <code class="highlighter-rouge">CLOCK edge</code> from the <code class="highlighter-rouge">DATA line</code>. After all the values have been shifted in, the <code class="highlighter-rouge">LATCH pin</code> is set <code class="highlighter-rouge">high</code> again, and the values are outputted from the shift registers.</p>
 
@@ -226,11 +226,11 @@
 
 <p>Using this knowledge I went about setting up my circuit. The goal was to have eight LEDs controlled by our three pin inputs and have them display in binary; the numbers 0-255. Refer to my circuit diagram below for details on the circuit design.</p>
 
-<p><img src="https://t04glovern.github.io/images/posts/2016.01.03/arduino-shift-reg-board.png" alt="Shift Register Circuit" /></p>
+<p><img src="http://localhost:4000/images/posts/2016.01.03/arduino-shift-reg-board.png" alt="Shift Register Circuit" /></p>
 
 <p>Once you’ve wired up your circuit you’ll have something that will look at little bit like the following (yours will probably be neater than mine).</p>
 
-<p><img src="https://t04glovern.github.io/images/posts/2016.01.03/arduino-shift-reg-pic.jpg" alt="Shift Register Circuit" /></p>
+<p><img src="http://localhost:4000/images/posts/2016.01.03/arduino-shift-reg-pic.jpg" alt="Shift Register Circuit" /></p>
 
 <hr />
 
@@ -240,11 +240,11 @@
 
 <p>The code is actually super easy; We start with our pin constants along with a variable to store the current value we’re inserting into the LED</p>
 
-<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="k">const</span> <span class="kt">int</span> <span class="n">SER</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span> <span class="c1">// Serial output to shift register
-</span><span class="k">const</span> <span class="kt">int</span> <span class="n">LATCH</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span> <span class="c1">// Shift register latch pin
-</span><span class="k">const</span> <span class="kt">int</span> <span class="n">CLK</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1">// Shift register clock pin
-</span>
-<span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="o">//</span> <span class="n">Value</span> <span class="n">to</span> <span class="n">display</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="k">const</span> <span class="kt">int</span> <span class="n">SER</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span> <span class="c1">// Serial output to shift register</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">LATCH</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span> <span class="c1">// Shift register latch pin</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">CLK</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1">// Shift register clock pin</span>
+
+<span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// Value to display</span></code></pre></figure>
 
 <p>Next in the <code class="highlighter-rouge">setup()</code> we specify our pinModes</p>
 
@@ -254,22 +254,22 @@
 
 <p>Then we move down into the <code class="highlighter-rouge">loop()</code> and add first hold the <code class="highlighter-rouge">LATCH pin low</code> to start feeding our value into the shift register</p>
 
-<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LATCH</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span> <span class="o">//</span> <span class="n">Latch</span> <span class="n">low</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LATCH</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span> <span class="c1">// Latch low</span></code></pre></figure>
 
 <p>Now we use the <code class="highlighter-rouge">shiftOut()</code> function to push our value into the shift register. NOTE that the spelling of <code class="highlighter-rouge">value</code> should match the <code class="highlighter-rouge">value</code> we declared earlier on.</p>
 
-<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="n">shiftOut</span><span class="p">(</span><span class="n">SER</span><span class="p">,</span> <span class="n">CLK</span><span class="p">,</span> <span class="n">LSBFIRST</span><span class="p">,</span> <span class="n">value</span><span class="p">);</span> <span class="o">//</span> <span class="n">Shift</span> <span class="n">most</span> <span class="n">sig</span><span class="p">.</span> <span class="n">bit</span> <span class="n">first</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="n">shiftOut</span><span class="p">(</span><span class="n">SER</span><span class="p">,</span> <span class="n">CLK</span><span class="p">,</span> <span class="n">LSBFIRST</span><span class="p">,</span> <span class="n">value</span><span class="p">);</span> <span class="c1">// Shift most sig. bit first</span></code></pre></figure>
 
 <p>Finally we set the <code class="highlighter-rouge">LATCH</code> to <code class="highlighter-rouge">high</code> and push the loaded value our of the shift registers pins to light up the LEDs</p>
 
-<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LATCH</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span> <span class="o">//</span> <span class="n">Latch</span> <span class="n">high</span><span class="p">,</span> <span class="n">show</span> <span class="n">pattern</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LATCH</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span> <span class="c1">// Latch high, show pattern</span></code></pre></figure>
 
 <p>If you run the code now, you should get no LEDs lighting up. This is because we are passing in a value of 0 (as declared in the <code class="highlighter-rouge">value</code> variable); so lets go ahead and create a method of cycling from all the different numbers that we can represent in binary on our LEDs.</p>
 
 <p>The following code will increment the value of <code class="highlighter-rouge">value</code> by 1 each time the Shift register latches. If the value reaches 255, it resets back to 0 and continues.</p>
 
-<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="c1">// check value is less than the 255 limit and reset if it isn't
-</span><span class="k">if</span><span class="p">(</span><span class="n">value</span> <span class="o">&lt;</span> <span class="mi">255</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="c1">// check value is less than the 255 limit and reset if it isn't</span>
+<span class="k">if</span><span class="p">(</span><span class="n">value</span> <span class="o">&lt;</span> <span class="mi">255</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="n">value</span><span class="o">++</span><span class="p">;</span>
 <span class="p">}</span>
@@ -284,7 +284,7 @@
 
 <p>Lets run the code!</p>
 
-<p><img src="https://t04glovern.github.io/images/posts/2016.01.03/arduino-shift-demo.gif" alt="Shift Demo" /></p>
+<p><img src="http://localhost:4000/images/posts/2016.01.03/arduino-shift-demo.gif" alt="Shift Demo" /></p>
 
 <hr />
 
@@ -296,14 +296,14 @@
 
 <p>I used the Shift register circuit we built plus a simple potentiometer input. I’ve included the code and some pictures below that outline my design.</p>
 
-<p><img src="https://t04glovern.github.io/images/posts/2016.01.03/arduino-shift-reg-potent-board.png" alt="Shift Potentiometer Board" /></p>
+<p><img src="http://localhost:4000/images/posts/2016.01.03/arduino-shift-reg-potent-board.png" alt="Shift Potentiometer Board" /></p>
 
-<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="k">const</span> <span class="kt">int</span> <span class="n">SER</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span> <span class="c1">// Serial output to shift register
-</span><span class="k">const</span> <span class="kt">int</span> <span class="n">LATCH</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span> <span class="c1">// Shift register latch pin
-</span><span class="k">const</span> <span class="kt">int</span> <span class="n">CLK</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1">// Shift register clock pin
-</span>
-<span class="k">const</span> <span class="kt">int</span> <span class="n">IN</span> <span class="o">=</span> <span class="n">A0</span><span class="p">;</span> <span class="c1">// Input from potentiometer
-</span>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="k">const</span> <span class="kt">int</span> <span class="n">SER</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span> <span class="c1">// Serial output to shift register</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">LATCH</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span> <span class="c1">// Shift register latch pin</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">CLK</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1">// Shift register clock pin</span>
+
+<span class="k">const</span> <span class="kt">int</span> <span class="n">IN</span> <span class="o">=</span> <span class="n">A0</span><span class="p">;</span> <span class="c1">// Input from potentiometer</span>
+
 <span class="kt">int</span> <span class="n">potentLow</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="kt">int</span> <span class="n">potentHigh</span> <span class="o">=</span> <span class="mi">1024</span><span class="p">;</span>
 
@@ -316,19 +316,19 @@
 <span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
   <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="n">analogRead</span><span class="p">(</span><span class="n">IN</span><span class="p">);</span>
 
-  <span class="c1">// Level out highs and low inputs
-</span>  <span class="k">if</span> <span class="p">(</span><span class="n">value</span> <span class="o">&gt;</span> <span class="n">potentHigh</span><span class="p">){</span>
+  <span class="c1">// Level out highs and low inputs</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">value</span> <span class="o">&gt;</span> <span class="n">potentHigh</span><span class="p">){</span>
     <span class="n">potentHigh</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span>
   <span class="p">}</span>
   <span class="k">if</span> <span class="p">(</span><span class="n">value</span> <span class="o">&lt;</span> <span class="n">potentLow</span><span class="p">){</span>
     <span class="n">potentLow</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span>
   <span class="p">}</span>
 
-  <span class="c1">// Map output values between 0 and 255
-</span>  <span class="kt">int</span> <span class="n">valueOut</span> <span class="o">=</span> <span class="n">map</span><span class="p">(</span><span class="n">value</span><span class="p">,</span><span class="n">potentLow</span><span class="p">,</span><span class="n">potentHigh</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">);</span>
+  <span class="c1">// Map output values between 0 and 255</span>
+  <span class="kt">int</span> <span class="n">valueOut</span> <span class="o">=</span> <span class="n">map</span><span class="p">(</span><span class="n">value</span><span class="p">,</span><span class="n">potentLow</span><span class="p">,</span><span class="n">potentHigh</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">);</span>
 
-  <span class="c1">// Statically set output value based on input constraints
-</span>  <span class="k">if</span><span class="p">(</span><span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">32</span><span class="p">){</span><span class="n">valueOut</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;}</span>
+  <span class="c1">// Statically set output value based on input constraints</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">32</span><span class="p">){</span><span class="n">valueOut</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;}</span>
   <span class="k">if</span><span class="p">(</span><span class="n">value</span> <span class="o">&gt;</span> <span class="mi">32</span> <span class="o">&amp;&amp;</span> <span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">64</span><span class="p">){</span><span class="n">valueOut</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;}</span>
   <span class="k">if</span><span class="p">(</span><span class="n">value</span> <span class="o">&gt;</span> <span class="mi">64</span> <span class="o">&amp;&amp;</span> <span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">96</span><span class="p">){</span><span class="n">valueOut</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;}</span>
   <span class="k">if</span><span class="p">(</span><span class="n">value</span> <span class="o">&gt;</span> <span class="mi">96</span> <span class="o">&amp;&amp;</span> <span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">128</span><span class="p">){</span><span class="n">valueOut</span> <span class="o">=</span> <span class="mi">15</span><span class="p">;}</span>
@@ -337,14 +337,14 @@
   <span class="k">if</span><span class="p">(</span><span class="n">value</span> <span class="o">&gt;</span> <span class="mi">192</span> <span class="o">&amp;&amp;</span> <span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">224</span><span class="p">){</span><span class="n">valueOut</span> <span class="o">=</span> <span class="mi">127</span><span class="p">;}</span>
   <span class="k">if</span><span class="p">(</span><span class="n">value</span> <span class="o">&gt;</span> <span class="mi">224</span><span class="p">){</span><span class="n">valueOut</span> <span class="o">=</span> <span class="mi">255</span><span class="p">;}</span>
 
-  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LATCH</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span> <span class="c1">// Latch low
-</span>  <span class="n">shiftOut</span><span class="p">(</span><span class="n">SER</span><span class="p">,</span> <span class="n">CLK</span><span class="p">,</span> <span class="n">LSBFIRST</span><span class="p">,</span> <span class="n">valueOut</span><span class="p">);</span> <span class="c1">// Shift most sig. bit first
-</span>  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LATCH</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span> <span class="c1">// Latch high, show pattern
-</span>
+  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LATCH</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span> <span class="c1">// Latch low</span>
+  <span class="n">shiftOut</span><span class="p">(</span><span class="n">SER</span><span class="p">,</span> <span class="n">CLK</span><span class="p">,</span> <span class="n">LSBFIRST</span><span class="p">,</span> <span class="n">valueOut</span><span class="p">);</span> <span class="c1">// Shift most sig. bit first</span>
+  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LATCH</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span> <span class="c1">// Latch high, show pattern</span>
+
   <span class="n">delay</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
 <span class="p">}</span></code></pre></figure>
 
-<p><img src="https://t04glovern.github.io/images/posts/2016.01.03/arduino-shift-demo-potent.gif" alt="Shift Demo Potentiometer" /></p>
+<p><img src="http://localhost:4000/images/posts/2016.01.03/arduino-shift-demo-potent.gif" alt="Shift Demo Potentiometer" /></p>
 
 <hr />
 
@@ -383,20 +383,20 @@
 
 <!-- StumbleUpon (url, title) -->
 <!--
-<a class="btn btn-default btn-sm StumbleUpon" href="http://www.stumbleupon.com/submit?url=https://t04glovern.github.io/2016/01/arduino-projects-shift-registers&title=Arduino Projects - Shift Registers" target="_blank" class="share-btn stumbleupon">
+<a class="btn btn-default btn-sm StumbleUpon" href="http://www.stumbleupon.com/submit?url=http://localhost:4000/2016/01/arduino-projects-shift-registers&title=Arduino Projects - Shift Registers" target="_blank" class="share-btn stumbleupon">
   <i class="fa fa-stumbleupon fa-lg"></i>
   StumbleUpon
 </a>
 -->
 
 <!-- Reddit (url, title) -->
-<a class="btn btn-default btn-sm reddit" href="http://reddit.com/submit?url=https://t04glovern.github.io/2016/01/arduino-projects-shift-registers&title=Arduino Projects - Shift Registers" target="_blank" class="share-btn reddit">
+<a class="btn btn-default btn-sm reddit" href="http://reddit.com/submit?url=http://localhost:4000/2016/01/arduino-projects-shift-registers&title=Arduino Projects - Shift Registers" target="_blank" class="share-btn reddit">
   <i class="fa fa-reddit fa-lg"></i>
   Reddit
 </a>
 
 <!-- LinkedIn -->
-<a class="btn btn-default btn-sm linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=https://t04glovern.github.io/2016/01/arduino-projects-shift-registers&title=Arduino Projects - Shift Registers&source=">
+<a class="btn btn-default btn-sm linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2016/01/arduino-projects-shift-registers&title=Arduino Projects - Shift Registers&source=">
   <i class="fa fa-linkedin fa-lg"></i>
   LinkedIn
 </a>
@@ -433,7 +433,7 @@
       
         
           
-            <li><a href="https://t04glovern.github.io/2015/12/arduino-projects-ethernet-using-enc28j60">Arduino Projects - Ethernet using a ENC28J60 Ethernet Controller</a></li>
+            <li><a href="http://localhost:4000/2015/12/arduino-projects-ethernet-using-enc28j60">Arduino Projects - Ethernet using a ENC28J60 Ethernet Controller</a></li>
             
           
         
@@ -451,7 +451,7 @@
       
         
           
-            <li><a href="https://t04glovern.github.io/2015/12/arduino-project-lcd-displays">Arduino Projects - LCD Displays</a></li>
+            <li><a href="http://localhost:4000/2015/12/arduino-project-lcd-displays">Arduino Projects - LCD Displays</a></li>
             
           
         
@@ -490,7 +490,7 @@
       
         
           
-            <li><a href="https://t04glovern.github.io/2015/12/arduino-projects-thumbstick-to-rgb-led">Arduino Projects - Thumbstick to RGB LED</a></li>
+            <li><a href="http://localhost:4000/2015/12/arduino-projects-thumbstick-to-rgb-led">Arduino Projects - Thumbstick to RGB LED</a></li>
             
           
         
@@ -508,7 +508,7 @@
       
         
           
-            <li><a href="https://t04glovern.github.io/2015/12/arduino-projects-working-with-sound">Arduino Projects - Working with Sound</a></li>
+            <li><a href="http://localhost:4000/2015/12/arduino-projects-working-with-sound">Arduino Projects - Working with Sound</a></li>
             
           
         
@@ -916,7 +916,7 @@
       <footer class="footer-distributed">
       <div class="container">
         <div class="footer">
-          <p>Nathan Glover &copy; 2017</p>
+          <p>Nathan Glover &copy; 2018</p>
           <h6>Follow me</h6>
 
 <ul class="social-media">

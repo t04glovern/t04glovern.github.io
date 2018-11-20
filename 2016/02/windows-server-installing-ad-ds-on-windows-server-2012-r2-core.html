@@ -6,13 +6,13 @@
 
   <title>TwoFactor Assimilation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://t04glovern.github.io/js/jquery.min.js"></script>
-  <script src="https://t04glovern.github.io/js/bootstrap.min.js"></script>
-  <script src="https://t04glovern.github.io/js/header.js"></script>
-  <link href="https://t04glovern.github.io/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://t04glovern.github.io/css/theme.css" rel="stylesheet">
-  <link href="https://t04glovern.github.io/css/syntax.css" rel="stylesheet">
-  <link href="https://t04glovern.github.io/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <script src="http://localhost:4000/js/jquery.min.js"></script>
+  <script src="http://localhost:4000/js/bootstrap.min.js"></script>
+  <script src="http://localhost:4000/js/header.js"></script>
+  <link href="http://localhost:4000/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://localhost:4000/css/theme.css" rel="stylesheet">
+  <link href="http://localhost:4000/css/syntax.css" rel="stylesheet">
+  <link href="http://localhost:4000/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono&subset=latin">
 </head>
 
@@ -89,15 +89,15 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="https://t04glovern.github.io/">TwoFactor Assimilation</a>
+        <a class="navbar-brand" href="http://localhost:4000/">TwoFactor Assimilation</a>
       </div>
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li><a href="https://t04glovern.github.io/">/home</a></li>
-          <li><a href="https://t04glovern.github.io/archive">/archive</a></li>
-          <li><a href="https://t04glovern.github.io/projects">/projects</a></li>
-          <li><a href="https://t04glovern.github.io/tags">/tags</a></li>
-          <li><a href="https://t04glovern.github.io/about">/about</a></li>
+          <li><a href="http://localhost:4000/">/home</a></li>
+          <li><a href="http://localhost:4000/archive">/archive</a></li>
+          <li><a href="http://localhost:4000/projects">/projects</a></li>
+          <li><a href="http://localhost:4000/tags">/tags</a></li>
+          <li><a href="http://localhost:4000/about">/about</a></li>
         </ul>
       </div>
     </div>
@@ -111,7 +111,7 @@
         <div class="col-md-8">
           <div class="article">
             <div class="well">
-              <h2><a href="https://t04glovern.github.io/2016/02/windows-server-installing-ad-ds-on-windows-server-2012-r2-core">Windows Server - Installing AD DS on Windows Server 2012 R2 Core</a></h2>
+              <h2><a href="http://localhost:4000/2016/02/windows-server-installing-ad-ds-on-windows-server-2012-r2-core">Windows Server - Installing AD DS on Windows Server 2012 R2 Core</a></h2>
               <div class="post-meta">
                 <div class="post-time">
                   <i class="fa fa-calendar"></i>
@@ -119,9 +119,9 @@
                 </div>
                 <ul>
                   
-                    <li><a href="https://t04glovern.github.io/tag/ad">ad</a></li>
+                    <li><a href="http://localhost:4000/tag/ad">ad</a></li>
                   
-                    <li><a href="https://t04glovern.github.io/tag/powershell">powershell</a></li>
+                    <li><a href="http://localhost:4000/tag/powershell">powershell</a></li>
                   
                 </ul>
               </div>
@@ -153,7 +153,7 @@
 
 <p>When you first login you’ll be greeted with a very bland command prompt sporting a blinking cursor. I know it seems daunting but stick with it; you’ll find you learn a lot more when you’re given less.</p>
 
-<p><img src="https://t04glovern.github.io/images/posts/2016.02.05/ad-ds-cmdprompt.png" alt="Core Command Prompt" /></p>
+<p><img src="http://localhost:4000/images/posts/2016.02.05/ad-ds-cmdprompt.png" alt="Core Command Prompt" /></p>
 
 <p>The default command prompt won’t be enough for what we want to do, so go ahead and fire up <a href="https://msdn.microsoft.com/powershell">PowerShell</a> by simple running:</p>
 
@@ -161,11 +161,11 @@
 
 <p>You should see a small <code class="highlighter-rouge">PS</code> show up before the working directory now, this indicates that you’re working with the PowerShell…shell…. <em>shruggs</em></p>
 
-<p><img src="https://t04glovern.github.io/images/posts/2016.02.05/ad-ds-powershell.png" alt="Core PowerShell" /></p>
+<p><img src="http://localhost:4000/images/posts/2016.02.05/ad-ds-powershell.png" alt="Core PowerShell" /></p>
 
 <p>If you’re like me and hate the look/feel of the windows console, you can run <code class="highlighter-rouge">taskmgr.exe</code> and then <code class="highlighter-rouge">File &gt; Create new Task</code> and open <code class="highlighter-rouge">powershell</code></p>
 
-<p><img src="https://t04glovern.github.io/images/posts/2016.02.05/ad-ds-taskmgr-powershell.png" alt="Task Manager PowerShell" /></p>
+<p><img src="http://localhost:4000/images/posts/2016.02.05/ad-ds-taskmgr-powershell.png" alt="Task Manager PowerShell" /></p>
 
 <hr />
 
@@ -175,9 +175,9 @@
 
 <p>Our first task will be to rename the server. We’ll be using a simple PowerShell cmdlet for this:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Rename-Computer -NewName PC-Name-Here</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Rename-Computer <span class="nt">-NewName</span> PC-Name-Here</code></pre></figure>
 
-<p><img src="https://t04glovern.github.io/images/posts/2016.02.05/ad-ds-powershell-rename.png" alt="PowerShell Rename" /></p>
+<p><img src="http://localhost:4000/images/posts/2016.02.05/ad-ds-powershell-rename.png" alt="PowerShell Rename" /></p>
 
 <p>Now let’s restart the server to apply those changes. You can do this through PowerShell as well! <em>(starting to see why it’s awesome?)</em></p>
 
@@ -187,7 +187,7 @@
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$env</span>:COMPUTERNAME</code></pre></figure>
 
-<p><img src="https://t04glovern.github.io/images/posts/2016.02.05/ad-ds-powershell-rename-check.png" alt="PowerShell Rename Check" /></p>
+<p><img src="http://localhost:4000/images/posts/2016.02.05/ad-ds-powershell-rename-check.png" alt="PowerShell Rename Check" /></p>
 
 <hr />
 
@@ -203,7 +203,7 @@
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">.<span class="se">\s</span>etup.exe</code></pre></figure>
 
-<p><img src="https://t04glovern.github.io/images/posts/2016.02.05/ad-ds-powershell-check-network.png" alt="PowerShell Check Network" /></p>
+<p><img src="http://localhost:4000/images/posts/2016.02.05/ad-ds-powershell-check-network.png" alt="PowerShell Check Network" /></p>
 
 <p>Take note of the <code class="highlighter-rouge">ifIndex</code> value, in our case it’s <strong>12</strong>. This will be the interface number we reference when making changes to the IP and DNS Address settings</p>
 
@@ -216,13 +216,13 @@ DNS Server: 192.168.0.200 <span class="o">(</span>itself<span class="o">)</span>
 
 <p>I achieve this with the following two commands:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">New-NetIPAddress -InterfaceIndex 12 -IPAddress 192.168.0.200 -PrefixLength 24 -DefaultGateway 192.168.0.1</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">New-NetIPAddress <span class="nt">-InterfaceIndex</span> 12 <span class="nt">-IPAddress</span> 192.168.0.200 <span class="nt">-PrefixLength</span> 24 <span class="nt">-DefaultGateway</span> 192.168.0.1</code></pre></figure>
 
-<p><img src="https://t04glovern.github.io/images/posts/2016.02.05/ad-ds-powershell-set-network-ip.png" alt="PowerShell Set Network IP" /></p>
+<p><img src="http://localhost:4000/images/posts/2016.02.05/ad-ds-powershell-set-network-ip.png" alt="PowerShell Set Network IP" /></p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Set-DNSClientServerAddress -InterfaceIndex 12 -ServerAddresses 192.168.0.200</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Set-DNSClientServerAddress <span class="nt">-InterfaceIndex</span> 12 <span class="nt">-ServerAddresses</span> 192.168.0.200</code></pre></figure>
 
-<p><img src="https://t04glovern.github.io/images/posts/2016.02.05/ad-ds-powershell-set-network-dns.png" alt="PowerShell Set Network DNS" /></p>
+<p><img src="http://localhost:4000/images/posts/2016.02.05/ad-ds-powershell-set-network-dns.png" alt="PowerShell Set Network DNS" /></p>
 
 <hr />
 
@@ -232,9 +232,9 @@ DNS Server: 192.168.0.200 <span class="o">(</span>itself<span class="o">)</span>
 
 <p>Next we install the <code class="highlighter-rouge">AD DS Role</code> onto the server. This is done using the <code class="highlighter-rouge">Install-WindowsFeature</code> cmdlet.</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Install-WindowsFeature -Name AD-Domain-Services</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Install-WindowsFeature <span class="nt">-Name</span> AD-Domain-Services</code></pre></figure>
 
-<p><img src="https://t04glovern.github.io/images/posts/2016.02.05/ad-ds-powershell-install-role.png" alt="AD DS Role Install" /></p>
+<p><img src="http://localhost:4000/images/posts/2016.02.05/ad-ds-powershell-install-role.png" alt="AD DS Role Install" /></p>
 
 <hr />
 
@@ -246,14 +246,14 @@ DNS Server: 192.168.0.200 <span class="o">(</span>itself<span class="o">)</span>
 
 <p>Below is the full script we’re going to run in order to setup the <code class="highlighter-rouge">CONTOSO</code> domain.</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$Password</span> <span class="o">=</span> ConvertTo-SecureString -AsPlainText -String PASSWORDHERE -Force
-Install-ADDSForest -DomainName contoso.com -SafeModeAdministratorPassword <span class="nv">$Password</span> <span class="sb">`</span>
--DomainNetbiosName CONTOSO -DomainMode Win2012R2 -ForestMode Win2012R2 -DatabasePath <span class="s2">"%SYSTEMROOT%</span><span class="se">\N</span><span class="s2">TDS"</span> <span class="sb">`</span>
--LogPath <span class="s2">"%SYSTEMROOT%</span><span class="se">\N</span><span class="s2">TDS"</span> -SysvolPath <span class="s2">"%SYSTEMROOT%</span><span class="se">\S</span><span class="s2">YSVOL"</span> -NoRebootOnCompletion -InstallDns -Force</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$Password</span> <span class="o">=</span> ConvertTo-SecureString <span class="nt">-AsPlainText</span> <span class="nt">-String</span> PASSWORDHERE <span class="nt">-Force</span>
+Install-ADDSForest <span class="nt">-DomainName</span> contoso.com <span class="nt">-SafeModeAdministratorPassword</span> <span class="nv">$Password</span> <span class="sb">`</span>
+<span class="nt">-DomainNetbiosName</span> CONTOSO <span class="nt">-DomainMode</span> Win2012R2 <span class="nt">-ForestMode</span> Win2012R2 <span class="nt">-DatabasePath</span> <span class="s2">"%SYSTEMROOT%</span><span class="se">\N</span><span class="s2">TDS"</span> <span class="sb">`</span>
+<span class="nt">-LogPath</span> <span class="s2">"%SYSTEMROOT%</span><span class="se">\N</span><span class="s2">TDS"</span> <span class="nt">-SysvolPath</span> <span class="s2">"%SYSTEMROOT%</span><span class="se">\S</span><span class="s2">YSVOL"</span> <span class="nt">-NoRebootOnCompletion</span> <span class="nt">-InstallDns</span> <span class="nt">-Force</span></code></pre></figure>
 
 <p>I’ll explain each part before we execute it</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$Password</span> <span class="o">=</span> ConvertTo-SecureString -AsPlainText -String PASSWORDHERE -Force, -SafeModeAdministratorPassword <span class="nv">$Password</span> <span class="sb">`</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$Password</span> <span class="o">=</span> ConvertTo-SecureString <span class="nt">-AsPlainText</span> <span class="nt">-String</span> PASSWORDHERE <span class="nt">-Force</span>, <span class="nt">-SafeModeAdministratorPassword</span> <span class="nv">$Password</span> <span class="sb">`</span></code></pre></figure>
 
 <p>During the installation we need to provide a <code class="highlighter-rouge">Safe Mode Administrator Password</code> and unfortunately it isn’t as easy as just passing the install instructions a normal string.</p>
 
@@ -261,31 +261,31 @@ Install-ADDSForest -DomainName contoso.com -SafeModeAdministratorPassword <span 
 
 <p>The Generated secure string is stored in a <code class="highlighter-rouge">$Password</code> variable and then referenced later in our main scripts body. Be sure to also change the <code class="highlighter-rouge">-String PASSWORDHERE</code> to include your desired password.</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Install-ADDSForest -DomainName contoso.com</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Install-ADDSForest <span class="nt">-DomainName</span> contoso.com</code></pre></figure>
 
 <p>At this point we need to specify the domain name so we can create the <code class="highlighter-rouge">Domain Forest</code>. I’m using <code class="highlighter-rouge">contoso.com</code> but feel free to use what you want.</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">-DomainNetbiosName CONTOSO -DomainMode Win2012R2 -ForestMode Win2012R2</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nt">-DomainNetbiosName</span> CONTOSO <span class="nt">-DomainMode</span> Win2012R2 <span class="nt">-ForestMode</span> Win2012R2</code></pre></figure>
 
 <p>Here we specify the <code class="highlighter-rouge">NetBiosName</code> and the <a href="https://msdn.microsoft.com/en-us/library/cc771294.aspx">domain functioning level</a>. I’m just using the version of server we’re building this lab on but your situation might be different.</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">-NoRebootOnCompletion -InstallDns -Force</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nt">-NoRebootOnCompletion</span> <span class="nt">-InstallDns</span> <span class="nt">-Force</span></code></pre></figure>
 
 <p>The final important part are <code class="highlighter-rouge">-NoRebootOnCompletion</code> which does exactly what it says it will do; <code class="highlighter-rouge">-InstallDns</code> which will also install the DNS Role on this server and <code class="highlighter-rouge">-Force</code> which will unconditionally try to complete all tasks.</p>
 
 <p>Executing the full script should result in similar outputs displays below.</p>
 
-<p><img src="https://t04glovern.github.io/images/posts/2016.02.05/ad-ds-powershell-create-domain-execute.png" alt="Create Domain Forest" /></p>
+<p><img src="http://localhost:4000/images/posts/2016.02.05/ad-ds-powershell-create-domain-execute.png" alt="Create Domain Forest" /></p>
 
 <p>Let’s reboot the server and see if it worked!</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Restart-Computer -Force</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Restart-Computer <span class="nt">-Force</span></code></pre></figure>
 
-<p><img src="https://t04glovern.github.io/images/posts/2016.02.05/ad-ds-powershell-login-screen.png" alt="Login Screen" /></p>
+<p><img src="http://localhost:4000/images/posts/2016.02.05/ad-ds-powershell-login-screen.png" alt="Login Screen" /></p>
 
 <p>Awesome! Now join a client to the new domain and confirm everything works as expected. Below is an example of my management client after successfully joining my <code class="highlighter-rouge">contoso.com</code> domain.</p>
 
-<p><img src="https://t04glovern.github.io/images/posts/2016.02.05/ad-ds-powershell-joined-domain.png" alt="Domain Join Successful" /></p>
+<p><img src="http://localhost:4000/images/posts/2016.02.05/ad-ds-powershell-joined-domain.png" alt="Domain Join Successful" /></p>
 
 <hr />
 
@@ -312,7 +312,7 @@ Install-ADDSForest -DomainName contoso.com -SafeModeAdministratorPassword <span 
 
 <p>For Active directory management I would recommend using the <code class="highlighter-rouge">Active Directory Administrative Center</code> which can be found under <code class="highlighter-rouge">Administrative Tools</code>. It gives you a lot of control over all the various components of Active Directory and also provides a nice interface.</p>
 
-<p><img src="https://t04glovern.github.io/images/posts/2016.02.05/ad-ds-rsat-create-user.png" alt="RSAT User Create" /></p>
+<p><img src="http://localhost:4000/images/posts/2016.02.05/ad-ds-rsat-create-user.png" alt="RSAT User Create" /></p>
 
 <hr />
 
@@ -322,7 +322,7 @@ Install-ADDSForest -DomainName contoso.com -SafeModeAdministratorPassword <span 
 
 <p>You will also notice that when you commit changes, a <code class="highlighter-rouge">PowerShell history</code> entry is created along the bottom of the page. This gives you an idea of some of the various commands you can use to perform the same operations you just made with the GUI.</p>
 
-<p><img src="https://t04glovern.github.io/images/posts/2016.02.05/ad-ds-rsat-create-user-powershell.png" alt="RSAT User Create PowerShell" /></p>
+<p><img src="http://localhost:4000/images/posts/2016.02.05/ad-ds-rsat-create-user-powershell.png" alt="RSAT User Create PowerShell" /></p>
 
 <hr />
 
@@ -361,20 +361,20 @@ Install-ADDSForest -DomainName contoso.com -SafeModeAdministratorPassword <span 
 
 <!-- StumbleUpon (url, title) -->
 <!--
-<a class="btn btn-default btn-sm StumbleUpon" href="http://www.stumbleupon.com/submit?url=https://t04glovern.github.io/2016/02/windows-server-installing-ad-ds-on-windows-server-2012-r2-core&title=Windows Server - Installing AD DS on Windows Server 2012 R2 Core" target="_blank" class="share-btn stumbleupon">
+<a class="btn btn-default btn-sm StumbleUpon" href="http://www.stumbleupon.com/submit?url=http://localhost:4000/2016/02/windows-server-installing-ad-ds-on-windows-server-2012-r2-core&title=Windows Server - Installing AD DS on Windows Server 2012 R2 Core" target="_blank" class="share-btn stumbleupon">
   <i class="fa fa-stumbleupon fa-lg"></i>
   StumbleUpon
 </a>
 -->
 
 <!-- Reddit (url, title) -->
-<a class="btn btn-default btn-sm reddit" href="http://reddit.com/submit?url=https://t04glovern.github.io/2016/02/windows-server-installing-ad-ds-on-windows-server-2012-r2-core&title=Windows Server - Installing AD DS on Windows Server 2012 R2 Core" target="_blank" class="share-btn reddit">
+<a class="btn btn-default btn-sm reddit" href="http://reddit.com/submit?url=http://localhost:4000/2016/02/windows-server-installing-ad-ds-on-windows-server-2012-r2-core&title=Windows Server - Installing AD DS on Windows Server 2012 R2 Core" target="_blank" class="share-btn reddit">
   <i class="fa fa-reddit fa-lg"></i>
   Reddit
 </a>
 
 <!-- LinkedIn -->
-<a class="btn btn-default btn-sm linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=https://t04glovern.github.io/2016/02/windows-server-installing-ad-ds-on-windows-server-2012-r2-core&title=Windows Server - Installing AD DS on Windows Server 2012 R2 Core&source=">
+<a class="btn btn-default btn-sm linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2016/02/windows-server-installing-ad-ds-on-windows-server-2012-r2-core&title=Windows Server - Installing AD DS on Windows Server 2012 R2 Core&source=">
   <i class="fa fa-linkedin fa-lg"></i>
   LinkedIn
 </a>
@@ -882,7 +882,7 @@ Install-ADDSForest -DomainName contoso.com -SafeModeAdministratorPassword <span 
       <footer class="footer-distributed">
       <div class="container">
         <div class="footer">
-          <p>Nathan Glover &copy; 2017</p>
+          <p>Nathan Glover &copy; 2018</p>
           <h6>Follow me</h6>
 
 <ul class="social-media">

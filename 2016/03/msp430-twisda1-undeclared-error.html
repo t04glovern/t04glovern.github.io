@@ -6,13 +6,13 @@
 
   <title>TwoFactor Assimilation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://t04glovern.github.io/js/jquery.min.js"></script>
-  <script src="https://t04glovern.github.io/js/bootstrap.min.js"></script>
-  <script src="https://t04glovern.github.io/js/header.js"></script>
-  <link href="https://t04glovern.github.io/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://t04glovern.github.io/css/theme.css" rel="stylesheet">
-  <link href="https://t04glovern.github.io/css/syntax.css" rel="stylesheet">
-  <link href="https://t04glovern.github.io/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <script src="http://localhost:4000/js/jquery.min.js"></script>
+  <script src="http://localhost:4000/js/bootstrap.min.js"></script>
+  <script src="http://localhost:4000/js/header.js"></script>
+  <link href="http://localhost:4000/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://localhost:4000/css/theme.css" rel="stylesheet">
+  <link href="http://localhost:4000/css/syntax.css" rel="stylesheet">
+  <link href="http://localhost:4000/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono&subset=latin">
 </head>
 
@@ -89,15 +89,15 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="https://t04glovern.github.io/">TwoFactor Assimilation</a>
+        <a class="navbar-brand" href="http://localhost:4000/">TwoFactor Assimilation</a>
       </div>
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li><a href="https://t04glovern.github.io/">/home</a></li>
-          <li><a href="https://t04glovern.github.io/archive">/archive</a></li>
-          <li><a href="https://t04glovern.github.io/projects">/projects</a></li>
-          <li><a href="https://t04glovern.github.io/tags">/tags</a></li>
-          <li><a href="https://t04glovern.github.io/about">/about</a></li>
+          <li><a href="http://localhost:4000/">/home</a></li>
+          <li><a href="http://localhost:4000/archive">/archive</a></li>
+          <li><a href="http://localhost:4000/projects">/projects</a></li>
+          <li><a href="http://localhost:4000/tags">/tags</a></li>
+          <li><a href="http://localhost:4000/about">/about</a></li>
         </ul>
       </div>
     </div>
@@ -111,7 +111,7 @@
         <div class="col-md-8">
           <div class="article">
             <div class="well">
-              <h2><a href="https://t04glovern.github.io/2016/03/msp430-twisda1-undeclared-error">MSP430 - 'TWISDA1' undeclared error</a></h2>
+              <h2><a href="http://localhost:4000/2016/03/msp430-twisda1-undeclared-error">MSP430 - 'TWISDA1' undeclared error</a></h2>
               <div class="post-meta">
                 <div class="post-time">
                   <i class="fa fa-calendar"></i>
@@ -119,9 +119,9 @@
                 </div>
                 <ul>
                   
-                    <li><a href="https://t04glovern.github.io/tag/msp430">msp430</a></li>
+                    <li><a href="http://localhost:4000/tag/msp430">msp430</a></li>
                   
-                    <li><a href="https://t04glovern.github.io/tag/energia">energia</a></li>
+                    <li><a href="http://localhost:4000/tag/energia">energia</a></li>
                   
                 </ul>
               </div>
@@ -178,13 +178,13 @@ C:<span class="se">\P</span>rogram Files <span class="o">(</span>x86<span class=
 
 <p>Ensure you have <a href="http://www.git-scm.com/">git</a> installed and clone the repo to a desired location on your hard drive</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git clone --recursive https://github.com/energia/Energia.git</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git clone <span class="nt">--recursive</span> https://github.com/energia/Energia.git</code></pre></figure>
 
 <p>If you already have a clone of Energia then:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git submodule update --init --recursive
-git submodule sync
-<span class="nb">cd </span>emt
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git submodule update <span class="nt">--init</span> <span class="nt">--recursive</span>
+git submodule <span class="nb">sync
+cd </span>emt
 git pull
 <span class="nb">cd</span> ..</code></pre></figure>
 
@@ -202,13 +202,13 @@ git pull
 
 <figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#if DEFAULT_I2C == -1 </span><span class="cm">/* indicates SW I2C on pseudo module 1 */</span></code></pre></figure>
 
-<p><img src="https://t04glovern.github.io/images/posts/2016.03.05/energia-line-change-1.png" alt="Line Change 1" /></p>
+<p><img src="http://localhost:4000/images/posts/2016.03.05/energia-line-change-1.png" alt="Line Change 1" /></p>
 
 <p>On the last line in the file (just after the last bracket) add your endif statement</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#endif // #if DEFAULT_I2C = -1 /* indicates SW I2C on pseudo module 1 */</span></code></pre></figure>
 
-<p><img src="https://t04glovern.github.io/images/posts/2016.03.05/energia-line-change-2.png" alt="Line Change 2" /></p>
+<p><img src="http://localhost:4000/images/posts/2016.03.05/energia-line-change-2.png" alt="Line Change 2" /></p>
 
 <hr />
 
@@ -245,20 +245,20 @@ git pull
 
 <!-- StumbleUpon (url, title) -->
 <!--
-<a class="btn btn-default btn-sm StumbleUpon" href="http://www.stumbleupon.com/submit?url=https://t04glovern.github.io/2016/03/msp430-twisda1-undeclared-error&title=MSP430 - 'TWISDA1' undeclared error" target="_blank" class="share-btn stumbleupon">
+<a class="btn btn-default btn-sm StumbleUpon" href="http://www.stumbleupon.com/submit?url=http://localhost:4000/2016/03/msp430-twisda1-undeclared-error&title=MSP430 - 'TWISDA1' undeclared error" target="_blank" class="share-btn stumbleupon">
   <i class="fa fa-stumbleupon fa-lg"></i>
   StumbleUpon
 </a>
 -->
 
 <!-- Reddit (url, title) -->
-<a class="btn btn-default btn-sm reddit" href="http://reddit.com/submit?url=https://t04glovern.github.io/2016/03/msp430-twisda1-undeclared-error&title=MSP430 - 'TWISDA1' undeclared error" target="_blank" class="share-btn reddit">
+<a class="btn btn-default btn-sm reddit" href="http://reddit.com/submit?url=http://localhost:4000/2016/03/msp430-twisda1-undeclared-error&title=MSP430 - 'TWISDA1' undeclared error" target="_blank" class="share-btn reddit">
   <i class="fa fa-reddit fa-lg"></i>
   Reddit
 </a>
 
 <!-- LinkedIn -->
-<a class="btn btn-default btn-sm linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=https://t04glovern.github.io/2016/03/msp430-twisda1-undeclared-error&title=MSP430 - 'TWISDA1' undeclared error&source=">
+<a class="btn btn-default btn-sm linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2016/03/msp430-twisda1-undeclared-error&title=MSP430 - 'TWISDA1' undeclared error&source=">
   <i class="fa fa-linkedin fa-lg"></i>
   LinkedIn
 </a>
@@ -766,7 +766,7 @@ git pull
       <footer class="footer-distributed">
       <div class="container">
         <div class="footer">
-          <p>Nathan Glover &copy; 2017</p>
+          <p>Nathan Glover &copy; 2018</p>
           <h6>Follow me</h6>
 
 <ul class="social-media">
