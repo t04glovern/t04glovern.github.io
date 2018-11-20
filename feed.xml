@@ -3,87 +3,87 @@
 	<channel>
 		<title>TwoFactor Assimilation</title>
 		<description>Tech Enthusiast</description>
-		<link>http://localhost:4000</link>
-		<atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+		<link>https://t04glovern.github.io</link>
+		<atom:link href="https://t04glovern.github.io/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
 				<title>CCNAS - Command Reference</title>
 				<description>I analyse a number of command line tools required for CCNAS Hand on exam</description>
 				<pubDate>Sun, 18 Sep 2016 00:00:00 +0800</pubDate>
-				<link>http://localhost:4000/2016/09/ccnas-command-reference</link>
-				<guid isPermaLink="true">http://localhost:4000/2016/09/ccnas-command-reference</guid>
+				<link>https://t04glovern.github.io/2016/09/ccnas-command-reference</link>
+				<guid isPermaLink="true">https://t04glovern.github.io/2016/09/ccnas-command-reference</guid>
 			</item>
 		
 			<item>
 				<title>CCNAS - Practice Skills Assessment</title>
 				<description>A general overview of skills required for the CCNAS Practical Assessment</description>
 				<pubDate>Mon, 05 Sep 2016 00:00:00 +0800</pubDate>
-				<link>http://localhost:4000/2016/09/ccnas-practice-skills-assessment</link>
-				<guid isPermaLink="true">http://localhost:4000/2016/09/ccnas-practice-skills-assessment</guid>
+				<link>https://t04glovern.github.io/2016/09/ccnas-practice-skills-assessment</link>
+				<guid isPermaLink="true">https://t04glovern.github.io/2016/09/ccnas-practice-skills-assessment</guid>
 			</item>
 		
 			<item>
 				<title>CCNA4 - Practice Skills Assessment</title>
 				<description>A general overview of skills required for the CCNA4 Practical Assessment</description>
 				<pubDate>Sat, 04 Jun 2016 00:00:00 +0800</pubDate>
-				<link>http://localhost:4000/2016/06/ccna4-practice-skills-assessment</link>
-				<guid isPermaLink="true">http://localhost:4000/2016/06/ccna4-practice-skills-assessment</guid>
+				<link>https://t04glovern.github.io/2016/06/ccna4-practice-skills-assessment</link>
+				<guid isPermaLink="true">https://t04glovern.github.io/2016/06/ccna4-practice-skills-assessment</guid>
 			</item>
 		
 			<item>
 				<title>OneNote - Tips and Tricks</title>
 				<description>Make OneNote better</description>
 				<pubDate>Thu, 12 May 2016 00:00:00 +0800</pubDate>
-				<link>http://localhost:4000/2016/05/onenote-tips-tricks</link>
-				<guid isPermaLink="true">http://localhost:4000/2016/05/onenote-tips-tricks</guid>
+				<link>https://t04glovern.github.io/2016/05/onenote-tips-tricks</link>
+				<guid isPermaLink="true">https://t04glovern.github.io/2016/05/onenote-tips-tricks</guid>
 			</item>
 		
 			<item>
 				<title>CCNA3 - OSPF Practice Skills Assessment</title>
 				<description>I walkthrough the general process for sitting the CCNA3 OSPF Skills Assessment</description>
 				<pubDate>Mon, 18 Apr 2016 00:00:00 +0800</pubDate>
-				<link>http://localhost:4000/2016/04/ccna3-ospf-practice-skills-assessment</link>
-				<guid isPermaLink="true">http://localhost:4000/2016/04/ccna3-ospf-practice-skills-assessment</guid>
+				<link>https://t04glovern.github.io/2016/04/ccna3-ospf-practice-skills-assessment</link>
+				<guid isPermaLink="true">https://t04glovern.github.io/2016/04/ccna3-ospf-practice-skills-assessment</guid>
 			</item>
 		
 			<item>
 				<title>CCNA - CLI References</title>
 				<description>Some quick helpful notes for CISCO IOS devices</description>
 				<pubDate>Mon, 18 Apr 2016 00:00:00 +0800</pubDate>
-				<link>http://localhost:4000/2016/04/ccna-cli-references</link>
-				<guid isPermaLink="true">http://localhost:4000/2016/04/ccna-cli-references</guid>
+				<link>https://t04glovern.github.io/2016/04/ccna-cli-references</link>
+				<guid isPermaLink="true">https://t04glovern.github.io/2016/04/ccna-cli-references</guid>
 			</item>
 		
 			<item>
 				<title>MSP430 - 'TWISDA1' undeclared error</title>
 				<description>Instructions to resolve 'TWISDA1' undeclared errors in Energia 17</description>
 				<pubDate>Sat, 05 Mar 2016 00:00:00 +0800</pubDate>
-				<link>http://localhost:4000/2016/03/msp430-twisda1-undeclared-error</link>
-				<guid isPermaLink="true">http://localhost:4000/2016/03/msp430-twisda1-undeclared-error</guid>
+				<link>https://t04glovern.github.io/2016/03/msp430-twisda1-undeclared-error</link>
+				<guid isPermaLink="true">https://t04glovern.github.io/2016/03/msp430-twisda1-undeclared-error</guid>
 			</item>
 		
 			<item>
 				<title>What if Operating Systems were airlines?</title>
 				<description>A humorous post description of various operating systems re-imagined as if they were airlines</description>
 				<pubDate>Fri, 26 Feb 2016 00:00:00 +0800</pubDate>
-				<link>http://localhost:4000/2016/02/what-if-operating-systems-were-airlines</link>
-				<guid isPermaLink="true">http://localhost:4000/2016/02/what-if-operating-systems-were-airlines</guid>
+				<link>https://t04glovern.github.io/2016/02/what-if-operating-systems-were-airlines</link>
+				<guid isPermaLink="true">https://t04glovern.github.io/2016/02/what-if-operating-systems-were-airlines</guid>
 			</item>
 		
 			<item>
 				<title>Raspberry Pi - Installing Manjaro ARM</title>
 				<description>I go through the steps required in order to get Manjaro ARM installed on a Raspberry Pi 2</description>
 				<pubDate>Tue, 09 Feb 2016 00:00:00 +0800</pubDate>
-				<link>http://localhost:4000/2016/02/raspberry-pi-installing-manjaro-arm</link>
-				<guid isPermaLink="true">http://localhost:4000/2016/02/raspberry-pi-installing-manjaro-arm</guid>
+				<link>https://t04glovern.github.io/2016/02/raspberry-pi-installing-manjaro-arm</link>
+				<guid isPermaLink="true">https://t04glovern.github.io/2016/02/raspberry-pi-installing-manjaro-arm</guid>
 			</item>
 		
 			<item>
 				<title>Windows Server - Installing AD DS on Windows Server 2012 R2 Core</title>
 				<description>The process required to setup Active Directory Domain Services on Windows Server 2012 R2 Core</description>
 				<pubDate>Fri, 05 Feb 2016 00:00:00 +0800</pubDate>
-				<link>http://localhost:4000/2016/02/windows-server-installing-ad-ds-on-windows-server-2012-r2-core</link>
-				<guid isPermaLink="true">http://localhost:4000/2016/02/windows-server-installing-ad-ds-on-windows-server-2012-r2-core</guid>
+				<link>https://t04glovern.github.io/2016/02/windows-server-installing-ad-ds-on-windows-server-2012-r2-core</link>
+				<guid isPermaLink="true">https://t04glovern.github.io/2016/02/windows-server-installing-ad-ds-on-windows-server-2012-r2-core</guid>
 			</item>
 		
 	</channel>

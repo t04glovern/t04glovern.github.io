@@ -6,13 +6,13 @@
 
   <title>TwoFactor Assimilation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="http://localhost:4000/js/jquery.min.js"></script>
-  <script src="http://localhost:4000/js/bootstrap.min.js"></script>
-  <script src="http://localhost:4000/js/header.js"></script>
-  <link href="http://localhost:4000/css/bootstrap.min.css" rel="stylesheet">
-  <link href="http://localhost:4000/css/theme.css" rel="stylesheet">
-  <link href="http://localhost:4000/css/syntax.css" rel="stylesheet">
-  <link href="http://localhost:4000/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <script src="https://t04glovern.github.io/js/jquery.min.js"></script>
+  <script src="https://t04glovern.github.io/js/bootstrap.min.js"></script>
+  <script src="https://t04glovern.github.io/js/header.js"></script>
+  <link href="https://t04glovern.github.io/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://t04glovern.github.io/css/theme.css" rel="stylesheet">
+  <link href="https://t04glovern.github.io/css/syntax.css" rel="stylesheet">
+  <link href="https://t04glovern.github.io/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono&subset=latin">
 </head>
 
@@ -89,15 +89,15 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="http://localhost:4000/">TwoFactor Assimilation</a>
+        <a class="navbar-brand" href="https://t04glovern.github.io/">TwoFactor Assimilation</a>
       </div>
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li><a href="http://localhost:4000/">/home</a></li>
-          <li><a href="http://localhost:4000/archive">/archive</a></li>
-          <li><a href="http://localhost:4000/projects">/projects</a></li>
-          <li><a href="http://localhost:4000/tags">/tags</a></li>
-          <li><a href="http://localhost:4000/about">/about</a></li>
+          <li><a href="https://t04glovern.github.io/">/home</a></li>
+          <li><a href="https://t04glovern.github.io/archive">/archive</a></li>
+          <li><a href="https://t04glovern.github.io/projects">/projects</a></li>
+          <li><a href="https://t04glovern.github.io/tags">/tags</a></li>
+          <li><a href="https://t04glovern.github.io/about">/about</a></li>
         </ul>
       </div>
     </div>
@@ -111,7 +111,7 @@
         <div class="col-md-8">
           <div class="article">
             <div class="well">
-              <h2><a href="http://localhost:4000/2016/02/raspberry-pi-installing-manjaro-arm">Raspberry Pi - Installing Manjaro ARM</a></h2>
+              <h2><a href="https://t04glovern.github.io/2016/02/raspberry-pi-installing-manjaro-arm">Raspberry Pi - Installing Manjaro ARM</a></h2>
               <div class="post-meta">
                 <div class="post-time">
                   <i class="fa fa-calendar"></i>
@@ -119,9 +119,9 @@
                 </div>
                 <ul>
                   
-                    <li><a href="http://localhost:4000/tag/arm">arm</a></li>
+                    <li><a href="https://t04glovern.github.io/tag/arm">arm</a></li>
                   
-                    <li><a href="http://localhost:4000/tag/pi">pi</a></li>
+                    <li><a href="https://t04glovern.github.io/tag/pi">pi</a></li>
                   
                 </ul>
               </div>
@@ -156,7 +156,7 @@
 <span class="nv">$ </span><span class="nb">mkdir </span>root
 <span class="nv">$ </span><span class="nb">mkdir </span>boot</code></pre></figure>
 
-<p><img src="http://localhost:4000/images/posts/2016.02.09/manjaro-arm-home-folder.png" alt="Manjaro ARM Home Directory" /></p>
+<p><img src="https://t04glovern.github.io/images/posts/2016.02.09/manjaro-arm-home-folder.png" alt="Manjaro ARM Home Directory" /></p>
 
 <p>You’ll also notice I have copies of both the <code class="highlighter-rouge">tar.gz</code> builds. I’ll only be using <code class="highlighter-rouge">Manjaro-Arm_Base_16.01-alpha1.tar.gz</code> from this point on.</p>
 
@@ -168,7 +168,7 @@
 
 <p>Insert the MicroSD card into an adapter on your Linux computer and run <code class="highlighter-rouge">lsblk</code> to see if the device is registered. You will get an output similar to the following.</p>
 
-<p><img src="http://localhost:4000/images/posts/2016.02.09/manjaro-arm-lsblk.png" alt="Manjaro ARM lsblk" /></p>
+<p><img src="https://t04glovern.github.io/images/posts/2016.02.09/manjaro-arm-lsblk.png" alt="Manjaro ARM lsblk" /></p>
 
 <p>In my case the MicroSD is registered as <code class="highlighter-rouge">sdc</code> and has existing partitions on it already (probably an old rasbian image). You might have slightly different device names; so expect something like <code class="highlighter-rouge">mmcblk1</code>. Note down the name of the registered device, you’ll need it for the next part.</p>
 
@@ -183,14 +183,14 @@
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">sudo </span>su</code></pre></figure>
 
-<p><img src="http://localhost:4000/images/posts/2016.02.09/manjaro-arm-su-sudo.png" alt="Manjaro ARM sudo" /></p>
+<p><img src="https://t04glovern.github.io/images/posts/2016.02.09/manjaro-arm-su-sudo.png" alt="Manjaro ARM sudo" /></p>
 
 <p>Now run our disk partitioning tool <code class="highlighter-rouge">fdisk</code></p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># fdisk /dev/sdc</span>
   <span class="o">(</span>replace sdc with your devices registered name<span class="o">)</span></code></pre></figure>
 
-<p><img src="http://localhost:4000/images/posts/2016.02.09/manjaro-arm-fdisk.png" alt="Manjaro ARM fdisk" /></p>
+<p><img src="https://t04glovern.github.io/images/posts/2016.02.09/manjaro-arm-fdisk.png" alt="Manjaro ARM fdisk" /></p>
 
 <p>You’ll be greeted with an input cursor. <code class="highlighter-rouge">Carefully</code> run the following commands in order.</p>
 
@@ -209,8 +209,8 @@ press enter twice to <span class="k">select </span>the default start and end sec
 
 <p>Your output should look similar to the following:</p>
 
-<p><img src="http://localhost:4000/images/posts/2016.02.09/manjaro-arm-fdisk-1.png" alt="Manjaro ARM fdisk 1" />
-<img src="http://localhost:4000/images/posts/2016.02.09/manjaro-arm-fdisk-2.png" alt="Manjaro ARM fdisk 2" /></p>
+<p><img src="https://t04glovern.github.io/images/posts/2016.02.09/manjaro-arm-fdisk-1.png" alt="Manjaro ARM fdisk 1" />
+<img src="https://t04glovern.github.io/images/posts/2016.02.09/manjaro-arm-fdisk-2.png" alt="Manjaro ARM fdisk 2" /></p>
 
 <hr />
 
@@ -227,7 +227,7 @@ press enter twice to <span class="k">select </span>the default start and end sec
 
 <p>You might be prompted to erase a current file system, just <code class="highlighter-rouge">y</code> the prompt. Your output again will look similar to the following:</p>
 
-<p><img src="http://localhost:4000/images/posts/2016.02.09/manjaro-arm-mkfs.png" alt="Manjaro ARM mkfs" /></p>
+<p><img src="https://t04glovern.github.io/images/posts/2016.02.09/manjaro-arm-mkfs.png" alt="Manjaro ARM mkfs" /></p>
 
 <p>Now we just have to <code class="highlighter-rouge">mount</code> the filesystems. This is done with the following commands:</p>
 
@@ -244,7 +244,7 @@ press enter twice to <span class="k">select </span>the default start and end sec
 
 <p>This part will take some but once it completes you should see the populated filesystem under the root folder in your home directory</p>
 
-<p><img src="http://localhost:4000/images/posts/2016.02.09/manjaro-arm-root-folder.png" alt="Manjaro ARM root folder" /></p>
+<p><img src="https://t04glovern.github.io/images/posts/2016.02.09/manjaro-arm-root-folder.png" alt="Manjaro ARM root folder" /></p>
 
 <p>After the <code class="highlighter-rouge">Tarball</code> is extracted, we need to <code class="highlighter-rouge">move</code> the <code class="highlighter-rouge">boot files</code> over to the boot partition. This can be done easily with the following:</p>
 
@@ -253,7 +253,7 @@ press enter twice to <span class="k">select </span>the default start and end sec
 
 <p><strong>NOTE:</strong> You might get errors similar to the following regarding failure to preserve ownership. Don’t worry about it too much, the process still works regardless.</p>
 
-<p><img src="http://localhost:4000/images/posts/2016.02.09/manjaro-arm-ownership.png" alt="Manjaro ARM ownership" /></p>
+<p><img src="https://t04glovern.github.io/images/posts/2016.02.09/manjaro-arm-ownership.png" alt="Manjaro ARM ownership" /></p>
 
 <p>Finally just unmount the sdcard and you’re good to remove it from the system</p>
 
@@ -278,7 +278,7 @@ press enter twice to <span class="k">select </span>the default start and end sec
 
 <p>If you opted for the full build the system will automatically log you in as the <code class="highlighter-rouge">manjaro</code> user account</p>
 
-<p><img src="http://localhost:4000/images/posts/2016.02.09/manjaro-arm-manjaro-gui.png" alt="Manjaro ARM booted gui" /></p>
+<p><img src="https://t04glovern.github.io/images/posts/2016.02.09/manjaro-arm-manjaro-gui.png" alt="Manjaro ARM booted gui" /></p>
 
 <hr />
 
@@ -315,20 +315,20 @@ press enter twice to <span class="k">select </span>the default start and end sec
 
 <!-- StumbleUpon (url, title) -->
 <!--
-<a class="btn btn-default btn-sm StumbleUpon" href="http://www.stumbleupon.com/submit?url=http://localhost:4000/2016/02/raspberry-pi-installing-manjaro-arm&title=Raspberry Pi - Installing Manjaro ARM" target="_blank" class="share-btn stumbleupon">
+<a class="btn btn-default btn-sm StumbleUpon" href="http://www.stumbleupon.com/submit?url=https://t04glovern.github.io/2016/02/raspberry-pi-installing-manjaro-arm&title=Raspberry Pi - Installing Manjaro ARM" target="_blank" class="share-btn stumbleupon">
   <i class="fa fa-stumbleupon fa-lg"></i>
   StumbleUpon
 </a>
 -->
 
 <!-- Reddit (url, title) -->
-<a class="btn btn-default btn-sm reddit" href="http://reddit.com/submit?url=http://localhost:4000/2016/02/raspberry-pi-installing-manjaro-arm&title=Raspberry Pi - Installing Manjaro ARM" target="_blank" class="share-btn reddit">
+<a class="btn btn-default btn-sm reddit" href="http://reddit.com/submit?url=https://t04glovern.github.io/2016/02/raspberry-pi-installing-manjaro-arm&title=Raspberry Pi - Installing Manjaro ARM" target="_blank" class="share-btn reddit">
   <i class="fa fa-reddit fa-lg"></i>
   Reddit
 </a>
 
 <!-- LinkedIn -->
-<a class="btn btn-default btn-sm linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2016/02/raspberry-pi-installing-manjaro-arm&title=Raspberry Pi - Installing Manjaro ARM&source=">
+<a class="btn btn-default btn-sm linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=https://t04glovern.github.io/2016/02/raspberry-pi-installing-manjaro-arm&title=Raspberry Pi - Installing Manjaro ARM&source=">
   <i class="fa fa-linkedin fa-lg"></i>
   LinkedIn
 </a>

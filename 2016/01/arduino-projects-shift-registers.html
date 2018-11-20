@@ -6,13 +6,13 @@
 
   <title>TwoFactor Assimilation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="http://localhost:4000/js/jquery.min.js"></script>
-  <script src="http://localhost:4000/js/bootstrap.min.js"></script>
-  <script src="http://localhost:4000/js/header.js"></script>
-  <link href="http://localhost:4000/css/bootstrap.min.css" rel="stylesheet">
-  <link href="http://localhost:4000/css/theme.css" rel="stylesheet">
-  <link href="http://localhost:4000/css/syntax.css" rel="stylesheet">
-  <link href="http://localhost:4000/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <script src="https://t04glovern.github.io/js/jquery.min.js"></script>
+  <script src="https://t04glovern.github.io/js/bootstrap.min.js"></script>
+  <script src="https://t04glovern.github.io/js/header.js"></script>
+  <link href="https://t04glovern.github.io/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://t04glovern.github.io/css/theme.css" rel="stylesheet">
+  <link href="https://t04glovern.github.io/css/syntax.css" rel="stylesheet">
+  <link href="https://t04glovern.github.io/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono&subset=latin">
 </head>
 
@@ -89,15 +89,15 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="http://localhost:4000/">TwoFactor Assimilation</a>
+        <a class="navbar-brand" href="https://t04glovern.github.io/">TwoFactor Assimilation</a>
       </div>
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li><a href="http://localhost:4000/">/home</a></li>
-          <li><a href="http://localhost:4000/archive">/archive</a></li>
-          <li><a href="http://localhost:4000/projects">/projects</a></li>
-          <li><a href="http://localhost:4000/tags">/tags</a></li>
-          <li><a href="http://localhost:4000/about">/about</a></li>
+          <li><a href="https://t04glovern.github.io/">/home</a></li>
+          <li><a href="https://t04glovern.github.io/archive">/archive</a></li>
+          <li><a href="https://t04glovern.github.io/projects">/projects</a></li>
+          <li><a href="https://t04glovern.github.io/tags">/tags</a></li>
+          <li><a href="https://t04glovern.github.io/about">/about</a></li>
         </ul>
       </div>
     </div>
@@ -111,7 +111,7 @@
         <div class="col-md-8">
           <div class="article">
             <div class="well">
-              <h2><a href="http://localhost:4000/2016/01/arduino-projects-shift-registers">Arduino Projects - Shift Registers</a></h2>
+              <h2><a href="https://t04glovern.github.io/2016/01/arduino-projects-shift-registers">Arduino Projects - Shift Registers</a></h2>
               <div class="post-meta">
                 <div class="post-time">
                   <i class="fa fa-calendar"></i>
@@ -119,9 +119,9 @@
                 </div>
                 <ul>
                   
-                    <li><a href="http://localhost:4000/tag/arduino">arduino</a></li>
+                    <li><a href="https://t04glovern.github.io/tag/arduino">arduino</a></li>
                   
-                    <li><a href="http://localhost:4000/tag/shift register">shift register</a></li>
+                    <li><a href="https://t04glovern.github.io/tag/shift register">shift register</a></li>
                   
                 </ul>
               </div>
@@ -142,7 +142,7 @@
 
 <p>A <code class="highlighter-rouge">shift register</code> is a device that accepts a stream of serial bits and simultaneously output the values of those bits onto parallel I/O pins. They come in handy when trying to drive a large numbers of LEDs or basically any other component that might require a vast number of outputs. The diagram below illustrates all the various inputs and outputs available on a standard shift register IC.</p>
 
-<p><img src="http://localhost:4000/images/posts/2016.01.03/arduino-shift-reg-basic.png" alt="Shift Register Basic" /></p>
+<p><img src="https://t04glovern.github.io/images/posts/2016.01.03/arduino-shift-reg-basic.png" alt="Shift Register Basic" /></p>
 
 <p>The inputs are made up of three <code class="highlighter-rouge">serial communication lines</code> that connect to the shift register from the Arduino. The eight circles represent LEDs connected to eight outputs of the shift register.</p>
 
@@ -152,7 +152,7 @@
 
 <p>Take a look at the pin-out diagram for our Shift register below</p>
 
-<p><img src="http://localhost:4000/images/posts/2016.01.03/arduino-shift-pinout.png" alt="Shift Register Pinout" /></p>
+<p><img src="https://t04glovern.github.io/images/posts/2016.01.03/arduino-shift-pinout.png" alt="Shift Register Pinout" /></p>
 
 <ol>
   <li>
@@ -193,7 +193,7 @@
 
 <p>Below depicts the process we would take if we wanted to set every other LED to the ON state (<code class="highlighter-rouge">Q(A)</code>, <code class="highlighter-rouge">Q(C)</code>, <code class="highlighter-rouge">Q(E)</code>, <code class="highlighter-rouge">Q(G)</code>). Represented in binary, we want the output of the parallel pins on the shift register to look like this: <code class="highlighter-rouge">10101010</code>.</p>
 
-<p><img src="http://localhost:4000/images/posts/2016.01.03/arduino-shift-process.jpg" alt="Shift Register Process" /></p>
+<p><img src="https://t04glovern.github.io/images/posts/2016.01.03/arduino-shift-process.jpg" alt="Shift Register Process" /></p>
 
 <p>First, the <code class="highlighter-rouge">LATCH pin</code> is set <code class="highlighter-rouge">low</code> so that the current LED states are not changed while new values are shifted in. Then, the LED states are shifted into the registers in order on the <code class="highlighter-rouge">CLOCK edge</code> from the <code class="highlighter-rouge">DATA line</code>. After all the values have been shifted in, the <code class="highlighter-rouge">LATCH pin</code> is set <code class="highlighter-rouge">high</code> again, and the values are outputted from the shift registers.</p>
 
@@ -226,11 +226,11 @@
 
 <p>Using this knowledge I went about setting up my circuit. The goal was to have eight LEDs controlled by our three pin inputs and have them display in binary; the numbers 0-255. Refer to my circuit diagram below for details on the circuit design.</p>
 
-<p><img src="http://localhost:4000/images/posts/2016.01.03/arduino-shift-reg-board.png" alt="Shift Register Circuit" /></p>
+<p><img src="https://t04glovern.github.io/images/posts/2016.01.03/arduino-shift-reg-board.png" alt="Shift Register Circuit" /></p>
 
 <p>Once you’ve wired up your circuit you’ll have something that will look at little bit like the following (yours will probably be neater than mine).</p>
 
-<p><img src="http://localhost:4000/images/posts/2016.01.03/arduino-shift-reg-pic.jpg" alt="Shift Register Circuit" /></p>
+<p><img src="https://t04glovern.github.io/images/posts/2016.01.03/arduino-shift-reg-pic.jpg" alt="Shift Register Circuit" /></p>
 
 <hr />
 
@@ -284,7 +284,7 @@
 
 <p>Lets run the code!</p>
 
-<p><img src="http://localhost:4000/images/posts/2016.01.03/arduino-shift-demo.gif" alt="Shift Demo" /></p>
+<p><img src="https://t04glovern.github.io/images/posts/2016.01.03/arduino-shift-demo.gif" alt="Shift Demo" /></p>
 
 <hr />
 
@@ -296,7 +296,7 @@
 
 <p>I used the Shift register circuit we built plus a simple potentiometer input. I’ve included the code and some pictures below that outline my design.</p>
 
-<p><img src="http://localhost:4000/images/posts/2016.01.03/arduino-shift-reg-potent-board.png" alt="Shift Potentiometer Board" /></p>
+<p><img src="https://t04glovern.github.io/images/posts/2016.01.03/arduino-shift-reg-potent-board.png" alt="Shift Potentiometer Board" /></p>
 
 <figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="k">const</span> <span class="kt">int</span> <span class="n">SER</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span> <span class="c1">// Serial output to shift register</span>
 <span class="k">const</span> <span class="kt">int</span> <span class="n">LATCH</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span> <span class="c1">// Shift register latch pin</span>
@@ -344,7 +344,7 @@
   <span class="n">delay</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
 <span class="p">}</span></code></pre></figure>
 
-<p><img src="http://localhost:4000/images/posts/2016.01.03/arduino-shift-demo-potent.gif" alt="Shift Demo Potentiometer" /></p>
+<p><img src="https://t04glovern.github.io/images/posts/2016.01.03/arduino-shift-demo-potent.gif" alt="Shift Demo Potentiometer" /></p>
 
 <hr />
 
@@ -383,20 +383,20 @@
 
 <!-- StumbleUpon (url, title) -->
 <!--
-<a class="btn btn-default btn-sm StumbleUpon" href="http://www.stumbleupon.com/submit?url=http://localhost:4000/2016/01/arduino-projects-shift-registers&title=Arduino Projects - Shift Registers" target="_blank" class="share-btn stumbleupon">
+<a class="btn btn-default btn-sm StumbleUpon" href="http://www.stumbleupon.com/submit?url=https://t04glovern.github.io/2016/01/arduino-projects-shift-registers&title=Arduino Projects - Shift Registers" target="_blank" class="share-btn stumbleupon">
   <i class="fa fa-stumbleupon fa-lg"></i>
   StumbleUpon
 </a>
 -->
 
 <!-- Reddit (url, title) -->
-<a class="btn btn-default btn-sm reddit" href="http://reddit.com/submit?url=http://localhost:4000/2016/01/arduino-projects-shift-registers&title=Arduino Projects - Shift Registers" target="_blank" class="share-btn reddit">
+<a class="btn btn-default btn-sm reddit" href="http://reddit.com/submit?url=https://t04glovern.github.io/2016/01/arduino-projects-shift-registers&title=Arduino Projects - Shift Registers" target="_blank" class="share-btn reddit">
   <i class="fa fa-reddit fa-lg"></i>
   Reddit
 </a>
 
 <!-- LinkedIn -->
-<a class="btn btn-default btn-sm linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2016/01/arduino-projects-shift-registers&title=Arduino Projects - Shift Registers&source=">
+<a class="btn btn-default btn-sm linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=https://t04glovern.github.io/2016/01/arduino-projects-shift-registers&title=Arduino Projects - Shift Registers&source=">
   <i class="fa fa-linkedin fa-lg"></i>
   LinkedIn
 </a>
@@ -433,7 +433,7 @@
       
         
           
-            <li><a href="http://localhost:4000/2015/12/arduino-projects-ethernet-using-enc28j60">Arduino Projects - Ethernet using a ENC28J60 Ethernet Controller</a></li>
+            <li><a href="https://t04glovern.github.io/2015/12/arduino-projects-ethernet-using-enc28j60">Arduino Projects - Ethernet using a ENC28J60 Ethernet Controller</a></li>
             
           
         
@@ -451,7 +451,7 @@
       
         
           
-            <li><a href="http://localhost:4000/2015/12/arduino-project-lcd-displays">Arduino Projects - LCD Displays</a></li>
+            <li><a href="https://t04glovern.github.io/2015/12/arduino-project-lcd-displays">Arduino Projects - LCD Displays</a></li>
             
           
         
@@ -490,7 +490,7 @@
       
         
           
-            <li><a href="http://localhost:4000/2015/12/arduino-projects-thumbstick-to-rgb-led">Arduino Projects - Thumbstick to RGB LED</a></li>
+            <li><a href="https://t04glovern.github.io/2015/12/arduino-projects-thumbstick-to-rgb-led">Arduino Projects - Thumbstick to RGB LED</a></li>
             
           
         
@@ -508,7 +508,7 @@
       
         
           
-            <li><a href="http://localhost:4000/2015/12/arduino-projects-working-with-sound">Arduino Projects - Working with Sound</a></li>
+            <li><a href="https://t04glovern.github.io/2015/12/arduino-projects-working-with-sound">Arduino Projects - Working with Sound</a></li>
             
           
         
